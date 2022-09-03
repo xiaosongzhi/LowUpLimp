@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/">
+        <file>DependFile/Source/delete.png</file>
+        <file>DependFile/Source/import.png</file>
+    </qresource>
+</RCC>
