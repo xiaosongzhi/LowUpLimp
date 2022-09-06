@@ -202,7 +202,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="upLimp_Btn">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -215,7 +215,7 @@
     <string>上肢</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="downLimp_Btn">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -228,7 +228,7 @@
     <string>下肢</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="allLimp_Btn">
    <property name="geometry">
     <rect>
      <x>430</x>
@@ -241,7 +241,7 @@
     <string>四肢</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="active_Btn">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -254,7 +254,7 @@
     <string>主动</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="passive_Btn">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -267,7 +267,7 @@
     <string>被动</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="assistant_Btn">
    <property name="geometry">
     <rect>
      <x>430</x>
@@ -280,7 +280,7 @@
     <string>助力</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="equal_Btn">
    <property name="geometry">
     <rect>
      <x>560</x>
@@ -293,7 +293,7 @@
     <string>等速</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_8">
+  <widget class="QPushButton" name="activePassive_Btn">
    <property name="geometry">
     <rect>
      <x>690</x>
