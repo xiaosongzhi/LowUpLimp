@@ -31,7 +31,7 @@ void CMainWindow::switchPage(E_PAGENAME E_Page)
     case SettingPage_E:
         ui->stackedWidget->setCurrentWidget(ui->setting_Page);
         break;
-    case CarParamSet_E:
+    case BicycleParamSet_E:
         ui->stackedWidget->setCurrentWidget(ui->FESCar_Page);
         break;
     case FesParamSet_E:

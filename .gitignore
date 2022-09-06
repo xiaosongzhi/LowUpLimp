@@ -1,0 +1,12 @@
+.qmake.stash
+Makefile
+Makefile.Debug
+Makefile.Release
+object_script.UpLowLimp.Debug
+object_script.UpLowLimp.Release
+UpLowLimp.pro.user
+UI
+TestModule
+GameExecutable
+release
+.qtc_clangd

@@ -1,21 +1,5033 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>FesParamSet</class>
  <widget class="QWidget" name="FesParamSet">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1162</width>
+    <height>742</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>70</y>
+     <width>161</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QSlider" name="verticalSlider">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>16</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>40</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickInterval">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>42</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>94</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>69</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>全局频率</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>161</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QSlider" name="verticalSlider_2">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>20</y>
+       <width>16</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>40</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="tickInterval">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>33</x>
+       <y>42</y>
+       <width>61</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>2</x>
+       <y>40</y>
+       <width>31</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>94</x>
+       <y>40</y>
+       <width>31</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>全局频率</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>70</y>
+     <width>161</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QSlider" name="verticalSlider_3">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>16</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>40</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickInterval">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>42</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>94</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>69</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>上升时间</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_4">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>70</y>
+     <width>161</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QSlider" name="verticalSlider_4">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>16</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>40</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickInterval">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_4">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>42</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>94</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>69</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>打开时间</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_5">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>70</y>
+     <width>161</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QSlider" name="verticalSlider_5">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>16</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>40</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickInterval">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_5">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>42</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>94</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>69</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>下降时间</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_6">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>70</y>
+     <width>161</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QSlider" name="verticalSlider_6">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>16</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>40</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <property name="tickInterval">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_6">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>42</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_11">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_12">
+    <property name="geometry">
+     <rect>
+      <x>94</x>
+      <y>40</y>
+      <width>31</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>69</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>关闭时间</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>200</y>
+     <width>1071</width>
+     <height>521</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 170, 127);</string>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="FesA_Page">
+    <widget class="QGroupBox" name="groupBox_15">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_87">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_88">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_89">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_39">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_39">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_40">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_41">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_9">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_42">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_90">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_40">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_41">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_42">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_91">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_92">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_93">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_94">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_95">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>脉宽</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_16">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_96">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_97">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_98">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_43">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_43">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_44">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_45">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_10">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_46">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_99">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_44">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_45">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_46">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_100">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_101">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_102">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_103">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_10">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_104">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>最小电流</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_17">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_105">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_106">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_107">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_47">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_47">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_48">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_49">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_11">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_50">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_108">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_48">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_49">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_50">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_109">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_110">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_111">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_112">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_11">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道2</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_113">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_18">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>350</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_114">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_115">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_116">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_51">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_51">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_52">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_53">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_12">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_54">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_117">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_52">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_53">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_54">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_118">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_119">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_120">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_121">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_12">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道7</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_122">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_19">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>400</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_123">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_124">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_125">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_55">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_55">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_56">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_57">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_13">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_58">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_126">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_56">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_57">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_58">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_127">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_128">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_129">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_130">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_13">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道8</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_131">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>肌肉位置</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>最大电流</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>频率</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_20">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>200</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_132">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_133">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_134">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_59">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_59">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_60">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_61">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_14">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_62">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_135">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_60">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_61">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_62">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_136">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_137">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_138">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_139">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_14">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道4</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_140">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_21">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>250</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_141">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_142">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_143">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_63">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_63">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_64">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_65">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_15">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_66">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_144">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_64">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_65">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_66">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_145">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_146">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_147">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_148">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_15">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道5</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_149">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_22">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>300</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_150">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_151">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_152">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_67">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_67">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_68">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_69">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_16">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_70">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_153">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_68">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_69">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_70">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_154">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_155">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_156">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_157">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_16">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道6</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_158">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="FesB_Page">
+    <widget class="QGroupBox" name="groupBox_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_23">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_15">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_22">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_7">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_8">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_9">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_10">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_7">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_17">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_10">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_8">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_9">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_19">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_20">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_16">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_21">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_18">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>最大电流</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>肌肉位置</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>脉宽</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>频率</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>20</y>
+       <width>69</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>最小电流</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_24">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_25">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_26">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_11">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_11">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_12">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_13">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_2">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_14">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_27">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_12">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_13">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_14">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_28">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_29">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_30">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_31">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道2</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_32">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>200</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_33">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_34">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_35">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_15">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_15">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_16">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_17">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_3">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_18">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_36">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_16">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_17">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_18">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_37">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_38">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_39">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_40">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道4</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_41">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_10">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_42">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_43">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_44">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_19">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_19">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_20">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_21">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_4">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_22">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_45">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_20">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_21">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_22">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_46">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_47">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_48">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_49">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_50">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_11">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>400</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_51">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_52">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_53">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_23">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_23">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_24">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_25">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_5">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_26">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_54">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_24">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_25">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_26">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_55">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_56">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_57">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_58">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道8</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_59">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_12">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>250</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_60">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_61">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_62">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_27">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_27">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_28">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_29">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_6">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_30">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_63">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_28">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_29">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_30">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_64">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_65">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_66">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_67">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道5</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_68">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_13">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>350</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_69">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_70">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_71">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_31">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_31">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_32">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_33">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_7">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_34">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_72">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_32">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_33">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_34">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_73">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_74">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_75">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_76">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_7">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道7</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_77">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_14">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>300</y>
+       <width>1011</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QPushButton" name="pushButton_78">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>15</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_79">
+      <property name="geometry">
+       <rect>
+        <x>304</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_80">
+      <property name="geometry">
+       <rect>
+        <x>722</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_35">
+      <property name="geometry">
+       <rect>
+        <x>243</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_35">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_36">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_37">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_8">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>15</y>
+        <width>87</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="verticalSlider_38">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>5</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>40</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="tickInterval">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_81">
+      <property name="geometry">
+       <rect>
+        <x>474</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_36">
+      <property name="geometry">
+       <rect>
+        <x>753</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_37">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_38">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>17</y>
+        <width>61</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_82">
+      <property name="geometry">
+       <rect>
+        <x>644</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_83">
+      <property name="geometry">
+       <rect>
+        <x>552</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_84">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_85">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>通道6</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_86">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>15</y>
+        <width>31</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton_13">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>165</y>
+     <width>93</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>A刺激盒</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_14">
+   <property name="geometry">
+    <rect>
+     <x>146</x>
+     <y>164</y>
+     <width>93</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>B刺激盒</string>
+   </property>
+  </widget>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>
