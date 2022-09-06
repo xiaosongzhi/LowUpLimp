@@ -39,26 +39,13 @@
     <string notr="true">background-color: rgb(0, 85, 127);</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="TrainManager" name="Main_Page"/>
    <widget class="QWidget" name="FESCar_Page"/>
    <widget class="QWidget" name="FES_Page"/>
    <widget class="SettingWidget" name="setting_Page"/>
    <widget class="UserManager" name="userMsg_Page"/>
-  </widget>
-  <widget class="QPushButton" name="test_Btn">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>100</y>
-     <width>93</width>
-     <height>29</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>test</string>
-   </property>
   </widget>
  </widget>
  <customwidgets>

@@ -47,11 +47,9 @@ void CMainWindow::slotSwitchPage(E_PAGENAME page)
 int pageIndex = 0;
 void CMainWindow::on_test_Btn_clicked()
 {
-
     MainWindowPageControl::getInstance()->setCurrentPage(pageIndex);
     ++pageIndex;
     if(pageIndex == 5)
         pageIndex = 0;
-
 }
 

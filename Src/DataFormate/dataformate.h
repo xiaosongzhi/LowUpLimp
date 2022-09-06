@@ -31,8 +31,9 @@ typedef enum
     TrainingPage_E,             //训练界面
     UserPage_E,                 //用户界面
     SettingPage_E,              //设置界面
-    CarParamSet_E,              //踏车参数设置界面
-    FesParamSet_E               //fes设置界面
+    BicycleParamSet_E,          //踏车参数设置界面
+    FesParamSet_E,              //fes设置界面
+    FesBicycleParamSet_E        //FesT踏车设置界面
 }E_PAGENAME;
 
 typedef enum

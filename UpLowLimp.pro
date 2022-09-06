@@ -44,6 +44,8 @@ SOURCES += \
     Src/MainWindow/titlewidget.cpp \
     Src/Report/trainreport.cpp \
     Src/Setting/settingwidget.cpp \
+    Src/TrainManager/bicycleparamset.cpp \
+    Src/TrainManager/fesparamset.cpp \
     Src/TrainManager/trainmanager.cpp \
     Src/TrainRecord/trainrecord.cpp \
     Src/UserManager/currentuserdata.cpp \
@@ -69,6 +71,8 @@ HEADERS += \
     Src/MainWindow/titlewidget.h \
     Src/Report/trainreport.h \
     Src/Setting/settingwidget.h \
+    Src/TrainManager/bicycleparamset.h \
+    Src/TrainManager/fesparamset.h \
     Src/TrainManager/trainmanager.h \
     Src/TrainRecord/trainrecord.h \
     Src/UserManager/currentuserdata.h \
@@ -82,6 +86,8 @@ FORMS += \
     Src/MainWindow/titlewidget.ui \
     Src/Report/trainreport.ui \
     Src/Setting/settingwidget.ui \
+    Src/TrainManager/bicycleparamset.ui \
+    Src/TrainManager/fesparamset.ui \
     Src/TrainManager/trainmanager.ui \
     Src/TrainRecord/trainrecord.ui \
     Src/UserManager/userdialog.ui \

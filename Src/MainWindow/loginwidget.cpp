@@ -20,7 +20,7 @@ LoginWidget::~LoginWidget()
 
 void LoginWidget::on_forgetPassword_Btn_clicked()
 {
-
+    //弹出提示框，告知获取密码的方式
 }
 
 void LoginWidget::on_confirm_Btn_clicked()
@@ -43,7 +43,8 @@ void LoginWidget::on_confirm_Btn_clicked()
         ui->passwordTips_Label->setText(tr("密码输入错误"));
         return;
     }
-
+    //设置返回值结果
+    emit signalResult(1);
     this->close();
 }
 
