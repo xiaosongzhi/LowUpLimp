@@ -46,8 +46,8 @@ SOURCES += \
     Src/Setting/settingwidget.cpp \
     Src/TrainManager/armandleg.cpp \
     Src/TrainManager/armorleg.cpp \
-    Src/TrainManager/bicycleparamset.cpp \
     Src/TrainManager/fesparamset.cpp \
+    Src/TrainManager/fessetting.cpp \
     Src/TrainManager/trainmanager.cpp \
     Src/TrainRecord/trainrecord.cpp \
     Src/UserManager/currentuserdata.cpp \
@@ -75,8 +75,8 @@ HEADERS += \
     Src/Setting/settingwidget.h \
     Src/TrainManager/armandleg.h \
     Src/TrainManager/armorleg.h \
-    Src/TrainManager/bicycleparamset.h \
     Src/TrainManager/fesparamset.h \
+    Src/TrainManager/fessetting.h \
     Src/TrainManager/trainmanager.h \
     Src/TrainRecord/trainrecord.h \
     Src/UserManager/currentuserdata.h \
@@ -92,8 +92,8 @@ FORMS += \
     Src/Setting/settingwidget.ui \
     Src/TrainManager/armandleg.ui \
     Src/TrainManager/armorleg.ui \
-    Src/TrainManager/bicycleparamset.ui \
     Src/TrainManager/fesparamset.ui \
+    Src/TrainManager/fessetting.ui \
     Src/TrainManager/trainmanager.ui \
     Src/TrainRecord/trainrecord.ui \
     Src/UserManager/userdialog.ui \
