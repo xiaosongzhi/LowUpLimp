@@ -24,7 +24,8 @@ INCLUDEPATH += $$PWD/Src/MainWindow \
                $$PWD/Src/Report \
                $$PWD/Src/TrainManager \
                $$PWD/Src/Setting \
-               $$PWD/Src/Communication
+               $$PWD/Src/Communication \
+               $$PWD/Src/CustomWidget
 SOURCES += \
     Src/Communication/ccommunicateapi.cpp \
     Src/Communication/ccommunicationinterface.cpp \
@@ -33,6 +34,8 @@ SOURCES += \
     Src/Communication/cudpinterface.cpp \
     Src/Communication/globalqueue.cpp \
     Src/Communication/readconfig.cpp \
+    Src/CustomWidget/fesparambtn.cpp \
+    Src/CustomWidget/musclebutton.cpp \
     Src/DataBaseControl/cdatabaseinterface.cpp \
     Src/DataBaseControl/mysqldatabase.cpp \
     Src/DataFormate/dbforrmate.cpp \
@@ -61,6 +64,8 @@ HEADERS += \
     Src/Communication/cudpinterface.h \
     Src/Communication/globalqueue.h \
     Src/Communication/readconfig.h \
+    Src/CustomWidget/fesparambtn.h \
+    Src/CustomWidget/musclebutton.h \
     Src/DataBaseControl/cdatabaseinterface.h \
     Src/DataBaseControl/mysqldatabase.h \
     Src/DataFormate/dataformate.h \
@@ -82,6 +87,8 @@ HEADERS += \
     Src/UserManager/usermanager.h
 
 FORMS += \
+    Src/CustomWidget/fesparambtn.ui \
+    Src/CustomWidget/musclebutton.ui \
     Src/MainWindow/cmainwindow.ui \
     Src/MainWindow/loginwidget.ui \
     Src/MainWindow/mainwindow.ui \

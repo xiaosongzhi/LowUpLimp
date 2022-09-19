@@ -15,6 +15,12 @@ public:
     explicit FesSetting(QWidget *parent = nullptr);
     ~FesSetting();
 
+    void initWidget();
+private slots:
+
+
+    void on_groupBox_clicked();
+
 private:
     Ui::FesSetting *ui;
 };

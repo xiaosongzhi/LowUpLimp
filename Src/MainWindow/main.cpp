@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     if(!CDatabaseInterface::getInstance()->openDB("./DependFile/DBFile/UpLow.db","QSQLITE"))
         qDebug()<<"UpLow.db open failed!";
-    ArmOrLeg w;
+    FesSetting w;
     w.show();
 //    UserManager w;
 //    w.show();

@@ -102,4 +102,15 @@ typedef struct ST_DataBaseConfig
 
 }ST_DataBaseConfig;
 
+
+//FES参数中按钮显示
+typedef struct
+{
+    QString muscleName; //肌肉名
+    bool connectState;  //连接状态
+    int frequency;      //频率
+    int plus;           //脉宽
+    int current;        //电流
+}ST_MuscleParam;
+
 #endif // DATAFORMATE_H
