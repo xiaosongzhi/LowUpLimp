@@ -44,7 +44,6 @@ SOURCES += \
     Src/MainWindow/titlewidget.cpp \
     Src/Report/trainreport.cpp \
     Src/Setting/settingwidget.cpp \
-    Src/TrainManager/armandleg.cpp \
     Src/TrainManager/armorleg.cpp \
     Src/TrainManager/fesparamset.cpp \
     Src/TrainManager/fessetting.cpp \
@@ -73,7 +72,6 @@ HEADERS += \
     Src/MainWindow/titlewidget.h \
     Src/Report/trainreport.h \
     Src/Setting/settingwidget.h \
-    Src/TrainManager/armandleg.h \
     Src/TrainManager/armorleg.h \
     Src/TrainManager/fesparamset.h \
     Src/TrainManager/fessetting.h \
@@ -90,7 +88,6 @@ FORMS += \
     Src/MainWindow/titlewidget.ui \
     Src/Report/trainreport.ui \
     Src/Setting/settingwidget.ui \
-    Src/TrainManager/armandleg.ui \
     Src/TrainManager/armorleg.ui \
     Src/TrainManager/fesparamset.ui \
     Src/TrainManager/fessetting.ui \

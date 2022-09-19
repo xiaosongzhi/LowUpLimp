@@ -6,13 +6,15 @@
 //#include "usermanager.h"
 #include "cmainwindow.h"
 #include "fessetting.h"
+#include "armorleg.h"
+
 int main(int argc, char *argv[])
 {
     qputenv("QT_IM_MODULE",QByteArray("qtvirtualkeyboard"));
     QApplication a(argc, argv);
     if(!CDatabaseInterface::getInstance()->openDB("./DependFile/DBFile/UpLow.db","QSQLITE"))
         qDebug()<<"UpLow.db open failed!";
-    FesSetting w;
+    ArmOrLeg w;
     w.show();
 //    UserManager w;
 //    w.show();

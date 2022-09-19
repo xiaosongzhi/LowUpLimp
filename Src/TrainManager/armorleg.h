@@ -15,6 +15,9 @@ public:
     explicit ArmOrLeg(QWidget *parent = nullptr);
     ~ArmOrLeg();
 
+private slots:
+    void on_upDownLimp_RadioButton_toggled(bool checked);
+
 private:
     Ui::ArmOrLeg *ui;
 };

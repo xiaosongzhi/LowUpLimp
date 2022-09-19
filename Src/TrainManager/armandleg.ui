@@ -170,7 +170,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_5">
+   <widget class="QComboBox" name="upLimpPower_ComboBox">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -228,7 +228,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_11">
+   <widget class="QComboBox" name="downLimpPower_ComboBox">
     <property name="geometry">
      <rect>
       <x>660</x>
@@ -296,7 +296,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QRadioButton" name="radioButton_4">
+   <widget class="QRadioButton" name="active_RadioButton">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -309,7 +309,7 @@
      <string>主动</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_5">
+   <widget class="QRadioButton" name="passive_RadioButton">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -322,7 +322,7 @@
      <string>被动</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_6">
+   <widget class="QRadioButton" name="assistant_RadioButton">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -335,7 +335,7 @@
      <string>助力</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_12">
+   <widget class="QRadioButton" name="radioButton">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -422,7 +422,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_6">
+   <widget class="QComboBox" name="upLimpSpeed_ComboBox">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -464,7 +464,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_12">
+   <widget class="QComboBox" name="downLimpSpeed_ComboBox">
     <property name="geometry">
      <rect>
       <x>663</x>
@@ -690,7 +690,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="upLimp_RadioButton">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -703,7 +703,7 @@
      <string>上肢</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="downLimp_RadioButton">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -716,7 +716,7 @@
      <string>下肢</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_3">
+   <widget class="QRadioButton" name="upDownLimp_RadioButton">
     <property name="geometry">
      <rect>
       <x>530</x>

@@ -38,7 +38,7 @@ void TitleWidget::setUser(const ST_PatientMsg& st_patientMsg)
 //设置wifi信号强度
 void TitleWidget::setSignalStrength(int value)
 {
-
+    Q_UNUSED(value)
 }
 //设置标题
 void TitleWidget::setTitle(QString title)
