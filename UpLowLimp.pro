@@ -25,7 +25,8 @@ INCLUDEPATH += $$PWD/Src/MainWindow \
                $$PWD/Src/TrainManager \
                $$PWD/Src/Setting \
                $$PWD/Src/Communication \
-               $$PWD/Src/CustomWidget
+               $$PWD/Src/CustomWidget \
+               $$PWD/Src/PopDialog
 SOURCES += \
     Src/Communication/ccommunicateapi.cpp \
     Src/Communication/ccommunicationinterface.cpp \
@@ -48,13 +49,15 @@ SOURCES += \
     Src/Report/trainreport.cpp \
     Src/Setting/settingwidget.cpp \
     Src/TrainManager/armorleg.cpp \
-    Src/TrainManager/fesparamset.cpp \
+#    Src/TrainManager/fesparamset.cpp \
     Src/TrainManager/fessetting.cpp \
     Src/TrainManager/trainmanager.cpp \
     Src/TrainRecord/trainrecord.cpp \
     Src/UserManager/currentuserdata.cpp \
     Src/UserManager/userdialog.cpp \
-    Src/UserManager/usermanager.cpp
+    Src/UserManager/usermanager.cpp \
+    Src/PopDialog/festotalparamdialog.cpp \
+    Src/PopDialog/channeldialog.cpp
 
 HEADERS += \
     Src/Communication/ccommunicateapi.h \
@@ -78,13 +81,15 @@ HEADERS += \
     Src/Report/trainreport.h \
     Src/Setting/settingwidget.h \
     Src/TrainManager/armorleg.h \
-    Src/TrainManager/fesparamset.h \
+#    Src/TrainManager/fesparamset.h \
     Src/TrainManager/fessetting.h \
     Src/TrainManager/trainmanager.h \
     Src/TrainRecord/trainrecord.h \
     Src/UserManager/currentuserdata.h \
     Src/UserManager/userdialog.h \
-    Src/UserManager/usermanager.h
+    Src/UserManager/usermanager.h \
+    Src/PopDialog/festotalparamdialog.h \
+    Src/PopDialog/channeldialog.h
 
 FORMS += \
     Src/CustomWidget/fesparambtn.ui \
@@ -96,12 +101,14 @@ FORMS += \
     Src/Report/trainreport.ui \
     Src/Setting/settingwidget.ui \
     Src/TrainManager/armorleg.ui \
-    Src/TrainManager/fesparamset.ui \
+#    Src/TrainManager/fesparamset.ui \
     Src/TrainManager/fessetting.ui \
     Src/TrainManager/trainmanager.ui \
     Src/TrainRecord/trainrecord.ui \
     Src/UserManager/userdialog.ui \
-    Src/UserManager/usermanager.ui
+    Src/UserManager/usermanager.ui \
+    Src/PopDialog/festotalparamdialog.ui \
+    Src/PopDialog/channeldialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

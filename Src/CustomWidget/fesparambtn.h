@@ -19,12 +19,16 @@ public:
 
     void setData(int data);
 
+    int getValue();
+
 signals:
     void buttonClicked();
 protected:
     virtual void mousePressEvent(QMouseEvent *event);
 private:
     Ui::FesParamBtn *ui;
+
+    int m_value;
 };
 
 #endif // FESPARAMBTN_H

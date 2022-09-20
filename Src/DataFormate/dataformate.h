@@ -107,10 +107,12 @@ typedef struct ST_DataBaseConfig
 typedef struct
 {
     QString muscleName; //肌肉名
+    int muscleId;       //肌肉下标(根据下标可判断左右)
     bool connectState;  //连接状态
     int frequency;      //频率
     int plus;           //脉宽
-    int current;        //电流
+    int minCurrent;     //最小电流
+    int maxCurrent;     //最小电流
 }ST_MuscleParam;
 
 #endif // DATAFORMATE_H

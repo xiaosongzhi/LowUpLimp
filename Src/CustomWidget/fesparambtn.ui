@@ -70,6 +70,26 @@
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>271</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 170, 127);</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+  </widget>
+  <zorder>groupBox</zorder>
+  <zorder>title_Label</zorder>
+  <zorder>data_Label</zorder>
+  <zorder>unit_Label</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -2,7 +2,8 @@
 #define FESSETTING_H
 
 #include <QWidget>
-
+class FesTotalParamDialog;
+class ChannelDialog;
 namespace Ui {
 class FesSetting;
 }
@@ -17,12 +18,30 @@ public:
 
     void initWidget();
 private slots:
+    void slotTrainTimeBtnClicked();
 
+    void slotFrequentBtnClicked();
 
-    void on_groupBox_clicked();
+    void slotUpTimeBtnClicked();
+
+    void slotDownTimeBtnClicked();
+
+    void slotOpenTimeBtnClicked();
+
+    void slotCloseTimeBtnClicked();
+
+    void slotChannelWidgetClicked(int id);
+
+    void on_FESA_Btn_clicked();
+
+    void on_FESB_Btn_clicked();
 
 private:
     Ui::FesSetting *ui;
+    FesTotalParamDialog *m_FesTotalParamDialog;
+    QList<QWidget*> channelList;    //MuscleButton
+    ChannelDialog *m_ChannelDialog;
+    QList<bool> FESABoxList;
 };
 
 #endif // FESSETTING_H

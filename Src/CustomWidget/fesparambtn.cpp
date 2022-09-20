@@ -29,3 +29,9 @@ void FesParamBtn::mousePressEvent(QMouseEvent *event)
     Q_UNUSED(event)
     emit buttonClicked();
 }
+
+int FesParamBtn::getValue()
+{
+    m_value = ui->data_Label->text().toInt();
+    return m_value;
+}

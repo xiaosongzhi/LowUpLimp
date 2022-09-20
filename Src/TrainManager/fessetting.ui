@@ -6,107 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1678</width>
+    <width>1800</width>
     <height>1003</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QGroupBox" name="groupBox_7">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>280</y>
-     <width>1621</width>
-     <height>641</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string/>
-   </property>
-   <widget class="MuscleButton" name="channel1_Widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>40</y>
-      <width>381</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="MuscleButton" name="channel5_Widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>320</y>
-      <width>381</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="MuscleButton" name="channel2_Widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>40</y>
-      <width>381</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="MuscleButton" name="channel6_Widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>320</y>
-      <width>381</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="MuscleButton" name="channel7_Widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>880</x>
-      <y>320</y>
-      <width>381</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="MuscleButton" name="channel3_Widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>880</x>
-      <y>40</y>
-      <width>381</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="MuscleButton" name="channel4_Widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>1280</x>
-      <y>40</y>
-      <width>381</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="MuscleButton" name="channel8_Widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>1290</x>
-      <y>320</y>
-      <width>381</width>
-      <height>251</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="FESA_Btn">
    <property name="geometry">
     <rect>
      <x>52</x>
@@ -119,7 +26,7 @@
     <string>A刺激盒</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="FESB_Btn">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -192,6 +99,232 @@
     </rect>
    </property>
   </widget>
+  <widget class="QPushButton" name="OK_Btn">
+   <property name="geometry">
+    <rect>
+     <x>1520</x>
+     <y>940</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>完成</string>
+   </property>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>280</y>
+     <width>1741</width>
+     <height>651</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="page">
+    <widget class="QGroupBox" name="groupBox_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>1700</width>
+       <height>631</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="MuscleButton" name="channelA1_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>40</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelA5_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>320</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelA2_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>40</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelA6_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>320</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelA7_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>320</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelA3_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>40</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelA4_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>1280</x>
+        <y>40</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelA8_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>1290</x>
+        <y>320</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_2">
+    <widget class="QGroupBox" name="groupBox_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>1700</width>
+       <height>601</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="MuscleButton" name="channelB1_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>40</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelB5_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>320</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelB2_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>40</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelB6_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>320</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelB7_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>320</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelB3_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>40</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelB4_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>1280</x>
+        <y>40</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="MuscleButton" name="channelB8_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>1290</x>
+        <y>320</y>
+        <width>381</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <zorder>stackedWidget</zorder>
+  <zorder>FESA_Btn</zorder>
+  <zorder>FESB_Btn</zorder>
+  <zorder>trainTime_Widget</zorder>
+  <zorder>frequent_Widget</zorder>
+  <zorder>upTime_Widget</zorder>
+  <zorder>openTime_Widget</zorder>
+  <zorder>downTime_Widget</zorder>
+  <zorder>closeTime_Widget</zorder>
+  <zorder>OK_Btn</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -30,7 +30,7 @@ void MuscleButton::paintEvent(QPaintEvent *event)
 void MuscleButton::mousePressEvent(QMouseEvent *event)
 {
     Q_UNUSED(event)
-    emit buttonClicked();
+    emit buttonClicked(m_id);
 }
 
 void MuscleButton::setMuscleParamButton(const ST_MuscleParam& param)
@@ -41,14 +41,19 @@ void MuscleButton::setMuscleParamButton(const ST_MuscleParam& param)
     else
         pix.load("");
     ui->connectState_Label->setPixmap(pix);
-
-    ui->muscle_Label->setText(param.muscleName);
-    ui->current_Label->setText(QString::number(param.current) + "mA");
+    QString limpFlag;
+    if(param.muscleId <= 15)
+        limpFlag = tr("左");
+    else
+        limpFlag = tr("右");
+    ui->muscle_Label->setText(param.muscleName + limpFlag);
+    ui->current_Label->setText(QString::number(param.minCurrent)+"~"+QString::number(param.maxCurrent) + "mA");
     ui->plus_Label->setText(QString::number(param.plus) + "us");
     ui->frequency_Label->setText(QString::number(param.frequency) + "Hz");
 }
 
-void MuscleButton::initWidget(QString title)
+void MuscleButton::initWidget(QString title,int id)
 {
     ui->channel_Label->setText(title);
+    m_id = id;
 }

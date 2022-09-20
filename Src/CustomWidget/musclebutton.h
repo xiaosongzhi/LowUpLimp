@@ -17,9 +17,9 @@ public:
 
     void setMuscleParamButton(const ST_MuscleParam&);
 
-    void initWidget(QString title);
+    void initWidget(QString title,int id);
 signals:
-    void buttonClicked();
+    void buttonClicked(int id);
 
 protected:
     virtual void paintEvent(QPaintEvent *event);
@@ -27,6 +27,7 @@ protected:
     virtual void mousePressEvent(QMouseEvent *event);
 private:
     Ui::MuscleButton *ui;
+    int m_id;
 };
 
 #endif // MUSCLEBUTTON_H
