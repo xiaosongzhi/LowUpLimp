@@ -62,10 +62,10 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(85, 170, 255);</string>
+    <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="systemSetting_Page">
     <widget class="QGroupBox" name="groupBox">
@@ -73,7 +73,7 @@
       <rect>
        <x>80</x>
        <y>60</y>
-       <width>331</width>
+       <width>401</width>
        <height>80</height>
       </rect>
      </property>
@@ -115,7 +115,7 @@
      <widget class="QRadioButton" name="EN_RadioButton">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>240</x>
         <y>30</y>
         <width>81</width>
         <height>24</height>
@@ -129,9 +129,9 @@
     <widget class="QGroupBox" name="groupBox_2">
      <property name="geometry">
       <rect>
-       <x>470</x>
+       <x>630</x>
        <y>60</y>
-       <width>281</width>
+       <width>371</width>
        <height>80</height>
       </rect>
      </property>
@@ -157,7 +157,7 @@
      <widget class="QPushButton" name="resetPassword_Btn">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>210</x>
         <y>24</y>
         <width>93</width>
         <height>29</height>
@@ -173,7 +173,7 @@
       <rect>
        <x>80</x>
        <y>180</y>
-       <width>331</width>
+       <width>401</width>
        <height>80</height>
       </rect>
      </property>
@@ -199,7 +199,7 @@
      <widget class="QPushButton" name="FESA_Btn">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>230</x>
         <y>24</y>
         <width>93</width>
         <height>29</height>
@@ -226,9 +226,9 @@
     <widget class="QGroupBox" name="groupBox_4">
      <property name="geometry">
       <rect>
-       <x>470</x>
+       <x>630</x>
        <y>180</y>
-       <width>281</width>
+       <width>371</width>
        <height>80</height>
       </rect>
      </property>
@@ -254,7 +254,7 @@
      <widget class="QPushButton" name="FESB_Btn">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>210</x>
         <y>24</y>
         <width>93</width>
         <height>29</height>
@@ -283,7 +283,7 @@
       <rect>
        <x>80</x>
        <y>300</y>
-       <width>331</width>
+       <width>401</width>
        <height>80</height>
       </rect>
      </property>
@@ -309,7 +309,7 @@
      <widget class="QPushButton" name="bioelectricity_Btn">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>230</x>
         <y>24</y>
         <width>93</width>
         <height>29</height>
@@ -332,6 +332,32 @@
        <string/>
       </property>
      </widget>
+    </widget>
+    <widget class="QLabel" name="upperSoftware_Label">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>440</y>
+       <width>201</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>上位机软件版本号V1.1.0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lowerSoftware_Label">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>480</y>
+       <width>201</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>下位机软件版本号V1.1.0</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="password_Page">
@@ -464,6 +490,107 @@
      <property name="text">
       <string>两次输入的密码不同</string>
      </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="product_Page">
+    <widget class="QGroupBox" name="groupBox_6">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>40</y>
+       <width>1021</width>
+       <height>561</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>40</y>
+        <width>191</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>工作机理</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="textBrowser">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>120</y>
+        <width>341</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;      上下肢康复训练系统是近年来兴起的一种功能性电刺激疗法结合主被动康复踏车训练的一种训练方法，是指通过预先设定的刺激程序对上/下肢参与踏车运动的主要肌群给予适时、恰当的序列低频电刺激，从而驱动上/下肢肌群收缩完成踏车这一功能性运动。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;       功能性电刺激(FES)是一种利用电极刺激失去神经控制的肌肉从而恢复人体特定部位功能，使肌肉产生收缩这将有利于提高患者的心肺功能，增加肌肉强度和厚度，使患者部分运动功能得到重建；同时这还将有助于减轻患者家庭负担，提高患者治愈病患的信心。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>50</y>
+        <width>191</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>禁忌症</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="textBrowser_2">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>120</y>
+        <width>331</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+       </font>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'黑体'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:11pt;&quot;&gt;1、痴呆患者&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:11pt;&quot;&gt;2、脑肿瘤等特殊原因引起的平衡功能障碍。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:11pt;&quot;&gt;3、有意识障碍、认知障碍的患者。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:11pt;&quot;&gt;4、伴重度抑郁、焦虑的患者。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:11pt;&quot;&gt;5、合并有心脑血管、肝、肾、造血系统和内分泌系统等严重原发性疾病，精神患者。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:11pt;&quot;&gt;6、下肢骨折未愈合患者。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:11pt;&quot;&gt;7、不能负重站立的患者。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
