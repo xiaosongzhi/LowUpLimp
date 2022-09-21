@@ -38,8 +38,5 @@ void TrainManager::on_setting_Btn_clicked()
 }
 
 
-void TrainManager::on_userManager_Btn_clicked()
-{
-    MainWindowPageControl::getInstance()->setCurrentPage(UserPage_E);
-}
+
 

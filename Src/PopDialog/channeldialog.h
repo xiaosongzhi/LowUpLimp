@@ -1,6 +1,8 @@
 #ifndef CHANNELDIALOG_H
 #define CHANNELDIALOG_H
-
+/*********
+ * Fes参数界面下方刺激盒中按钮弹出的对话框
+ * ****/
 #include <QDialog>
 #include <QButtonGroup>
 #include "dataformate.h"

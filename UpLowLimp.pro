@@ -46,6 +46,11 @@ SOURCES += \
     Src/MainWindow/mainwindow.cpp \
     Src/MainWindow/mainwindowpagecontrol.cpp \
     Src/MainWindow/titlewidget.cpp \
+    Src/PopDialog/deleteuserdialog.cpp \
+    Src/PopDialog/emergencystopdialog.cpp \
+    Src/PopDialog/festipsdialog.cpp \
+    Src/PopDialog/selectuserdialog.cpp \
+    Src/PopDialog/spasmtipsdialog.cpp \
     Src/Report/trainreport.cpp \
     Src/Setting/settingwidget.cpp \
     Src/TrainManager/armorleg.cpp \
@@ -78,6 +83,11 @@ HEADERS += \
     Src/MainWindow/mainwindow.h \
     Src/MainWindow/mainwindowpagecontrol.h \
     Src/MainWindow/titlewidget.h \
+    Src/PopDialog/deleteuserdialog.h \
+    Src/PopDialog/emergencystopdialog.h \
+    Src/PopDialog/festipsdialog.h \
+    Src/PopDialog/selectuserdialog.h \
+    Src/PopDialog/spasmtipsdialog.h \
     Src/Report/trainreport.h \
     Src/Setting/settingwidget.h \
     Src/TrainManager/armorleg.h \
@@ -98,6 +108,11 @@ FORMS += \
     Src/MainWindow/loginwidget.ui \
     Src/MainWindow/mainwindow.ui \
     Src/MainWindow/titlewidget.ui \
+    Src/PopDialog/deleteuserdialog.ui \
+    Src/PopDialog/emergencystopdialog.ui \
+    Src/PopDialog/festipsdialog.ui \
+    Src/PopDialog/selectuserdialog.ui \
+    Src/PopDialog/spasmtipsdialog.ui \
     Src/Report/trainreport.ui \
     Src/Setting/settingwidget.ui \
     Src/TrainManager/armorleg.ui \
