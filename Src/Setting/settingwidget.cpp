@@ -16,7 +16,6 @@ SettingWidget::SettingWidget(QWidget *parent) :
     m_buttonGroup->addButton(ui->systemSetting_Btn);
     m_buttonGroup->addButton(ui->secretManage_Btn);
     m_buttonGroup->addButton(ui->productMsg_Btn);
-
 }
 
 SettingWidget::~SettingWidget()
@@ -102,7 +101,7 @@ void SettingWidget::on_secretManage_Btn_clicked()
 
 void SettingWidget::on_productMsg_Btn_clicked()
 {
-
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1134</width>
-    <height>801</height>
+    <width>1920</width>
+    <height>1280</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,134 +16,203 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>120</y>
-     <width>901</width>
-     <height>591</height>
+     <x>130</x>
+     <y>130</y>
+     <width>1660</width>
+     <height>1020</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox{background: #F7F7F7;
+border-radius: 20px;}</string>
    </property>
    <property name="title">
     <string/>
    </property>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>50</y>
-      <width>121</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>登录</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="userName_LineEdit">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>134</y>
-      <width>281</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>请输入用户名</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="userNameTips_Label">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>190</y>
-      <width>171</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>用户名输入错误</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="password_LineEdit">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>274</y>
-      <width>281</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>请输入密码</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="passwordTips_Label">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>330</y>
-      <width>171</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>密码输入错误</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="remember_RadioButton">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>410</y>
-      <width>118</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>记住密码</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="forgetPassword_Btn">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>410</y>
-      <width>93</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>忘记密码</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="confirm_Btn">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>490</y>
-      <width>271</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>确认</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>431</width>
-      <height>571</height>
+      <x>0</x>
+      <y>0</y>
+      <width>810</width>
+      <height>1020</height>
      </rect>
     </property>
     <property name="text">
      <string>TextLabel</string>
     </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>0</y>
+      <width>850</width>
+      <height>1020</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="confirm_Btn">
+     <property name="geometry">
+      <rect>
+       <x>65</x>
+       <y>810</y>
+       <width>720</width>
+       <height>110</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #07A8E7;
+border-radius: 55px;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>确认</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="passwordTips_Label">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>610</y>
+       <width>171</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>密码输入错误</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="remember_RadioButton">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>666</y>
+       <width>118</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>记住密码</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="password_LineEdit">
+     <property name="geometry">
+      <rect>
+       <x>65</x>
+       <y>472</y>
+       <width>720</width>
+       <height>110</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 55px;
+color:black;</string>
+     </property>
+     <property name="text">
+      <string>请输入密码</string>
+     </property>
+     <property name="placeholderText">
+      <string>请输入密码</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="forgetPassword_Btn">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>666</y>
+       <width>93</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>忘记密码</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>70</y>
+       <width>171</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>登录</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="userNameTips_Label">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>330</y>
+       <width>171</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>用户名输入错误</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>170</y>
+       <width>741</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 55px;
+color:black;</string>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QLineEdit" name="userName_LineEdit">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>10</y>
+        <width>581</width>
+        <height>110</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="placeholderText">
+       <string>请输入用户名</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
  </widget>
