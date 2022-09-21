@@ -80,6 +80,12 @@ void FesSetting::initWidget()
     connect(ui->openTime_Widget,SIGNAL(buttonClicked()),this,SLOT(slotOpenTimeBtnClicked()));
     connect(ui->closeTime_Widget,SIGNAL(buttonClicked()),this,SLOT(slotCloseTimeBtnClicked()));
 
+
+    QButtonGroup *buttonGroup = new QButtonGroup();
+    buttonGroup->addButton(ui->FESA_Btn);
+    buttonGroup->addButton(ui->FESB_Btn);
+//    buttonGroup->setExclusive(true);
+
     m_FesTotalParamDialog = new FesTotalParamDialog();
     m_ChannelDialog = new ChannelDialog();
 }

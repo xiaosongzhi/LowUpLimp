@@ -6,104 +6,158 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1800</width>
-    <height>1003</height>
+    <width>1920</width>
+    <height>1160</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#FesSetting{background: #FFFFFF;}</string>
+  </property>
   <widget class="QPushButton" name="FESA_Btn">
    <property name="geometry">
     <rect>
-     <x>52</x>
-     <y>220</y>
-     <width>101</width>
-     <height>41</height>
+     <x>50</x>
+     <y>318</y>
+     <width>150</width>
+     <height>60</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#FESA_Btn{background: #EFEFEF;
+border-radius: 4px 4px 0px 0px;}
+#FESA_Btn:checked{background: #0D9DDB;
+border-radius: 4px 4px 0px 0px;
+color:white;}</string>
    </property>
    <property name="text">
     <string>A刺激盒</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="FESB_Btn">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>220</y>
-     <width>101</width>
-     <height>41</height>
+     <x>210</x>
+     <y>318</y>
+     <width>150</width>
+     <height>60</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#FESB_Btn{background: #EFEFEF;
+border-radius: 4px 4px 0px 0px;}
+#FESB_Btn:checked{background: #0D9DDB;
+border-radius: 4px 4px 0px 0px;
+color:white;}</string>
    </property>
    <property name="text">
     <string>B刺激盒</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="FesParamBtn" name="trainTime_Widget" native="true">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>30</y>
-     <width>211</width>
-     <height>141</height>
+     <x>80</x>
+     <y>40</y>
+     <width>250</width>
+     <height>208</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{background: #E4F4FC;}</string>
    </property>
   </widget>
   <widget class="FesParamBtn" name="frequent_Widget" native="true">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>30</y>
-     <width>211</width>
-     <height>141</height>
+     <x>380</x>
+     <y>40</y>
+     <width>250</width>
+     <height>208</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{background: #E4F4FC;}</string>
    </property>
   </widget>
   <widget class="FesParamBtn" name="upTime_Widget" native="true">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>30</y>
-     <width>211</width>
-     <height>141</height>
+     <x>683</x>
+     <y>40</y>
+     <width>250</width>
+     <height>208</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{background: #E4F4FC;}</string>
    </property>
   </widget>
   <widget class="FesParamBtn" name="openTime_Widget" native="true">
    <property name="geometry">
     <rect>
-     <x>1010</x>
-     <y>30</y>
-     <width>211</width>
-     <height>141</height>
+     <x>1286</x>
+     <y>40</y>
+     <width>250</width>
+     <height>208</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{background: #E4F4FC;}</string>
    </property>
   </widget>
   <widget class="FesParamBtn" name="downTime_Widget" native="true">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>30</y>
-     <width>211</width>
-     <height>141</height>
+     <x>985</x>
+     <y>40</y>
+     <width>250</width>
+     <height>208</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{background: #E4F4FC;}</string>
    </property>
   </widget>
   <widget class="FesParamBtn" name="closeTime_Widget" native="true">
    <property name="geometry">
     <rect>
-     <x>1250</x>
-     <y>30</y>
-     <width>211</width>
-     <height>141</height>
+     <x>1588</x>
+     <y>40</y>
+     <width>250</width>
+     <height>208</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{background: #E4F4FC;}</string>
    </property>
   </widget>
   <widget class="QPushButton" name="OK_Btn">
    <property name="geometry">
     <rect>
-     <x>1520</x>
-     <y>940</y>
+     <x>1740</x>
+     <y>1060</y>
      <width>101</width>
      <height>41</height>
     </rect>
@@ -115,24 +169,28 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>280</y>
-     <width>1741</width>
-     <height>651</height>
+     <x>50</x>
+     <y>378</y>
+     <width>1820</width>
+     <height>622</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QGroupBox" name="groupBox_7">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>1700</width>
-       <height>631</height>
+       <x>1</x>
+       <y>0</y>
+       <width>1818</width>
+       <height>620</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#groupBox_7{background: #FFFFFF;border-radius: 2px 2px 2px 2px;
+border: 1px solid #05A6EC;}</string>
      </property>
      <property name="title">
       <string/>
@@ -140,80 +198,80 @@
      <widget class="MuscleButton" name="channelA1_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>30</x>
         <y>40</y>
-        <width>381</width>
-        <height>251</height>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelA5_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>320</y>
-        <width>381</width>
-        <height>251</height>
+        <x>30</x>
+        <y>326</y>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelA2_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>475</x>
         <y>40</y>
-        <width>381</width>
-        <height>251</height>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelA6_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>320</y>
-        <width>381</width>
-        <height>251</height>
+        <x>475</x>
+        <y>326</y>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelA7_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>880</x>
-        <y>320</y>
-        <width>381</width>
-        <height>251</height>
+        <x>920</x>
+        <y>326</y>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelA3_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>880</x>
+        <x>920</x>
         <y>40</y>
-        <width>381</width>
-        <height>251</height>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelA4_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>1280</x>
+        <x>1365</x>
         <y>40</y>
-        <width>381</width>
-        <height>251</height>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelA8_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>1290</x>
-        <y>320</y>
-        <width>381</width>
-        <height>251</height>
+        <x>1365</x>
+        <y>326</y>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
@@ -223,11 +281,15 @@
     <widget class="QGroupBox" name="groupBox_8">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>1700</width>
-       <height>601</height>
+       <x>1</x>
+       <y>1</y>
+       <width>1818</width>
+       <height>620</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#groupBox_8{background: #FFFFFF;border-radius: 2px 2px 2px 2px;
+border: 1px solid #05A6EC;}</string>
      </property>
      <property name="title">
       <string/>
@@ -235,80 +297,80 @@
      <widget class="MuscleButton" name="channelB1_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>30</x>
         <y>40</y>
-        <width>381</width>
-        <height>251</height>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelB5_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>320</y>
-        <width>381</width>
-        <height>251</height>
+        <x>30</x>
+        <y>326</y>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelB2_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>475</x>
         <y>40</y>
-        <width>381</width>
-        <height>251</height>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelB6_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>320</y>
-        <width>381</width>
-        <height>251</height>
+        <x>475</x>
+        <y>326</y>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelB7_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>880</x>
-        <y>320</y>
-        <width>381</width>
-        <height>251</height>
+        <x>920</x>
+        <y>326</y>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelB3_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>880</x>
+        <x>920</x>
         <y>40</y>
-        <width>381</width>
-        <height>251</height>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelB4_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>1280</x>
+        <x>1365</x>
         <y>40</y>
-        <width>381</width>
-        <height>251</height>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
      <widget class="MuscleButton" name="channelB8_Widget" native="true">
       <property name="geometry">
        <rect>
-        <x>1290</x>
-        <y>320</y>
-        <width>381</width>
-        <height>251</height>
+        <x>1365</x>
+        <y>326</y>
+        <width>425</width>
+        <height>256</height>
        </rect>
       </property>
      </widget>
