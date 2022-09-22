@@ -3,5 +3,21 @@
     <qresource prefix="/">
         <file>DependFile/Source/delete.png</file>
         <file>DependFile/Source/import.png</file>
+        <file>DependFile/Source/trainPage/spasm_control.png</file>
+        <file>DependFile/Source/trainPage/spasm_level.png</file>
+        <file>DependFile/Source/trainPage/train_force.png</file>
+        <file>DependFile/Source/trainPage/train_game.png</file>
+        <file>DependFile/Source/trainPage/train_mode.png</file>
+        <file>DependFile/Source/trainPage/train_part.png</file>
+        <file>DependFile/Source/trainPage/train_speed.png</file>
+        <file>DependFile/Source/trainPage/train_time.png</file>
+        <file>DependFile/Source/trainPage/train_turn.png</file>
+        <file>DependFile/Source/radioButton/checked.png</file>
+        <file>DependFile/Source/radioButton/normal.png</file>
+        <file>DependFile/Source/signal/fesConnect.png</file>
+        <file>DependFile/Source/signal/fesDisconnect.png</file>
+        <file>DependFile/Source/signal/wifiConnect.png</file>
+        <file>DependFile/Source/gamePage/blackBackground.png</file>
+        <file>DependFile/Source/gamePage/dialog.png</file>
     </qresource>
 </RCC>

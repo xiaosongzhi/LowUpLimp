@@ -26,7 +26,8 @@ INCLUDEPATH += $$PWD/Src/MainWindow \
                $$PWD/Src/Setting \
                $$PWD/Src/Communication \
                $$PWD/Src/CustomWidget \
-               $$PWD/Src/PopDialog
+               $$PWD/Src/PopDialog \
+               $$PWD/Src/GameControl
 SOURCES += \
     Src/Communication/ccommunicateapi.cpp \
     Src/Communication/ccommunicationinterface.cpp \
@@ -40,6 +41,7 @@ SOURCES += \
     Src/DataBaseControl/cdatabaseinterface.cpp \
     Src/DataBaseControl/mysqldatabase.cpp \
     Src/DataFormate/dbforrmate.cpp \
+    Src/GameControl/gamedisplaypage.cpp \
     Src/MainWindow/cmainwindow.cpp \
     Src/MainWindow/loginwidget.cpp \
     Src/MainWindow/main.cpp \
@@ -78,6 +80,7 @@ HEADERS += \
     Src/DataBaseControl/mysqldatabase.h \
     Src/DataFormate/dataformate.h \
     Src/DataFormate/dbforrmate.h \
+    Src/GameControl/gamedisplaypage.h \
     Src/MainWindow/cmainwindow.h \
     Src/MainWindow/loginwidget.h \
     Src/MainWindow/mainwindow.h \
@@ -104,6 +107,7 @@ HEADERS += \
 FORMS += \
     Src/CustomWidget/fesparambtn.ui \
     Src/CustomWidget/musclebutton.ui \
+    Src/GameControl/gamedisplaypage.ui \
     Src/MainWindow/cmainwindow.ui \
     Src/MainWindow/loginwidget.ui \
     Src/MainWindow/mainwindow.ui \

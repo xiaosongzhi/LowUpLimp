@@ -20,7 +20,7 @@ void TitleWidget::on_reback_Btn_clicked()
 //设置当前用户
 void TitleWidget::setUser(const ST_PatientMsg& st_patientMsg)
 {
-    ui->name_Label->setText(st_patientMsg.name);
+
     QPixmap pixmap;
     QString sexPath;
     switch(st_patientMsg.sex)
@@ -33,7 +33,7 @@ void TitleWidget::setUser(const ST_PatientMsg& st_patientMsg)
         break;
     }
     pixmap.load(sexPath);
-    ui->sex_Label->setPixmap(pixmap);
+
 }
 //设置wifi信号强度
 void TitleWidget::setSignalStrength(int value)

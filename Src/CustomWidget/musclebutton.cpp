@@ -37,9 +37,9 @@ void MuscleButton::setMuscleParamButton(const ST_MuscleParam& param)
 {
     QPixmap pix("");
     if(param.connectState)
-        pix.load("");
+        pix.load(":/DependFile/Source/signal/fesConnect.png");
     else
-        pix.load("");
+        pix.load(":/DependFile/Source/signal/fesDisconnect.png");
     ui->connectState_Label->setPixmap(pix);
     QString limpFlag;
     if(param.muscleId <= 15)
