@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/new/prefix1"/>
     <qresource prefix="/">
-        <file>DependFile/Source/delete.png</file>
-        <file>DependFile/Source/import.png</file>
         <file>DependFile/Source/trainPage/spasm_control.png</file>
         <file>DependFile/Source/trainPage/spasm_level.png</file>
         <file>DependFile/Source/trainPage/train_force.png</file>
@@ -23,5 +21,10 @@
         <file>DependFile/Source/MainPage/FES.png</file>
         <file>DependFile/Source/MainPage/FESBicycle.png</file>
         <file>DependFile/Source/MainPage/setting.png</file>
+        <file>DependFile/Source/User/delete.png</file>
+        <file>DependFile/Source/User/import.png</file>
+        <file>DependFile/Source/User/user.png</file>
+        <file>DependFile/Source/User/last.png</file>
+        <file>DependFile/Source/User/next.png</file>
     </qresource>
 </RCC>

@@ -4,9 +4,9 @@
 //#include "settingwidget.h"
 #include <QDebug>
 //#include "loginwidget.h"
-//#include "usermanager.h"
+#include "usermanager.h"
 //#include "cmainwindow.h"
-#include "fessetting.h"
+//#include "fessetting.h"
 //#include "armorleg.h"
 //#include "channeldialog.h"
 #include "gamedisplaypage.h"
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     if(!CDatabaseInterface::getInstance()->openDB("./DependFile/DBFile/UpLow.db","QSQLITE"))
         qDebug()<<"UpLow.db open failed!";
-    GameDisplayPage w;
+    UserManager w;
     w.show();
 //    UserManager w;
 //    w.show();
