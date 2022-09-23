@@ -68,7 +68,15 @@ void UserManager::initUserTableWidget()
     ui->user_TableWidget->setRowCount(100);
     //    ui->user_TableWidget->setGridStyle(Qt::NoPen);
     ui->user_TableWidget->setShowGrid(false);
-    ui->user_TableWidget->setColumnWidth(0,50);
+    ui->user_TableWidget->setColumnWidth(0,140);
+    ui->user_TableWidget->setColumnWidth(1,90);
+    ui->user_TableWidget->setColumnWidth(2,240);
+
+    ui->user_TableWidget->setFont(QFont("黑体",12));
+
+    for(int i = 0;i < 100;i++)
+    ui->user_TableWidget->setRowHeight(i,68);
+
     //设置单行选中
     ui->user_TableWidget->setSelectionBehavior(QTableWidget::SelectRows);
     ui->user_TableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -127,6 +135,7 @@ void UserManager::fillUserTable(const QList<QVariantMap> &ListMap)
         wordList.append(QString::number(st_PatientMsg.ID));
         stringListModel.setStringList(wordList);
         //第0列
+        /***
         QTableWidgetItem *checkItem = new QTableWidgetItem();
         ui->user_TableWidget->setItem(row,0,checkItem);
         QCheckBox *checkBox = new QCheckBox();
@@ -135,10 +144,21 @@ void UserManager::fillUserTable(const QList<QVariantMap> &ListMap)
         checkBox->setLayoutDirection(Qt::RightToLeft);
         //使用该方法时必须先添加QTableWidgetItem
         ui->user_TableWidget->setCellWidget(row,0,checkBox);
-        //第1列 名字
+        *****/
+        //第0列 名字
         QTableWidgetItem *nameItem = new QTableWidgetItem(st_PatientMsg.name);
         //        nameItem->setFlags(nameItem->flags() & (~Qt::ItemIsEditable));  //设置单个单元格不可编辑
-        ui->user_TableWidget->setItem(row, 1, nameItem);
+        ui->user_TableWidget->setItem(row, 0, nameItem);
+        //第1列 性别
+        QString sexStr;
+        if(0 == st_PatientMsg.sex)
+            sexStr = tr("男");
+        else if(1 == st_PatientMsg.sex)
+            sexStr = tr("女");
+        QTableWidgetItem *sexItem = new QTableWidgetItem(sexStr);
+        //        nameItem->setFlags(nameItem->flags() & (~Qt::ItemIsEditable));  //设置单个单元格不可编辑
+        ui->user_TableWidget->setItem(row, 1, sexItem);
+
         //第2列 ID
         QTableWidgetItem *IdItem = new QTableWidgetItem(QString::number(st_PatientMsg.ID));
         ui->user_TableWidget->setItem(row, 2, IdItem);

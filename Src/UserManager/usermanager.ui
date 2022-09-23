@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1756</width>
-    <height>888</height>
+    <width>1920</width>
+    <height>1160</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>40</y>
-     <width>361</width>
-     <height>751</height>
+     <x>0</x>
+     <y>0</y>
+     <width>604</width>
+     <height>981</height>
     </rect>
    </property>
    <property name="title">
@@ -28,80 +28,167 @@
    <widget class="QLineEdit" name="searchUser_LineEdit">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>14</y>
-      <width>251</width>
-      <height>41</height>
+      <x>50</x>
+      <y>28</y>
+      <width>345</width>
+      <height>54</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#searchUser_LineEdit{background: #FFFFFF;
+border-radius: 4px;
+border: 1px solid #454545;}</string>
     </property>
     <property name="maxLength">
      <number>10</number>
+    </property>
+    <property name="placeholderText">
+     <string>请输入姓名或者ID</string>
     </property>
    </widget>
    <widget class="QPushButton" name="searchUser_Btn">
     <property name="geometry">
      <rect>
-      <x>262</x>
-      <y>14</y>
-      <width>81</width>
-      <height>41</height>
+      <x>425</x>
+      <y>28</y>
+      <width>122</width>
+      <height>54</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #05A6EC;
+border-radius: 4px;
+color:white;</string>
     </property>
     <property name="text">
      <string>搜索</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>70</y>
-      <width>69</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>姓名</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>70</y>
-      <width>69</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ID</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="user_TableWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>110</y>
-      <width>341</width>
-      <height>621</height>
+      <x>50</x>
+      <y>170</y>
+      <width>497</width>
+      <height>791</height>
      </rect>
     </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>104</y>
+      <width>497</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#groupBox_2{background: #E5F2F9;
+border-radius: 2px;}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>4</y>
+       <width>69</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>姓名</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>5</y>
+       <width>69</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>性别</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>3</y>
+       <width>69</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>ID</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QPushButton" name="selectUser_Btn">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>810</y>
-     <width>71</width>
-     <height>41</height>
+     <y>990</y>
+     <width>110</width>
+     <height>45</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB ;</string>
    </property>
    <property name="text">
     <string>选择</string>
@@ -110,11 +197,22 @@
   <widget class="QPushButton" name="EditUser_Btn">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>810</y>
-     <width>71</width>
-     <height>41</height>
+     <x>179</x>
+     <y>990</y>
+     <width>110</width>
+     <height>45</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB ;</string>
    </property>
    <property name="text">
     <string>编辑</string>
@@ -123,11 +221,22 @@
   <widget class="QPushButton" name="deleteUser_Btn">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>810</y>
-     <width>71</width>
-     <height>41</height>
+     <x>308</x>
+     <y>990</y>
+     <width>110</width>
+     <height>45</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB ;</string>
    </property>
    <property name="text">
     <string>删除</string>
@@ -136,11 +245,22 @@
   <widget class="QPushButton" name="newUser_Btn">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>810</y>
-     <width>71</width>
-     <height>41</height>
+     <x>437</x>
+     <y>990</y>
+     <width>110</width>
+     <height>45</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB ;</string>
    </property>
    <property name="text">
     <string>新建</string>
@@ -149,11 +269,14 @@
   <widget class="TrainRecord" name="trainRecord_Widget" native="true">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>40</y>
-     <width>1271</width>
-     <height>831</height>
+     <x>604</x>
+     <y>0</y>
+     <width>1316</width>
+     <height>1151</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
   </widget>
  </widget>
