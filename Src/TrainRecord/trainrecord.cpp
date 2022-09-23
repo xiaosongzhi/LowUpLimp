@@ -118,7 +118,7 @@ void TrainRecord::fillTrainReportTable(const int index,const int showRows)
         ui->trainRecord_TableWidget->setItem(row,5,importItem);
 #else
         QLabel *label = new QLabel();
-        label->setPixmap(QPixmap(":/DependFile/Source/import.png"));
+        label->setPixmap(QPixmap(":/DependFile/Source/User/import.png"));
         label->setAlignment(Qt::AlignCenter);
         ui->trainRecord_TableWidget->setCellWidget(row,5,label);
 #endif
@@ -130,7 +130,7 @@ void TrainRecord::fillTrainReportTable(const int index,const int showRows)
         ui->trainRecord_TableWidget->setItem(row,6,deleteItem);
 #else
         QLabel *deletelabel = new QLabel();
-        deletelabel->setPixmap(QPixmap(":/DependFile/Source/delete.png"));
+        deletelabel->setPixmap(QPixmap(":/DependFile/Source/User/delete.png"));
         deletelabel->setAlignment(Qt::AlignCenter);
         ui->trainRecord_TableWidget->setCellWidget(row,6,deletelabel);
 #endif
