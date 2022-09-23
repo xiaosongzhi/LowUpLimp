@@ -328,13 +328,16 @@ border: 1px solid #05A6EC;}</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">#upForward_Btn{background:  #FFFFFF;color:black;}
-#upForward_Btn:checked{background:#05A6EC;color:white;}</string>
+        <string notr="true">#upForward_Btn{background:  #FFFFFF;color:black;border-radius: 1px;}
+#upForward_Btn:checked{background:#05A6EC;color:white;border-radius: 1px;}</string>
        </property>
        <property name="text">
         <string>正向</string>
        </property>
        <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
         <bool>true</bool>
        </property>
       </widget>
@@ -354,8 +357,8 @@ border: 1px solid #05A6EC;}</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">#upBackward_Btn:checked{background: #05A6EC;color:white;}
-#upBackward_Btn{background: white;color:black;}</string>
+        <string notr="true">#upBackward_Btn:checked{background: #05A6EC;color:white;border-radius: 1px;}
+#upBackward_Btn{background: white;color:black;border-radius: 1px;}</string>
        </property>
        <property name="text">
         <string>逆向</string>
@@ -1182,7 +1185,8 @@ border: 1px solid #05A6EC;}
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: #05A6EC;</string>
+        <string notr="true">#downBackward_Btn:checked{background: #05A6EC;color:white;border-radius: 1px;}
+#downBackward_Btn{background: white;color:black;border-radius: 1px;}</string>
        </property>
        <property name="text">
         <string>逆向</string>
@@ -1232,8 +1236,8 @@ border: 1px solid #05A6EC;}
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">#forward_Btn{background: #05A6EC;color:white;}
-#forward_Btn:checked{background: #FFFFFF;color:black;}</string>
+        <string notr="true">#downForward_Btn{background: #05A6EC;color:white;border-radius: 1px;}
+#downForward_Btn:checked{background: #FFFFFF;color:black;border-radius: 1px;}</string>
        </property>
        <property name="text">
         <string>正向</string>
