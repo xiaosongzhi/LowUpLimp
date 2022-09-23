@@ -19,5 +19,9 @@
         <file>DependFile/Source/signal/wifiConnect.png</file>
         <file>DependFile/Source/gamePage/blackBackground.png</file>
         <file>DependFile/Source/gamePage/dialog.png</file>
+        <file>DependFile/Source/MainPage/bicycle.png</file>
+        <file>DependFile/Source/MainPage/FES.png</file>
+        <file>DependFile/Source/MainPage/FESBicycle.png</file>
+        <file>DependFile/Source/MainPage/setting.png</file>
     </qresource>
 </RCC>

@@ -2,6 +2,7 @@ QT       += core gui sql printsupport quickwidgets network serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+#Qt5.15.2 mingw64
 #指定UI文件生成的位置
 UI_DIR = ./UI
 

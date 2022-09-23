@@ -6,73 +6,85 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1370</width>
-    <height>795</height>
+    <width>1920</width>
+    <height>1160</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#TrainManager{background:white;}</string>
+  </property>
   <widget class="QPushButton" name="bicycleTrain_Btn">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>425</x>
      <y>310</y>
-     <width>201</width>
-     <height>241</height>
+     <width>520</width>
+     <height>300</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">border-image: url(:/DependFile/Source/MainPage/bicycle.png);</string>
    </property>
    <property name="text">
-    <string>踏车训练</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="fesBicycleTrain_Btn">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>975</x>
      <y>310</y>
-     <width>201</width>
-     <height>241</height>
+     <width>520</width>
+     <height>300</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/DependFile/Source/MainPage/FESBicycle.png);</string>
+   </property>
    <property name="text">
-    <string>Fes踏车</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="fesTrain_Btn">
    <property name="geometry">
     <rect>
-     <x>740</x>
-     <y>310</y>
-     <width>191</width>
-     <height>241</height>
+     <x>425</x>
+     <y>640</y>
+     <width>520</width>
+     <height>300</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/DependFile/Source/MainPage/FES.png);</string>
+   </property>
    <property name="text">
-    <string>Fes</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="setting_Btn">
    <property name="geometry">
     <rect>
-     <x>1040</x>
-     <y>310</y>
-     <width>201</width>
-     <height>241</height>
+     <x>975</x>
+     <y>640</y>
+     <width>520</width>
+     <height>300</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/DependFile/Source/MainPage/setting.png);</string>
+   </property>
    <property name="text">
-    <string>设置</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>100</y>
+     <x>800</x>
+     <y>140</y>
      <width>311</width>
      <height>91</height>
     </rect>
@@ -84,7 +96,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:#ee4455;</string>
+    <string notr="true">color:#05A6EC ;</string>
    </property>
    <property name="text">
     <string>功能选择</string>
