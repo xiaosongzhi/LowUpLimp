@@ -26,5 +26,12 @@
         <file>DependFile/Source/User/user.png</file>
         <file>DependFile/Source/User/last.png</file>
         <file>DependFile/Source/User/next.png</file>
+        <file>DependFile/Source/gamePage/centerBack.png</file>
+        <file>DependFile/Source/gamePage/pause.png</file>
+        <file>DependFile/Source/gamePage/start.png</file>
+        <file>DependFile/Source/gamePage/stop.png</file>
+        <file>DependFile/Source/gamePage/switchOn.png</file>
+        <file>DependFile/Source/dialog/emergency.png</file>
+        <file>DependFile/Source/dialog/spasm.png</file>
     </qresource>
 </RCC>

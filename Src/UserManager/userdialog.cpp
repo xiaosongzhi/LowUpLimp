@@ -75,7 +75,6 @@ void UserDialog::on_save_Btn_clicked()
 
 void UserDialog::setEditUserType(int ID)
 {
-    qDebug()<<"setEditUserType--ID"<<ID;
     ui->title_Label->setText(tr("编辑用户"));
     //根据ID查找用户
     QString queryStr(QString("select * from PatientTable  where ID = '%1'").arg(ID));
@@ -94,7 +93,6 @@ void UserDialog::setEditUserType(int ID)
             ui->textEdit->setText(st_PatientMsg.markMsg);
             ui->phone_LineEdit->setText(st_PatientMsg.phone);
             ui->dateEdit->setDate(st_PatientMsg.birthday);
-
         }
         else
         {

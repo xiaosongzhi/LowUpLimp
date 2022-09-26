@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1198</width>
-    <height>730</height>
+    <width>1920</width>
+    <height>1280</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,13 @@
     <rect>
      <x>400</x>
      <y>170</y>
-     <width>551</width>
-     <height>381</height>
+     <width>500</width>
+     <height>400</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox{background: #FFFFFF;
+border-radius: 32px;}</string>
    </property>
    <property name="title">
     <string/>
@@ -30,8 +34,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>551</width>
-      <height>71</height>
+      <width>500</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="font">
@@ -41,7 +45,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 170, 0);</string>
+     <string notr="true">border-image: url(:/DependFile/Source/gamePage/dialog.png);</string>
     </property>
     <property name="text">
      <string>提示</string>
@@ -53,8 +57,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>240</y>
+      <x>180</x>
+      <y>260</y>
       <width>151</width>
       <height>71</height>
      </rect>
@@ -76,11 +80,14 @@
    <widget class="QLabel" name="image_Label">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>120</y>
+      <x>217</x>
+      <y>170</y>
       <width>71</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/DependFile/Source/dialog/emergency.png);</string>
     </property>
     <property name="text">
      <string/>

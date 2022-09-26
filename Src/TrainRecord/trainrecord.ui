@@ -55,7 +55,7 @@
        <rect>
         <x>110</x>
         <y>10</y>
-        <width>91</width>
+        <width>131</width>
         <height>30</height>
        </rect>
       </property>
@@ -75,9 +75,9 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>350</x>
         <y>10</y>
-        <width>91</width>
+        <width>161</width>
         <height>30</height>
        </rect>
       </property>
@@ -88,7 +88,7 @@
        </font>
       </property>
       <property name="text">
-       <string>训练时长</string>
+       <string>训练时长(min)</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -119,9 +119,9 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>730</x>
+        <x>720</x>
         <y>10</y>
-        <width>91</width>
+        <width>131</width>
         <height>30</height>
        </rect>
       </property>
@@ -141,9 +141,9 @@
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>890</x>
+        <x>930</x>
         <y>10</y>
-        <width>91</width>
+        <width>111</width>
         <height>30</height>
        </rect>
       </property>
@@ -163,7 +163,7 @@
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>1050</x>
+        <x>1080</x>
         <y>10</y>
         <width>91</width>
         <height>30</height>

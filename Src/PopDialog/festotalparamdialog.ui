@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>625</width>
-    <height>445</height>
+    <width>1920</width>
+    <height>1280</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,107 +18,31 @@
     <rect>
      <x>130</x>
      <y>100</y>
-     <width>321</width>
-     <height>241</height>
+     <width>804</width>
+     <height>598</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox{background: #FFFFFF;
+border-radius: 32px;}</string>
    </property>
    <property name="title">
     <string/>
    </property>
-   <widget class="QPushButton" name="minus_Btn">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>90</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>-</string>
-    </property>
-    <property name="autoRepeat">
-     <bool>true</bool>
-    </property>
-    <property name="autoRepeatInterval">
-     <number>50</number>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="plus_Btn">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>90</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+</string>
-    </property>
-    <property name="autoRepeat">
-     <bool>true</bool>
-    </property>
-    <property name="autoRepeatInterval">
-     <number>50</number>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_2">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>90</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QLabel" name="value_Label">
-     <property name="geometry">
-      <rect>
-       <x>2</x>
-       <y>4</y>
-       <width>54</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>20</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="unit_Label">
-     <property name="geometry">
-      <rect>
-       <x>77</x>
-       <y>5</y>
-       <width>31</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </widget>
    <widget class="QSlider" name="slider">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>140</y>
-      <width>191</width>
-      <height>31</height>
+      <x>220</x>
+      <y>340</y>
+      <width>400</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QSlider::groove:horizontal {  
 border: 1px solid #bbb;  
 background: white;  
-height: 10px;  
+height: 15px;  
 border-radius: 4px;  
 }  
   
@@ -174,43 +98,17 @@ border-radius: 4px;
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="cancel_Btn">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>180</y>
-      <width>75</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>取消</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="confirm_Btn">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>180</y>
-      <width>75</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>确认</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="title_Label">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>321</width>
-      <height>51</height>
+      <width>804</width>
+      <height>64</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 170, 255);</string>
+     <string notr="true">border-image: url(:/DependFile/Source/gamePage/dialog.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -218,6 +116,153 @@ border-radius: 4px;
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
+   </widget>
+   <widget class="QPushButton" name="confirm_Btn_2">
+    <property name="geometry">
+     <rect>
+      <x>455</x>
+      <y>513</y>
+      <width>120</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB;</string>
+    </property>
+    <property name="text">
+     <string>确认</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cancel_Btn_2">
+    <property name="geometry">
+     <rect>
+      <x>235</x>
+      <y>513</y>
+      <width>120</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB;</string>
+    </property>
+    <property name="text">
+     <string>取消</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>205</y>
+      <width>360</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#groupBox_2{background: #FFFFFF;
+border: 1px solid #05A6EC;}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="plus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>299</x>
+       <y>1</y>
+       <width>60</width>
+       <height>58</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+</string>
+     </property>
+     <property name="autoRepeat">
+      <bool>true</bool>
+     </property>
+     <property name="autoRepeatInterval">
+      <number>50</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="minus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>1</x>
+       <y>1</y>
+       <width>60</width>
+       <height>58</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+     <property name="autoRepeat">
+      <bool>true</bool>
+     </property>
+     <property name="autoRepeatInterval">
+      <number>50</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="value_Label">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>3</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="unit_Label">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>4</y>
+       <width>91</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>mA</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

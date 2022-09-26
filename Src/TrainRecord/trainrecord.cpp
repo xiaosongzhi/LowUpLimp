@@ -135,7 +135,7 @@ void TrainRecord::fillTrainReportTable(const int index,const int showRows)
         ui->trainRecord_TableWidget->setCellWidget(row,6,deletelabel);
 #endif
         //设置居中
-        for(int i = 1;i < 4;i++)
+        for(int i = 1;i <= 4;i++)
             ui->trainRecord_TableWidget->item(row,i)->setTextAlignment(Qt::AlignCenter);
     }
 }
@@ -166,21 +166,29 @@ void TrainRecord::initTrainRecordTable()
     //关闭右侧和下方滑条
     ui->trainRecord_TableWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->trainRecord_TableWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
+    ui->trainRecord_TableWidget->setColumnCount(7);
+    ui->trainRecord_TableWidget->setRowCount(8);
     ui->trainRecord_TableWidget->setAlternatingRowColors(true);
     ui->trainRecord_TableWidget->setShowGrid(false);
-    ui->trainRecord_TableWidget->setColumnWidth(0,50);
+    ui->trainRecord_TableWidget->setColumnWidth(0,60);
+    ui->trainRecord_TableWidget->setColumnWidth(1,300);
+    ui->trainRecord_TableWidget->setColumnWidth(2,150);
+    ui->trainRecord_TableWidget->setColumnWidth(3,150);
+    ui->trainRecord_TableWidget->setColumnWidth(4,250);
+    ui->trainRecord_TableWidget->setColumnWidth(5,150);
 
-    ui->trainRecord_TableWidget->setColumnCount(7);
+    for(int i = 0;i < 8;i++)
+    {
+        ui->trainRecord_TableWidget->setRowHeight(i,90);
+    }
+
+    ui->trainRecord_TableWidget->setFont(QFont("黑体",18));
 
     ui->trainRecord_TableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     //设置整行选中
-    //    ui->trainRecord_TableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->trainRecord_TableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
     //设置不可选
     ui->trainRecord_TableWidget->setSelectionMode(QAbstractItemView::NoSelection);
-
-    ui->trainRecord_TableWidget->setColumnCount(7);
-    ui->trainRecord_TableWidget->setRowCount(8);
 
     connect(ui->trainRecord_TableWidget,&QTableWidget::cellClicked,this,&TrainRecord::slotCellWidgetClicked);
 
@@ -188,8 +196,8 @@ void TrainRecord::initTrainRecordTable()
     //(1)方法一 设置不获取焦点
 //    ui->trainRecord_TableWidget->setFocusPolicy(Qt::NoFocus);
     //(2)方法二 通过样式表设置
-    ui->trainRecord_TableWidget->setStyleSheet("QTableWidget{outline:none;}"
-                                               "QTableWidget::item{background:white;}");
+//    ui->trainRecord_TableWidget->setStyleSheet("QTableWidget{outline:none;}"
+//                                               "QTableWidget::item{background:white;}");
     //(3)方法三 自定义代理实现
 }
 

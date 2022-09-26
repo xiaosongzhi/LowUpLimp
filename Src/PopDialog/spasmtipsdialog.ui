@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1210</width>
-    <height>770</height>
+    <width>1920</width>
+    <height>1280</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,11 +16,15 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>130</y>
-     <width>551</width>
-     <height>381</height>
+     <x>710</x>
+     <y>440</y>
+     <width>500</width>
+     <height>400</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox{background: #FFFFFF;
+border-radius: 32px;}</string>
    </property>
    <property name="title">
     <string/>
@@ -30,8 +34,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>551</width>
-      <height>71</height>
+      <width>500</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="font">
@@ -41,7 +45,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 170, 0);</string>
+     <string notr="true">border-image: url(:/DependFile/Source/gamePage/dialog.png);</string>
     </property>
     <property name="text">
      <string>提示</string>
@@ -53,7 +57,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>100</x>
       <y>190</y>
       <width>301</width>
       <height>71</height>
@@ -76,11 +80,22 @@
    <widget class="QPushButton" name="confirm_Btn">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>200</x>
       <y>290</y>
-      <width>101</width>
-      <height>51</height>
+      <width>120</width>
+      <height>45</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB;</string>
     </property>
     <property name="text">
      <string>确认</string>
@@ -89,11 +104,14 @@
    <widget class="QLabel" name="image_Label">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>220</x>
       <y>110</y>
       <width>71</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/DependFile/Source/dialog/spasm.png);</string>
     </property>
     <property name="text">
      <string/>

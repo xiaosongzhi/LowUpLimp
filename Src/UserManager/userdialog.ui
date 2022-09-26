@@ -16,11 +16,15 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>230</y>
-     <width>1021</width>
-     <height>601</height>
+     <x>558</x>
+     <y>341</y>
+     <width>804</width>
+     <height>598</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox{background: #FFFFFF;
+border-radius: 32px;}</string>
    </property>
    <property name="title">
     <string/>
@@ -28,14 +32,20 @@
    <widget class="QLabel" name="title_Label">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>151</width>
-      <height>61</height>
+      <x>0</x>
+      <y>0</y>
+      <width>804</width>
+      <height>64</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true">border-image: url(:/DependFile/Source/gamePage/dialog.png);</string>
     </property>
     <property name="text">
      <string>新建用户</string>
@@ -47,14 +57,20 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>40</x>
       <y>130</y>
-      <width>131</width>
+      <width>81</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>姓名：</string>
@@ -66,14 +82,20 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>40</x>
       <y>210</y>
-      <width>131</width>
+      <width>81</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>性别：</string>
@@ -85,14 +107,20 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>40</x>
       <y>280</y>
-      <width>131</width>
+      <width>81</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>部位：</string>
@@ -104,14 +132,20 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>370</y>
-      <width>131</width>
+      <x>40</x>
+      <y>361</y>
+      <width>81</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>备注：</string>
@@ -123,21 +157,37 @@
    <widget class="QLineEdit" name="name_LineEdit">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>130</x>
       <y>130</y>
-      <width>113</width>
-      <height>51</height>
+      <width>150</width>
+      <height>50</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 2px;
+border: 1px solid #333333;</string>
     </property>
    </widget>
    <widget class="QComboBox" name="sex_ComboBox">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>130</x>
       <y>210</y>
-      <width>111</width>
-      <height>31</height>
+      <width>150</width>
+      <height>50</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QComboBox QAbstractItemView{
@@ -166,51 +216,62 @@ QComboBox QAbstractItemView::item:selected{
     </property>
     <item>
      <property name="text">
-      <string>男</string>
+      <string>    男</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>女</string>
+      <string>   女</string>
      </property>
     </item>
    </widget>
    <widget class="QComboBox" name="bodyIndex_ComboBox">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>130</x>
       <y>280</y>
-      <width>111</width>
-      <height>31</height>
+      <width>150</width>
+      <height>50</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
-      <string>上肢</string>
+      <string>     上肢</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>下肢</string>
+      <string>     下肢</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>上下肢</string>
+      <string>     上下肢</string>
      </property>
     </item>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>370</x>
       <y>130</y>
-      <width>131</width>
+      <width>91</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>电话：</string>
@@ -222,24 +283,40 @@ QComboBox QAbstractItemView::item:selected{
    <widget class="QLineEdit" name="phone_LineEdit">
     <property name="geometry">
      <rect>
-      <x>590</x>
+      <x>480</x>
       <y>130</y>
-      <width>251</width>
-      <height>51</height>
+      <width>280</width>
+      <height>50</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 2px;
+border: 1px solid #333333;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>370</x>
       <y>206</y>
-      <width>131</width>
+      <width>91</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>生日：</string>
@@ -251,21 +328,38 @@ QComboBox QAbstractItemView::item:selected{
    <widget class="QDateEdit" name="dateEdit">
     <property name="geometry">
      <rect>
-      <x>590</x>
+      <x>480</x>
       <y>210</y>
-      <width>251</width>
-      <height>41</height>
+      <width>280</width>
+      <height>50</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="cancel_Btn">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>520</y>
-      <width>93</width>
-      <height>41</height>
+      <x>232</x>
+      <y>513</y>
+      <width>120</width>
+      <height>45</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB;</string>
     </property>
     <property name="text">
      <string>取消</string>
@@ -274,11 +368,22 @@ QComboBox QAbstractItemView::item:selected{
    <widget class="QPushButton" name="save_Btn">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>520</y>
-      <width>93</width>
-      <height>41</height>
+      <x>452</x>
+      <y>513</y>
+      <width>120</width>
+      <height>45</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 4px;
+border: 1px solid #0D9DDB;
+color:#0D9DDB;</string>
     </property>
     <property name="text">
      <string>保存</string>
@@ -287,14 +392,20 @@ QComboBox QAbstractItemView::item:selected{
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>270</y>
-      <width>131</width>
+      <x>390</x>
+      <y>280</y>
+      <width>71</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>ID：</string>
@@ -306,21 +417,41 @@ QComboBox QAbstractItemView::item:selected{
    <widget class="QLineEdit" name="ID_LineEdit">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>270</y>
-      <width>251</width>
-      <height>51</height>
+      <x>480</x>
+      <y>280</y>
+      <width>280</width>
+      <height>50</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 2px;
+border: 1px solid #333333;</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>130</x>
       <y>370</y>
-      <width>451</width>
+      <width>631</width>
       <height>87</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 2px;
+border: 1px solid #333333;</string>
     </property>
    </widget>
   </widget>
