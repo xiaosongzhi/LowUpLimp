@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
@@ -32,17 +35,17 @@ border-radius: 20px;}</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>810</width>
-      <height>1020</height>
+      <x>144</x>
+      <y>203</y>
+      <width>459</width>
+      <height>653</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: #FFFFFF;</string>
+     <string notr="true">border-image: url(:/DependFile/Source/login/image.png);</string>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
@@ -271,7 +274,84 @@ color:#999999 ;</string>
      </widget>
     </widget>
    </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>810</width>
+      <height>1020</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#groupBox_5{background: #FFFFFF;
+border-radius: 20px;}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>72</x>
+       <y>58</y>
+       <width>218</width>
+       <height>73</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/login/logo.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>900</y>
+       <width>351</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>上下肢康复训练系统</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <zorder>groupBox_5</zorder>
+   <zorder>label_2</zorder>
+   <zorder>groupBox_2</zorder>
   </widget>
+  <widget class="QGroupBox" name="groupBox_6">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1280</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox_6{background: #07A8E7;
+border: 1px solid #979797;}</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+  </widget>
+  <zorder>groupBox_6</zorder>
+  <zorder>groupBox</zorder>
  </widget>
  <resources/>
  <connections/>
