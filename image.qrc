@@ -55,5 +55,6 @@
         <file>DependFile/Source/leftMuscle/shenWanL.png</file>
         <file>DependFile/Source/leftMuscle/shuJiL.png</file>
         <file>DependFile/Source/leftMuscle/tunDaL.png</file>
+        <file>DependFile/Source/gamePage/switchOff.png</file>
     </qresource>
 </RCC>
