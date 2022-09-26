@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>176</x>
-     <y>134</y>
+     <y>30</y>
      <width>1568</width>
      <height>1012</height>
     </rect>
@@ -36,6 +36,17 @@
       <width>1568</width>
       <height>54</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #05A6EC;
+border-radius: 8px;
+color:white;</string>
     </property>
     <property name="text">
      <string>确认</string>
@@ -743,60 +754,39 @@ border: 1px solid #05A6EC;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QSlider::groove:horizontal {  
-border: 1px solid #bbb;  
-background: white;  
-height: 15px;  
-border-radius: 4px;  
-}  
+      <string notr="true">/**首先是设置主体**/
+QSlider{
+border-color: #bcbcbc;
+}
+QSlider::groove:horizontal {                                
+     border: 1px solid #999999;                             
+     height: 20px;                                           
+    margin: 0px 0;                                         
+     left: 5px; right: 5px; 
+ }
+ /**设置中间的那个滑动的键 ***/
+QSlider::handle:horizontal {                               
+     border: 0px ;                           
+     border-image:  url(:/DependFile/Source/channel/slder.png);
+     width: 35px; 
+     height:40px;                                          
+     margin: -7px -7px -7px -7px;                  
+} 
+/**还没有滑上去的地方**/
+QSlider::add-page:horizontal{
+background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #bcbcbc, stop:0.25 #bcbcbc, stop:0.5 #bcbcbc, stop:1 #bcbcbc); 
+
+}
+/**已经划过的从地方**/
+QSlider::sub-page:horizontal{                               
+ background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #439cf3, stop:0.25 #439cf3, stop:0.5 #439cf3, stop:1 #439cf3);                     
+}
+
+
+
   
-QSlider::sub-page:horizontal {  
-background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,  
-    stop: 0 #bbf, stop: 1 #55f);  
-border: 1px solid #777;  
-height: 15px;  
-border-radius: 4px;  
-}  
-  
-QSlider::add-page:horizontal {  
-background: #fff;  
-border: 1px solid #777;  
-height: 15px;  
-border-radius: 4px;  
-}  
-  
-QSlider::handle:horizontal {  
-background: qlineargradient(x1:0, y1:0, x2:1, y2:1,  
-    stop:0 #eee, stop:1 #ccc);  
-border: 1px solid #777;  
-width: 14px; 
- margin-top: -2px;  
-margin-bottom: -2px;  
-border-radius: 4px;  
-}  
-  
-QSlider::handle:horizontal:hover {  
-background: qlineargradient(x1:0, y1:0, x2:1, y2:1,  
-    stop:0 #fff, stop:1 #ddd);  
-border: 1px solid #444;  
-border-radius: 4px;  
-}  
-  
-QSlider::sub-page:horizontal:disabled {  
-background: #bbb;  
-border-color: #999;  
-}  
-  
-QSlider::add-page:horizontal:disabled {  
-background: #eee;  
-border-color: #999;  
-}  
-  
-QSlider::handle:horizontal:disabled {  
-background: #eee;  
-border: 1px solid #aaa;  
-border-radius: 4px;  
-}  </string>
+
+</string>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -806,9 +796,9 @@ border-radius: 4px;
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>35</x>
       <y>80</y>
-      <width>1511</width>
+      <width>1498</width>
       <height>471</height>
      </rect>
     </property>
@@ -1697,9 +1687,12 @@ border: 1px solid #979797;}</string>
      <rect>
       <x>1440</x>
       <y>20</y>
-      <width>75</width>
-      <height>41</height>
+      <width>67</width>
+      <height>40</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/DependFile/Source/gamePage/switchOn.png);</string>
     </property>
     <property name="text">
      <string/>

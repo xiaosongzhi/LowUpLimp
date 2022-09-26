@@ -177,7 +177,17 @@ void ChannelDialog::on_maxCurrent_Slider_valueChanged(int value)
 
 void ChannelDialog::on_switch_Btn_clicked()
 {
-    st_MuscleParam.connectState = true;
+    if(ui->switch_Btn->styleSheet() == "border-image: url(:/DependFile/Source/gamePage/switchOn.png);")
+    {
+        ui->switch_Btn->setStyleSheet("border-image: url(:/DependFile/Source/gamePage/switchOff.png);");
+        st_MuscleParam.connectState = false;
+    }
+    else if(ui->switch_Btn->styleSheet() == "border-image: url(:/DependFile/Source/gamePage/switchOff.png);")
+    {
+        st_MuscleParam.connectState = true;
+        ui->switch_Btn->setStyleSheet("border-image: url(:/DependFile/Source/gamePage/switchOn.png);");
+    }
+
 }
 
 void ChannelDialog::setMuscleState(QList<bool> muscleStateList)
