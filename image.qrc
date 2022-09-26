@@ -33,5 +33,27 @@
         <file>DependFile/Source/gamePage/switchOn.png</file>
         <file>DependFile/Source/dialog/emergency.png</file>
         <file>DependFile/Source/dialog/spasm.png</file>
+        <file>DependFile/Source/login/image.png</file>
+        <file>DependFile/Source/login/logo.png</file>
+        <file>DependFile/Source/channel/left.png</file>
+        <file>DependFile/Source/channel/minus.png</file>
+        <file>DependFile/Source/channel/plus.png</file>
+        <file>DependFile/Source/channel/right.png</file>
+        <file>DependFile/Source/channel/slder.png</file>
+        <file>DependFile/Source/leftMuscle/feiChangL.png</file>
+        <file>DependFile/Source/leftMuscle/fuJiL.png</file>
+        <file>DependFile/Source/leftMuscle/gangShangL.png</file>
+        <file>DependFile/Source/leftMuscle/gongErL.png</file>
+        <file>DependFile/Source/leftMuscle/gongSanL.png</file>
+        <file>DependFile/Source/leftMuscle/guoShengL.png</file>
+        <file>DependFile/Source/leftMuscle/guSiTouL.png</file>
+        <file>DependFile/Source/leftMuscle/houSanJiaoL.png</file>
+        <file>DependFile/Source/leftMuscle/jianJiaL.png</file>
+        <file>DependFile/Source/leftMuscle/jingQianL.png</file>
+        <file>DependFile/Source/leftMuscle/qianSanJiaoL.png</file>
+        <file>DependFile/Source/leftMuscle/quWanL.png</file>
+        <file>DependFile/Source/leftMuscle/shenWanL.png</file>
+        <file>DependFile/Source/leftMuscle/shuJiL.png</file>
+        <file>DependFile/Source/leftMuscle/tunDaL.png</file>
     </qresource>
 </RCC>
