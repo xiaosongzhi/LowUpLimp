@@ -23,7 +23,7 @@ void ChannelDialog::initWidget()
     m_buttonGroup->addButton(ui->gongErL_Btn,1);
     m_buttonGroup->addButton(ui->gongSanL_Btn,2);
     m_buttonGroup->addButton(ui->qianSanJiaoL_Btn,3);
-    m_buttonGroup->addButton(ui->houSanTouL_Btn,4);
+    m_buttonGroup->addButton(ui->houSanJiaoL_Btn,4);
     m_buttonGroup->addButton(ui->quWanL_Btn,5);
     m_buttonGroup->addButton(ui->shenWanL_Btn,6);
     m_buttonGroup->addButton(ui->jianJiaL_Btn,7);
@@ -87,7 +87,16 @@ void ChannelDialog::slotButtonClicked(int id)
 
 void ChannelDialog::slotButtonClicked(QAbstractButton *button)
 {
-    st_MuscleParam.muscleName = button->text();
+    st_MuscleParam.muscleName = button->objectName();
+    int index = st_MuscleParam.muscleName.indexOf("_");
+
+    QPixmap pixmap;
+    QString fileName("./DependFile/Image/leftMuscle/");
+    fileName.append(st_MuscleParam.muscleName.leftRef(index-1));
+    fileName.append(".png");
+    pixmap.load(fileName );
+    //F:\GitRepository\UpperLowerLimp\UpLowLimp\DependFile\Image\leftMuscle
+    ui->muscleImage_Label->setPixmap(pixmap);
 }
 
 void ChannelDialog::on_frequentMinus_Btn_clicked()

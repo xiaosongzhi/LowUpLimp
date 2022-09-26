@@ -17,10 +17,13 @@
    <property name="geometry">
     <rect>
      <x>176</x>
-     <y>10</y>
+     <y>134</y>
      <width>1568</width>
      <height>1012</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox_8{background: #FFFFFF;border-radius: 8px;}</string>
    </property>
    <property name="title">
     <string/>
@@ -85,6 +88,12 @@ border-radius: 4px;}</string>
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>mA</string>
      </property>
@@ -101,7 +110,7 @@ border-radius: 4px;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>20</pointsize>
+       <pointsize>25</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -121,12 +130,15 @@ border: 1px solid #05A6EC;</string>
       <rect>
        <x>70</x>
        <y>230</y>
-       <width>61</width>
-       <height>41</height>
+       <width>60</width>
+       <height>60</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/minus.png);</string>
+     </property>
      <property name="text">
-      <string>-</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -137,12 +149,15 @@ border: 1px solid #05A6EC;</string>
       <rect>
        <x>220</x>
        <y>230</y>
-       <width>61</width>
-       <height>41</height>
+       <width>60</width>
+       <height>60</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/plus.png);</string>
+     </property>
      <property name="text">
-      <string>+</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -161,7 +176,7 @@ border: 1px solid #05A6EC;</string>
       <string notr="true">QSlider::groove:horizontal {  
 border: 1px solid #bbb;  
 background: white;  
-height: 10px;  
+height: 15px;  
 border-radius: 4px;  
 }  
   
@@ -265,6 +280,12 @@ border-radius: 4px;}</string>
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>us</string>
      </property>
@@ -281,7 +302,7 @@ border-radius: 4px;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>20</pointsize>
+       <pointsize>25</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -301,12 +322,15 @@ border: 1px solid #05A6EC;</string>
       <rect>
        <x>70</x>
        <y>230</y>
-       <width>61</width>
-       <height>41</height>
+       <width>60</width>
+       <height>60</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/minus.png);</string>
+     </property>
      <property name="text">
-      <string>-</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -317,12 +341,15 @@ border: 1px solid #05A6EC;</string>
       <rect>
        <x>220</x>
        <y>230</y>
-       <width>61</width>
-       <height>41</height>
+       <width>60</width>
+       <height>60</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/plus.png);</string>
+     </property>
      <property name="text">
-      <string>+</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -341,7 +368,7 @@ border: 1px solid #05A6EC;</string>
       <string notr="true">QSlider::groove:horizontal {  
 border: 1px solid #bbb;  
 background: white;  
-height: 10px;  
+height: 15px;  
 border-radius: 4px;  
 }  
   
@@ -445,6 +472,12 @@ border-radius: 4px;}</string>
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>mA</string>
      </property>
@@ -461,7 +494,7 @@ border-radius: 4px;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>20</pointsize>
+       <pointsize>25</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -481,12 +514,15 @@ border: 1px solid #05A6EC;</string>
       <rect>
        <x>60</x>
        <y>230</y>
-       <width>61</width>
-       <height>41</height>
+       <width>60</width>
+       <height>60</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/minus.png);</string>
+     </property>
      <property name="text">
-      <string>-</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -497,12 +533,15 @@ border: 1px solid #05A6EC;</string>
       <rect>
        <x>230</x>
        <y>230</y>
-       <width>61</width>
-       <height>41</height>
+       <width>60</width>
+       <height>60</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/plus.png);</string>
+     </property>
      <property name="text">
-      <string>+</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -521,7 +560,7 @@ border: 1px solid #05A6EC;</string>
       <string notr="true">QSlider::groove:horizontal {  
 border: 1px solid #bbb;  
 background: white;  
-height: 10px;  
+height: 15px;  
 border-radius: 4px;  
 }  
   
@@ -641,7 +680,7 @@ border-radius: 4px;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>20</pointsize>
+       <pointsize>25</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -661,12 +700,15 @@ border: 1px solid #05A6EC;</string>
       <rect>
        <x>60</x>
        <y>220</y>
-       <width>61</width>
-       <height>41</height>
+       <width>60</width>
+       <height>60</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/minus.png);</string>
+     </property>
      <property name="text">
-      <string>-</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -677,12 +719,15 @@ border: 1px solid #05A6EC;</string>
       <rect>
        <x>230</x>
        <y>220</y>
-       <width>61</width>
-       <height>41</height>
+       <width>60</width>
+       <height>60</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/plus.png);</string>
+     </property>
      <property name="text">
-      <string>+</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -701,7 +746,7 @@ border: 1px solid #05A6EC;</string>
       <string notr="true">QSlider::groove:horizontal {  
 border: 1px solid #bbb;  
 background: white;  
-height: 10px;  
+height: 15px;  
 border-radius: 4px;  
 }  
   
@@ -779,7 +824,7 @@ border-radius: 4px;}</string>
       <rect>
        <x>40</x>
        <y>10</y>
-       <width>151</width>
+       <width>121</width>
        <height>41</height>
       </rect>
      </property>
@@ -790,7 +835,7 @@ border-radius: 4px;}</string>
       </font>
      </property>
      <property name="text">
-      <string>肌肉位置 左</string>
+      <string>肌肉位置 </string>
      </property>
     </widget>
     <widget class="QPushButton" name="gongErL_Btn">
@@ -868,7 +913,7 @@ background: #05A6EC;color:white;}</string>
       <string>前三角肌</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="houSanTouL_Btn">
+    <widget class="QPushButton" name="houSanJiaoL_Btn">
      <property name="geometry">
       <rect>
        <x>465</x>
@@ -890,7 +935,7 @@ QPushButton:checked{border-radius: 4px;
 background: #05A6EC;color:white;}</string>
      </property>
      <property name="text">
-      <string>后三头肌</string>
+      <string>后三角肌</string>
      </property>
     </widget>
     <widget class="QPushButton" name="quWanL_Btn">
@@ -1548,7 +1593,7 @@ background: #05A6EC;color:white;}</string>
       <rect>
        <x>40</x>
        <y>240</y>
-       <width>150</width>
+       <width>121</width>
        <height>40</height>
       </rect>
      </property>
@@ -1559,7 +1604,7 @@ background: #05A6EC;color:white;}</string>
       </font>
      </property>
      <property name="text">
-      <string>肌肉位置 右</string>
+      <string>肌肉位置 </string>
      </property>
     </widget>
     <widget class="QGroupBox" name="groupBox_7">
@@ -1588,12 +1633,44 @@ border: 1px solid #979797;}</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(170, 85, 127);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>16</y>
+       <width>32</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/left.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>247</y>
+       <width>32</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/right.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
     </widget>
    </widget>
    <widget class="QLabel" name="channelName_Label">
@@ -1606,7 +1683,7 @@ border: 1px solid #979797;}</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 170, 0);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
