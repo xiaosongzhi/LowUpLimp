@@ -1,6 +1,7 @@
 #include "emergencystopdialog.h"
 #include "ui_emergencystopdialog.h"
 #include <QPainter>
+#include <QDebug>
 EmergencyStopDialog::EmergencyStopDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EmergencyStopDialog)
@@ -21,3 +22,15 @@ void EmergencyStopDialog::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.fillRect(rect(),QColor(0,0,0,100));
 }
+
+void EmergencyStopDialog::on_emergency_Btn_clicked()
+{
+    static int closeTime;
+    closeTime++;
+    if(closeTime > 30)
+    {
+        closeTime = 0;
+        this->close();
+    }
+}
+

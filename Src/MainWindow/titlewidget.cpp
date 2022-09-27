@@ -1,11 +1,18 @@
 #include "titlewidget.h"
 #include "ui_titlewidget.h"
 #include <QPixmap>
+#include <QDebug>
 TitleWidget::TitleWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::TitleWidget)
 {
     ui->setupUi(this);
+    connect(ui->back1_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
+    connect(ui->back2_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
+
+    ui->user_Btn->setIcon(QIcon(":/DependFile/Source/User/user.png"));
+    ui->user_Btn->setIconSize(QSize(50,50));
+
 }
 
 TitleWidget::~TitleWidget()
@@ -13,7 +20,8 @@ TitleWidget::~TitleWidget()
     delete ui;
 }
 
-void TitleWidget::on_reback_Btn_clicked()
+
+void TitleWidget::slotBackClicked()
 {
 
 }

@@ -107,6 +107,12 @@ border-radius: 4px;
       <height>64</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-image: url(:/DependFile/Source/gamePage/dialog.png);</string>
     </property>
@@ -191,7 +197,7 @@ border: 1px solid #05A6EC;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/DependFile/Source/channel/plus.png);</string>
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -213,7 +219,7 @@ border: 1px solid #05A6EC;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/DependFile/Source/channel/minus.png);</string>
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -237,11 +243,11 @@ border: 1px solid #05A6EC;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>15</pointsize>
+       <pointsize>20</pointsize>
       </font>
      </property>
      <property name="text">
-      <string/>
+      <string>100</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -259,7 +265,7 @@ border: 1px solid #05A6EC;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>15</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">

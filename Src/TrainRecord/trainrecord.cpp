@@ -182,7 +182,7 @@ void TrainRecord::initTrainRecordTable()
         ui->trainRecord_TableWidget->setRowHeight(i,90);
     }
 
-    ui->trainRecord_TableWidget->setFont(QFont("黑体",18));
+    ui->trainRecord_TableWidget->setFont(QFont("黑体",20));
 
     ui->trainRecord_TableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     //设置整行选中

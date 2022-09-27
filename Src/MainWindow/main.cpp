@@ -1,17 +1,12 @@
-//#include "mainwindow.h"
+
 #include <QApplication>
 #include "cdatabaseinterface.h"
-//#include "settingwidget.h"
+
 #include <QDebug>
 //#include "loginwidget.h"
-#include "usermanager.h"
 #include "cmainwindow.h"
-//#include "fessetting.h"
-//#include "armorleg.h"
-#include "channeldialog.h"
 #include "gamedisplaypage.h"
-#include "advanceddialog.h"
-#include "deleteuserdialog.h"
+
 int main(int argc, char *argv[])
 {
     qputenv("QT_IM_MODULE",QByteArray("qtvirtualkeyboard"));

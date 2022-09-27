@@ -14,32 +14,19 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#TitleWidget{background: #05A6EC;}</string>
+   <string notr="true"/>
   </property>
-  <widget class="QPushButton" name="reback_Btn">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>35</y>
-     <width>131</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>返回</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="title_Label">
    <property name="geometry">
     <rect>
-     <x>740</x>
-     <y>30</y>
-     <width>251</width>
-     <height>51</height>
+     <x>800</x>
+     <y>10</y>
+     <width>341</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(85, 255, 127);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -51,14 +38,14 @@
   <widget class="QLabel" name="signal_Label">
    <property name="geometry">
     <rect>
-     <x>1590</x>
-     <y>30</y>
-     <width>51</width>
-     <height>61</height>
+     <x>1620</x>
+     <y>40</y>
+     <width>40</width>
+     <height>40</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(170, 255, 127);</string>
+    <string notr="true">border-image: url(:/DependFile/Source/signal/titleSignal.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -87,6 +74,99 @@ color:#05A6EC;}</string>
     <string>张三</string>
    </property>
   </widget>
+  <widget class="QLabel" name="signal_Label_2">
+   <property name="geometry">
+    <rect>
+     <x>1560</x>
+     <y>40</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/DependFile/Source/signal/titleSignal.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="signal_Label_3">
+   <property name="geometry">
+    <rect>
+     <x>1500</x>
+     <y>40</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/DependFile/Source/signal/wifi1.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox{background: #05A6EC;border:none;}</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QPushButton" name="back2_Btn">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>25</y>
+      <width>131</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+border:2px;</string>
+    </property>
+    <property name="text">
+     <string>返回</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="back1_Btn">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>34</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/DependFile/Source/signal/back.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <zorder>groupBox</zorder>
+  <zorder>title_Label</zorder>
+  <zorder>signal_Label</zorder>
+  <zorder>user_Btn</zorder>
+  <zorder>signal_Label_2</zorder>
+  <zorder>signal_Label_3</zorder>
  </widget>
  <resources/>
  <connections/>

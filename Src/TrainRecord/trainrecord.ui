@@ -62,7 +62,7 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="text">
@@ -84,7 +84,7 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="text">
@@ -106,7 +106,7 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="text">
@@ -128,7 +128,7 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="text">
@@ -150,7 +150,7 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="text">
@@ -172,7 +172,7 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="text">
@@ -477,7 +477,7 @@ border: 1px solid #EBEBEB;</string>
     <property name="font">
      <font>
       <family>黑体</family>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">

@@ -14,7 +14,6 @@
         <file>DependFile/Source/radioButton/normal.png</file>
         <file>DependFile/Source/signal/fesConnect.png</file>
         <file>DependFile/Source/signal/fesDisconnect.png</file>
-        <file>DependFile/Source/signal/wifiConnect.png</file>
         <file>DependFile/Source/gamePage/blackBackground.png</file>
         <file>DependFile/Source/gamePage/dialog.png</file>
         <file>DependFile/Source/MainPage/bicycle.png</file>
@@ -66,5 +65,8 @@
         <file>DependFile/Source/gamePage/right.png</file>
         <file>DependFile/Source/gamePage/rectBackground.png</file>
         <file>DependFile/Source/gamePage/timeBackground.png</file>
+        <file>DependFile/Source/signal/titleSignal.png</file>
+        <file>DependFile/Source/signal/wifi1.png</file>
+        <file>DependFile/Source/signal/back.png</file>
     </qresource>
 </RCC>

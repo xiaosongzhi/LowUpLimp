@@ -22,8 +22,9 @@ public:
     //设置标题
     void setTitle(QString);
 private slots:
-    void on_reback_Btn_clicked();
 
+
+    void slotBackClicked();
 private:
     Ui::TitleWidget *ui;
 };

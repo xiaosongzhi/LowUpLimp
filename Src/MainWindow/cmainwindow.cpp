@@ -49,6 +49,9 @@ void CMainWindow::switchPage(E_PAGENAME E_Page)
     case FesParamSet_E:
         ui->stackedWidget->setCurrentWidget(ui->FES_Page);
         break;
+    default:
+        break;
+
     }
 }
 
@@ -56,15 +59,6 @@ void CMainWindow::slotSwitchPage(E_PAGENAME page)
 {
     switchPage(page);
 }
-int pageIndex = 0;
-void CMainWindow::on_test_Btn_clicked()
-{
-    MainWindowPageControl::getInstance()->setCurrentPage(pageIndex);
-    ++pageIndex;
-    if(pageIndex == 5)
-        pageIndex = 0;
-}
-
 
 void CMainWindow::on_advanced_Btn_clicked()
 {

@@ -77,13 +77,13 @@ border-radius: 32px;}</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="image_Label">
+   <widget class="QPushButton" name="emergency_Btn">
     <property name="geometry">
      <rect>
-      <x>217</x>
+      <x>218</x>
       <y>170</y>
-      <width>71</width>
-      <height>71</height>
+      <width>70</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -91,6 +91,12 @@ border-radius: 32px;}</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="autoRepeat">
+     <bool>true</bool>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
     </property>
    </widget>
   </widget>

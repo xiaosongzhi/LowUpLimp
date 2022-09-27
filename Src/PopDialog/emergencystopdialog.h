@@ -16,6 +16,9 @@ public:
     ~EmergencyStopDialog();
 protected:
     void paintEvent(QPaintEvent *event);
+private slots:
+    void on_emergency_Btn_clicked();
+
 private:
     Ui::EmergencyStopDialog *ui;
 };

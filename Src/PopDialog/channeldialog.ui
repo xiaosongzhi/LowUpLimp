@@ -101,7 +101,7 @@ border-radius: 4px;}</string>
      </property>
      <property name="font">
       <font>
-       <family>黑体</family>
+       <family>微软雅黑</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -293,7 +293,7 @@ border-radius: 4px;}</string>
      </property>
      <property name="font">
       <font>
-       <family>黑体</family>
+       <family>微软雅黑</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -485,7 +485,7 @@ border-radius: 4px;}</string>
      </property>
      <property name="font">
       <font>
-       <family>黑体</family>
+       <family>微软雅黑</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -802,6 +802,11 @@ QSlider::sub-page:horizontal{
       <height>471</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">#groupBox{background: #E4F4FC;
 border-radius: 4px;}</string>
@@ -820,6 +825,7 @@ border-radius: 4px;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>14</pointsize>
        <bold>true</bold>
       </font>
@@ -839,6 +845,7 @@ border-radius: 4px;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -864,6 +871,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -889,6 +897,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -914,6 +923,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -939,6 +949,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -964,6 +975,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -989,6 +1001,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1014,6 +1027,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1039,6 +1053,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1064,6 +1079,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1089,6 +1105,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1114,6 +1131,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1139,6 +1157,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1164,6 +1183,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1189,6 +1209,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1214,6 +1235,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1239,6 +1261,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1264,6 +1287,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1289,6 +1313,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1314,6 +1339,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1339,6 +1365,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1364,6 +1391,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1389,6 +1417,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1414,6 +1443,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1439,6 +1469,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1464,6 +1495,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1489,6 +1521,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1514,6 +1547,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1539,6 +1573,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1564,6 +1599,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>12</pointsize>
        <bold>true</bold>
       </font>
@@ -1589,6 +1625,7 @@ background: #05A6EC;color:white;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>14</pointsize>
        <bold>true</bold>
       </font>

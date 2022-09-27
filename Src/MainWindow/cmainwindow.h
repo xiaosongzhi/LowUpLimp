@@ -29,7 +29,6 @@ public:
 public slots:
     void slotSwitchPage(E_PAGENAME);
 private slots:
-    void on_test_Btn_clicked();
 
     void on_advanced_Btn_clicked();
 
