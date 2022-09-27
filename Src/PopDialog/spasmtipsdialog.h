@@ -14,6 +14,10 @@ class SpasmTipsDialog : public QDialog
 public:
     explicit SpasmTipsDialog(QWidget *parent = nullptr);
     ~SpasmTipsDialog();
+protected:
+    void paintEvent(QPaintEvent *event);
+private slots:
+    void on_confirm_Btn_clicked();
 
 private:
     Ui::SpasmTipsDialog *ui;

@@ -16,8 +16,8 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>100</y>
+     <x>558</x>
+     <y>340</y>
      <width>804</width>
      <height>598</height>
     </rect>
@@ -117,7 +117,7 @@ border-radius: 4px;
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="confirm_Btn_2">
+   <widget class="QPushButton" name="confirm_Btn">
     <property name="geometry">
      <rect>
       <x>455</x>
@@ -141,7 +141,7 @@ color:#0D9DDB;</string>
      <string>确认</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="cancel_Btn_2">
+   <widget class="QPushButton" name="cancel_Btn">
     <property name="geometry">
      <rect>
       <x>235</x>
@@ -190,8 +190,11 @@ border: 1px solid #05A6EC;}</string>
        <height>58</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/plus.png);</string>
+     </property>
      <property name="text">
-      <string>+</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>
@@ -209,8 +212,11 @@ border: 1px solid #05A6EC;}</string>
        <height>58</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/channel/minus.png);</string>
+     </property>
      <property name="text">
-      <string>-</string>
+      <string/>
      </property>
      <property name="autoRepeat">
       <bool>true</bool>

@@ -4,6 +4,8 @@
 #include <QMouseEvent>
 #include <QPaintEvent>
 #include <QGraphicsDropShadowEffect>
+#include <QPixmap>
+
 MuscleButton::MuscleButton(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MuscleButton)
@@ -43,10 +45,13 @@ void MuscleButton::setMuscleParamButton(const ST_MuscleParam& param)
     ui->connectState_Label->setPixmap(pix);
     QString limpFlag;
     if(param.muscleId <= 15)
-        limpFlag = tr("左");
+        limpFlag = ":/DependFile/Source/channel/left.png";
     else
-        limpFlag = tr("右");
-    ui->muscle_Label->setText(param.muscleName + limpFlag);
+        limpFlag = ":/DependFile/Source/channel/right.png";
+    QPixmap pixmap;
+    pixmap.load(limpFlag);
+    ui->Image_Label->setPixmap(pixmap);
+    ui->muscle_Label->setText(param.muscleName );
     ui->current_Label->setText(QString::number(param.minCurrent)+"~"+QString::number(param.maxCurrent) + "mA");
     ui->plus_Label->setText(QString::number(param.plus) + "us");
     ui->frequency_Label->setText(QString::number(param.frequency) + "Hz");

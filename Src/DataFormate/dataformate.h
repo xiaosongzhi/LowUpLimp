@@ -115,4 +115,29 @@ typedef struct
     int maxCurrent;     //最小电流
 }ST_MuscleParam;
 
+//高级设置参数
+typedef struct
+{
+    //预热阶段
+    int preheatContinueTime; //预热期持续时间
+    int preheatAContinueTime;//加速持续时间
+    int preheatCompensate;   //转速补偿
+    bool isFesOn;            //是否开启电刺激
+    int preheatMaxPower;     //预热期最大电量
+    int transitionalFesRise; //电刺激上升幅度
+    //积极阶段
+    int positiveFChiXuTime;     //向前（持续时间）
+    int positiveFControlSpeed;  //向前(控制速度)
+    int positiveBChiXuTime;     //(向后)持续时间
+    int positiveBSpeedCompensate;//(向后)转速补偿
+    int positiveBresistance;    //(向后)阻力扭矩补偿
+    int timeLimit;              //时间阈值
+    int speedLimit;             //转速阈值
+    //消极阶段
+    bool isSkipPassive;         //跳过此阶段
+    int negativeFContinueTime;  //(向前)持续时间
+    int tiredContinueTime;      //持续时间(疲劳侦测)
+    int tiredSpeedCompensate;   //转速补偿(疲劳侦测)
+}ST_AdvancedParam;
+
 #endif // DATAFORMATE_H

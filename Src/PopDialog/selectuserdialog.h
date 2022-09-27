@@ -14,7 +14,8 @@ class SelectUserDialog : public QDialog
 public:
     explicit SelectUserDialog(QWidget *parent = nullptr);
     ~SelectUserDialog();
-
+protected:
+    void paintEvent(QPaintEvent *event);
 private slots:
     void on_cancel_Btn_clicked();
 

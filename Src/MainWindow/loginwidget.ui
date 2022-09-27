@@ -75,6 +75,7 @@ border-radius: 20px;}</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>25</pointsize>
       </font>
      </property>
@@ -114,8 +115,8 @@ color:white;</string>
       <rect>
        <x>480</x>
        <y>666</y>
-       <width>201</width>
-       <height>61</height>
+       <width>300</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="font">
@@ -132,9 +133,9 @@ color:white;</string>
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>666</y>
-       <width>181</width>
-       <height>61</height>
+       <y>664</y>
+       <width>211</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="font">
@@ -161,6 +162,7 @@ color:white;</string>
      </property>
      <property name="font">
       <font>
+       <family>黑体</family>
        <pointsize>20</pointsize>
       </font>
      </property>
@@ -220,6 +222,7 @@ background:white;}</string>
       </property>
       <property name="font">
        <font>
+        <family>黑体</family>
         <pointsize>25</pointsize>
        </font>
       </property>
@@ -258,6 +261,7 @@ background:white;}</string>
       </property>
       <property name="font">
        <font>
+        <family>黑体</family>
         <pointsize>25</pointsize>
        </font>
       </property>

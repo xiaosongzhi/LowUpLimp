@@ -20,6 +20,9 @@ public:
     int getValue();
 
     void setValue(int value);
+
+protected:
+    void paintEvent(QPaintEvent *event);
 private slots:
     void on_cancel_Btn_clicked();
 

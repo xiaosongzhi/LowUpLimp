@@ -14,7 +14,8 @@ class DeleteUserDialog : public QDialog
 public:
     explicit DeleteUserDialog(QWidget *parent = nullptr);
     ~DeleteUserDialog();
-
+protected:
+    void paintEvent(QPaintEvent *event);
 private slots:
     void on_cancel_Btn_clicked();
 

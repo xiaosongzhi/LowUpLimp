@@ -14,7 +14,8 @@ class EmergencyStopDialog : public QDialog
 public:
     explicit EmergencyStopDialog(QWidget *parent = nullptr);
     ~EmergencyStopDialog();
-
+protected:
+    void paintEvent(QPaintEvent *event);
 private:
     Ui::EmergencyStopDialog *ui;
 };

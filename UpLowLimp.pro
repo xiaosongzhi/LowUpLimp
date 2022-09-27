@@ -49,6 +49,7 @@ SOURCES += \
     Src/MainWindow/mainwindow.cpp \
     Src/MainWindow/mainwindowpagecontrol.cpp \
     Src/MainWindow/titlewidget.cpp \
+    Src/PopDialog/advanceddialog.cpp \
     Src/PopDialog/deleteuserdialog.cpp \
     Src/PopDialog/emergencystopdialog.cpp \
     Src/PopDialog/festipsdialog.cpp \
@@ -87,6 +88,7 @@ HEADERS += \
     Src/MainWindow/mainwindow.h \
     Src/MainWindow/mainwindowpagecontrol.h \
     Src/MainWindow/titlewidget.h \
+    Src/PopDialog/advanceddialog.h \
     Src/PopDialog/deleteuserdialog.h \
     Src/PopDialog/emergencystopdialog.h \
     Src/PopDialog/festipsdialog.h \
@@ -113,6 +115,7 @@ FORMS += \
     Src/MainWindow/loginwidget.ui \
     Src/MainWindow/mainwindow.ui \
     Src/MainWindow/titlewidget.ui \
+    Src/PopDialog/advanceddialog.ui \
     Src/PopDialog/deleteuserdialog.ui \
     Src/PopDialog/emergencystopdialog.ui \
     Src/PopDialog/festipsdialog.ui \

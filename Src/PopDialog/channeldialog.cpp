@@ -1,12 +1,15 @@
 #include "channeldialog.h"
 #include "ui_channeldialog.h"
 #include <QDebug>
+#include <QPainter>
 ChannelDialog::ChannelDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ChannelDialog),
     m_buttonGroup(nullptr)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
+    setAttribute(Qt::WA_TranslucentBackground,true);    //设置透明
     initWidget();
 }
 
@@ -39,7 +42,7 @@ void ChannelDialog::initWidget()
     m_buttonGroup->addButton(ui->gongErR_Btn,16);
     m_buttonGroup->addButton(ui->gongSanR_Btn,17);
     m_buttonGroup->addButton(ui->qianSanJiaoR_Btn,18);
-    m_buttonGroup->addButton(ui->houSanTouR_Btn,19);
+    m_buttonGroup->addButton(ui->houSanJiaoR_Btn,19);
     m_buttonGroup->addButton(ui->quWanR_Btn,20);
     m_buttonGroup->addButton(ui->shenWanR_Btn,21);
     m_buttonGroup->addButton(ui->jianJiaR_Btn,22);
@@ -198,4 +201,11 @@ void ChannelDialog::setMuscleState(QList<bool> muscleStateList)
         int id = m_buttonGroup->id(button);
         pushButton->setEnabled(muscleStateList.at(id-1));
     }
+}
+
+void ChannelDialog::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event)
+    QPainter painter(this);
+    painter.fillRect(rect(),QColor(0,0,0,100));
 }

@@ -1,6 +1,6 @@
 #include "festotalparamdialog.h"
 #include "ui_festotalparamdialog.h"
-
+#include <QPainter>
 FesTotalParamDialog::FesTotalParamDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::FesTotalParamDialog),
@@ -59,3 +59,13 @@ void FesTotalParamDialog::on_slider_valueChanged(int value)
 {
     ui->value_Label->setText(QString::number(value));
 }
+
+void FesTotalParamDialog::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event)
+    QPainter painter(this);
+    painter.fillRect(rect(),QColor(0,0,0,100));
+}
+
+
+

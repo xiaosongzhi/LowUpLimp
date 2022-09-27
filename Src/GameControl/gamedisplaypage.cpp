@@ -39,6 +39,9 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     m_channelBList.append(ui->channelB6_Label);
     m_channelBList.append(ui->channelB7_Label);
     m_channelBList.append(ui->channelB8_Label);
+
+    ui->stop_Btn->setVisible(false);
+    ui->pause_Btn->setVisible(false);
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -52,7 +55,9 @@ GameDisplayPage::~GameDisplayPage()
 
 void GameDisplayPage::on_start_Btn_clicked()
 {
-    m_leftAnimation->start(QAbstractAnimation::KeepWhenStopped);
+    ui->start_Btn->setVisible(false);
+    ui->stop_Btn->setVisible(true);
+    ui->pause_Btn->setVisible(true);
 }
 
 void GameDisplayPage::open_Btn_clicked()
@@ -205,12 +210,42 @@ void GameDisplayPage::switchFes(qint8 channel, bool ok)
 
 void GameDisplayPage::on_stop_Btn_clicked()
 {
-
+    ui->start_Btn->setVisible(true);
+    ui->stop_Btn->setVisible(false);
+    ui->pause_Btn->setVisible(false);
 }
 
 
 void GameDisplayPage::on_pause_Btn_clicked()
 {
+    ui->start_Btn->setVisible(true);
+    ui->stop_Btn->setVisible(false);
+    ui->pause_Btn->setVisible(false);
+}
 
+
+void GameDisplayPage::on_switchAFes_Btn_clicked()
+{
+    if(ui->switchAFes_Btn->styleSheet() == "border-image: url(:/DependFile/Source/gamePage/switchOn.png);")
+    {
+        ui->switchAFes_Btn->setStyleSheet("border-image: url(:/DependFile/Source/gamePage/switchOff.png);");
+    }
+    else if(ui->switchAFes_Btn->styleSheet() == "border-image: url(:/DependFile/Source/gamePage/switchOff.png);")
+    {
+        ui->switchAFes_Btn->setStyleSheet("border-image: url(:/DependFile/Source/gamePage/switchOn.png);");
+    }
+}
+
+
+void GameDisplayPage::on_switchBFes_Btn_clicked()
+{
+    if(ui->switchBFes_Btn->styleSheet() == "border-image: url(:/DependFile/Source/gamePage/switchOn.png);")
+    {
+        ui->switchBFes_Btn->setStyleSheet("border-image: url(:/DependFile/Source/gamePage/switchOff.png);");
+    }
+    else if(ui->switchBFes_Btn->styleSheet() == "border-image: url(:/DependFile/Source/gamePage/switchOff.png);")
+    {
+        ui->switchBFes_Btn->setStyleSheet("border-image: url(:/DependFile/Source/gamePage/switchOn.png);");
+    }
 }
 

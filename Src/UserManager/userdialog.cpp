@@ -6,13 +6,14 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QListView>
-
+#include <QPainter>
 UserDialog::UserDialog(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::UserDialog)
 {
     ui->setupUi(this);
-
+    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
+    setAttribute(Qt::WA_TranslucentBackground,true);    //设置透明
     ui->ID_LineEdit->setReadOnly(true);
 
     //添加此语句是为了使样式生效
@@ -132,7 +133,9 @@ void UserDialog::setNewUserType()
     this->show();
 }
 
-void UserDialog::showEvent(QShowEvent *event)
+void UserDialog::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
+    QPainter painter(this);
+    painter.fillRect(rect(),QColor(0,0,0,100));
 }

@@ -21,7 +21,8 @@ public:
      *     int ID = 0   //查看用户的ID
      * *****/
     void setDialogTitle(USER_ENUM type,int ID = 0);
-
+protected:
+    void paintEvent(QPaintEvent *event);
 signals:
     void signalUpdateUserTable();
 private:
@@ -32,9 +33,6 @@ private slots:
     void on_cancel_Btn_clicked();
 
     void on_save_Btn_clicked();
-
-protected:
-    void showEvent(QShowEvent *event);
 
 private:
     Ui::UserDialog *ui;

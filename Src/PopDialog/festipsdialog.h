@@ -14,7 +14,8 @@ class FesTipsDialog : public QDialog
 public:
     explicit FesTipsDialog(QWidget *parent = nullptr);
     ~FesTipsDialog();
-
+protected:
+    void paintEvent(QPaintEvent *event);
 private slots:
     void on_confirm_Btn_clicked();
 

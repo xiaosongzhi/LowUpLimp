@@ -56,5 +56,15 @@
         <file>DependFile/Source/leftMuscle/shuJiL.png</file>
         <file>DependFile/Source/leftMuscle/tunDaL.png</file>
         <file>DependFile/Source/gamePage/switchOff.png</file>
+        <file>DependFile/Source/dialog/dialog.png</file>
+        <file>DependFile/Source/dialog/header1.png</file>
+        <file>DependFile/Source/dialog/hearder2.png</file>
+        <file>DependFile/Source/gamePage/blueBackground.png</file>
+        <file>DependFile/Source/gamePage/left.png</file>
+        <file>DependFile/Source/gamePage/minus.png</file>
+        <file>DependFile/Source/gamePage/plus.png</file>
+        <file>DependFile/Source/gamePage/right.png</file>
+        <file>DependFile/Source/gamePage/rectBackground.png</file>
+        <file>DependFile/Source/gamePage/timeBackground.png</file>
     </qresource>
 </RCC>

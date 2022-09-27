@@ -256,6 +256,19 @@ border-radius: 6px;}</string>
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="Image_Label">
+    <property name="geometry">
+     <rect>
+      <x>379</x>
+      <y>54</y>
+      <width>32</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <zorder>groupBox</zorder>
   <zorder>line</zorder>

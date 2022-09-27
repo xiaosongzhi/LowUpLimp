@@ -80,6 +80,10 @@ private slots:
 
     void on_pause_Btn_clicked();
 
+    void on_switchAFes_Btn_clicked();
+
+    void on_switchBFes_Btn_clicked();
+
 protected:
 
     virtual void mouseDoubleClickEvent(QMouseEvent *event);

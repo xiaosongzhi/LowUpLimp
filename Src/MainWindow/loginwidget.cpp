@@ -36,12 +36,12 @@ void LoginWidget::on_confirm_Btn_clicked()
     if(ui->userName_LineEdit->text() != userName)
     {
         ui->userNameTips_Label->setText(tr("用户名输入错误"));
-        return;
+//        return;
     }
     if(ui->password_LineEdit->text() != password)
     {
         ui->passwordTips_Label->setText(tr("密码输入错误"));
-        return;
+//        return;
     }
     //设置返回值结果
     emit signalResult(1);
