@@ -72,7 +72,7 @@ void UserManager::initUserTableWidget()
     ui->user_TableWidget->setColumnWidth(1,90);
     ui->user_TableWidget->setColumnWidth(2,240);
 
-    ui->user_TableWidget->setFont(QFont("黑体",12));
+    ui->user_TableWidget->setFont(QFont("黑体",18));
 
     for(int i = 0;i < 100;i++)
     ui->user_TableWidget->setRowHeight(i,68);

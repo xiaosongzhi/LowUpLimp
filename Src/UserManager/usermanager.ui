@@ -25,33 +25,6 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QLineEdit" name="searchUser_LineEdit">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>28</y>
-      <width>345</width>
-      <height>54</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>黑体</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#searchUser_LineEdit{background: #FFFFFF;
-border-radius: 4px;
-border: 1px solid #454545;}</string>
-    </property>
-    <property name="maxLength">
-     <number>10</number>
-    </property>
-    <property name="placeholderText">
-     <string>请输入姓名或者ID</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="searchUser_Btn">
     <property name="geometry">
      <rect>
@@ -114,7 +87,7 @@ border-radius: 2px;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>12</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="text">
@@ -136,7 +109,7 @@ border-radius: 2px;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>12</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="text">
@@ -149,7 +122,7 @@ border-radius: 2px;}</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>310</x>
+       <x>314</x>
        <y>3</y>
        <width>69</width>
        <height>40</height>
@@ -158,7 +131,7 @@ border-radius: 2px;}</string>
      <property name="font">
       <font>
        <family>黑体</family>
-       <pointsize>12</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="text">
@@ -169,6 +142,53 @@ border-radius: 2px;}</string>
      </property>
     </widget>
    </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>345</width>
+      <height>54</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#groupBox_3{background: #FFFFFF;
+border-radius: 4px;
+border: 1px solid #454545;}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLineEdit" name="searchUser_LineEdit">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>2</y>
+       <width>301</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border:none;</string>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
+     <property name="placeholderText">
+      <string>请输入姓名或者ID</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>groupBox_3</zorder>
+   <zorder>searchUser_Btn</zorder>
+   <zorder>user_TableWidget</zorder>
+   <zorder>groupBox_2</zorder>
   </widget>
   <widget class="QPushButton" name="selectUser_Btn">
    <property name="geometry">
