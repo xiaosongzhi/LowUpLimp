@@ -28,6 +28,8 @@ public:
 protected:
     void paintEvent(QPaintEvent *event);
 
+//    void showEvent(QShowEvent *event);
+
 private slots:
     void on_confirm_Btn_clicked();
 
