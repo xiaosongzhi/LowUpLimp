@@ -88,7 +88,6 @@
    </property>
    <property name="styleSheet">
     <string notr="true">#groupBox{background: #E4F4FC;
-box-shadow: 0px 2px 4px 0px #699AB2;
 border-radius: 6px;}</string>
    </property>
    <property name="title">
