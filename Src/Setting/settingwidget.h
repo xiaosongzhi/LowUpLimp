@@ -34,6 +34,10 @@ private slots:
 
     void on_savePassword_Btn_clicked();
 
+    void on_CH_RadioButton_clicked();
+
+    void on_EN_RadioButton_clicked();
+
 private:
     Ui::SettingWidget *ui;
     QButtonGroup *m_buttonGroup;

@@ -28,7 +28,7 @@
    <property name="font">
     <font>
      <family>黑体</family>
-     <pointsize>12</pointsize>
+     <pointsize>15</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -59,7 +59,7 @@ border-radius: 4px;color:white;}</string>
    <property name="font">
     <font>
      <family>黑体</family>
-     <pointsize>12</pointsize>
+     <pointsize>15</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -87,7 +87,7 @@ border-radius: 4px;color:white;}</string>
    <property name="font">
     <font>
      <family>黑体</family>
-     <pointsize>12</pointsize>
+     <pointsize>15</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -147,7 +147,7 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>15</pointsize>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
@@ -227,7 +227,7 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>15</pointsize>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
@@ -249,7 +249,7 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -273,6 +273,7 @@ color:white;</string>
       <property name="font">
        <font>
         <family>黑体</family>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
@@ -308,7 +309,7 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>15</pointsize>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
@@ -330,6 +331,7 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
@@ -348,7 +350,7 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -389,11 +391,11 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>15</pointsize>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>脉搏血氧</string>
+       <string>脉 搏 血 氧</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -411,6 +413,7 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
@@ -429,7 +432,7 @@ border: 1px solid #979797;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -524,7 +527,7 @@ border: 1px solid #979797;}</string>
        <property name="font">
         <font>
          <family>黑体</family>
-         <pointsize>15</pointsize>
+         <pointsize>18</pointsize>
         </font>
        </property>
        <property name="text">
@@ -546,7 +549,7 @@ border: 1px solid #979797;}</string>
        <property name="font">
         <font>
          <family>黑体</family>
-         <pointsize>12</pointsize>
+         <pointsize>15</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -603,7 +606,7 @@ border-radius: 10px;}</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -671,7 +674,7 @@ color:white;</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>15</pointsize>
        </font>
       </property>
       <property name="styleSheet">
