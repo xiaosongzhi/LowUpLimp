@@ -18,6 +18,8 @@ public:
     void setMuscleParamButton(const ST_MuscleParam&);
 
     void initWidget(QString title,int id);
+
+    void setMuscleEnabled(bool);
 signals:
     void buttonClicked(int id);
 

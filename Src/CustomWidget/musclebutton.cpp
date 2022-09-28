@@ -43,6 +43,7 @@ void MuscleButton::setMuscleParamButton(const ST_MuscleParam& param)
     else
         pix.load(":/DependFile/Source/signal/fesDisconnect.png");
     ui->connectState_Label->setPixmap(pix);
+
     QString limpFlag;
     if(param.muscleId <= 15)
         limpFlag = ":/DependFile/Source/channel/left.png";
@@ -61,4 +62,15 @@ void MuscleButton::initWidget(QString title,int id)
 {
     ui->channel_Label->setText(title);
     m_id = id;
+}
+
+void MuscleButton::setMuscleEnabled(bool enabled)
+{
+    QString enabledStyle = "#groupBox{background: #E4F4FC;"
+                           "border-radius: 6px;}";
+    QString disenabledStyle = "#groupBox{background: #EFEFEF;border-radius: 6px;}";
+    if(enabled)
+        ui->groupBox->setStyleSheet(enabledStyle);
+    else
+        ui->groupBox->setStyleSheet(disenabledStyle);
 }
