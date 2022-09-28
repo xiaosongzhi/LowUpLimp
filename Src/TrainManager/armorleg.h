@@ -18,6 +18,12 @@ public:
 private slots:
     void on_upDownLimp_RadioButton_toggled(bool checked);
 
+    void on_advanced1_Btn_clicked();
+
+    void on_upAdvanced2_Btn_clicked();
+
+    void on_downAdvanced2_Btn_clicked();
+
 private:
     Ui::ArmOrLeg *ui;
 };
