@@ -5,7 +5,7 @@
 #include "userdialog.h"
 #include <QCompleter>
 #include <QStringListModel>
-
+class SelectUserDialog;
 namespace Ui {
 class UserManager;
 }
@@ -51,6 +51,7 @@ private:
     QCompleter *m_completer;    //自动补全
     QStringListModel stringListModel;
     QStringList wordList;       //自动补全文字集
+    SelectUserDialog *m_slectUserDialog;
 };
 
 #endif // USERMANAGER_H

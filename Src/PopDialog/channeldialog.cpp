@@ -90,12 +90,13 @@ void ChannelDialog::slotButtonClicked(int id)
 
 void ChannelDialog::slotButtonClicked(QAbstractButton *button)
 {
-    st_MuscleParam.muscleName = button->objectName();
-    int index = st_MuscleParam.muscleName.indexOf("_");
+    st_MuscleParam.muscleName = button->text();
+    QString muscleName = button->objectName();
+    int index = muscleName.indexOf("_");
 
     QPixmap pixmap;
     QString fileName("./DependFile/Image/leftMuscle/");
-    fileName.append(st_MuscleParam.muscleName.leftRef(index-1));
+    fileName.append(muscleName.leftRef(index-1));
     fileName.append(".png");
     pixmap.load(fileName );
     //F:\GitRepository\UpperLowerLimp\UpLowLimp\DependFile\Image\leftMuscle

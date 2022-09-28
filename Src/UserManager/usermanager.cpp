@@ -6,11 +6,13 @@
 #include <QCheckBox>
 #include <QMessageBox>
 #include "currentuserdata.h"
+#include "selectuserdialog.h"
 UserManager::UserManager(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::UserManager),
     m_userDialog(nullptr),
-    m_completer(nullptr)
+    m_completer(nullptr),
+    m_slectUserDialog(nullptr)
 {
     ui->setupUi(this);
     m_userDialog = new UserDialog();
@@ -38,6 +40,8 @@ UserManager::UserManager(QWidget *parent) :
 //    connect(ui->searchUser_LineEdit,&QLineEdit::textEdited,[this](const QString text){
 //        qDebug()<<"textEdited"<<text;
 //    });
+
+    m_slectUserDialog = new SelectUserDialog();
 }
 
 void UserManager::editComplete()
@@ -54,6 +58,8 @@ UserManager::~UserManager()
         delete m_userDialog;
     if(m_completer)
         delete m_completer;
+    if(m_slectUserDialog)
+        delete m_slectUserDialog;
     delete ui;
 }
 
@@ -72,7 +78,7 @@ void UserManager::initUserTableWidget()
     ui->user_TableWidget->setColumnWidth(1,90);
     ui->user_TableWidget->setColumnWidth(2,240);
 
-    ui->user_TableWidget->setFont(QFont("黑体",18));
+    ui->user_TableWidget->setFont(QFont("黑体",15));
 
     for(int i = 0;i < 100;i++)
     ui->user_TableWidget->setRowHeight(i,68);
@@ -212,9 +218,17 @@ void UserManager::on_selectUser_Btn_clicked()
         if(CDatabaseInterface::getInstance()->getValuesSize() > 0)
         {
             QVariantMap userMap = CDatabaseInterface::getInstance()->getValues(0,1).at(0);
+            ST_PatientMsg st_patientMsg = variantMapToPatientMsg(userMap);
+
+            m_slectUserDialog->setUserMsg(st_patientMsg);
+            m_slectUserDialog->show();
+            m_slectUserDialog->exec();
             //设置当前用户
-            CurrentUserData::getInstace()->setCurrentUserMsg(variantMapToPatientMsg(userMap));
+            if(m_slectUserDialog->isSelectUser())
+                CurrentUserData::getInstace()->setCurrentUserMsg(st_patientMsg);
         }
+        else
+            QMessageBox::warning(NULL,tr("提示"),tr("未查到该用户信息"));
     }
 }
 

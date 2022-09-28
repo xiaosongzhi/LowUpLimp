@@ -6,6 +6,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 #指定UI文件生成的位置
 UI_DIR = ./UI
 
+MOC_DIR = tmp/moc
+
+OBJECTS_DIR = tmp/obj
+
+RCC_DIR = tmp/rcc
+
 CONFIG += c++17
 
 static{

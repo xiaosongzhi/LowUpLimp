@@ -2,7 +2,7 @@
 #define ARMORLEG_H
 
 #include <QWidget>
-
+class AdvancedDialog;
 namespace Ui {
 class ArmOrLeg;
 }
@@ -15,6 +15,10 @@ public:
     explicit ArmOrLeg(QWidget *parent = nullptr);
     ~ArmOrLeg();
 
+    /*****设置训练类型****
+     * 参数@int8_t type 0-单踏车 1-FES踏车
+     * *****/
+    void setTrainType(int8_t type);
 private slots:
     void on_upDownLimp_RadioButton_toggled(bool checked);
 
@@ -24,8 +28,11 @@ private slots:
 
     void on_downAdvanced2_Btn_clicked();
 
+    void on_next_Btn_clicked();
+
 private:
     Ui::ArmOrLeg *ui;
+    AdvancedDialog *m_advanceDialog;
 };
 
 #endif // ARMORLEG_H

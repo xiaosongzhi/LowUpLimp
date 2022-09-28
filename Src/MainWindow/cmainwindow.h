@@ -30,42 +30,14 @@ public slots:
     void slotSwitchPage(E_PAGENAME);
 private slots:
 
-    void on_advanced_Btn_clicked();
-
-    void on_trainPage_Btn_clicked();
-
-    void on_jipian_Btn_clicked();
-
-    void on_spasm_Btn_clicked();
-
-    void on_emergency_Btn_clicked();
-
-    void on_channel_Btn_clicked();
-
-    void on_allParam_Btn_clicked();
-
     void on_login_Btn_clicked();
 
-    void on_select_clicked();
-
-    void on_delete_2_clicked();
-
-    void on_new_2_clicked();
-
+    void slotCurrentUserChanged();
 private:
     void switchPage(E_PAGENAME);
 private:
     Ui::CMainWindow *ui;
-    AdvancedDialog *advancedDialog;
-    ChannelDialog *channelDialog;
-    DeleteUserDialog *deleteUserDialog;
-    EmergencyStopDialog *emergencyDialog;
-    FesTipsDialog *fesTipsDialog;
-    FesTotalParamDialog *fesTotalParamDialog;
-    SelectUserDialog *selectUserDialog;
-    SpasmTipsDialog *spasmTipsDialog;
-    UserDialog *userDialog;
-    GameDisplayPage *gameDiplayPage;
+
     LoginWidget *loginDialog;
 
 };

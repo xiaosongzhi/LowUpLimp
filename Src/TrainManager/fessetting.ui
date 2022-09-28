@@ -156,11 +156,22 @@ color:white;}</string>
   <widget class="QPushButton" name="OK_Btn">
    <property name="geometry">
     <rect>
-     <x>1740</x>
-     <y>1060</y>
-     <width>101</width>
-     <height>41</height>
+     <x>1710</x>
+     <y>1040</y>
+     <width>160</width>
+     <height>70</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: #05A6EC;
+border-radius: 4px;
+color:white;</string>
    </property>
    <property name="text">
     <string>完成</string>
@@ -377,6 +388,23 @@ border: 1px solid #05A6EC;}</string>
     </widget>
    </widget>
   </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox{background:white;}</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+  </widget>
+  <zorder>groupBox</zorder>
   <zorder>stackedWidget</zorder>
   <zorder>FESA_Btn</zorder>
   <zorder>FESB_Btn</zorder>

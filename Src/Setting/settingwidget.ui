@@ -327,6 +327,11 @@ border: 1px solid #979797;}</string>
         <height>30</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+       </font>
+      </property>
       <property name="text">
        <string>已连接</string>
       </property>
@@ -711,7 +716,7 @@ color:#009EE4;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">#groupBox_9{border-radius: 4px;
-border: 1px solid #979797;}</string>
+border: 1px solid #979797;background:white;}</string>
       </property>
       <property name="title">
        <string/>
@@ -750,7 +755,7 @@ border: 1px solid #979797;}</string>
       </property>
       <property name="styleSheet">
        <string notr="true">#groupBox_10{border-radius: 4px;
-border: 1px solid #979797;}</string>
+border: 1px solid #979797;background:white;}</string>
       </property>
       <property name="title">
        <string/>
@@ -789,7 +794,7 @@ border: 1px solid #979797;}</string>
       </property>
       <property name="styleSheet">
        <string notr="true">#groupBox_11{border-radius: 4px;
-border: 1px solid #979797;}</string>
+border: 1px solid #979797;background:white;}</string>
       </property>
       <property name="title">
        <string/>
@@ -904,8 +909,8 @@ border-radius: 10px;}</string>
        <rect>
         <x>100</x>
         <y>120</y>
-        <width>341</width>
-        <height>391</height>
+        <width>401</width>
+        <height>491</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -945,8 +950,8 @@ hr { height: 1px; border-width: 0; }
        <rect>
         <x>580</x>
         <y>120</y>
-        <width>331</width>
-        <height>391</height>
+        <width>441</width>
+        <height>491</height>
        </rect>
       </property>
       <property name="font">
@@ -972,6 +977,27 @@ hr { height: 1px; border-width: 0; }
     </widget>
    </widget>
   </widget>
+  <widget class="QGroupBox" name="groupBox_12">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox_12{background:white;}</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+  </widget>
+  <zorder>groupBox_12</zorder>
+  <zorder>systemSetting_Btn</zorder>
+  <zorder>secretManage_Btn</zorder>
+  <zorder>productMsg_Btn</zorder>
+  <zorder>stackedWidget</zorder>
  </widget>
  <resources/>
  <connections/>

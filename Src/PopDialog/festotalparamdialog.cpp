@@ -7,6 +7,8 @@ FesTotalParamDialog::FesTotalParamDialog(QWidget *parent) :
     m_value(0)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
+    setAttribute(Qt::WA_TranslucentBackground,true);    //设置透明
 }
 
 FesTotalParamDialog::~FesTotalParamDialog()

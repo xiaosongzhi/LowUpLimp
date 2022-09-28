@@ -2,7 +2,7 @@
 #define SELECTUSERDIALOG_H
 
 #include <QDialog>
-
+#include "dbforrmate.h"
 namespace Ui {
 class SelectUserDialog;
 }
@@ -14,6 +14,10 @@ class SelectUserDialog : public QDialog
 public:
     explicit SelectUserDialog(QWidget *parent = nullptr);
     ~SelectUserDialog();
+
+    void setUserMsg(const ST_PatientMsg&);
+
+    bool isSelectUser();
 protected:
     void paintEvent(QPaintEvent *event);
 private slots:
@@ -23,6 +27,7 @@ private slots:
 
 private:
     Ui::SelectUserDialog *ui;
+    bool isSelectedUser;
 };
 
 #endif // SELECTUSERDIALOG_H

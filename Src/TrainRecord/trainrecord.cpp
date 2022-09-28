@@ -182,7 +182,7 @@ void TrainRecord::initTrainRecordTable()
         ui->trainRecord_TableWidget->setRowHeight(i,90);
     }
 
-    ui->trainRecord_TableWidget->setFont(QFont("黑体",20));
+    ui->trainRecord_TableWidget->setFont(QFont("黑体",15));
 
     ui->trainRecord_TableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     //设置整行选中
@@ -371,7 +371,7 @@ void TrainRecord::updateBottomSetting(int num)
 //生成数据
 void TrainRecord::on_createData_Btn_clicked()
 {
-    int createNum = ui->createNum_LineEdit->text().toInt();
+    int createNum = 10/*ui->createNum_LineEdit->text().toInt()*/;
     //为当前每个ID生成五条数据
     QString queryStr(QString("select * from PatientTable order by ID DESC"));
 

@@ -92,7 +92,10 @@ void FesSetting::initWidget()
 
 void FesSetting::slotChannelWidgetClicked(int id)
 {
-    m_ChannelDialog->setTitle(QString(tr("通道%1").arg(id)));
+    int channel = id;
+    if(channel > 8)
+        channel-=8;
+    m_ChannelDialog->setTitle(QString(tr("通道%1").arg(channel)));
     m_ChannelDialog->setMuscleState(FESABoxList);
     m_ChannelDialog->show();
     m_ChannelDialog->exec();

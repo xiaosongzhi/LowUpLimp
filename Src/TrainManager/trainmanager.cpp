@@ -1,6 +1,7 @@
 #include "trainmanager.h"
 #include "ui_trainmanager.h"
 #include "mainwindowpagecontrol.h"
+#include <QDebug>
 TrainManager::TrainManager(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::TrainManager)
@@ -18,10 +19,10 @@ void TrainManager::on_bicycleTrain_Btn_clicked()
     MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
 }
 
-
 void TrainManager::on_fesBicycleTrain_Btn_clicked()
 {
-    //先踏车设置 后Fes设置
+    qDebug()<<"fesBicycle";
+    //先踏车设置 后FES
     MainWindowPageControl::getInstance()->setCurrentPage(FesBicycleParamSet_E);
 }
 

@@ -10,7 +10,9 @@ class MainWindowPageControl : public QObject
 public:
     static MainWindowPageControl* getInstance();
 
-    //设置当前页面
+    /****设置当前页面****
+     * @int pageIndex 目标页面
+     * *************/
     void setCurrentPage(int pageIndex);
 
     //各个模块是否解锁
