@@ -1,5 +1,6 @@
 #include "gamedisplaypage.h"
 #include "ui_gamedisplaypage.h"
+#include "mainwindowpagecontrol.h"
 #include <QPropertyAnimation>
 #include <QButtonGroup>
 #include <QDebug>
@@ -213,6 +214,8 @@ void GameDisplayPage::on_stop_Btn_clicked()
     ui->start_Btn->setVisible(true);
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
+
+    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
 }
 
 

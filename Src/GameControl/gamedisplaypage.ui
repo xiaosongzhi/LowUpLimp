@@ -326,6 +326,7 @@ border: 1px solid #05A6EC;}</string>
         </property>
         <property name="font">
          <font>
+          <family>黑体</family>
           <pointsize>12</pointsize>
          </font>
         </property>
@@ -844,6 +845,7 @@ border: 1px solid #05A6EC;}
         </property>
         <property name="font">
          <font>
+          <family>黑体</family>
           <pointsize>12</pointsize>
          </font>
         </property>
@@ -1499,7 +1501,7 @@ border: 1px solid #05A6EC;}</string>
          </font>
         </property>
         <property name="text">
-         <string>500</string>
+         <string>10</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1608,7 +1610,7 @@ border: 1px solid #05A6EC;}</string>
          </font>
         </property>
         <property name="text">
-         <string>500</string>
+         <string>10</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
