@@ -6,6 +6,7 @@
 #include <QCompleter>
 #include <QStringListModel>
 class SelectUserDialog;
+class DeleteUserDialog;
 namespace Ui {
 class UserManager;
 }
@@ -52,6 +53,7 @@ private:
     QStringListModel stringListModel;
     QStringList wordList;       //自动补全文字集
     SelectUserDialog *m_slectUserDialog;
+    DeleteUserDialog *m_deleteUserDialog;
 };
 
 #endif // USERMANAGER_H

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1920</width>
-    <height>1080</height>
+    <height>1280</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -236,6 +236,7 @@ QComboBox QAbstractItemView::item:selected{
     </property>
     <property name="font">
      <font>
+      <family>黑体</family>
       <pointsize>15</pointsize>
      </font>
     </property>

@@ -7,12 +7,14 @@
 #include <QMessageBox>
 #include "currentuserdata.h"
 #include "selectuserdialog.h"
+#include "deleteuserdialog.h"
 UserManager::UserManager(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::UserManager),
     m_userDialog(nullptr),
     m_completer(nullptr),
-    m_slectUserDialog(nullptr)
+    m_slectUserDialog(nullptr),
+    m_deleteUserDialog(nullptr)
 {
     ui->setupUi(this);
     m_userDialog = new UserDialog();
@@ -42,6 +44,7 @@ UserManager::UserManager(QWidget *parent) :
 //    });
 
     m_slectUserDialog = new SelectUserDialog();
+    m_deleteUserDialog = new DeleteUserDialog();
 }
 
 void UserManager::editComplete()
@@ -60,6 +63,8 @@ UserManager::~UserManager()
         delete m_completer;
     if(m_slectUserDialog)
         delete m_slectUserDialog;
+    if(m_deleteUserDialog)
+        delete m_deleteUserDialog;
     delete ui;
 }
 
@@ -241,6 +246,17 @@ void UserManager::on_EditUser_Btn_clicked()
 
 void UserManager::on_deleteUser_Btn_clicked()
 {
+    m_deleteUserDialog->show();
+    m_deleteUserDialog->exec();
+    if(m_deleteUserDialog->isDeletedUser())
+    {
+        if(!CDatabaseInterface::getInstance()->deleteRowTable("PatientTable","ID",QString::number(m_currentUserId)))
+            qDebug()<<"delete user failed"<<CDatabaseInterface::getInstance()->getLastError();
+        updateUserTableWidget();
+    }
+    else
+        return;
+    /**********之前的删除方式，可以同时删除多个用户**********
     QList<int> deleteIndexList;
     int deleteUserNum = 0;
     for(int i = 0;i <m_currentRows;++i)
@@ -258,7 +274,7 @@ void UserManager::on_deleteUser_Btn_clicked()
     }
     if(deleteUserNum > 0)
         QMessageBox::information(NULL,tr("提示"),tr("删除成功"));
-    updateUserTableWidget();
+    ***************/
 }
 
 

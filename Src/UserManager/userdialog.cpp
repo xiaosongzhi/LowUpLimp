@@ -94,6 +94,7 @@ void UserDialog::setEditUserType(int ID)
             ui->textEdit->setText(st_PatientMsg.markMsg);
             ui->phone_LineEdit->setText(st_PatientMsg.phone);
             ui->dateEdit->setDate(st_PatientMsg.birthday);
+            ui->ID_LineEdit->setText(QString::number(st_PatientMsg.ID));
         }
         else
         {
