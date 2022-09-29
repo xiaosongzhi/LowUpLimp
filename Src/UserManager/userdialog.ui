@@ -29,6 +29,9 @@ border-radius: 32px;}</string>
    <property name="title">
     <string/>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
    <widget class="QLabel" name="title_Label">
     <property name="geometry">
      <rect>
@@ -216,7 +219,7 @@ QComboBox QAbstractItemView::item:selected{
     </property>
     <item>
      <property name="text">
-      <string>    男</string>
+      <string>   男</string>
      </property>
     </item>
     <item>
@@ -242,17 +245,17 @@ QComboBox QAbstractItemView::item:selected{
     </property>
     <item>
      <property name="text">
-      <string>   上肢</string>
+      <string>  上肢</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>   下肢</string>
+      <string>  下肢</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>   上下肢</string>
+      <string>  上下肢</string>
      </property>
     </item>
    </widget>

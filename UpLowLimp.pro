@@ -14,10 +14,10 @@ RCC_DIR = tmp/rcc
 
 CONFIG += c++17
 
-static{
-QTPLUGIN += qtvirtualkeyboardplugin
-QT += svg
-}
+#static{
+#QTPLUGIN += qtvirtualkeyboardplugin
+#QT += svg
+#}
 #QMAKE_MSC_VER = 2015
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
