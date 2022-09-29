@@ -191,7 +191,7 @@ color:white;</string>
    <property name="currentIndex">
     <number>1</number>
    </property>
-   <widget class="QWidget" name="page">
+   <widget class="QWidget" name="ABox_Page">
     <widget class="QGroupBox" name="groupBox_7">
      <property name="geometry">
       <rect>
@@ -290,7 +290,7 @@ border: 1px solid #05A6EC;}</string>
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="page_2">
+   <widget class="QWidget" name="BBox_Page">
     <widget class="QGroupBox" name="groupBox_8">
      <property name="geometry">
       <rect>

@@ -59,7 +59,6 @@
    </property>
    <property name="styleSheet">
     <string notr="true">#groupBox{background: #E4F4FC;
-box-shadow: 0px 2px 4px 0px #699AB2;
 border-radius: 6px;}</string>
    </property>
    <property name="title">
@@ -134,14 +133,15 @@ border-radius: 6px;}</string>
    <widget class="QLabel" name="muscle_Label">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>50</y>
+      <x>221</x>
+      <y>46</y>
       <width>131</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>黑体</family>
       <pointsize>15</pointsize>
      </font>
     </property>
@@ -150,6 +150,9 @@ border-radius: 6px;}</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -177,7 +180,7 @@ border-radius: 6px;}</string>
    <widget class="QLabel" name="channel_Label">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>10</x>
       <y>29</y>
       <width>111</width>
       <height>60</height>
@@ -195,6 +198,9 @@ border-radius: 6px;}</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -244,7 +250,7 @@ border-radius: 6px;}</string>
    <widget class="QLabel" name="connectState_Label">
     <property name="geometry">
      <rect>
-      <x>159</x>
+      <x>130</x>
       <y>43</y>
       <width>41</width>
       <height>41</height>
@@ -260,11 +266,14 @@ border-radius: 6px;}</string>
    <widget class="QLabel" name="Image_Label">
     <property name="geometry">
      <rect>
-      <x>379</x>
-      <y>54</y>
+      <x>360</x>
+      <y>50</y>
       <width>32</width>
       <height>32</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>

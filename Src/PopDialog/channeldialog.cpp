@@ -11,6 +11,7 @@ ChannelDialog::ChannelDialog(QWidget *parent) :
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
     setAttribute(Qt::WA_TranslucentBackground,true);    //设置透明
     initWidget();
+    st_MuscleParam.connectState = true;
 }
 
 ChannelDialog::~ChannelDialog()
@@ -66,6 +67,12 @@ void ChannelDialog::initWidget()
 void ChannelDialog::setTitle(QString title)
 {
     ui->channelName_Label->setText(title);
+//    foreach(QAbstractButton *button,m_buttonGroup->buttons())
+//    {
+//        button->setChecked(false);
+//        qDebug()<<"hello";
+//    }
+
 }
 
 ST_MuscleParam ChannelDialog::getValue()
@@ -196,6 +203,15 @@ void ChannelDialog::on_switch_Btn_clicked()
 
 void ChannelDialog::setMuscleState(QList<bool> muscleStateList)
 {
+    for(int i = 0;i < muscleStateList.size();i++)
+    {
+        if(muscleStateList.at(i))
+        {
+            m_buttonGroup->button(i+1)->setChecked(true);
+            break;
+        }
+    }
+
     foreach(QAbstractButton *button,m_buttonGroup->buttons())
     {
         QPushButton* pushButton = dynamic_cast<QPushButton*>(button);
@@ -210,3 +226,6 @@ void ChannelDialog::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.fillRect(rect(),QColor(0,0,0,100));
 }
+
+
+

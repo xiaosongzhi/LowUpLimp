@@ -14,6 +14,9 @@ FesSetting::FesSetting(QWidget *parent) :
 
     for(int i  = 0;i < 30;i++)
         FESABoxList<<true;
+
+    //默认显示A电刺激盒
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 FesSetting::~FesSetting()
@@ -84,7 +87,7 @@ void FesSetting::initWidget()
     QButtonGroup *buttonGroup = new QButtonGroup();
     buttonGroup->addButton(ui->FESA_Btn);
     buttonGroup->addButton(ui->FESB_Btn);
-//    buttonGroup->setExclusive(true);
+    //    buttonGroup->setExclusive(true);
 
     m_FesTotalParamDialog = new FesTotalParamDialog();
     m_ChannelDialog = new ChannelDialog();
@@ -97,19 +100,20 @@ void FesSetting::slotChannelWidgetClicked(int id)
         channel-=8;
     m_ChannelDialog->setTitle(QString(tr("通道%1").arg(channel)));
     m_ChannelDialog->setMuscleState(FESABoxList);
+    //显示通道对话框
     m_ChannelDialog->show();
     m_ChannelDialog->exec();
     ST_MuscleParam st_MuscleParam = m_ChannelDialog->getValue();
 
-    //根据状态设置按钮的状态
-    if(st_MuscleParam.connectState)
-    {
 
-    }
+
     FESABoxList[st_MuscleParam.muscleId-1] = false;
-
     MuscleButton* muscleChannel = dynamic_cast<MuscleButton*>(channelList.at(id-1));
     muscleChannel->setMuscleParamButton(st_MuscleParam);
+
+    //根据状态设置按钮的状态
+    muscleChannel->setMuscleEnabled(st_MuscleParam.connectState);
+
 }
 
 void FesSetting::slotTrainTimeBtnClicked()

@@ -16,6 +16,9 @@ SettingWidget::SettingWidget(QWidget *parent) :
     m_buttonGroup->addButton(ui->systemSetting_Btn);
     m_buttonGroup->addButton(ui->secretManage_Btn);
     m_buttonGroup->addButton(ui->productMsg_Btn);
+
+    ui->originalPasswordTips_Label->setVisible(false);
+    ui->confirmPasswordTips_Label->setVisible(false);
 }
 
 SettingWidget::~SettingWidget()
@@ -30,13 +33,13 @@ void SettingWidget::on_FESA_Btn_clicked()
 {
     if(ui->FESA_Btn->text() == tr("启用"))
     {
-        ui->FESAState_Label->setText(tr("断开"));
+        ui->FESA_Btn->setText(tr("断开"));
         ui->FESAState_Label->setText(tr("已连接"));
     }
     else if(ui->FESA_Btn->text() == tr("断开"))
     {
         ui->FESA_Btn->setText(tr("启用"));
-        ui->FESAState_Label->setText(tr("已断开"));
+        ui->FESAState_Label->setText(tr("未连接"));
     }
 }
 
@@ -59,13 +62,14 @@ void SettingWidget::on_FESB_Btn_clicked()
 {
     if(ui->FESB_Btn->text() == tr("启用"))
     {
-        ui->FESBState_Label->setText(tr("断开"));
+
         ui->FESBState_Label->setText(tr("已连接"));
+        ui->FESB_Btn->setText(tr("断开"));
     }
     else if(ui->FESB_Btn->text() == tr("断开"))
     {
         ui->FESB_Btn->setText(tr("启用"));
-        ui->FESBState_Label->setText(tr("已断开"));
+        ui->FESBState_Label->setText(tr("未连接"));
     }
 }
 
@@ -136,5 +140,17 @@ void SettingWidget::on_savePassword_Btn_clicked()
     }
 
     iniSetting.setValue("password",password);
+}
+
+
+void SettingWidget::on_CH_RadioButton_clicked()
+{
+
+}
+
+
+void SettingWidget::on_EN_RadioButton_clicked()
+{
+
 }
 
