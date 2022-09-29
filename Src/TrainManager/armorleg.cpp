@@ -67,6 +67,6 @@ void ArmOrLeg::on_downAdvanced2_Btn_clicked()
 
 void ArmOrLeg::on_next_Btn_clicked()
 {
-    MainWindowPageControl::getInstance()->setCurrentPage(FesParamSet_E);
+    MainWindowPageControl::getInstance()->setCurrentPage(BicycleToFes_E);
 }
 

@@ -52,6 +52,9 @@ void TitleWidget::slotBackClicked()
         }
     }
         break;
+    case BicycleToFes_E:
+        MainWindowPageControl::getInstance()->setCurrentPage(FesBicycleParamSet_E);
+        break;
     }
 }
 //设置当前用户
@@ -104,6 +107,7 @@ void TitleWidget::setTitleByPage(E_PAGENAME pageType)
 
 void TitleWidget::setTrainType(int8_t type)
 {
+    qDebug()<<"setTrainType"<<type;
     m_trainType = type;
 }
 

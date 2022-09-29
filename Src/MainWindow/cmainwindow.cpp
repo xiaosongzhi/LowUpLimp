@@ -21,6 +21,7 @@ CMainWindow::~CMainWindow()
 
 void CMainWindow::switchPage(E_PAGENAME E_Page)
 {
+    qDebug()<<"E_Page"<<E_Page;
     switch(E_Page)
     {
     case MainPage_E:
@@ -45,6 +46,9 @@ void CMainWindow::switchPage(E_PAGENAME E_Page)
         break;
     case FesParamSet_E:
         ui->title_Widget->setTrainType(0);
+        ui->stackedWidget->setCurrentWidget(ui->FES_Page);
+        break;
+    case BicycleToFes_E:
         ui->stackedWidget->setCurrentWidget(ui->FES_Page);
         break;
     default:

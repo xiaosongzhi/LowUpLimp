@@ -33,7 +33,8 @@ typedef enum
     SettingPage_E,              //设置界面
     BicycleParamSet_E,          //踏车参数设置界面
     FesParamSet_E,              //fes设置界面
-    FesBicycleParamSet_E        //FesT踏车设置界面
+    FesBicycleParamSet_E,       //FesT踏车设置界面
+    BicycleToFes_E              //从踏车界面到FES界面
 }E_PAGENAME;
 
 typedef enum
