@@ -69,5 +69,6 @@
         <file>DependFile/Source/signal/wifi1.png</file>
         <file>DependFile/Source/signal/back.png</file>
         <file>DependFile/Source/User/user1.png</file>
+        <file>DependFile/Source/dialog/close.png</file>
     </qresource>
 </RCC>

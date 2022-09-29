@@ -21,7 +21,8 @@ public:
     ST_TrainReport getReportDataByStartTime(QString startTimeStr);
 
     bool deleteReportByStartTime(QString startTimeStr);
-
+protected:
+    void paintEvent(QPaintEvent *event);
 private:
     /***将图片导出到pdf**
      * @const QPixmap &pixmap  要保存的图片

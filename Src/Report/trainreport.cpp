@@ -12,6 +12,8 @@ TrainReport::TrainReport(QWidget *parent) :
     ui(new Ui::TrainReport)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
+    setAttribute(Qt::WA_TranslucentBackground,true);    //设置透明
 }
 
 TrainReport::~TrainReport()
@@ -152,3 +154,9 @@ void TrainReport::on_import_Btn_clicked()
     pixmapImportPDF(ui->groupBox->grab(),fileName);
 }
 
+void TrainReport::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event)
+    QPainter painter(this);
+    painter.fillRect(rect(),QColor(0,0,0,100));
+}
