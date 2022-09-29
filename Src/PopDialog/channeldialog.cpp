@@ -203,15 +203,19 @@ void ChannelDialog::on_switch_Btn_clicked()
 
 void ChannelDialog::setMuscleState(QList<bool> muscleStateList)
 {
+    //为了防止肌肉重复选择
     for(int i = 0;i < muscleStateList.size();i++)
     {
         if(muscleStateList.at(i))
         {
             m_buttonGroup->button(i+1)->setChecked(true);
+            slotButtonClicked(i+1);
+            slotButtonClicked(m_buttonGroup->button(i+1));
             break;
         }
     }
 
+    //已选择的肌肉设置为不可用
     foreach(QAbstractButton *button,m_buttonGroup->buttons())
     {
         QPushButton* pushButton = dynamic_cast<QPushButton*>(button);

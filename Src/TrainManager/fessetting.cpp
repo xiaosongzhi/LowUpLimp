@@ -94,6 +94,12 @@ void FesSetting::initWidget()
     m_ChannelDialog = new ChannelDialog();
 }
 
+
+void FesSetting::setChannelState()
+{
+
+}
+
 void FesSetting::slotChannelWidgetClicked(int id)
 {
     int channel = id;

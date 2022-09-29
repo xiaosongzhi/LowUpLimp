@@ -23,7 +23,6 @@ TrainReport::~TrainReport()
 
 void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
 {
-
     ui->save_Btn->setVisible(type);
     ui->noSave_Btn->setVisible(type);
 
@@ -48,7 +47,6 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
     }
 
     ui->reportDate_Label->setText(st_trainReport.startTimeStr);
-
     ui->body_Label->setText(bodyStr);
     ui->msg_Label->setText(st_trainReport.markMsg);
 

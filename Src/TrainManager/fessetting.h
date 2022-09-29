@@ -17,6 +17,8 @@ public:
     ~FesSetting();
 
     void initWidget();
+    //根据刺激盒的反馈来设置通道状态
+    void setChannelState();
 private slots:
     void slotTrainTimeBtnClicked();
 

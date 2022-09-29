@@ -2687,6 +2687,29 @@ border: 1px solid #05A6EC;}</string>
     <string/>
    </property>
   </widget>
+  <widget class="QGroupBox" name="groupBox_18">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#groupBox_18{border-image: url(:/DependFile/Source/gamePage/gameBack.png);}</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+  </widget>
+  <zorder>groupBox_18</zorder>
+  <zorder>groupBox</zorder>
+  <zorder>leftPage_GroupBox</zorder>
+  <zorder>rightPage_GroupBox</zorder>
+  <zorder>start_Btn</zorder>
+  <zorder>stop_Btn</zorder>
+  <zorder>pause_Btn</zorder>
  </widget>
  <resources/>
  <connections/>

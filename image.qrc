@@ -70,5 +70,6 @@
         <file>DependFile/Source/signal/back.png</file>
         <file>DependFile/Source/User/user1.png</file>
         <file>DependFile/Source/dialog/close.png</file>
+        <file>DependFile/Source/gamePage/gameBack.png</file>
     </qresource>
 </RCC>

@@ -39,7 +39,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>5</number>
    </property>
    <widget class="TrainManager" name="Main_Page"/>
    <widget class="ArmOrLeg" name="FESCar_Page"/>
