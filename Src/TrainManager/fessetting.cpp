@@ -1,8 +1,9 @@
 #include "fessetting.h"
 #include "ui_fessetting.h"
-#include <QDebug>
 #include "festotalparamdialog.h"
 #include "channeldialog.h"
+#include "mainwindowpagecontrol.h"
+#include <QDebug>
 FesSetting::FesSetting(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FesSetting),
@@ -105,8 +106,6 @@ void FesSetting::slotChannelWidgetClicked(int id)
     m_ChannelDialog->exec();
     ST_MuscleParam st_MuscleParam = m_ChannelDialog->getValue();
 
-
-
     FESABoxList[st_MuscleParam.muscleId-1] = false;
     MuscleButton* muscleChannel = dynamic_cast<MuscleButton*>(channelList.at(id-1));
     muscleChannel->setMuscleParamButton(st_MuscleParam);
@@ -191,3 +190,10 @@ void FesSetting::on_FESB_Btn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
+
+//从该界面启动游戏
+void FesSetting::on_OK_Btn_clicked()
+{
+    MainWindowPageControl::getInstance()->setCurrentPage(TrainingPage_E);
+}
+

@@ -30,6 +30,8 @@ private slots:
 
     void on_next_Btn_clicked();
 
+    void on_confirm_Btn_clicked();
+
 private:
     Ui::ArmOrLeg *ui;
     AdvancedDialog *m_advanceDialog;

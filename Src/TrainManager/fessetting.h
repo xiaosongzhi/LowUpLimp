@@ -36,6 +36,8 @@ private slots:
 
     void on_FESB_Btn_clicked();
 
+    void on_OK_Btn_clicked();
+
 private:
     Ui::FesSetting *ui;
     FesTotalParamDialog *m_FesTotalParamDialog;

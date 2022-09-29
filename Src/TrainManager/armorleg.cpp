@@ -70,3 +70,9 @@ void ArmOrLeg::on_next_Btn_clicked()
     MainWindowPageControl::getInstance()->setCurrentPage(BicycleToFes_E);
 }
 
+
+void ArmOrLeg::on_confirm_Btn_clicked()
+{
+    MainWindowPageControl::getInstance()->setCurrentPage(TrainingPage_E);
+}
+
