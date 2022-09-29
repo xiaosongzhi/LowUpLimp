@@ -14,6 +14,8 @@ class DeleteUserDialog : public QDialog
 public:
     explicit DeleteUserDialog(QWidget *parent = nullptr);
     ~DeleteUserDialog();
+
+    bool isDeletedUser();
 protected:
     void paintEvent(QPaintEvent *event);
 private slots:
@@ -23,6 +25,7 @@ private slots:
 
 private:
     Ui::DeleteUserDialog *ui;
+    bool m_isdeleted;
 };
 
 #endif // DELETEUSERDIALOG_H
