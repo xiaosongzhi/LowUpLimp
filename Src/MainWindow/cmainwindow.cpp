@@ -12,6 +12,8 @@ CMainWindow::CMainWindow(QWidget *parent) :
     qRegisterMetaType<E_PAGENAME>("E_PAGENAME");
     connect(MainWindowPageControl::getInstance(),SIGNAL(signalSwitchPage(E_PAGENAME)),this,SLOT(slotSwitchPage(E_PAGENAME)));
     connect(CurrentUserData::getInstace(),SIGNAL(signalUserChanged()),this,SLOT(slotCurrentUserChanged()));
+    //默认为主界面
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 CMainWindow::~CMainWindow()
@@ -21,13 +23,13 @@ CMainWindow::~CMainWindow()
 
 void CMainWindow::switchPage(E_PAGENAME E_Page)
 {
-    qDebug()<<"E_Page"<<E_Page;
     switch(E_Page)
     {
     case MainPage_E:
         ui->stackedWidget->setCurrentWidget(ui->Main_Page);
         break;
     case TrainingPage_E://游戏训练界面
+        ui->stackedWidget->setCurrentWidget(ui->game_Page);
         break;
     case UserPage_E:
         ui->stackedWidget->setCurrentWidget(ui->userMsg_Page);

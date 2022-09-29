@@ -46,6 +46,7 @@
    <widget class="FesSetting" name="FES_Page"/>
    <widget class="SettingWidget" name="setting_Page"/>
    <widget class="UserManager" name="userMsg_Page"/>
+   <widget class="GameDisplayPage" name="game_Page"/>
   </widget>
  </widget>
  <customwidgets>
@@ -83,6 +84,12 @@
    <class>ArmOrLeg</class>
    <extends>QWidget</extends>
    <header>armorleg.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GameDisplayPage</class>
+   <extends>QWidget</extends>
+   <header>gamedisplaypage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

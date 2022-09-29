@@ -101,6 +101,8 @@ void TitleWidget::setTitleByPage(E_PAGENAME pageType)
         setBackBtnVisible(true);
         title = tr("踏车参数");
         break;
+    default:
+        break;
     }
     ui->title_Label->setText(title);
 }
