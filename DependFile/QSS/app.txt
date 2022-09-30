@@ -1,0 +1,56 @@
+/**********首先指定是水平还是竖直*不添加此代码，下方不起作用******/
+QSlider::groove:horizontal {
+border: 0px solid #bbb;
+}
+/*1.滑动过的槽设计参数*/
+QSlider::sub-page:horizontal {
+ /*槽颜色*/
+background: #05F6CC;
+ /*外环区域倒圆角度*/
+border-radius: 4px;
+ /*上遮住区域高度*/
+margin-top:14px;
+ /*下遮住区域高度*/
+margin-bottom:14px;
+/*width在这里无效，不写即可*/
+/*****/
+margin-left:8px;
+
+}
+
+/*2.未滑动过的槽设计参数*/
+QSlider::add-page:horizontal {
+/*槽颜色*/
+background: #ECEBEB;
+/*外环大小0px就是不显示，默认也是0*/
+border: 0px solid #777;
+/*外环区域倒圆角度*/
+border-radius: 4px;
+ /*上遮住区域高度*/
+margin-top:14px;
+ /*下遮住区域高度*/
+margin-bottom:14px;
+
+margin-right:8px;
+}
+
+/********使用图片填充滑块效果***********/
+QSlider::handle:horizontal {
+width: 43px;
+background:transparent;
+background-image: url(:/DependFile/Source/channel/slder.png);
+margin: -0px -0px -0px -0px;
+}
+
+/********radioButton效果***********/
+QRadioButton::indicator:unchecked{
+image: url(:/DependFile/Source/radioButton/normal.png);
+width:20;
+height:20;
+}
+
+QRadioButton::indicator:checked{
+image: url(:/DependFile/Source/radioButton/checked.png);
+width:20;
+height:20;
+}
