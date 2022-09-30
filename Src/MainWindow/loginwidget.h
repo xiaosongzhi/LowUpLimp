@@ -2,6 +2,7 @@
 #define LOGINWIDGET_H
 
 #include <QDialog>
+class PasswordDialog;
 namespace Ui {
 class LoginWidget;
 }
@@ -20,8 +21,13 @@ private slots:
 
     void on_confirm_Btn_clicked();
 
+    void on_userName_LineEdit_textChanged(const QString &arg1);
+
+    void on_password_LineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::LoginWidget *ui;
+    PasswordDialog *passworldDialog;
 };
 
 #endif // LOGINWIDGET_H
