@@ -5,7 +5,7 @@ border: 0px solid #bbb;
 /*1.滑动过的槽设计参数*/
 QSlider::sub-page:horizontal {
  /*槽颜色*/
-background: #05F6CC;
+background:#05A6EC;
  /*外环区域倒圆角度*/
 border-radius: 4px;
  /*上遮住区域高度*/
