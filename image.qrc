@@ -71,5 +71,7 @@
         <file>DependFile/Source/User/user1.png</file>
         <file>DependFile/Source/dialog/close.png</file>
         <file>DependFile/Source/gamePage/gameBack.png</file>
+        <file>DependFile/Source/signal/wifi2.png</file>
+        <file>DependFile/Source/signal/wifi3.png</file>
     </qresource>
 </RCC>

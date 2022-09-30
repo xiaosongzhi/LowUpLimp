@@ -47,6 +47,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string>上肢</string>
     </property>
@@ -121,7 +124,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="armOrLeg_Page">
     <widget class="QGroupBox" name="groupBox_10">
@@ -919,7 +922,7 @@ color:#00A6F5;</string>
        <x>0</x>
        <y>0</y>
        <width>1920</width>
-       <height>771</height>
+       <height>791</height>
       </rect>
      </property>
      <property name="styleSheet">

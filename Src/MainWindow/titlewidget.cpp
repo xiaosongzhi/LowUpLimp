@@ -1,11 +1,14 @@
 #include "titlewidget.h"
 #include "ui_titlewidget.h"
 #include <QPixmap>
+#include <windows.h>
+#include <wlanapi.h>
 #include "mainwindowpagecontrol.h"
 #include <QDebug>
 TitleWidget::TitleWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::TitleWidget)
+    ui(new Ui::TitleWidget),
+    checkTimer(nullptr)
 {
     ui->setupUi(this);
     connect(ui->back1_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
@@ -15,6 +18,11 @@ TitleWidget::TitleWidget(QWidget *parent) :
     ui->user_Btn->setIconSize(QSize(40,40));
 
     setBackBtnVisible(false);
+
+    checkTimer = new QTimer();
+    checkTimer->setInterval(3000);
+    connect(checkTimer,SIGNAL(timeout()),this,SLOT(slotCheckTimer()));
+    checkTimer->start();
 
 }
 
@@ -116,6 +124,92 @@ void TitleWidget::setTrainType(int8_t type)
 void TitleWidget::on_user_Btn_clicked()
 {
     MainWindowPageControl::getInstance()->setCurrentPage(UserPage_E);
+}
+
+void TitleWidget::slotCheckTimer()
+{
+    showWIFI();
+}
+
+void TitleWidget::showWIFI()
+{
+    DWORD dwError = ERROR_SUCCESS;
+    DWORD dwNegotiatedVersion;
+    HANDLE hClientHandle = NULL;
+    dwError = WlanOpenHandle(1, NULL, &dwNegotiatedVersion, &hClientHandle);
+    if (dwError != ERROR_SUCCESS)
+    {
+        WlanCloseHandle(hClientHandle,NULL);
+        return;
+    }
+    PWLAN_INTERFACE_INFO_LIST pInterfaceList = NULL;
+    dwError = WlanEnumInterfaces(hClientHandle, NULL,&pInterfaceList);
+    if ( dwError != ERROR_SUCCESS )
+    {
+        WlanFreeMemory(pInterfaceList);
+        WlanCloseHandle(hClientHandle,NULL);
+        return;
+    }
+
+    GUID &guid = pInterfaceList->InterfaceInfo[0].InterfaceGuid;
+    PWLAN_AVAILABLE_NETWORK_LIST pWLAN_AVAILABLE_NETWORK_LIST = NULL;
+
+    dwError = WlanGetAvailableNetworkList(hClientHandle, &guid,
+        2,NULL, &pWLAN_AVAILABLE_NETWORK_LIST);
+    if (dwError != ERROR_SUCCESS)
+    {
+        WlanFreeMemory(pInterfaceList);
+        WlanFreeMemory(pWLAN_AVAILABLE_NETWORK_LIST);
+        WlanCloseHandle(hClientHandle,NULL);
+        return;
+    }
+    WLAN_AVAILABLE_NETWORK wlanAN;
+    bool isConnected=false;
+    int numberOfItems = pWLAN_AVAILABLE_NETWORK_LIST->dwNumberOfItems;
+    if (numberOfItems > 0)
+    {
+        for(int i = 0; i <numberOfItems; i++)
+        {
+            wlanAN = pWLAN_AVAILABLE_NETWORK_LIST->Network[i];
+            if(wlanAN.dwFlags & 1)
+            {
+                isConnected=true;
+
+                int wifiQuality=(int)wlanAN.wlanSignalQuality;
+
+                qDebug()<<"wifiQuality"<<wifiQuality;
+                if(wifiQuality>75)
+                {
+                    QPixmap pixmapWireless(":/DependFile/Source/signal/wifi3.png");
+                    ui->wifiSignal_Label->setPixmap(pixmapWireless);
+                }
+                else if(wifiQuality>50&&wifiQuality<=75)
+                {
+                    QPixmap pixmapWireless(":/DependFile/Source/signal/wifi2.png");
+                    ui->wifiSignal_Label->setPixmap(pixmapWireless);
+                }
+                else if(wifiQuality>25&&wifiQuality<=50)
+                {
+                    QPixmap pixmapWireless(":/DependFile/Source/signal/wifi1.png");
+                    ui->wifiSignal_Label->setPixmap(pixmapWireless);
+                }
+                else if(wifiQuality>0&&wifiQuality<=25)
+                {
+                    QPixmap pixmapWireless(":/icons/WirelessIcon3.png");
+                    ui->wifiSignal_Label->setPixmap(pixmapWireless);
+                }
+
+            }
+        }
+    }
+    if (!isConnected)
+    {
+        QPixmap pixmapWireless(":/icons/WirelessIcon4.png");
+        ui->wifiSignal_Label->setPixmap(pixmapWireless);
+    }
+    WlanFreeMemory(pInterfaceList);
+    WlanFreeMemory(pWLAN_AVAILABLE_NETWORK_LIST);
+    WlanCloseHandle(hClientHandle,NULL);
 }
 
 void  TitleWidget::setBackBtnVisible(bool visible)

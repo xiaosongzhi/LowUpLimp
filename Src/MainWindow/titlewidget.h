@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "dbforrmate.h"
 #include "dataformate.h"
+#include <QTimer>
 namespace Ui {
 class TitleWidget;
 }
@@ -31,13 +32,15 @@ public:
 
     void  setBackBtnVisible(bool);
 private slots:
-
     void slotBackClicked();
     void on_user_Btn_clicked();
-
+    void slotCheckTimer();
+private:
+    void showWIFI();
 private:
     Ui::TitleWidget *ui;
     int8_t m_trainType;
+    QTimer *checkTimer;
 };
 
 #endif // TITLEWIDGET_H

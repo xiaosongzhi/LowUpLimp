@@ -595,59 +595,7 @@ border: 1px solid #05A6EC;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">/**********首先指定是水平还是竖直*不添加此代码，下方不起作用******/
-QSlider::groove:horizontal {
-border: 0px solid #bbb;
-}
-/*1.滑动过的槽设计参数*/
-QSlider::sub-page:horizontal {
- /*槽颜色*/
-background: #05A6CE;
- /*外环区域倒圆角度*/
-border-radius: 4px;
- /*上遮住区域高度*/
-margin-top:8px;
- /*下遮住区域高度*/
-margin-bottom:8px;
-/*width在这里无效，不写即可*/
-}
-
-/*2.未滑动过的槽设计参数*/
-QSlider::add-page:horizontal {
-/*槽颜色*/
-background: #ECEBEB;
-/*外环大小0px就是不显示，默认也是0*/
-border: 0px solid #777;
-/*外环区域倒圆角度*/
-border-radius: 4px;
- /*上遮住区域高度*/
-margin-top:9px;
- /*下遮住区域高度*/
-margin-bottom:9px;
-}
-
-
-
-/*3.平时滑动的滑块设计参数*/
-/**********使用纯代码实现*****/
-QSlider::handle:horizontal {
-/*滑块颜色*/
-background: rgb(255,255,255);
-/*滑块的宽度*/
-width: 26px;
-/*滑块外环为1px，再加颜色*/
-border: 2px solid #05A6CE;
- /*滑块外环倒圆角度*/
-border-radius: 14px; 
- /*上遮住区域高度*/
-margin-top:0px;
- /*下遮住区域高度*/
-margin-bottom:0px;
-}
-
-
-
-</string>
+      <string notr="true"/>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>

@@ -59,6 +59,7 @@ SOURCES += \
     Src/PopDialog/deleteuserdialog.cpp \
     Src/PopDialog/emergencystopdialog.cpp \
     Src/PopDialog/festipsdialog.cpp \
+    Src/PopDialog/passworddialog.cpp \
     Src/PopDialog/selectuserdialog.cpp \
     Src/PopDialog/spasmtipsdialog.cpp \
     Src/Report/trainreport.cpp \
@@ -98,6 +99,7 @@ HEADERS += \
     Src/PopDialog/deleteuserdialog.h \
     Src/PopDialog/emergencystopdialog.h \
     Src/PopDialog/festipsdialog.h \
+    Src/PopDialog/passworddialog.h \
     Src/PopDialog/selectuserdialog.h \
     Src/PopDialog/spasmtipsdialog.h \
     Src/Report/trainreport.h \
@@ -125,6 +127,7 @@ FORMS += \
     Src/PopDialog/deleteuserdialog.ui \
     Src/PopDialog/emergencystopdialog.ui \
     Src/PopDialog/festipsdialog.ui \
+    Src/PopDialog/passworddialog.ui \
     Src/PopDialog/selectuserdialog.ui \
     Src/PopDialog/spasmtipsdialog.ui \
     Src/Report/trainreport.ui \
@@ -139,6 +142,8 @@ FORMS += \
     Src/PopDialog/festotalparamdialog.ui \
     Src/PopDialog/channeldialog.ui
 
+LIBS+=-lwlanapi
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
@@ -146,3 +151,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     image.qrc
+
+RC_ICONS = logo.ico

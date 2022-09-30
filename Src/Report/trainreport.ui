@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
@@ -151,7 +154,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>14</x>
+      <x>20</x>
       <y>182</y>
       <width>69</width>
       <height>40</height>
@@ -753,8 +756,7 @@ color:#0D9DDB ;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">
-</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
@@ -1207,7 +1209,7 @@ color:#0D9DDB ;</string>
       </font>
      </property>
      <property name="text">
-      <string>左平衡：</string>
+      <string>左 平 衡：</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1295,7 +1297,7 @@ color:#0D9DDB ;</string>
       </font>
      </property>
      <property name="text">
-      <string>右平衡：</string>
+      <string>右 平 衡：</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

@@ -22,6 +22,9 @@
      <height>981</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="title">
     <string/>
    </property>
@@ -57,6 +60,9 @@ color:white;</string>
       <width>497</width>
       <height>791</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">

@@ -98,7 +98,7 @@ color:#05A6EC;}</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="signal_Label_3">
+  <widget class="QLabel" name="wifiSignal_Label">
    <property name="geometry">
     <rect>
      <x>1500</x>
@@ -174,7 +174,7 @@ border:2px;</string>
   <zorder>signal_Label</zorder>
   <zorder>user_Btn</zorder>
   <zorder>signal_Label_2</zorder>
-  <zorder>signal_Label_3</zorder>
+  <zorder>wifiSignal_Label</zorder>
  </widget>
  <resources/>
  <connections/>
