@@ -43,9 +43,9 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>50</y>
+       <y>60</y>
        <width>351</width>
-       <height>31</height>
+       <height>43</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -60,10 +60,13 @@ background: #05F6CC;
  /*外环区域倒圆角度*/
 border-radius: 4px;
  /*上遮住区域高度*/
-margin-top:8px;
+margin-top:14px;
  /*下遮住区域高度*/
-margin-bottom:8px;
+margin-bottom:14px;
 /*width在这里无效，不写即可*/
+/*****/
+margin-left:8px;
+
 }
 
 /*2.未滑动过的槽设计参数*/
@@ -75,45 +78,19 @@ border: 0px solid #777;
 /*外环区域倒圆角度*/
 border-radius: 4px;
  /*上遮住区域高度*/
-margin-top:9px;
+margin-top:14px;
  /*下遮住区域高度*/
-margin-bottom:9px;
+margin-bottom:14px;
+
+margin-right:8px;
 }
 
 
-
-
-/*3.平时滑动的滑块设计参数*/
-/**********使用纯代码实现*****/
 QSlider::handle:horizontal {
-/*滑块颜色*/
-background: rgb(255,255,255);
-/*滑块的宽度*/
-width: 26px;
-/*滑块外环为1px，再加颜色*/
-border: 2px solid #05A6CE;
- /*滑块外环倒圆角度*/
-border-radius: 14px; 
- /*上遮住区域高度*/
-margin-top:0px;
- /*下遮住区域高度*/
-margin-bottom:0px;
-}
-
-/*4.手动拉动时显示的滑块设计参数*/
-QSlider::handle:horizontal:hover {
-/*滑块颜色*/
-background: rgb(193,204,208);
-/*滑块的宽度*/
-width: 30px;
-/*滑块外环为1px，再加颜色*/
-border: 1px solid rgb(193,204,208);
- /*滑块外环倒圆角度*/
-border-radius: 5px; 
- /*上遮住区域高度*/
-margin-top:4px;
- /*下遮住区域高度*/
-margin-bottom:4px;
+        width: 43px;
+		background:transparent;
+		background-image: url(:/DependFile/Source/channel/slder.png);
+        margin: -0px -0px -0px -0px;
 }
 
 </string>
@@ -340,6 +317,35 @@ QComboBox::drop-down {
       <string>新建项目</string>
      </property>
     </item>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>250</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QRadioButton::indicator:unchecked{
+image: url(:/DependFile/Source/radioButton/normal.png);
+width:20;
+height:20
+}
+
+QRadioButton::indicator:checked{
+image: url(:/DependFile/Source/radioButton/checked.png);
+width:20;
+height:20
+}
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>RadioButton</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
