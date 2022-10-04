@@ -116,7 +116,7 @@ border-radius: 4px;color:white;}</string>
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="systemSetting_Page">
     <widget class="QGroupBox" name="groupBox">

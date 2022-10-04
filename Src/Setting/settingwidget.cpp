@@ -2,7 +2,7 @@
 #include "ui_settingwidget.h"
 #include <QDir>
 #include <QSettings>
-
+#include <QMessageBox>
 SettingWidget::SettingWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SettingWidget),
@@ -19,6 +19,8 @@ SettingWidget::SettingWidget(QWidget *parent) :
 
     ui->originalPasswordTips_Label->setVisible(false);
     ui->confirmPasswordTips_Label->setVisible(false);
+
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 SettingWidget::~SettingWidget()
@@ -55,6 +57,7 @@ void SettingWidget::on_resetPassword_Btn_clicked()
     QString password("111111");
     iniSetting.setValue("password",password);
     iniSetting.setValue("user","xyyl");
+    QMessageBox::warning(NULL,tr("提示"),tr("密码重置成功"));
 }
 
 //B侧电刺激盒
@@ -100,6 +103,8 @@ void SettingWidget::on_secretManage_Btn_clicked()
 {
     //密码管理界面
     ui->stackedWidget->setCurrentIndex(1);
+    ui->originalPasswordTips_Label->setVisible(false);
+    ui->confirmPasswordTips_Label->setVisible(false);
 }
 
 
@@ -130,16 +135,26 @@ void SettingWidget::on_savePassword_Btn_clicked()
     if(password != originalPassword)
     {
         ui->originalPasswordTips_Label->setText(tr("原密码输入错误"));
+        ui->originalPasswordTips_Label->setVisible(true);
         return;
     }
 
-    if(ui->newPassword_LineEdit->text() != ui->newPassword_LineEdit->text())
+    if(ui->newPassword_LineEdit->text() != ui->confirmPassword_LineEdit->text())
     {
         ui->confirmPasswordTips_Label->setText(tr("两次输入的密码不同"));
+        ui->confirmPasswordTips_Label->setVisible(true);
         return;
     }
 
-    iniSetting.setValue("password",password);
+    iniSetting.setValue("password",ui->confirmPassword_LineEdit->text());
+
+    ui->confirmPasswordTips_Label->setVisible(false);
+    ui->originalPasswordTips_Label->setVisible(false);
+    ui->confirmPassword_LineEdit->clear();
+    ui->newPassword_LineEdit->clear();
+    ui->originalPassword_LineEdit->clear();
+
+    QMessageBox::warning(NULL,tr("提示"),tr("密码更新成功"));
 }
 
 
