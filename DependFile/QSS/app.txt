@@ -54,3 +54,29 @@ image: url(:/DependFile/Source/radioButton/checked.png);
 width:20;
 height:20;
 }
+
+
+/* 未下拉时，QComboBox的样式 */
+QComboBox {
+    border: 1px solid gray;   /* 边框 */
+    border-radius: 3px;   /* 圆角 */
+    padding: 1px 18px 1px 3px;   /* 字体填衬 */
+    color: #000;
+    font:  20px "黑体";
+    background: transparent;
+}
+
+/* 下拉后，整个下拉窗体样式 */
+QComboBox QAbstractItemView {
+    outline: 0px solid gray;   /* 选定项的虚框 */
+    border: 0px solid gray;   /* 整个下拉窗体的边框 */
+    color: black;
+    background-color: #C3E4F3;   /* 整个下拉窗体的背景色 */
+    selection-background-color: lightgreen;   /* 整个下拉窗体被选中项的背景色 */
+	font:  20px "黑体";
+}
+
+/* 下拉后，整个下拉窗体每项的样式 */
+QComboBox QAbstractItemView::item {
+    height: 50px;   /* 项的高度（设置pComboBox->setView(new QListView());后，该项才起作用） */
+}
