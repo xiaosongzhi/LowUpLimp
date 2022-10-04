@@ -46,7 +46,6 @@ void UserDialog::on_cancel_Btn_clicked()
 
 void UserDialog::on_save_Btn_clicked()
 {
-
     ST_PatientMsg st_patientMsg;
     st_patientMsg.ID = ui->ID_LineEdit->text().toUInt();
     st_patientMsg.age =QDate::currentDate().year() - ui->dateEdit->date().year();
@@ -60,18 +59,43 @@ void UserDialog::on_save_Btn_clicked()
     QString tableName("PatientTable");
     QVariantMap vMap = patientMsgToVariantMap(st_patientMsg);
 
-    if(!CDatabaseInterface::getInstance()->insertRowTable(tableName,vMap))
+    //删除所有空格
+    if(st_patientMsg.name.remove(QRegExp("\\s")).isEmpty())
     {
-        QMessageBox::information(NULL,tr("提示"),tr("保存失败"));
-        qDebug()<<CDatabaseInterface::getInstance()->getLastError();
-        this->close();
+        QMessageBox::information(NULL,tr("提示"),tr("用户名不能为空"));
     }
-    else
+
+    if(E_NEW_USER == m_type)
     {
-        emit signalUpdateUserTable();
-        QMessageBox::information(NULL,tr("提示"),tr("保存成功"));
-        this->close();
+        if(!CDatabaseInterface::getInstance()->insertRowTable(tableName,vMap))
+        {
+            QString str = CDatabaseInterface::getInstance()->getLastError();
+            QMessageBox::information(NULL,tr("提示"),str);
+            this->close();
+        }
+        else
+        {
+            emit signalUpdateUserTable();
+            QMessageBox::information(NULL,tr("提示"),tr("添加成功"));
+            this->close();
+        }
     }
+    else if(E_EDIT_USER == m_type)
+    {
+        if(!CDatabaseInterface::getInstance()->updateRowTable(tableName,"ID",vMap))
+        {
+            QString str = CDatabaseInterface::getInstance()->getLastError();
+            QMessageBox::information(NULL,tr("提示"),str);
+            this->close();
+        }
+        else
+        {
+            emit signalUpdateUserTable();
+            QMessageBox::information(NULL,tr("提示"),tr("更新成功"));
+            this->close();
+        }
+    }
+
 }
 
 void UserDialog::setEditUserType(int ID)
