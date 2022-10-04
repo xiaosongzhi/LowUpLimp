@@ -7,7 +7,9 @@
 GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameDisplayPage),
-    m_openState(true)
+    m_openState(true),
+    upDirection(0),
+    downDirection(0)
 {
     ui->setupUi(this);
     m_leftAnimation = new QPropertyAnimation(ui->leftPage_GroupBox,"pos");
@@ -54,6 +56,25 @@ GameDisplayPage::~GameDisplayPage()
     delete ui;
 }
 
+void GameDisplayPage::setTrainPart(int type)
+{
+    switch(type)
+    {
+    case 0:
+        ui->upLimp_GroupBox->setVisible(true);
+        ui->downLimp_GroupBox->setVisible(false);
+        break;
+    case 1:
+        ui->upLimp_GroupBox->setVisible(false);
+        ui->downLimp_GroupBox->setVisible(true);
+        break;
+    case 2:
+        ui->upLimp_GroupBox->setVisible(true);
+        ui->downLimp_GroupBox->setVisible(true);
+        break;
+    }
+}
+
 void GameDisplayPage::on_start_Btn_clicked()
 {
     ui->start_Btn->setVisible(false);
@@ -95,14 +116,14 @@ void GameDisplayPage::on_upSpeedMinus_Btn_clicked()
 {
     int speed = ui->upSpeed_Label->text().toInt();
     if(speed > 2)
-    ui->upSpeed_Label->setText(QString::number(--speed));
+        ui->upSpeed_Label->setText(QString::number(--speed));
 }
 
 void GameDisplayPage::on_upSpeedPlus_Btn_clicked()
 {
     int speed = ui->upSpeed_Label->text().toInt();
     if(speed < 60)
-    ui->upSpeed_Label->setText(QString::number(++speed));
+        ui->upSpeed_Label->setText(QString::number(++speed));
 }
 
 void GameDisplayPage::on_upForceMinus_Btn_clicked()
@@ -133,14 +154,14 @@ void GameDisplayPage::on_downSpeedMinus_Btn_clicked()
 {
     int speed = ui->downSpeed_Label->text().toInt();
     if(speed > 2)
-    ui->downSpeed_Label->setText(QString::number(--speed));
+        ui->downSpeed_Label->setText(QString::number(--speed));
 }
 
 void GameDisplayPage::on_downSpeedPlus_Btn_clicked()
 {
     int speed = ui->downSpeed_Label->text().toInt();
     if(speed < 60)
-    ui->downSpeed_Label->setText(QString::number(++speed));
+        ui->downSpeed_Label->setText(QString::number(++speed));
 }
 
 void GameDisplayPage::on_downForceMinus_Btn_clicked()
@@ -170,19 +191,17 @@ void GameDisplayPage::on_downBackward_Btn_clicked()
 void GameDisplayPage::setChannelAData(int *data,int size)
 {
     if(size <= 8 )
-    for(int i = 0;i <size;i++)
-    {
-        m_channelAList.at(i)->setText(QString::number(data[i]));
-    }
+        for(int i = 0;i <size;i++)
+            m_channelAList.at(i)->setText(QString::number(data[i]));
+
 }
 
 void GameDisplayPage::setChannelBData(int *data,int size)
 {
     if(size <= 8 )
-    for(int i = 0;i <size;i++)
-    {
-        m_channelBList.at(i)->setText(QString::number(data[i]));
-    }
+        for(int i = 0;i <size;i++)
+            m_channelBList.at(i)->setText(QString::number(data[i]));
+
 }
 
 void GameDisplayPage::setTrainSpeed(int speed, qint8 type)
@@ -252,3 +271,59 @@ void GameDisplayPage::on_switchBFes_Btn_clicked()
     }
 }
 
+//填充实时下位机反馈参数
+void GameDisplayPage::setRealTimeParam(int updown,int remainTime,int speed,int power)
+{
+    //上肢
+    if(0 == updown)
+    {
+        ui->upRemainTime_Label->setText(QString::number(remainTime));
+        ui->upRealSpeed_Label->setText(QString::number(speed));
+        ui->upRealPower_Label->setText(QString::number(power));
+    } //下肢
+    else if(1 == updown)
+    {
+        ui->downRemainTime_Label->setText(QString::number(remainTime));
+        ui->downRealSpeed_Label->setText(QString::number(speed));
+        ui->downRealPower_Label->setText(QString::number(power));
+    }
+
+}
+//填充设置参数
+void GameDisplayPage::fillSetParam(int updown,int speed,int resistance,int direction)
+{
+    //上肢
+    if(0 == updown)
+    {
+        upDirection = direction;
+        if(upDirection == 0)
+            on_upForward_Btn_clicked();
+        else if(upDirection == 1)
+            on_upBackward_Btn_clicked();
+        ui->upSpeed_Label->setText(QString::number(speed));
+        ui->upForce_Label->setText(QString::number(resistance));
+    }//下肢
+    else if(1 == updown)
+    {
+        downDirection = direction;
+        if(downDirection == 0)
+            on_downBackward_Btn_clicked();
+        else if(downDirection == 1)
+            on_downForward_Btn_clicked();
+        ui->downSpeed_Label->setText(QString::number(speed));
+        ui->downForce_Label->setText(QString::number(resistance));
+    }
+}
+
+void GameDisplayPage:: setPulseOxygen(const ST_PulseOxygen& pulseOxygen)
+{
+    ui->pulse_Label->setText(QString::number(pulseOxygen.pulse));
+    ui->oxygen_Label->setText(QString::number(pulseOxygen.oxygen));
+}
+
+void GameDisplayPage::setCenterParam(int left, int right, int length)
+{
+    ui->leftBalance_Label->setText(QString::number(left) + "%");
+    ui->leftBalance_Label->setText(QString::number(right) + "%");
+    ui->leftBalance_Label->setText(QString::number(length) + "m");
+}

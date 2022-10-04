@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include "dataformate.h"
 class QPropertyAnimation;
 namespace Ui {
 class GameDisplayPage;
@@ -16,9 +17,29 @@ public:
     explicit GameDisplayPage(QWidget *parent = nullptr);
     ~GameDisplayPage();
 
+    /****设置训练部位****
+     * 参数@int type 0-上肢 1-下肢 2-上下肢
+     *
+     * ***/
+    void setTrainPart(int type);
+
+    //填充电刺激参数
     void setChannelAData(int *data,int size);
 
     void setChannelBData(int *data,int size);
+
+    //填充实时下位机反馈参数
+    void setRealTimeParam(int updown,int remainTime,int speed,int power);
+
+    /****填充设置参数***
+     *参数@int direction 0-正向 1-反向
+    ****/
+    void fillSetParam(int updown,int speed,int resistance,int direction);
+    //设置脉搏血氧
+    void setPulseOxygen(const ST_PulseOxygen&);
+    //设置中部参数
+    void setCenterParam(int left,int right,int length);
+
 
     /***********通信相关************/
     /*****设置速度***
@@ -87,13 +108,13 @@ private slots:
 protected:
 
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
-
 private:
     Ui::GameDisplayPage *ui;
     QPropertyAnimation *m_leftAnimation,*m_rightAnimation;
     bool m_openState;
     QList<QLabel*> m_channelAList,m_channelBList;
-
+    int upDirection;   //上肢旋转方向 0-正 1-逆
+    int downDirection; //下肢旋转方向 0-正 1-逆
 };
 
 #endif // GAMEDISPLAYPAGE_H

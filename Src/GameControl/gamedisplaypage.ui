@@ -213,7 +213,19 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QGroupBox" name="groupBox_11">
+     <widget class="QGroupBox" name="upLimp_GroupBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>408</width>
+        <height>566</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">#groupBox_11{border:none;}</string>
       </property>
@@ -965,6 +977,18 @@ border: 1px solid #05A6EC;}
     </item>
     <item>
      <widget class="QGroupBox" name="downLimp_GroupBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>408</width>
+        <height>566</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">#downLimp_GroupBox{border:none;}</string>
       </property>
@@ -2586,7 +2610,7 @@ border: 1px solid #05A6EC;}</string>
       <string>脉搏:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_61">
+    <widget class="QLabel" name="pulse_Label">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -2608,7 +2632,7 @@ border: 1px solid #05A6EC;}</string>
       <string>--</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_62">
+    <widget class="QLabel" name="oxygen_Label">
      <property name="geometry">
       <rect>
        <x>250</x>
