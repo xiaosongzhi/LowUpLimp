@@ -120,25 +120,32 @@ typedef struct
 typedef struct
 {
     //预热阶段
-    int preheatContinueTime; //预热期持续时间
-    int preheatAContinueTime;//加速持续时间
-    int preheatCompensate;   //转速补偿
-    bool isFesOn;            //是否开启电刺激
-    int preheatMaxPower;     //预热期最大电量
-    int transitionalFesRise; //电刺激上升幅度
+    int preheatContinueTime;    //预热期持续时间  0~60min step-1
+    int preheatAContinueTime;   //加速持续时间   0~60min step-1
+    int preheatCompensate;      //转速补偿 -30~30 step-1
+    bool isFesOn;               //是否开启电刺激
+    int preheatMaxPower;        //预热期最大电量 0~50% step-1%
+    int transitionalFesRise;    //电刺激上升幅度 1~100% step-1%
     //积极阶段
-    int positiveFChiXuTime;     //向前（持续时间）
-    int positiveFControlSpeed;  //向前(控制速度)
-    int positiveBChiXuTime;     //(向后)持续时间
-    int positiveBSpeedCompensate;//(向后)转速补偿
-    int positiveBresistance;    //(向后)阻力扭矩补偿
-    int timeLimit;              //时间阈值
-    int speedLimit;             //转速阈值
+    int positiveFChiXuTime;      //向前（持续时间）0~120min step-1
+    int positiveFControlSpeed;   //向前(控制速度) 5~60r/min step-1
+    int positiveBChiXuTime;      //(向后)持续时间 0~120min step-1
+    int positiveBSpeedCompensate;//(向后)转速补偿 -30~30r/min step-1
+    int positiveBresistance;     //(向后)阻力扭矩补偿 -20~20Nm step-1
+    int timeLimit;               //时间阈值 0~240s step-1s
+    int speedLimit;              //转速阈值  -1~-50r/min step-1
     //消极阶段
-    bool isSkipPassive;         //跳过此阶段
-    int negativeFContinueTime;  //(向前)持续时间
-    int tiredContinueTime;      //持续时间(疲劳侦测)
-    int tiredSpeedCompensate;   //转速补偿(疲劳侦测)
+    bool isSkipPassive;          //跳过此阶段
+    int negativeSpeedCompensate; //(向前)转速补偿 -30~30r/min step-1
+    int tiredContinueTime;       //持续时间(疲劳侦测) 0~30min
+    int tiredSpeedCompensate;    //转速补偿(疲劳侦测) -30~0 step-1
 }ST_AdvancedParam;
+
+//脉搏血氧
+typedef struct
+{
+    int pulse;//脉搏
+    int oxygen;//血氧
+}ST_PulseOxygen;
 
 #endif // DATAFORMATE_H
