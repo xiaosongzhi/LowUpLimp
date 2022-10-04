@@ -163,7 +163,7 @@ color:white;</string>
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="negativeFContinueTime_ComboBox">
+    <widget class="QComboBox" name="negativeSpeedCompensate_ComboBox">
      <property name="geometry">
       <rect>
        <x>253</x>
@@ -195,7 +195,7 @@ color:white;</string>
       <string notr="true">color:#666666;</string>
      </property>
      <property name="text">
-      <string>(向前)持续时间</string>
+      <string>转速补偿</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
