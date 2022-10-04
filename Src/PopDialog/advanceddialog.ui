@@ -280,7 +280,7 @@ color:white;</string>
       <string>疲劳侦测</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="tiredContinueTime_comboBox">
+    <widget class="QComboBox" name="tiredContinueTime_ComboBox">
      <property name="geometry">
       <rect>
        <x>253</x>
@@ -315,7 +315,7 @@ color:white;</string>
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="tiredSpeedCompensate_comboBox">
+    <widget class="QComboBox" name="tiredSpeedCompensate_ComboBox">
      <property name="geometry">
       <rect>
        <x>253</x>
@@ -1150,7 +1150,7 @@ color:white;</string>
     <widget class="QComboBox" name="timeLimit_ComboBox">
      <property name="geometry">
       <rect>
-       <x>244</x>
+       <x>243</x>
        <y>530</y>
        <width>90</width>
        <height>50</height>
@@ -1223,10 +1223,10 @@ color:white;</string>
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="speedLimit_Btn">
+    <widget class="QComboBox" name="speedLimit_ComboBox">
      <property name="geometry">
       <rect>
-       <x>244</x>
+       <x>243</x>
        <y>600</y>
        <width>90</width>
        <height>50</height>

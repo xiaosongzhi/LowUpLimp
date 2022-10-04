@@ -53,6 +53,9 @@
     <property name="text">
      <string>上肢</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QRadioButton" name="downLimp_RadioButton">
     <property name="geometry">
@@ -176,6 +179,9 @@
        <property name="text">
         <string>主动</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QRadioButton" name="passive2_RadioButton">
        <property name="geometry">
@@ -289,7 +295,7 @@
       <property name="title">
        <string/>
       </property>
-      <widget class="QComboBox" name="upPreheater2_ComboBox">
+      <widget class="QComboBox" name="trainTime1_ComboBox">
        <property name="geometry">
         <rect>
          <x>350</x>
@@ -507,7 +513,7 @@ color:#00A6F5;</string>
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QComboBox" name="power2_ComboBox">
+      <widget class="QComboBox" name="resistance1_ComboBox">
        <property name="geometry">
         <rect>
          <x>350</x>
@@ -572,7 +578,7 @@ color:#00A6F5;</string>
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QComboBox" name="speed2_ComboBox">
+      <widget class="QComboBox" name="speed1_ComboBox">
        <property name="geometry">
         <rect>
          <x>350</x>
@@ -731,6 +737,9 @@ color:#00A6F5;</string>
        <property name="text">
         <string>低</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_33">
        <property name="geometry">
@@ -782,6 +791,9 @@ color:#00A6F5;</string>
        </property>
        <property name="text">
         <string>正转</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QRadioButton" name="spasmACW2_RadioButton">
@@ -875,6 +887,9 @@ color:#00A6F5;</string>
        <property name="text">
         <string>正转</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QRadioButton" name="ACW2_RadioButton">
        <property name="geometry">
@@ -964,6 +979,9 @@ color:#00A6F5;</string>
        </property>
        <property name="text">
         <string>主动</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QRadioButton" name="passive2_RadioButton_2">
@@ -1081,7 +1099,7 @@ color:#00A6F5;</string>
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QComboBox" name="upPreheater2_ComboBox_2">
+      <widget class="QComboBox" name="upTrainTime2_ComboBox">
        <property name="geometry">
         <rect>
          <x>446</x>
@@ -1224,7 +1242,7 @@ color:#00A6F5;</string>
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QComboBox" name="upPreheater2_ComboBox_3">
+      <widget class="QComboBox" name="downTrainTime2_ComboBox">
        <property name="geometry">
         <rect>
          <x>1382</x>
@@ -1273,7 +1291,7 @@ color:#00A6F5;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QComboBox" name="power2_ComboBox_2">
+      <widget class="QComboBox" name="upResistance2_ComboBox">
        <property name="geometry">
         <rect>
          <x>446</x>
@@ -1345,7 +1363,7 @@ color:#00A6F5;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QComboBox" name="power2_ComboBox_3">
+      <widget class="QComboBox" name="downResistance2_ComboBox">
        <property name="geometry">
         <rect>
          <x>1382</x>
@@ -1417,7 +1435,7 @@ color:#00A6F5;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QComboBox" name="speed2_ComboBox_2">
+      <widget class="QComboBox" name="upSpeed2_ComboBox">
        <property name="geometry">
         <rect>
          <x>446</x>
@@ -1489,7 +1507,7 @@ color:#00A6F5;</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QComboBox" name="speed2_ComboBox_3">
+      <widget class="QComboBox" name="downSpeed2_ComboBox">
        <property name="geometry">
         <rect>
          <x>1382</x>
@@ -1655,6 +1673,9 @@ color:#00A6F5;</string>
        <property name="text">
         <string>低</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_40">
        <property name="geometry">
@@ -1812,6 +1833,9 @@ color:#00A6F5;</string>
        </property>
        <property name="text">
         <string>正转</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QRadioButton" name="spasmACW2_RadioButton_2">
@@ -2010,6 +2034,9 @@ color:#00A6F5;</string>
        </property>
        <property name="text">
         <string>正转</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QRadioButton" name="ACW2_RadioButton_2">

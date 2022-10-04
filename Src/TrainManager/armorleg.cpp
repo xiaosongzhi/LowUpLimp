@@ -2,6 +2,7 @@
 #include "ui_armorleg.h"
 #include "advanceddialog.h"
 #include "mainwindowpagecontrol.h"
+#include <QListView>
 #include <QDebug>
 ArmOrLeg::ArmOrLeg(QWidget *parent) :
     QWidget(parent),
@@ -10,6 +11,7 @@ ArmOrLeg::ArmOrLeg(QWidget *parent) :
 {
     ui->setupUi(this);
     m_advanceDialog = new AdvancedDialog();
+    initWidget();
 }
 
 ArmOrLeg::~ArmOrLeg()
@@ -17,6 +19,23 @@ ArmOrLeg::~ArmOrLeg()
     if(m_advanceDialog)
         delete m_advanceDialog;
     delete ui;
+}
+
+void ArmOrLeg::initWidget()
+{
+
+    ui->resistance1_ComboBox->setView(new QListView);
+    ui->speed1_ComboBox->setView(new QListView);
+    ui->trainTime1_ComboBox->setView(new QListView);
+
+    ui->upTrainTime2_ComboBox->setView(new QListView);
+    ui->downTrainTime2_ComboBox->setView(new QListView);
+
+    ui->upResistance2_ComboBox->setView(new QListView);
+    ui->downResistance2_ComboBox->setView(new QListView);
+
+    ui->upSpeed2_ComboBox->setView(new QListView);
+    ui->downSpeed2_ComboBox->setView(new QListView);
 }
 
 void ArmOrLeg::setTrainType(int8_t type)

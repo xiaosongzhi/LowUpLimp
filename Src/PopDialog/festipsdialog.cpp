@@ -8,7 +8,7 @@ FesTipsDialog::FesTipsDialog(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
     setAttribute(Qt::WA_TranslucentBackground,true);
-    setAttribute(Qt::WA_DeleteOnClose);
+
 }
 
 FesTipsDialog::~FesTipsDialog()

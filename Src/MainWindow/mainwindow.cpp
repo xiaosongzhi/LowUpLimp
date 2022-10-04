@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->comboBox->setView(new QListView());
+//    ui->comboBox_2->setView(new QListView());
 }
 
 MainWindow::~MainWindow()

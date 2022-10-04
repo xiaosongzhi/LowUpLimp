@@ -29,6 +29,10 @@ private slots:
     void on_preheatFesSwitch_Btn_clicked();
 
 private:
+    //给控件添加数据
+    void initWidgetData();
+
+private:
     Ui::AdvancedDialog *ui;
     bool fesSwitchFlag;     //是否启动电刺激
     bool isSkipPassive;     //是否跳过此阶段
