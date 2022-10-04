@@ -13,6 +13,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
     connect(MainWindowPageControl::getInstance(),SIGNAL(signalSwitchPage(E_PAGENAME)),this,SLOT(slotSwitchPage(E_PAGENAME)));
     connect(CurrentUserData::getInstace(),SIGNAL(signalUserChanged()),this,SLOT(slotCurrentUserChanged()));
     //默认为主界面
+//    setAttribute(Qt::WA_DeleteOnClose,false);
     ui->stackedWidget->setCurrentIndex(0);
 }
 

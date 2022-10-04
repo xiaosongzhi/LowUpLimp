@@ -14,7 +14,7 @@ LoginWidget::LoginWidget(QDialog *parent) :
     //设置为模态对话框
 //    setModal(true);
     connect(this,&LoginWidget::signalResult,this,&LoginWidget::done);
-    setAttribute(Qt::WA_DeleteOnClose);
+//    setAttribute(Qt::WA_DeleteOnClose,true);
     ui->userNameTips_Label->setVisible(false);
     ui->passwordTips_Label->setVisible(false);
 
@@ -45,18 +45,25 @@ void LoginWidget::on_confirm_Btn_clicked()
     QDir confdir(dirPath);
     if(!confdir.exists())
         confdir.mkdir(dirPath);
-    QString confFile(dirPath + "IDconf.ini");
+    QString confFile(dirPath + "remberIDconf.ini");
     QSettings iniSetting(confFile, QSettings::IniFormat);
     QString password = iniSetting.value("password").toString();
     QString userName = iniSetting.value("userName").toString();
+    ui->userName_LineEdit->setText(userName);
+    ui->password_LineEdit->setText(password);
 
-    if(ui->userName_LineEdit->text() != userName)
+    QString rememberConfFile(dirPath + "IDconf.ini");
+    QSettings remIniSetting(confFile, QSettings::IniFormat);
+    QString remPassword = iniSetting.value("password").toString();
+    QString remUserName = iniSetting.value("userName").toString();
+
+    if(ui->userName_LineEdit->text() != remUserName)
     {
         ui->userNameTips_Label->setVisible(true);
         ui->userNameTips_Label->setText(tr("用户名输入错误"));
         return;
     }
-    if(ui->password_LineEdit->text() != password)
+    if(ui->password_LineEdit->text() != remPassword)
     {
         ui->passwordTips_Label->setVisible(true);
         ui->passwordTips_Label->setText(tr("密码输入错误"));
@@ -64,6 +71,13 @@ void LoginWidget::on_confirm_Btn_clicked()
     }
     //设置返回值结果
     emit signalResult(1);
+    if(ui->remember_RadioButton->isChecked())
+    {
+        QString confFile(dirPath + "remberIDconf.ini");
+        QSettings iniSetting(confFile, QSettings::IniFormat);
+        iniSetting.setValue("password",ui->password_LineEdit->text());
+        iniSetting.setValue("userName",ui->userName_LineEdit->text());
+    }
 //    this->close();
 }
 
@@ -80,4 +94,7 @@ void LoginWidget::on_password_LineEdit_textChanged(const QString &arg1)
     Q_UNUSED(arg1)
     ui->passwordTips_Label->setVisible(false);
 }
+
+
+
 
