@@ -40,7 +40,7 @@ void AdvancedDialog::on_confirm_Btn_clicked()
     st_advanceParam.timeLimit = ui->timeLimit_ComboBox->currentText().toInt();
     st_advanceParam.speedLimit = ui->speedLimit_Btn->currentText().toInt();
     //消极阶段
-    st_advanceParam.negativeFContinueTime = ui->negativeFContinueTime_ComboBox->currentText().toInt();
+    st_advanceParam.negativeSpeedCompensate = ui->negativeSpeedCompensate_ComboBox->currentText().toInt();
     st_advanceParam.tiredContinueTime = ui->tiredContinueTime_comboBox->currentText().toInt();
     st_advanceParam.tiredSpeedCompensate = ui->tiredSpeedCompensate_comboBox->currentText().toInt();
 
