@@ -5,15 +5,6 @@
 #include "dataformate.h"
 #include "loginwidget.h"
 //#include "fessetting.h"
-#include "channeldialog.h"
-#include "advanceddialog.h"
-#include "deleteuserdialog.h"
-#include "emergencystopdialog.h"
-#include "festipsdialog.h"
-#include "festotalparamdialog.h"
-#include "selectuserdialog.h"
-#include "spasmtipsdialog.h"
-#include "userdialog.h"
 #include "gamedisplaypage.h"
 namespace Ui {
 class CMainWindow;

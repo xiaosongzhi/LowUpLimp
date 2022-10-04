@@ -129,7 +129,7 @@ color:white;</string>
       <string>记住密码</string>
      </property>
      <property name="checked">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QPushButton" name="forgetPassword_Btn">

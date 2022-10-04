@@ -14,7 +14,7 @@ LoginWidget::LoginWidget(QDialog *parent) :
     //设置为模态对话框
 //    setModal(true);
     connect(this,&LoginWidget::signalResult,this,&LoginWidget::done);
-
+    setAttribute(Qt::WA_DeleteOnClose);
     ui->userNameTips_Label->setVisible(false);
     ui->passwordTips_Label->setVisible(false);
 

@@ -10,6 +10,7 @@ ChannelDialog::ChannelDialog(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
     setAttribute(Qt::WA_TranslucentBackground,true);    //设置透明
+    setAttribute(Qt::WA_DeleteOnClose);
     initWidget();
     st_MuscleParam.connectState = true;
 }

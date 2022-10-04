@@ -117,7 +117,6 @@ void TitleWidget::setTitleByPage(E_PAGENAME pageType)
 
 void TitleWidget::setTrainType(int8_t type)
 {
-    qDebug()<<"setTrainType"<<type;
     m_trainType = type;
 }
 
@@ -177,7 +176,6 @@ void TitleWidget::showWIFI()
 
                 int wifiQuality=(int)wlanAN.wlanSignalQuality;
 
-                qDebug()<<"wifiQuality"<<wifiQuality;
                 if(wifiQuality>75)
                 {
                     QPixmap pixmapWireless(":/DependFile/Source/signal/wifi3.png");
