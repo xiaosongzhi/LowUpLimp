@@ -40,7 +40,6 @@ public:
     //设置中部参数
     void setCenterParam(int left,int right,int length);
 
-
     /***********通信相关************/
     /*****设置速度***
      * 参数@int speed 速度大小
@@ -65,6 +64,7 @@ public:
      *    @bool ok  上下肢类型 false-关  true-开
      * ********/
     void switchFes(qint8 channel,bool ok);
+
 
 private slots:
     void on_start_Btn_clicked();
