@@ -148,4 +148,43 @@ typedef struct
     int oxygen;//血氧
 }ST_PulseOxygen;
 
+//游戏相关参数
+//更改游戏配置文件的参数(通信文件)
+typedef  struct ST_GameParam
+{
+    int hardLevel;          //难度等级 1-3(此处的难度等级对应范围大小)
+    int gameTime;           //游戏运行时间 单位/s
+    int speed;              //运行速度 1-5
+    int trainingMode;       //训练类型
+    QString trainTrackFilePath;  //路径文件
+    bool readPosTable;      //是否去读轨迹
+    int angleValue;         //分段运动角度
+    int trainType;          //被动训练类型1-圆周 2-分段
+    int waitTime;           //等待时间
+    int maxCircle;          //最大圈数
+    ST_GameParam()
+    {
+        hardLevel = 1;
+        gameTime = 0;
+        speed = 3;
+        trainingMode = 0;
+        trainTrackFilePath = "";
+        readPosTable = false;
+    }
+}ST_GameParam;
+
+//该结构体用于读取游戏列表
+typedef struct
+{
+    int gameID;                 //游戏ID
+    QString gameName;           //游戏名称
+    QString gamePath;           //游戏路径
+    QString iconPath;           //游戏图标路径
+    QStringList suitTypeList;   //适合的游戏类型  0-被动圆周 1-被动分段 2-主动
+}ST_GameMsg;
+
+
+extern void  Pressure_CheckCRC(uint8_t*buf,int len,uint8_t* CRC_H,uint8_t* CRC_L);
+extern void Sleep(int msec);
+
 #endif // DATAFORMATE_H
