@@ -1,4 +1,4 @@
-QT       += core gui sql printsupport quickwidgets network serialport
+QT       += core gui sql printsupport quickwidgets network serialport xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -47,7 +47,9 @@ SOURCES += \
     Src/CustomWidget/musclebutton.cpp \
     Src/DataBaseControl/cdatabaseinterface.cpp \
     Src/DataBaseControl/mysqldatabase.cpp \
+    Src/DataFormate/dataformate.cpp \
     Src/DataFormate/dbforrmate.cpp \
+    Src/GameControl/gamecontrol.cpp \
     Src/GameControl/gamedisplaypage.cpp \
     Src/MainWindow/cmainwindow.cpp \
     Src/MainWindow/loginwidget.cpp \
@@ -89,6 +91,7 @@ HEADERS += \
     Src/DataBaseControl/mysqldatabase.h \
     Src/DataFormate/dataformate.h \
     Src/DataFormate/dbforrmate.h \
+    Src/GameControl/gamecontrol.h \
     Src/GameControl/gamedisplaypage.h \
     Src/MainWindow/cmainwindow.h \
     Src/MainWindow/loginwidget.h \
