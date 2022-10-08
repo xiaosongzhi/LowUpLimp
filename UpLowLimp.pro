@@ -49,6 +49,7 @@ SOURCES += \
     Src/DataBaseControl/mysqldatabase.cpp \
     Src/DataFormate/dataformate.cpp \
     Src/DataFormate/dbforrmate.cpp \
+    Src/GameControl/gamecontainer.cpp \
     Src/GameControl/gamecontrol.cpp \
     Src/GameControl/gamedisplaypage.cpp \
     Src/MainWindow/cmainwindow.cpp \
@@ -91,6 +92,7 @@ HEADERS += \
     Src/DataBaseControl/mysqldatabase.h \
     Src/DataFormate/dataformate.h \
     Src/DataFormate/dbforrmate.h \
+    Src/GameControl/gamecontainer.h \
     Src/GameControl/gamecontrol.h \
     Src/GameControl/gamedisplaypage.h \
     Src/MainWindow/cmainwindow.h \
@@ -121,6 +123,7 @@ HEADERS += \
 FORMS += \
     Src/CustomWidget/fesparambtn.ui \
     Src/CustomWidget/musclebutton.ui \
+    Src/GameControl/gamecontainer.ui \
     Src/GameControl/gamedisplaypage.ui \
     Src/MainWindow/cmainwindow.ui \
     Src/MainWindow/loginwidget.ui \
