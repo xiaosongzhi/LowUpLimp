@@ -2343,8 +2343,8 @@ color:#00A6F5;</string>
    <widget class="QPushButton" name="next_Btn">
     <property name="geometry">
      <rect>
-      <x>1710</x>
-      <y>1000</y>
+      <x>1520</x>
+      <y>910</y>
       <width>160</width>
       <height>70</height>
      </rect>
@@ -2369,7 +2369,7 @@ color:white;</string>
     <property name="geometry">
      <rect>
       <x>1710</x>
-      <y>1000</y>
+      <y>910</y>
       <width>160</width>
       <height>70</height>
      </rect>
@@ -2389,6 +2389,8 @@ color:white;</string>
      <string>确定</string>
     </property>
    </widget>
+   <zorder>confirm_Btn</zorder>
+   <zorder>next_Btn</zorder>
   </widget>
   <zorder>groupBox_21</zorder>
   <zorder>groupBox_20</zorder>
