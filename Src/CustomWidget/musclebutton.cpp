@@ -56,6 +56,8 @@ void MuscleButton::setMuscleParamButton(const ST_MuscleParam& param)
     ui->current_Label->setText(QString::number(param.minCurrent)+"~"+QString::number(param.maxCurrent) + "mA");
     ui->plus_Label->setText(QString::number(param.plus) + "us");
     ui->frequency_Label->setText(QString::number(param.frequency) + "Hz");
+
+    st_muscleParam = param;
 }
 
 void MuscleButton::initWidget(QString title,int id)
@@ -73,4 +75,9 @@ void MuscleButton::setMuscleEnabled(bool enabled)
         ui->groupBox->setStyleSheet(enabledStyle);
     else
         ui->groupBox->setStyleSheet(disenabledStyle);
+}
+
+ST_MuscleParam MuscleButton::getMuscleParam()
+{
+    return st_muscleParam;
 }

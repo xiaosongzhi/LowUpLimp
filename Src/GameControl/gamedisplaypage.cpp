@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QPaintEvent>
 #include <QPainter>
+#include "icemodule.h"
 GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameDisplayPage),
@@ -55,6 +56,9 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
 
     setTitle();
 
+    connect(IceModule::getInstance(),SIGNAL(signalSetFesAParam(int*,int)),this,SLOT(slotSetChannelAData(int*,int)));
+    connect(IceModule::getInstance(),SIGNAL(signalSetFesBParam(int*,int)),this,SLOT(slotSetChannelBData(int*,int)));
+    connect(IceModule::getInstance(),SIGNAL(signalSetBicycleParam(ST_SetBicycleParam)),this,SLOT(slotSetBicycleParam(ST_SetBicycleParam)));
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -74,7 +78,6 @@ void GameDisplayPage::setUser(const ST_PatientMsg &st_patientMsg)
 void GameDisplayPage::setTitle()
 {
     ui->title_Label->setText(tr("游戏训练"));
-
     //设置title效果
     ui->user_Btn->setIcon(QIcon(":/DependFile/Source/User/user1.png"));
     ui->user_Btn->setIconSize(QSize(40,40));
@@ -213,7 +216,7 @@ void GameDisplayPage::on_downBackward_Btn_clicked()
 
 }
 
-void GameDisplayPage::setChannelAData(int *data,int size)
+void GameDisplayPage::slotSetChannelAData(int *data,int size)
 {
     if(size <= 8 )
         for(int i = 0;i <size;i++)
@@ -221,12 +224,19 @@ void GameDisplayPage::setChannelAData(int *data,int size)
 
 }
 
-void GameDisplayPage::setChannelBData(int *data,int size)
+void GameDisplayPage::slotSetChannelBData(int *data,int size)
 {
     if(size <= 8 )
         for(int i = 0;i <size;i++)
             m_channelBList.at(i)->setText(QString::number(data[i]));
 
+}
+
+void GameDisplayPage::slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam)
+{
+    //上肢
+    if(st_setBicycleParam.)
+    //下肢
 }
 
 void GameDisplayPage::setTrainSpeed(int speed, qint8 type)

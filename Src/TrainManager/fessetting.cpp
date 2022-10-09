@@ -3,6 +3,7 @@
 #include "festotalparamdialog.h"
 #include "channeldialog.h"
 #include "mainwindowpagecontrol.h"
+#include "icemodule.h"
 #include <QDebug>
 FesSetting::FesSetting(QWidget *parent) :
     QWidget(parent),
@@ -201,5 +202,25 @@ void FesSetting::on_FESB_Btn_clicked()
 void FesSetting::on_OK_Btn_clicked()
 {
     MainWindowPageControl::getInstance()->setCurrentPage(TrainingPage_E);
+    int array[8] = {0};
+    //获取界面上FesA的设置值
+    for(int i = 0;i < 8;i++)
+    {
+        MuscleButton* muscleChannel = dynamic_cast<MuscleButton*>(channelList.at(i));
+        ST_MuscleParam st_muscleParam = muscleChannel->getMuscleParam();
+        array[i] = st_muscleParam.maxCurrent;
+        qDebug()<<st_muscleParam.muscleId;
+    }
+    IceModule::getInstance()->setFesAParam(array,8);
+    //获取界面上FesB的设置值
+    for(int i = 8;i < 16;i++)
+    {
+        MuscleButton* muscleChannel = dynamic_cast<MuscleButton*>(channelList.at(i));
+        ST_MuscleParam st_muscleParam = muscleChannel->getMuscleParam();
+        qDebug()<<st_muscleParam.muscleId;
+        array[i-8] = st_muscleParam.maxCurrent;
+    }
+    IceModule::getInstance()->setFesAParam(array,8);
+
 }
 

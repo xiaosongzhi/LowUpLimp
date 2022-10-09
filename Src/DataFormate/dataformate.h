@@ -148,6 +148,15 @@ typedef struct
     int oxygen;//血氧
 }ST_PulseOxygen;
 
+//游戏界面显示参数
+typedef struct
+{
+    int type;   //0-上肢 1-下肢
+    int updown; //方向
+    int power;  //阻力
+    int speed;  //速度
+}ST_SetBicycleParam;
+
 //游戏相关参数
 //更改游戏配置文件的参数(通信文件)
 typedef  struct ST_GameParam

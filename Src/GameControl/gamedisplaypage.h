@@ -19,7 +19,6 @@ public:
     explicit GameDisplayPage(QWidget *parent = nullptr);
     ~GameDisplayPage();
 
-
     //设置当前用户
     void setUser(const ST_PatientMsg&);
     //表头显示
@@ -30,10 +29,6 @@ public:
      * ***/
     void setTrainPart(int type);
 
-    //填充电刺激参数
-    void setChannelAData(int *data,int size);
-
-    void setChannelBData(int *data,int size);
 
     //填充实时下位机反馈参数
     void setRealTimeParam(int updown,int remainTime,int speed,int power);
@@ -113,8 +108,14 @@ private slots:
 
     void on_switchBFes_Btn_clicked();
 
-protected:
+    //填充电刺激参数
+    void slotSetChannelAData(int *data,int size);
 
+    void slotSetChannelBData(int *data,int size);
+
+    //踏车设置参数
+    void slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam);
+protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:
     Ui::GameDisplayPage *ui;

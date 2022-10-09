@@ -20,6 +20,8 @@ public:
     void initWidget(QString title,int id);
 
     void setMuscleEnabled(bool);
+
+    ST_MuscleParam getMuscleParam();
 signals:
     void buttonClicked(int id);
 
@@ -30,6 +32,7 @@ protected:
 private:
     Ui::MuscleButton *ui;
     int m_id;
+    ST_MuscleParam st_muscleParam;
 };
 
 #endif // MUSCLEBUTTON_H

@@ -34,7 +34,8 @@ INCLUDEPATH += $$PWD/Src/MainWindow \
                $$PWD/Src/Communication \
                $$PWD/Src/CustomWidget \
                $$PWD/Src/PopDialog \
-               $$PWD/Src/GameControl
+               $$PWD/Src/GameControl \
+               $$PWD/Src/ICEModule
 SOURCES += \
     Src/Communication/ccommunicateapi.cpp \
     Src/Communication/ccommunicationinterface.cpp \
@@ -52,6 +53,7 @@ SOURCES += \
     Src/GameControl/gamecontainer.cpp \
     Src/GameControl/gamecontrol.cpp \
     Src/GameControl/gamedisplaypage.cpp \
+    Src/ICEModule/icemodule.cpp \
     Src/MainWindow/cmainwindow.cpp \
     Src/MainWindow/loginwidget.cpp \
     Src/MainWindow/main.cpp \
@@ -95,6 +97,7 @@ HEADERS += \
     Src/GameControl/gamecontainer.h \
     Src/GameControl/gamecontrol.h \
     Src/GameControl/gamedisplaypage.h \
+    Src/ICEModule/icemodule.h \
     Src/MainWindow/cmainwindow.h \
     Src/MainWindow/loginwidget.h \
     Src/MainWindow/mainwindow.h \
