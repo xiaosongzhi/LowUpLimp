@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1920</width>
-    <height>1159</height>
+    <height>1280</height>
    </rect>
   </property>
   <property name="font">
@@ -193,7 +193,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>120</y>
      <width>430</width>
      <height>1160</height>
     </rect>
@@ -227,7 +227,7 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">#groupBox_11{border:none;}</string>
+       <string notr="true">#upLimp_GroupBox{border:none;}</string>
       </property>
       <property name="title">
        <string/>
@@ -1728,7 +1728,7 @@ border: 1px solid #05A6EC;}</string>
    <property name="geometry">
     <rect>
      <x>1490</x>
-     <y>0</y>
+     <y>120</y>
      <width>430</width>
      <height>1160</height>
     </rect>
@@ -2656,11 +2656,43 @@ border: 1px solid #05A6EC;}</string>
     </widget>
    </widget>
   </widget>
+  <widget class="QPushButton" name="pause_Btn">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>1040</y>
+     <width>150</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/DependFile/Source/gamePage/pause.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="stop_Btn">
+   <property name="geometry">
+    <rect>
+     <x>697</x>
+     <y>1040</y>
+     <width>150</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/DependFile/Source/gamePage/stop.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <widget class="QPushButton" name="start_Btn">
    <property name="geometry">
     <rect>
      <x>919</x>
-     <y>1010</y>
+     <y>1030</y>
      <width>103</width>
      <height>103</height>
     </rect>
@@ -2679,61 +2711,120 @@ border: 1px solid #05A6EC;}</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="stop_Btn">
-   <property name="geometry">
-    <rect>
-     <x>697</x>
-     <y>1020</y>
-     <width>150</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/DependFile/Source/gamePage/stop.png);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pause_Btn">
-   <property name="geometry">
-    <rect>
-     <x>1090</x>
-     <y>1020</y>
-     <width>150</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/DependFile/Source/gamePage/pause.png);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_18">
+  <widget class="QGroupBox" name="groupBox_11">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>1920</width>
-     <height>1160</height>
+     <height>120</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#groupBox_18{border-image: url(:/DependFile/Source/gamePage/gameBack.png);}</string>
+    <string notr="true">#groupBox_11{background: #05A6EC;border:none;}</string>
    </property>
    <property name="title">
     <string/>
    </property>
+   <widget class="QLabel" name="signal_Label_2">
+    <property name="geometry">
+     <rect>
+      <x>1570</x>
+      <y>40</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/DependFile/Source/signal/titleSignal.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="signal_Label">
+    <property name="geometry">
+     <rect>
+      <x>1630</x>
+      <y>40</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/DependFile/Source/signal/titleSignal.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="wifiSignal_Label">
+    <property name="geometry">
+     <rect>
+      <x>1510</x>
+      <y>40</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/DependFile/Source/signal/wifi1.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="user_Btn">
+    <property name="geometry">
+     <rect>
+      <x>1710</x>
+      <y>30</y>
+      <width>170</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#user_Btn{background: #FFFFFF;
+border-radius: 30px;
+color:#05A6EC;}</string>
+    </property>
+    <property name="text">
+     <string>张三</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="title_Label">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>10</y>
+      <width>421</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>28</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
-  <zorder>groupBox_18</zorder>
-  <zorder>groupBox</zorder>
-  <zorder>leftPage_GroupBox</zorder>
-  <zorder>rightPage_GroupBox</zorder>
-  <zorder>start_Btn</zorder>
-  <zorder>stop_Btn</zorder>
-  <zorder>pause_Btn</zorder>
  </widget>
  <resources/>
  <connections/>

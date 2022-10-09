@@ -4,14 +4,19 @@
 #include <QPropertyAnimation>
 #include <QButtonGroup>
 #include <QDebug>
+#include <QPaintEvent>
+#include <QPainter>
 GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameDisplayPage),
     m_openState(true),
     upDirection(0),
-    downDirection(0)
+    downDirection(0),
+    m_spasmTipsDialog(NULL)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
+    setAttribute(Qt::WA_TranslucentBackground,true);    //设置透明
     m_leftAnimation = new QPropertyAnimation(ui->leftPage_GroupBox,"pos");
     m_rightAnimation = new QPropertyAnimation(ui->rightPage_GroupBox,"pos");
     m_leftAnimation->setDuration(1000);
@@ -45,6 +50,11 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
 
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
+
+    m_spasmTipsDialog = new SpasmTipsDialog();
+
+    setTitle();
+
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -54,6 +64,20 @@ GameDisplayPage::~GameDisplayPage()
     if(m_rightAnimation)
         delete m_rightAnimation;
     delete ui;
+}
+
+void GameDisplayPage::setUser(const ST_PatientMsg &st_patientMsg)
+{
+    ui->user_Btn->setText(st_patientMsg.name);
+}
+
+void GameDisplayPage::setTitle()
+{
+    ui->title_Label->setText(tr("游戏训练"));
+
+    //设置title效果
+    ui->user_Btn->setIcon(QIcon(":/DependFile/Source/User/user1.png"));
+    ui->user_Btn->setIconSize(QSize(40,40));
 }
 
 void GameDisplayPage::setTrainPart(int type)
@@ -77,6 +101,7 @@ void GameDisplayPage::setTrainPart(int type)
 
 void GameDisplayPage::on_start_Btn_clicked()
 {
+    m_spasmTipsDialog->show();
     ui->start_Btn->setVisible(false);
     ui->stop_Btn->setVisible(true);
     ui->pause_Btn->setVisible(true);
@@ -84,20 +109,20 @@ void GameDisplayPage::on_start_Btn_clicked()
 
 void GameDisplayPage::open_Btn_clicked()
 {
-    m_leftAnimation->setStartValue(QPoint(-430,0));
-    m_leftAnimation->setEndValue(QPoint(0,0));
-    m_rightAnimation->setStartValue(QPoint(1920,0));
-    m_rightAnimation->setEndValue(QPoint(1490,0));
+    m_leftAnimation->setStartValue(QPoint(-430,120));
+    m_leftAnimation->setEndValue(QPoint(0,120));
+    m_rightAnimation->setStartValue(QPoint(1920,120));
+    m_rightAnimation->setEndValue(QPoint(1490,120));
     m_leftAnimation->start(QAbstractAnimation::KeepWhenStopped);
     m_rightAnimation->start(QAbstractAnimation::KeepWhenStopped);
 }
 
 void GameDisplayPage::close_Btn_clicked()
 {
-    m_leftAnimation->setStartValue(QPoint(0,0));
-    m_leftAnimation->setEndValue(QPoint(-430,0));
-    m_rightAnimation->setStartValue(QPoint(1490,0));
-    m_rightAnimation->setEndValue(QPoint(1920,0));
+    m_leftAnimation->setStartValue(QPoint(0,120));
+    m_leftAnimation->setEndValue(QPoint(-430,120));
+    m_rightAnimation->setStartValue(QPoint(1490,120));
+    m_rightAnimation->setEndValue(QPoint(1920,120));
     m_leftAnimation->start(QAbstractAnimation::KeepWhenStopped);
     m_rightAnimation->start(QAbstractAnimation::KeepWhenStopped);
 }
@@ -237,9 +262,9 @@ void GameDisplayPage::on_stop_Btn_clicked()
     MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
 }
 
-
 void GameDisplayPage::on_pause_Btn_clicked()
 {
+    m_spasmTipsDialog->close();
     ui->start_Btn->setVisible(true);
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
@@ -326,4 +351,11 @@ void GameDisplayPage::setCenterParam(int left, int right, int length)
     ui->leftBalance_Label->setText(QString::number(left) + "%");
     ui->leftBalance_Label->setText(QString::number(right) + "%");
     ui->leftBalance_Label->setText(QString::number(length) + "m");
+}
+
+void GameDisplayPage::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event)
+    QPainter painter(this);
+    painter.fillRect(rect(),QColor(0,0,0,10));
 }

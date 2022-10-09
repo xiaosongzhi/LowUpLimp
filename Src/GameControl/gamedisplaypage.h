@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QLabel>
 #include "dataformate.h"
+#include "dbforrmate.h"
+#include "spasmtipsdialog.h"
 class QPropertyAnimation;
 namespace Ui {
 class GameDisplayPage;
@@ -17,9 +19,14 @@ public:
     explicit GameDisplayPage(QWidget *parent = nullptr);
     ~GameDisplayPage();
 
+
+    //设置当前用户
+    void setUser(const ST_PatientMsg&);
+    //表头显示
+    void setTitle();
+
     /****设置训练部位****
      * 参数@int type 0-上肢 1-下肢 2-上下肢
-     *
      * ***/
     void setTrainPart(int type);
 
@@ -64,7 +71,8 @@ public:
      *    @bool ok  上下肢类型 false-关  true-开
      * ********/
     void switchFes(qint8 channel,bool ok);
-
+protected:
+    void paintEvent(QPaintEvent *event);
 
 private slots:
     void on_start_Btn_clicked();
@@ -115,6 +123,7 @@ private:
     QList<QLabel*> m_channelAList,m_channelBList;
     int upDirection;   //上肢旋转方向 0-正 1-逆
     int downDirection; //下肢旋转方向 0-正 1-逆
+    SpasmTipsDialog *m_spasmTipsDialog;
 };
 
 #endif // GAMEDISPLAYPAGE_H
