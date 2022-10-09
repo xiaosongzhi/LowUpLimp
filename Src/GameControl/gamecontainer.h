@@ -17,6 +17,9 @@ public:
     ~GameContainer();
 
     void startGame(QString path);
+
+protected:
+    void showEvent(QShowEvent *event);
 private:
     void initProcess();
 private:
