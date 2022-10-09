@@ -6,6 +6,8 @@
 #include "loginwidget.h"
 //#include "fessetting.h"
 #include "gamedisplaypage.h"
+#include <QProcess>
+#include <QWindow>
 namespace Ui {
 class CMainWindow;
 }
@@ -19,11 +21,15 @@ public:
     ~CMainWindow();
 public slots:
     void slotSwitchPage(E_PAGENAME);
+
+    void slot_Timerout();
 private slots:
 
     void on_login_Btn_clicked();
 
     void slotCurrentUserChanged();
+    void on_startGame_Btn_clicked();
+
 private:
     void switchPage(E_PAGENAME);
 private:
@@ -31,6 +37,11 @@ private:
 
     LoginWidget *loginDialog;
 
+    QProcess *process;
+    int m_exitCode;
+    QProcess::ExitStatus m_exitStatus;
+    QWindow *m_window;
+    GameDisplayPage *m_gameDisplayPage;
 };
 
 #endif // CMAINWINDOW_H

@@ -3,9 +3,15 @@
 #include "mainwindowpagecontrol.h"
 #include "currentuserdata.h"
 #include <QDebug>
+#include <QTimer>
+#include <windows.h>
+#include <QHBoxLayout>
+
+
 CMainWindow::CMainWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::CMainWindow)
+    ui(new Ui::CMainWindow),
+    m_gameDisplayPage(NULL)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
@@ -15,6 +21,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
     //默认为主界面
 //    setAttribute(Qt::WA_DeleteOnClose,false);
     ui->stackedWidget->setCurrentIndex(0);
+    m_gameDisplayPage = new GameDisplayPage();
 }
 
 CMainWindow::~CMainWindow()
@@ -31,6 +38,9 @@ void CMainWindow::switchPage(E_PAGENAME E_Page)
         break;
     case TrainingPage_E://游戏训练界面
         ui->stackedWidget->setCurrentWidget(ui->game_Page);
+        m_gameDisplayPage->move(0,0);
+//        m_gameDisplayPage->show();
+        QTimer::singleShot(10000,this,SLOT(slot_Timerout()));//同上，就是参数不同
         break;
     case UserPage_E:
         ui->stackedWidget->setCurrentWidget(ui->userMsg_Page);
@@ -75,9 +85,38 @@ void CMainWindow::slotCurrentUserChanged()
     ui->title_Widget->setUser(CurrentUserData::getInstace()->getCurrentPatientMsg());
 }
 
+void CMainWindow::on_startGame_Btn_clicked()
+{
+    process = new QProcess();
+    connect(process,&QProcess::errorOccurred,[=](QProcess::ProcessError error){qDebug()<<error;});
+        connect(process,QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),[this]
+                (int exitCode,QProcess::ExitStatus exitStatus){
+            m_exitCode = exitCode;
+            m_exitStatus = exitStatus;
+            qDebug()<<"m_exitCode"<<m_exitCode<<"m_exitStatus"<<m_exitStatus;
+        });
+        QString path = "./GameDemo/game801/game801/MultiplayerBicycleRace.exe";
 
+        process->start(path);
+        Sleep(10);
+        WId hwnd = 0;
 
+        do{
+            QEventLoop loop;
+            //1ms之后退出
+            QTimer::singleShot(1,&loop,SLOT(quit()));
+            hwnd = (WId)FindWindow(L"UnityWndClass",L"DuoRenQiChe2");
+        }while(hwnd == 0);
+        m_window = QWindow::fromWinId(hwnd);
+        QWidget *container = createWindowContainer(m_window,this);
 
+        QHBoxLayout *hLayout = new QHBoxLayout(this);
+        hLayout->setMargin(0);
+        hLayout->addWidget(container);
+        ui->game_widget->setLayout(hLayout);
+}
 
-
-
+void CMainWindow::slot_Timerout()
+{
+    m_gameDisplayPage->show();
+}

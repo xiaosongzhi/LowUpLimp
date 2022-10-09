@@ -46,7 +46,34 @@
    <widget class="FesSetting" name="FES_Page"/>
    <widget class="SettingWidget" name="setting_Page"/>
    <widget class="UserManager" name="userMsg_Page"/>
-   <widget class="GameDisplayPage" name="game_Page"/>
+   <widget class="QWidget" name="game_Page">
+    <widget class="QWidget" name="game_widget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1921</width>
+       <height>991</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(85, 170, 127);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="startGame_Btn">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>860</y>
+       <width>93</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>启动游戏</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
@@ -84,12 +111,6 @@
    <class>ArmOrLeg</class>
    <extends>QWidget</extends>
    <header>armorleg.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>GameDisplayPage</class>
-   <extends>QWidget</extends>
-   <header>gamedisplaypage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
