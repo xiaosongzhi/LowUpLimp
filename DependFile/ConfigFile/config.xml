@@ -3,7 +3,10 @@
     <tcpAddress IP = "192.168.1.20"  port = "8000"></tcpAddress>
 	<udpServerAddress IP = "192.168.1.10"  port = "10000"></udpServerAddress>
 	<udpClientAddress IP = "192.168.1.100"  port = "15000"></udpClientAddress>
-	<udpGameAddress IP = "127.0.0.1"  port = "11000"></udpGameAddress>
+	<udpGameServerAddress IP = "127.0.0.1"  port = "20000"></udpGameServerAddress>
+	<!--与游戏通信的上位机地址-->
+	<udpGameClientAddress IP = "127.0.0.1"  port = "12000"></udpGameClientAddress>
+	<!--与上位机通信的游戏地址-->
 	<serialPort portName = "COM3"  baud = "115200" dataBits = "8"  parity = "0" stopBit = "0" flowControl = "0"></serialPort>
 	<dataBase IP = "192.168.1.20"  port = "9000"  userName = "root" password = "root"></dataBase>
 	<videoTips videoPath = "./video/" videoNum = "9">
