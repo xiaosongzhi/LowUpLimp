@@ -152,7 +152,7 @@ typedef struct
 typedef struct
 {
     int type;   //0-上肢 1-下肢
-    int updown; //方向
+    int updown; //方向0-正向 1-逆向
     int power;  //阻力
     int speed;  //速度
 }ST_SetBicycleParam;
@@ -192,6 +192,16 @@ typedef struct
     QStringList suitTypeList;   //适合的游戏类型  0-被动圆周 1-被动分段 2-主动
 }ST_GameMsg;
 
+//游戏控制参数
+typedef struct
+{
+    int MsgId;       //消息ID
+    int ID;          //用户ID
+    QString userName;//用户名
+    int speed;       //速度
+    int forceLeft;   //左平衡
+    int forceRight;  //右平衡
+}ST_GameControlParam;
 
 extern void  Pressure_CheckCRC(uint8_t*buf,int len,uint8_t* CRC_H,uint8_t* CRC_L);
 extern void Sleep(int msec);
