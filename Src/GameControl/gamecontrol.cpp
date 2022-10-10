@@ -424,7 +424,8 @@ void GameControl::createTrainReport()
 void GameControl::sendStopCmd()
 {
     QJsonObject object;
-    object.insert("msgID",4);
+    object.insert("msgID",2);
+    object.insert("GameState",0);
     QJsonDocument document;
     document.setObject(object);
     QByteArray sendArray = document.toJson();

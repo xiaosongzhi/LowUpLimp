@@ -6,7 +6,7 @@
 #include <QMessageBox>
 //#include "loginwidget.h"
 #include "cmainwindow.h"
-#include "gamedisplaypage.h"
+#include "readconfig.h"
 
 #include "loginwidget.h"
 
@@ -14,8 +14,20 @@ int main(int argc, char *argv[])
 {
     //    qputenv("QT_IM_MODULE",QByteArray("qtvirtualkeyboard"));
     QApplication a(argc, argv);
+    //数据库读取
     if(!CDatabaseInterface::getInstance()->openDB("./DependFile/DBFile/UpLow.db","QSQLITE"))
         qDebug()<<"UpLow.db open failed!";
+    //配置文件读取
+    if(!ReadConfig::getInstance()->readConfigFile())
+    {
+        qDebug()<<"配置文件读取失败";
+        return -1;
+    }
+    int16_t port;
+    QString IP;
+    ReadConfig::getInstance()->getGameSeverAddress(port,IP);
+    qDebug()<<port<<IP;
+
 
     //设置全局样式表
     QFile file("./DependFile/QSS/app.txt");

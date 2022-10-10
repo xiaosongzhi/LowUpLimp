@@ -63,7 +63,7 @@ public:
     bool readConfigFile();
 
     //与游戏通信地址
-    bool getGameSeverAddress(int16_t &port,QString& IP);
+    bool getGameServerAddress(int16_t &port,QString& IP);
     //游戏地址
     bool getGameClientAddress(int16_t &port,QString& IP);
 };

@@ -25,6 +25,7 @@ bool ReadConfig::readConfigFile()
         return false;
     }
 
+
     QXmlStreamReader reader(&configFile);
     while(!reader.atEnd())
     {
@@ -296,7 +297,7 @@ bool ReadConfig::getDataBaseConfig(ST_DataBaseConfig &databaseConfig)
         return false;
 }
 
-bool ReadConfig::getGameSeverAddress(int16_t &port,QString& IP)
+bool ReadConfig::getGameServerAddress(int16_t &port,QString& IP)
 {
     port = st_configData.udpGameServerPort;
     IP = st_configData.udpGameServerIP;
