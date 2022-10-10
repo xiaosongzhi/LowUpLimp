@@ -2,7 +2,7 @@
 #define READCONFIG_H
 
 #include <QObject>
-#include "dataFormate.h"
+#include "dataformate.h"
 #include <QMutex>
 #include <QMap>
 //饿汉式单例
@@ -21,8 +21,10 @@ private:
         int16_t udpServerPort;
         QString udpClientIP;
         int16_t udpClientPort;
-        QString udpGameIP;
-        int16_t udpGamePort;
+        QString udpGameClientIP;
+        int16_t udpGameClientPort;
+        QString udpGameServerIP;
+        int16_t udpGameServerPort;
         QString tcpIP;
         int16_t tcpPort;
         ST_SerialPortConfig serialConfig;
@@ -44,9 +46,11 @@ private:
 public:
     //获取实例
     static ReadConfig* getInstance();
-    //获取UDP地址信息
+    //上下位机通信地址
     bool getUdpServerAddress(int16_t &port,QString &IP);
     bool getUdpClientAddress(int16_t &port,QString &IP);
+
+
     //获取TCP地址信息
     bool getTcpAddress(int16_t &port,QString &IP);
     //获取串口信息
@@ -58,7 +62,10 @@ public:
 
     bool readConfigFile();
 
+    //与游戏通信地址
     bool getGameSeverAddress(int16_t &port,QString& IP);
+    //游戏地址
+    bool getGameClientAddress(int16_t &port,QString& IP);
 };
 
 #endif // READCONFIG_H

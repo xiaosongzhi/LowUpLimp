@@ -14,11 +14,11 @@ ReadConfig::ReadConfig()
 }
 bool ReadConfig::readConfigFile()
 {
-    QString filePath = QApplication::applicationDirPath();
-    QString fileName = filePath +"/ConfigFile/config.xml";
+
+    QString fileName = "./DependFile/ConfigFile/config.xml";
 
     QFile configFile(fileName);
-    qDebug()<<fileName;
+
     if(!configFile.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         qDebug()<<"配置文件打开失败";
@@ -104,16 +104,30 @@ bool ReadConfig::readConfigFile()
                     st_configData.udpClientPort = attributes.value("port").toInt();
                 }
             }
-            else if(QString::compare(strElementName,"udpGameAddress") == 0)
+            //与游戏通信的上位机
+            else if(QString::compare(strElementName,"udpGameServerAddress") == 0)
             {
                 QXmlStreamAttributes attributes = reader.attributes();
                 if(attributes.hasAttribute("IP"))
                 {
-                     st_configData.udpGameIP = attributes.value("IP").toString();
+                     st_configData.udpGameServerIP = attributes.value("IP").toString();
                 }
                 if(attributes.hasAttribute("port"))
                 {
-                    st_configData.udpGamePort = attributes.value("port").toInt();
+                    st_configData.udpGameServerPort = attributes.value("port").toInt();
+                }
+            }
+            //与上位机通信的游戏
+            else if(QString::compare(strElementName,"udpGameClientAddress") == 0)
+            {
+                QXmlStreamAttributes attributes = reader.attributes();
+                if(attributes.hasAttribute("IP"))
+                {
+                     st_configData.udpGameClientIP = attributes.value("IP").toString();
+                }
+                if(attributes.hasAttribute("port"))
+                {
+                    st_configData.udpGameClientPort = attributes.value("port").toInt();
                 }
             }
             else if(QString::compare(strElementName,"serialPort") == 0)
@@ -280,12 +294,18 @@ bool ReadConfig::getDataBaseConfig(ST_DataBaseConfig &databaseConfig)
         return true;
     else
         return false;
-
 }
 
 bool ReadConfig::getGameSeverAddress(int16_t &port,QString& IP)
 {
-    port = st_configData.udpGamePort;
-    IP = st_configData.udpGameIP;
+    port = st_configData.udpGameServerPort;
+    IP = st_configData.udpGameServerIP;
+    return true;
+}
+
+bool ReadConfig::getGameClientAddress(int16_t &port,QString& IP)
+{
+    port = st_configData.udpGameClientPort;
+    IP = st_configData.udpGameClientIP;
     return true;
 }
