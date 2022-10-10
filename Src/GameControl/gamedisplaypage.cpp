@@ -235,8 +235,42 @@ void GameDisplayPage::slotSetChannelBData(int *data,int size)
 void GameDisplayPage::slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam)
 {
     //上肢
-    if(st_setBicycleParam.)
+    if(0 == st_setBicycleParam.type)
+    {
+        ui->upSpeed_Label->setText(QString::number(st_setBicycleParam.speed));
+        ui->upForce_Label->setText(QString::number(st_setBicycleParam.power));
+        //正向
+        if(0 == st_setBicycleParam.updown)
+        {
+            ui->upForward_Btn->setChecked(true);
+            ui->upBackward_Btn->setChecked(false);
+        }
+        //逆向
+        else if(1 == st_setBicycleParam.updown)
+        {
+            ui->upForward_Btn->setChecked(false);
+            ui->upBackward_Btn->setChecked(true);
+        }
+
+    }
     //下肢
+    else if(1 == st_setBicycleParam.type)
+    {
+        ui->downSpeed_Label->setText(QString::number(st_setBicycleParam.speed));
+        ui->downForce_Label->setText(QString::number(st_setBicycleParam.power));
+        //正向
+        if(0 == st_setBicycleParam.updown)
+        {
+            ui->downForward_Btn->setChecked(true);
+            ui->downBackward_Btn->setChecked(false);
+        }
+        //逆向
+        else if(1 == st_setBicycleParam.updown)
+        {
+            ui->downForward_Btn->setChecked(false);
+            ui->downBackward_Btn->setChecked(true);
+        }
+    }
 }
 
 void GameDisplayPage::setTrainSpeed(int speed, qint8 type)

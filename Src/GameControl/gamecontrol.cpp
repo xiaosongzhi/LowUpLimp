@@ -437,62 +437,6 @@ void GameControl::sendStopCmd()
     }
 }
 
-void GameControl::sendCurrentPointToGame(QPoint point)
-{
-    QJsonObject Xobject;
-    Xobject.insert("current",point.x());
-    Xobject.insert("min",0);
-
-    QJsonObject Yobject;
-    Yobject.insert("current",point.y());
-    Yobject.insert("min",0);
-
-    QJsonObject object;
-    object.insert("msgID",2);
-    object.insert("TypeID",1);
-    object.insert("m_xv",Xobject);
-    object.insert("m_yv",Yobject);
-    QJsonDocument document;
-    document.setObject(object);
-    QByteArray sendArray = document.toJson();
-    QString ip("127.0.0.1");
-    int16_t port = 12000;
-    m_gameSocket->writeDatagram(sendArray,QHostAddress(ip),port);
-}
-
-void GameControl::sendCurrentAngleToGame(float value,float minValue,float maxValue)
-{
-    //主动训练
-    if(1 == st_TrainReport.trainMode)
-    {
-        if(m_activeMaxAngle < value)
-            m_activeMaxAngle = value;
-        if(m_activeMinAngle > value)
-            m_activeMinAngle = value;
-    }
-
-    float tarAngle = 50;
-    QJsonObject Xobject;
-
-    Xobject.insert("current",value);
-    Xobject.insert("min",minValue);
-    Xobject.insert("max",maxValue);
-    QJsonObject object;
-    object.insert("msgID",2);
-    object.insert("TypeID",1);
-    object.insert("m_angle",Xobject);
-    object.insert("tarAngle",tarAngle);
-    QJsonDocument document;
-    document.setObject(object);
-    QByteArray sendArray = document.toJson();
-
-    QString ip("127.0.0.1");
-    int16_t port = 12000;
-    m_gameSocket->writeDatagram(sendArray,QHostAddress(ip),port);
-}
-
-
-
 //游戏界面关闭时间
 void GameControl::slotWaitTimer()
 {
@@ -504,4 +448,18 @@ void GameControl::slotWaitTimer()
 void GameControl::stopGame()
 {
     sendStopCmd();
+}
+
+void GameControl::sendGameControlData(const ST_GameControlParam &st_gameControlParam)
+{
+    QJsonObject object;
+    object.insert("msgID",st_gameControlParam.MsgId);
+    object.insert("ID",st_gameControlParam.ID);
+    object.insert("userName",st_gameControlParam.userName);
+    object.insert("speed",st_gameControlParam.speed);
+    object.insert("forceLeft",st_gameControlParam.forceLeft);
+    object.insert("forceRight",st_gameControlParam.forceRight);
+    QJsonDocument document;
+    document.setObject(object);
+    QByteArray sendArray = document.toJson();
 }

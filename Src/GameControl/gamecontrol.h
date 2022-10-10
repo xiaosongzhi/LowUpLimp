@@ -25,16 +25,13 @@ public:
     //获取实例
     static GameControl* getInstance();
 
-    //给游戏发送实时点
-    void sendCurrentPointToGame(QPoint point);
-
-    //给游戏发送实时角度
-    void sendCurrentAngleToGame(float value,float minValue,float maxValue);
-
     //启动游戏
     void startGame(QString path);
     //关闭游戏
     void stopGame();
+
+    //发送左右平衡以及速度
+    void sendGameControlData(const ST_GameControlParam& );
 signals:
     //游戏状态标志
 //    void signalGameState(E_TRAINMODE,E_GameState);
