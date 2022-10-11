@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     }
     int16_t port;
     QString IP;
-    ReadConfig::getInstance()->getGameSeverAddress(port,IP);
+    ReadConfig::getInstance()->getGameServerAddress(port,IP);
     qDebug()<<port<<IP;
 
 

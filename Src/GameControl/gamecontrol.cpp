@@ -41,7 +41,7 @@ void GameControl::initGameSocket()
     m_gameSocket = new QUdpSocket();
     int16_t port;
     QString IP;
-    ReadConfig::getInstance()->getGameSeverAddress(port,IP);
+    ReadConfig::getInstance()->getGameServerAddress(port,IP);
     if(m_gameSocket->bind(port))
     {
         qDebug()<<(QString("游戏服务端口%1").arg(port));
