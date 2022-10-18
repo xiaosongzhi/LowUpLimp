@@ -417,8 +417,6 @@ void GameControl::createTrainReport()
         m_trainReport->setReportType(tr("主动训练报告"));
     ***/
     m_trainReport->setReportData(st_TrainReport,1);
-
-
 }
 
 void GameControl::sendStopCmd()
