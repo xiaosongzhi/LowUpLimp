@@ -141,6 +141,22 @@ typedef struct
     int tiredSpeedCompensate;    //转速补偿(疲劳侦测) -30~0 step-1
 }ST_AdvancedParam;
 
+/**********与下位机通信--start**********/
+//踏车参数
+typedef struct
+{
+    int8_t bodyPart;    //训练部位 0-上肢 1-下肢 2-四肢
+    int8_t trainMode;   //训练模式 0-主动 1-被动 2-助力 3-等速 4-主被动
+    uint8_t trainTime;  //训练时间/min 范围0~120min
+    int8_t resistance;  //阻力 Nm  0~29Nm
+    int8_t speed;       //速度 2~60r/min
+    int8_t direction;   //方向 0-正常（顺时针） 1-逆向（逆时针）
+    int8_t spasmType;   //痉挛类型  0-正向 1-逆向 2-关闭
+    int8_t spasmLevel;  //痉挛等级
+}ST_BicycleParam;
+
+/**********与下位机通信--end**********/
+
 //脉搏血氧
 typedef struct
 {
