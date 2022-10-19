@@ -4,7 +4,12 @@
 #define PAGENUM  8          //每页显示数量
 #define MAXSHOWNUM  1000    //最大显示数量
 #define PERCOUNT 8          //用户每页显示数量
-#define PACKHEAD 0xFE
+//上位机发送使用
+#define PACKHEAD 0xAB       //帧头
+#define PACKTAIL 0xCD       //帧尾
+//下位机发送使用
+#define SLAVEPACKHEAD 0xBA
+#define SLAVEPACKTAIL 0xDC
 typedef enum
 {
     E_NEW_USER = 0,
@@ -37,8 +42,10 @@ typedef enum
     BicycleToFes_E              //从踏车界面到FES界面
 }E_PAGENAME;
 
+//上位机发送指令
 typedef enum
 {
+    /***
     ERROR_EMERGENCY = 0X0000,           //急停报警
     ERROR_CHECKRESULT = 0X0001,         //复位按钮
     ERROR_DEVICEERROR = 0X0002,         //设备报警
@@ -47,10 +54,7 @@ typedef enum
     CONTROL_PARAMSET = 0x0100,          //评估模式设定
     MACHINE_ZERO_CHECK= 0x0100,         //机械零点校准
     GYROSCOPE_CHECK = 0X0101,           //陀螺仪校准
-    GET_GYROSCOPE_DATA =0X0102,         //获取陀螺仪数据
-    GIVE_GYROSCOPE_DATA = 0X0103,       //给出陀螺仪数据
     GET_CIRCLE_ANGLE = 0x0104,          //获取圆周角度
-    EVALUATE_CONTROL = 0X1000,          //评估控制
     ARRIVE_EVALUATE_POSITION = 0X1001,  //到达指定评估位置
     SWITCH_PASSIVE_TRAINNING = 0X2000,  //被动训练开启、关闭
     ARRIVED_PASSIVE_POSITION = 0X2001,  //下位机到达被动训练位置
@@ -60,10 +64,33 @@ typedef enum
     SET_ACTIVE_TRAINNING_TYPE = 0X3001, //设置主动训练类型值
     SET_ACTIVE_PARAMETER = 0X3002,      //设置主动训练参数
     ARRIVED_ACTIVE_POSITION = 0x3003,   //到达主动训练位置
-    DEBUG_CMD = 0x3004,                 //调试指令（被动退出）
-    HEART_BEAT_CMD = 0XF000,             //心跳
-    QUIT_CMD = 0XF001                    //退出各种状态
-}E_CMDID;
+    ***/
+
+    BICYCLE_PARAM_CMD = 0x01,          //启动前参数
+    REALTIME_PARAM_CMD = 0x02,         //实时调节参数
+    SEND_HEARTBEAT_CMD = 0X05          //发送心跳（启用）
+
+}E_SENDCMDID;
+
+//接收下位机指令
+typedef enum
+{
+    BRFORE_START_CMD = 0x00,        //启动前
+    AFTER_START_CMD = 0x01,         //启动后
+    RECE_HEARTBEAT_CMD = 0x02          //接收心跳(启用)
+}E_RECECMDID;
+
+//实时调节参数子指令
+typedef enum
+{
+    RESISTANCE_CMD = 0x01,  //阻力
+    PASSIVE_SPEED = 0x02,   //被动转速
+    SPASM_LEVEL = 0x03,     //痉挛等级
+    SWITCH_DIRECTION = 0x04,//手动换向
+    EQUAL_SPEED = 0x08,     //等速运动
+    SYNERGY_SPEED = 0x09,   //协同限速
+    SPASM_CONFIRM = 0x10    //确认痉挛
+}E_REALTIMECMD;
 
 //串口配置
 typedef struct ST_SerialPortConfig
@@ -143,18 +170,53 @@ typedef struct
 
 /**********与下位机通信--start**********/
 //踏车参数
+#pragma pack(push)		// 保存原来的字节对齐方式
+#pragma pack(1)
+
+//启动前参数
 typedef struct
 {
+    int8_t controlState;//状态控制 0-暂停 1启动 2-暂停 3-继续
     int8_t bodyPart;    //训练部位 0-上肢 1-下肢 2-四肢
-    int8_t trainMode;   //训练模式 0-主动 1-被动 2-助力 3-等速 4-主被动
-    uint8_t trainTime;  //训练时间/min 范围0~120min
-    int8_t resistance;  //阻力 Nm  0~29Nm
-    int8_t speed;       //速度 2~60r/min
+    int8_t trainMode;   //训练模式 0-被动 1-主动(可切被) 2-助力 3-等速 4-上下肢协同被动 9-单独主动
+    int8_t spasmSwitch; //痉挛开关 0-关 1-开
+    int8_t spasmLevel;  //痉挛等级1~3挡
+    int8_t configPower; //配置功率0~2 低中高
+    int8_t switchDirectonTime;//换向时间
+    int8_t phaseValue;  //协同相位值
     int8_t direction;   //方向 0-正常（顺时针） 1-逆向（逆时针）
-    int8_t spasmType;   //痉挛类型  0-正向 1-逆向 2-关闭
-    int8_t spasmLevel;  //痉挛等级
+    int8_t speed;       //速度 2~60r/min
+    int8_t resistance;  //阻力 Nm  0~29Nm
+    int8_t spasmType;   //痉挛后方向  0-停止 1-正向 2-逆向
+
 }ST_BicycleParam;
 
+//下位机上传参数
+typedef struct
+{
+    int8_t currentMode;         //当前模式
+    int8_t direction;           //方向 0-反向 1-正向
+    int8_t downLimpSpeed;       //下肢速度
+    int8_t upLimpSpeed;         //上肢速度
+    uint16_t leftHandPosition;  //左手位置
+    uint16_t leftFootPosition;  //左脚位置
+    uint16_t rightHandPosition; //右手位置
+    uint16_t rightFootPosition; //右脚位置
+    int8_t upBalance;           //上肢平衡度
+    int8_t downBalance;         //下肢平衡度
+    uint16_t upLimpCircle;      //上肢圈数
+    uint16_t downLimpCircle;    //下肢圈数
+    int8_t emergencyState;      //急停 1-触发 0-未触发
+    int8_t spasmState;          //痉挛 1-触发 0-未触发
+    int8_t error;               //系统故障
+    int8_t oxygen;              //血氧数据
+    int8_t overSpeedProtect;    //过速保护  0-正常 1-触发
+    uint32_t power;             //功率
+    uint32_t energy;            //能量
+}ST_DeviceParam;
+
+
+#pragma pack(pop)		// 恢复字节对齐方式
 /**********与下位机通信--end**********/
 
 //脉搏血氧
