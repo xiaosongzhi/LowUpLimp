@@ -4,7 +4,6 @@
 #include "cserialportinterface.h"
 #include "cudpinterface.h"
 #include "ctcpsocketinterface.h"
-#include "dataFormate.h"
 #include <QDebug>
 
 CCommunicateAPI *CCommunicateAPI::m_API = NULL;
@@ -61,25 +60,24 @@ void CCommunicateAPI::init()
 
 void CCommunicateAPI::sendData(QByteArray sendArray)
 {
+    char length = sendArray.size();
+    sendArray.prepend(length);
     sendArray.prepend(PACKHEAD);
     //添加校验
-    uint8_t CRC_H = 0;
-    uint8_t CRC_L = 0;
-//    Pressure_CheckCRC((uint8_t*)(sendArray.data()),sendArray.length(),&CRC_H,&CRC_L);
-    sendArray.append(CRC_L);
-    sendArray.append(CRC_H);
+    char sum = 0;
+    sendArray.append(sum);
+    sendArray.append(PACKTAIL);
+    qDebug()<<sendArray.toHex();
     m_interface->sendDataInterface(sendArray);
 }
 
-void CCommunicateAPI::sendData(uint8_t seq,uint8_t id,uint16_t cmdID,QByteArray arrayData)
+void CCommunicateAPI::sendData(uint16_t cmdID,QByteArray arrayData)
 {
-
     QByteArray fixedArray;
     fixedArray.resize(5);
     fixedArray[0] = arrayData.length();
-    fixedArray[1] = seq;
-    fixedArray[2] = id;
-    memcpy(fixedArray.data()+3,&cmdID,sizeof(uint16_t));
+
+    memcpy(fixedArray.data()+3,&cmdID,sizeof(uint8_t));
 
     fixedArray.append(arrayData);
     sendData(fixedArray);
@@ -98,22 +96,36 @@ void CCommunicateAPI::resetFault()
 
 //发送心跳
 void CCommunicateAPI::sendHeartBeat()
+{    
+    QByteArray array(4,0);
+                      //长度
+    array[0] = SEND_HEARTBEAT_CMD;  //指令
+    sendData(array);
+}
+
+void CCommunicateAPI::sendBicycleParam(const ST_BicycleParam &st_bicycleParam)
 {
-    uint16_t cmdId = HEART_BEAT_CMD;
-    uint8_t seq = 0;
-    uint8_t id = 1;
-    QByteArray array;
-    array.resize(0);
-    sendData(seq,id,cmdId,array);
+    QByteArray array(13,0);
+    array[0] = BICYCLE_PARAM_CMD;
+    memcpy(array.data() + 1,&st_bicycleParam,sizeof(ST_BicycleParam));
+    sendData(array);
+}
+
+void CCommunicateAPI::sendRealTimeParam(E_REALTIMECMD sbuCmd,quint8 value)
+{
+    QByteArray array(4,0);
+    array[0] = REALTIME_PARAM_CMD;
+    array[1] = sbuCmd;
+    array[2] = value;
+    sendData(array);
 }
 
 
 void CCommunicateAPI::SetquitCmd()
 {
-    uint16_t cmdId = QUIT_CMD;
-    uint8_t seq = 0;
-    uint8_t id = 1;
-    QByteArray array;
-    array.resize(0);
-    CCommunicateAPI::getInstance()->sendData(seq,id,cmdId,array);
+//    uint16_t cmdId = QUIT_CMD;
+
+//    QByteArray array;
+//    array.resize(0);
+//    CCommunicateAPI::getInstance()->sendData(cmdId,array);
 }

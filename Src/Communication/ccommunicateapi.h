@@ -2,7 +2,7 @@
 #define CCOMMUNICATEAPI_H
 
 #include <QObject>
-#include "dataFormate.h"
+#include "dataformate.h"
 class CCommunicationInterface;
 class CCommunicateAPI : public QObject
 {
@@ -21,13 +21,20 @@ public:
     *@QByteArray arrayData：有效数据
     *返回值：无
     ***********************************/
-    void sendData(uint8_t seq,uint8_t id,uint16_t cmdID,QByteArray arrayData);
+    void sendData(uint16_t cmdID,QByteArray arrayData);
 
     //故障复位
     void resetFault();
 
     //心跳开关
     void sendHeartBeat();
+
+    /****测试函数****/
+    //启动前参数
+    void sendBicycleParam(const ST_BicycleParam&);
+    //实时调节参数
+    void sendRealTimeParam(E_REALTIMECMD,quint8 value);
+
 
     //退出当前状态
     void SetquitCmd();
