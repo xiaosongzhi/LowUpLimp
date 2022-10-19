@@ -92,7 +92,7 @@ void CSerialportInterface::receiveDataInterface()
 
     while(!receiveArray.isEmpty())
     {
-        if(receiveArray[0] != (char)PACKHEAD)
+        if(receiveArray[0] != (char)SLAVEPACKHEAD)
         {
             receiveArray.remove(0,1);
         }
@@ -102,23 +102,18 @@ void CSerialportInterface::receiveDataInterface()
             uint8_t datalen = 0;
             memcpy(&datalen,receiveArray.constData()+1,sizeof(uint8_t));
 
-            if(receiveArray.length() >= datalen + 8)
+            if(receiveArray.length() >= datalen + 4)
             {
-                uint8_t CRC_H = 0;
-                uint8_t CRC_L = 0;
-//                Pressure_CheckCRC((uint8_t*)receiveArray.constData(),datalen+6,&CRC_H,&CRC_L);
                 //校验成功
-
-                if((CRC_L == (uint8_t)receiveArray[6+datalen]) && (CRC_H == (uint8_t)receiveArray[7+datalen]))
+                if((uint8_t)receiveArray[datalen+3] ==  SLAVEPACKTAIL)
                 {
-                    emit  signalReadyRead(receiveArray.mid(0,datalen + 8));
-
-                    receiveArray.remove(0,datalen + 8);
+                    emit  signalReadyRead(receiveArray.mid(0,datalen + 4));
+                    receiveArray.remove(0,datalen + 4);
                 }
                 else //校验失败
                 {
                     //方式1 丢弃本包
-                    receiveArray.remove(0,datalen + 8);
+                    receiveArray.remove(0,datalen + 4);
                 }
             }
             else    //数据不够，直接退出继续接收
