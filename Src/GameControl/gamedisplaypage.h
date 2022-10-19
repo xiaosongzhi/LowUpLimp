@@ -115,6 +115,9 @@ private slots:
 
     //踏车设置参数
     void slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam);
+
+    //接收下位机数据
+    void slotReceiveData(QByteArray);
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:

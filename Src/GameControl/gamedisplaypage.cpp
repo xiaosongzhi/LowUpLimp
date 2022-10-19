@@ -7,6 +7,7 @@
 #include <QPaintEvent>
 #include <QPainter>
 #include "icemodule.h"
+#include "ccommunicateapi.h"
 GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameDisplayPage),
@@ -59,6 +60,8 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     connect(IceModule::getInstance(),SIGNAL(signalSetFesAParam(int*,int)),this,SLOT(slotSetChannelAData(int*,int)));
     connect(IceModule::getInstance(),SIGNAL(signalSetFesBParam(int*,int)),this,SLOT(slotSetChannelBData(int*,int)));
     connect(IceModule::getInstance(),SIGNAL(signalSetBicycleParam(ST_SetBicycleParam)),this,SLOT(slotSetBicycleParam(ST_SetBicycleParam)));
+
+    connect(CCommunicateAPI::getInstance(),SIGNAL(signalReadyRead(QByteArray)),this,SLOT(slotReceiveData(QByteArray)));
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -270,6 +273,41 @@ void GameDisplayPage::slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam)
             ui->downForward_Btn->setChecked(false);
             ui->downBackward_Btn->setChecked(true);
         }
+    }
+}
+
+//接收下位机数据
+void GameDisplayPage::slotReceiveData(QByteArray array)
+{
+    qDebug()<<array.toHex();
+    switch(array[2])
+    {
+    case BRFORE_START_CMD:  //启动前
+        break;
+    case AFTER_START_CMD:  //启动后
+    {
+        ST_DeviceParam  st_deviceParam;
+        memcpy(&st_deviceParam,array.data() + 3,sizeof(ST_DeviceParam));
+        qDebug()<<"currentMode"<<st_deviceParam.currentMode;
+        qDebug()<<"direction"<<st_deviceParam.direction;
+        qDebug()<<"downLimpSpeed"<<st_deviceParam.downLimpSpeed;
+        qDebug()<<"upLimpSpeed"<<st_deviceParam.upLimpSpeed;
+        qDebug()<<"leftHandPosition"<<st_deviceParam.leftHandPosition;
+        qDebug()<<"leftFootPosition"<<st_deviceParam.leftFootPosition;
+        qDebug()<<"rightHandPosition"<<st_deviceParam.rightHandPosition;
+        qDebug()<<"rightFootPosition"<<st_deviceParam.rightFootPosition;
+        qDebug()<<"upBalance"<<st_deviceParam.upBalance;
+        qDebug()<<"downBalance"<<st_deviceParam.downBalance;
+        qDebug()<<"upLimpCircle"<<st_deviceParam.upLimpCircle;
+        qDebug()<<"downLimpCircle"<<st_deviceParam.downLimpCircle;
+        qDebug()<<"emergencyState"<<st_deviceParam.emergencyState;
+        qDebug()<<"spasmState"<<st_deviceParam.spasmState;
+        qDebug()<<"error"<<st_deviceParam.error;
+        qDebug()<<"oxygen"<<st_deviceParam.oxygen;
+        qDebug()<<"power"<<st_deviceParam.power;
+        qDebug()<<"energy"<<st_deviceParam.energy;
+    }
+        break;
     }
 }
 
