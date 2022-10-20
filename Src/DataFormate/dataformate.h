@@ -77,7 +77,7 @@ typedef enum
 {
     BRFORE_START_CMD = 0x00,        //启动前
     AFTER_START_CMD = 0x01,         //启动后
-    RECE_HEARTBEAT_CMD = 0x02          //接收心跳(启用)
+    RECE_HEARTBEAT_CMD = 0x02       //接收心跳(启用)
 }E_RECECMDID;
 
 //实时调节参数子指令
@@ -87,7 +87,7 @@ typedef enum
     PASSIVE_SPEED = 0x02,   //被动转速
     SPASM_LEVEL = 0x03,     //痉挛等级
     SWITCH_DIRECTION = 0x04,//手动换向
-    EQUAL_SPEED = 0x08,     //等速运动
+    EQUAL_SPEED = 0x08,     //等速转速
     SYNERGY_SPEED = 0x09,   //协同限速
     SPASM_CONFIRM = 0x10    //确认痉挛
 }E_REALTIMECMD;
