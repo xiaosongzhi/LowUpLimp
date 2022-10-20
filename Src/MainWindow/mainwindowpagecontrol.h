@@ -21,11 +21,6 @@ public:
     //获取当前页面下标
     int getCurrentPageIndex();
 
-    //更新各页面状态
-    void updatePageRunningflag(E_PAGENAME,bool flag);
-
-    //获取各个页面的状态
-    bool getPageFlag(E_PAGENAME);
 signals:
     void signalSwitchPage(E_PAGENAME pageIndex);
 
