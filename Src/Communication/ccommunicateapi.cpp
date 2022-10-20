@@ -98,7 +98,7 @@ void CCommunicateAPI::resetFault()
 void CCommunicateAPI::sendHeartBeat()
 {    
     QByteArray array(4,0);
-                      //长度
+
     array[0] = SEND_HEARTBEAT_CMD;  //指令
     sendData(array);
 }

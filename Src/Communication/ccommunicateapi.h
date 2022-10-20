@@ -35,7 +35,6 @@ public:
     //实时调节参数
     void sendRealTimeParam(E_REALTIMECMD,quint8 value);
 
-
     //退出当前状态
     void SetquitCmd();
 signals:
