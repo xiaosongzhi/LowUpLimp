@@ -29,13 +29,13 @@ void ArmOrLeg::initWidget()
     ui->trainTime1_ComboBox->setView(new QListView);
 
     ui->upTrainTime2_ComboBox->setView(new QListView);
-//    ui->downTrainTime2_ComboBox->setView(new QListView);
+    //    ui->downTrainTime2_ComboBox->setView(new QListView);
 
     ui->upResistance2_ComboBox->setView(new QListView);
-//    ui->downResistance2_ComboBox->setView(new QListView);
+    //    ui->downResistance2_ComboBox->setView(new QListView);
 
     ui->upSpeed2_ComboBox->setView(new QListView);
-//    ui->downSpeed2_ComboBox->setView(new QListView);
+    //    ui->downSpeed2_ComboBox->setView(new QListView);
 }
 
 void ArmOrLeg::setTrainType(int8_t type)
@@ -66,6 +66,7 @@ void ArmOrLeg::on_advanced1_Btn_clicked()
     m_advanceDialog->show();
     m_advanceDialog->exec();
     ST_AdvancedParam st_advancedParam = m_advanceDialog->getValue();
+    Q_UNUSED(st_advancedParam)
 }
 
 //四肢中的上肢
@@ -74,6 +75,7 @@ void ArmOrLeg::on_upAdvanced2_Btn_clicked()
     m_advanceDialog->show();
     m_advanceDialog->exec();
     ST_AdvancedParam st_advancedParam = m_advanceDialog->getValue();
+    Q_UNUSED(st_advancedParam)
 }
 
 //四肢中的下肢
@@ -82,6 +84,7 @@ void ArmOrLeg::on_downAdvanced2_Btn_clicked()
     m_advanceDialog->show();
     m_advanceDialog->exec();
     ST_AdvancedParam st_advancedParam = m_advanceDialog->getValue();
+    Q_UNUSED(st_advancedParam)
 }
 
 //下一步--进入FES界面
@@ -94,5 +97,20 @@ void ArmOrLeg::on_next_Btn_clicked()
 void ArmOrLeg::on_confirm_Btn_clicked()
 {
     MainWindowPageControl::getInstance()->setCurrentPage(TrainingPage_E);
+    ST_BicycleParam st_bicycleParam;
+    //训练部位
+    if(ui->upLimp_RadioButton->isChecked())
+        st_bicycleParam.bodyPart = 0;
+    else if(ui->downLimp_RadioButton->isChecked())
+        st_bicycleParam.bodyPart = 1;
+    else if(ui->upDownLimp_RadioButton->isChecked())
+    {
+        st_bicycleParam.bodyPart = 2;
+    }
+
+
+
+
+
 }
 
