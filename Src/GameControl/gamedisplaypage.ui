@@ -560,7 +560,7 @@ border: 1px solid #05A6EC;}</string>
          <string notr="true">color:white;</string>
         </property>
         <property name="text">
-         <string>当前阶段</string>
+         <string>当前模式</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1029,7 +1029,7 @@ border: 1px solid #05A6EC;}
          <string notr="true">color:white;</string>
         </property>
         <property name="text">
-         <string>当前阶段</string>
+         <string>当前模式</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

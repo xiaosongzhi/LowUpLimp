@@ -29,9 +29,11 @@ public:
      * ***/
     void setTrainPart(int type);
 
+    //根据参数填充数据
+    void setSlaveParam(ST_DeviceParam& st_deviceParam);
 
-    //填充实时下位机反馈参数
-    void setRealTimeParam(int updown,int remainTime,int speed,int power);
+    //设置模式
+    void setTrainMode(int8_t mode);
 
     /****填充设置参数***
      *参数@int direction 0-正向 1-反向
@@ -66,6 +68,8 @@ public:
      *    @bool ok  上下肢类型 false-关  true-开
      * ********/
     void switchFes(qint8 channel,bool ok);
+
+
 protected:
     void paintEvent(QPaintEvent *event);
 
@@ -127,6 +131,7 @@ private:
     QList<QLabel*> m_channelAList,m_channelBList;
     int upDirection;   //上肢旋转方向 0-正 1-逆
     int downDirection; //下肢旋转方向 0-正 1-逆
+    int8_t m_bodyPart; //训练部位 0-上肢 1-下肢 2-上下肢
     SpasmTipsDialog *m_spasmTipsDialog;
 };
 

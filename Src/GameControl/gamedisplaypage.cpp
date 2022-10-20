@@ -88,6 +88,7 @@ void GameDisplayPage::setTitle()
 
 void GameDisplayPage::setTrainPart(int type)
 {
+    m_bodyPart = type;
     switch(type)
     {
     case 0:
@@ -103,6 +104,43 @@ void GameDisplayPage::setTrainPart(int type)
         ui->downLimp_GroupBox->setVisible(true);
         break;
     }
+}
+
+void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
+{
+    switch(m_bodyPart)
+    {
+    case 0: //上肢
+    {
+        ui->upRealSpeed_Label->setText(QString::number(st_deviceParam.upLimpSpeed));
+        ui->upRealPower_Label->setText(QString::number(st_deviceParam.power));
+        setTrainMode(st_deviceParam.currentMode);
+        //运动距离怎么计算
+        ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle));
+    }
+        break;
+    case 1: //下肢
+    {
+        ui->downRealSpeed_Label->setText(QString::number(st_deviceParam.downLimpSpeed));
+        ui->downRealPower_Label->setText(QString::number(st_deviceParam.power));
+        setTrainMode(st_deviceParam.currentMode);
+        ui->length_Label->setText(QString::number(st_deviceParam.downLimpCircle));
+    }
+        break;
+    case 2: //上下肢
+    {
+        ui->upRealSpeed_Label->setText(QString::number(st_deviceParam.upLimpSpeed));
+        ui->upRealPower_Label->setText(QString::number(st_deviceParam.power));
+        ui->downRealSpeed_Label->setText(QString::number(st_deviceParam.downLimpSpeed));
+        ui->downRealPower_Label->setText(QString::number(st_deviceParam.power));
+        setTrainMode(st_deviceParam.currentMode);
+        ui->length_Label->setText(QString::number(st_deviceParam.downLimpCircle+st_deviceParam.upLimpCircle));
+    }
+        break;
+    }
+    //此处显示的是左右平衡，但是下位机上传的是上下肢平衡
+    ui->leftBalance_Label->setText(QString::number(st_deviceParam.upBalance));
+    ui->rightBalance_Label->setText(QString::number(st_deviceParam.downBalance));
 }
 
 void GameDisplayPage::on_start_Btn_clicked()
@@ -279,7 +317,6 @@ void GameDisplayPage::slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam)
 //接收下位机数据
 void GameDisplayPage::slotReceiveData(QByteArray array)
 {
-    qDebug()<<array.toHex();
     switch(array[2])
     {
     case BRFORE_START_CMD:  //启动前
@@ -288,25 +325,11 @@ void GameDisplayPage::slotReceiveData(QByteArray array)
     {
         ST_DeviceParam  st_deviceParam;
         memcpy(&st_deviceParam,array.data() + 3,sizeof(ST_DeviceParam));
-        qDebug()<<"currentMode"<<st_deviceParam.currentMode;
-        qDebug()<<"direction"<<st_deviceParam.direction;
-        qDebug()<<"downLimpSpeed"<<st_deviceParam.downLimpSpeed;
-        qDebug()<<"upLimpSpeed"<<st_deviceParam.upLimpSpeed;
-        qDebug()<<"leftHandPosition"<<st_deviceParam.leftHandPosition;
-        qDebug()<<"leftFootPosition"<<st_deviceParam.leftFootPosition;
-        qDebug()<<"rightHandPosition"<<st_deviceParam.rightHandPosition;
-        qDebug()<<"rightFootPosition"<<st_deviceParam.rightFootPosition;
-        qDebug()<<"upBalance"<<st_deviceParam.upBalance;
-        qDebug()<<"downBalance"<<st_deviceParam.downBalance;
-        qDebug()<<"upLimpCircle"<<st_deviceParam.upLimpCircle;
-        qDebug()<<"downLimpCircle"<<st_deviceParam.downLimpCircle;
-        qDebug()<<"emergencyState"<<st_deviceParam.emergencyState;
-        qDebug()<<"spasmState"<<st_deviceParam.spasmState;
-        qDebug()<<"error"<<st_deviceParam.error;
-        qDebug()<<"oxygen"<<st_deviceParam.oxygen;
-        qDebug()<<"power"<<st_deviceParam.power;
-        qDebug()<<"energy"<<st_deviceParam.energy;
+        setSlaveParam(st_deviceParam);
     }
+        break;
+    case RECE_HEARTBEAT_CMD:
+        CCommunicateAPI::getInstance()->sendHeartBeat();
         break;
     }
 }
@@ -378,24 +401,53 @@ void GameDisplayPage::on_switchBFes_Btn_clicked()
     }
 }
 
-//填充实时下位机反馈参数
-void GameDisplayPage::setRealTimeParam(int updown,int remainTime,int speed,int power)
+
+void GameDisplayPage::setTrainMode(int8_t mode)
 {
-    //上肢
-    if(0 == updown)
+    static int8_t currentMode = 0;
+
+    if(currentMode != mode)
     {
-        ui->upRemainTime_Label->setText(QString::number(remainTime));
-        ui->upRealSpeed_Label->setText(QString::number(speed));
-        ui->upRealPower_Label->setText(QString::number(power));
-    } //下肢
-    else if(1 == updown)
-    {
-        ui->downRemainTime_Label->setText(QString::number(remainTime));
-        ui->downRealSpeed_Label->setText(QString::number(speed));
-        ui->downRealPower_Label->setText(QString::number(power));
+        QString modeName;
+        switch(mode)
+        {
+        case 0:
+            modeName = tr("被动训练");
+            break;
+        case 1:
+            modeName = tr("主动训练");
+            break;
+        case 2:
+            modeName = tr("助力训练");
+            break;
+        case 3:
+            modeName = tr("等速训练");
+            break;
+        case 4:
+            modeName = tr("协同被动训练");
+            break;
+        case 5:
+            modeName = tr("上肢带下肢训练");
+            break;
+        case 6:
+            modeName = tr("下肢带上肢训练");
+            break;
+        case 7:
+            modeName = tr("自由训练");
+            break;
+        case 8:
+            modeName = tr("FES训练");
+            break;
+        }
+
+        ui->upCurrentStage_Label->setText(modeName);
+        ui->downCurrentStage_Label->setText(modeName);
+
+        currentMode = mode;
     }
 
 }
+
 //填充设置参数
 void GameDisplayPage::fillSetParam(int updown,int speed,int resistance,int direction)
 {
