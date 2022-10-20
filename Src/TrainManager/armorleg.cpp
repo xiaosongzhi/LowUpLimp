@@ -29,13 +29,13 @@ void ArmOrLeg::initWidget()
     ui->trainTime1_ComboBox->setView(new QListView);
 
     ui->upTrainTime2_ComboBox->setView(new QListView);
-    ui->downTrainTime2_ComboBox->setView(new QListView);
+//    ui->downTrainTime2_ComboBox->setView(new QListView);
 
     ui->upResistance2_ComboBox->setView(new QListView);
-    ui->downResistance2_ComboBox->setView(new QListView);
+//    ui->downResistance2_ComboBox->setView(new QListView);
 
     ui->upSpeed2_ComboBox->setView(new QListView);
-    ui->downSpeed2_ComboBox->setView(new QListView);
+//    ui->downSpeed2_ComboBox->setView(new QListView);
 }
 
 void ArmOrLeg::setTrainType(int8_t type)
@@ -84,12 +84,13 @@ void ArmOrLeg::on_downAdvanced2_Btn_clicked()
     ST_AdvancedParam st_advancedParam = m_advanceDialog->getValue();
 }
 
+//下一步--进入FES界面
 void ArmOrLeg::on_next_Btn_clicked()
 {
     MainWindowPageControl::getInstance()->setCurrentPage(BicycleToFes_E);
 }
 
-
+//确认参数--进入游戏
 void ArmOrLeg::on_confirm_Btn_clicked()
 {
     MainWindowPageControl::getInstance()->setCurrentPage(TrainingPage_E);
