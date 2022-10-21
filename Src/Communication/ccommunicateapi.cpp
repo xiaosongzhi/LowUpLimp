@@ -67,7 +67,7 @@ void CCommunicateAPI::sendData(QByteArray sendArray)
     char sum = 0;
     sendArray.append(sum);
     sendArray.append(PACKTAIL);
-    qDebug()<<sendArray.toHex();
+//    qDebug()<<sendArray.toHex();
     m_interface->sendDataInterface(sendArray);
 }
 
