@@ -14,6 +14,11 @@ class SpasmTipsDialog : public QDialog
 public:
     explicit SpasmTipsDialog(QWidget *parent = nullptr);
     ~SpasmTipsDialog();
+    /*****痉挛弹窗以及痉挛次数显示****
+     * 参数@bool isVisable是否显示该弹窗
+     * 参数@int times痉挛次数
+     * ******/
+    void setSpasmDialogVisible(bool isVisable,int times);
 protected:
     void paintEvent(QPaintEvent *event);
 private slots:

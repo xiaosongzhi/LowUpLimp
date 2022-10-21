@@ -57,7 +57,7 @@ border-radius: 32px;}</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="tips_Label">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -74,10 +74,13 @@ border-radius: 32px;}</string>
      </font>
     </property>
     <property name="text">
-     <string>请注意发生痉挛</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="confirm_Btn">
