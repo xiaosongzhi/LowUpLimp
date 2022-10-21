@@ -14,7 +14,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
     m_gameDisplayPage(NULL)
 {
     ui->setupUi(this);
-    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
+//    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
     qRegisterMetaType<E_PAGENAME>("E_PAGENAME");
     connect(MainWindowPageControl::getInstance(),SIGNAL(signalSwitchPage(E_PAGENAME)),this,SLOT(slotSwitchPage(E_PAGENAME)));
     connect(CurrentUserData::getInstace(),SIGNAL(signalUserChanged()),this,SLOT(slotCurrentUserChanged()));
