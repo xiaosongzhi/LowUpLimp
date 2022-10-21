@@ -45,27 +45,6 @@ typedef enum
 //上位机发送指令
 typedef enum
 {
-    /***
-    ERROR_EMERGENCY = 0X0000,           //急停报警
-    ERROR_CHECKRESULT = 0X0001,         //复位按钮
-    ERROR_DEVICEERROR = 0X0002,         //设备报警
-    ERROR_SPASMWARNING = 0X0003,        //痉挛报警
-    SPASM_ERROR_RESET = 0X0004,         //痉挛复位
-    CONTROL_PARAMSET = 0x0100,          //评估模式设定
-    MACHINE_ZERO_CHECK= 0x0100,         //机械零点校准
-    GYROSCOPE_CHECK = 0X0101,           //陀螺仪校准
-    GET_CIRCLE_ANGLE = 0x0104,          //获取圆周角度
-    ARRIVE_EVALUATE_POSITION = 0X1001,  //到达指定评估位置
-    SWITCH_PASSIVE_TRAINNING = 0X2000,  //被动训练开启、关闭
-    ARRIVED_PASSIVE_POSITION = 0X2001,  //下位机到达被动训练位置
-    SET_PASSIVE_PARAMETER = 0X2002,     //设置被动训练参数
-    PASSIVE_DEST_POSITION=0X2003,       //被动训练目标数据
-    SWITCH_ACTIVE_TRAINNING = 0X3000,   //主动训练开启、关闭
-    SET_ACTIVE_TRAINNING_TYPE = 0X3001, //设置主动训练类型值
-    SET_ACTIVE_PARAMETER = 0X3002,      //设置主动训练参数
-    ARRIVED_ACTIVE_POSITION = 0x3003,   //到达主动训练位置
-    ***/
-
     BICYCLE_PARAM_CMD = 0x01,          //启动前参数
     REALTIME_PARAM_CMD = 0x02,         //实时调节参数
     SEND_HEARTBEAT_CMD = 0X05          //发送心跳（启用）
@@ -176,7 +155,7 @@ typedef struct
 //启动前参数
 typedef struct
 {
-    int8_t controlState;//状态控制 0-暂停 1启动 2-暂停 3-继续
+    int8_t controlState;//状态控制 0-停止 1启动 2-暂停 3-继续
     int8_t bodyPart;    //训练部位 0-上肢 1-下肢 2-四肢
     int8_t trainMode;   //训练模式 0-被动 1-主动(可切被) 2-助力 3-等速 4-上下肢协同被动 9-单独主动
     int8_t spasmSwitch; //痉挛开关 0-关 1-开
