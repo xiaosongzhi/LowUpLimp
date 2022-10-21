@@ -6,7 +6,7 @@
 #include <QTimer>
 #include <windows.h>
 #include <QHBoxLayout>
-
+#include <QProcess>
 
 CMainWindow::CMainWindow(QWidget *parent) :
     QWidget(parent),
@@ -14,7 +14,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
     m_gameDisplayPage(NULL)
 {
     ui->setupUi(this);
-//    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
+    this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
     qRegisterMetaType<E_PAGENAME>("E_PAGENAME");
     connect(MainWindowPageControl::getInstance(),SIGNAL(signalSwitchPage(E_PAGENAME)),this,SLOT(slotSwitchPage(E_PAGENAME)));
     connect(CurrentUserData::getInstace(),SIGNAL(signalUserChanged()),this,SLOT(slotCurrentUserChanged()));
@@ -22,6 +22,8 @@ CMainWindow::CMainWindow(QWidget *parent) :
 //    setAttribute(Qt::WA_DeleteOnClose,false);
     ui->stackedWidget->setCurrentIndex(0);
     m_gameDisplayPage = new GameDisplayPage();
+
+    m_Process = new QProcess();
 }
 
 CMainWindow::~CMainWindow()
@@ -39,8 +41,8 @@ void CMainWindow::switchPage(E_PAGENAME E_Page)
     case TrainingPage_E://游戏训练界面
         ui->stackedWidget->setCurrentWidget(ui->game_Page);
         m_gameDisplayPage->move(0,0);
-//        m_gameDisplayPage->show();
-        QTimer::singleShot(10000,this,SLOT(slot_Timerout()));//同上，就是参数不同
+        on_startGame_Btn_clicked();
+        QTimer::singleShot(1000,this,SLOT(slot_Timerout()));//同上，就是参数不同
         break;
     case UserPage_E:
         ui->stackedWidget->setCurrentWidget(ui->userMsg_Page);
@@ -87,17 +89,19 @@ void CMainWindow::slotCurrentUserChanged()
 
 void CMainWindow::on_startGame_Btn_clicked()
 {
-    process = new QProcess();
-    connect(process,&QProcess::errorOccurred,[=](QProcess::ProcessError error){qDebug()<<error;});
-        connect(process,QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),[this]
-                (int exitCode,QProcess::ExitStatus exitStatus){
-            m_exitCode = exitCode;
-            m_exitStatus = exitStatus;
-            qDebug()<<"m_exitCode"<<m_exitCode<<"m_exitStatus"<<m_exitStatus;
-        });
-        QString path = "./GameDemo/game801/game801/MultiplayerBicycleRace.exe";
+//    process = new QProcess();
+//    connect(process,&QProcess::errorOccurred,[=](QProcess::ProcessError error){qDebug()<<error;});
+//        connect(process,QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),[this]
+//                (int exitCode,QProcess::ExitStatus exitStatus){
+//            m_exitCode = exitCode;
+//            m_exitStatus = exitStatus;
+//            qDebug()<<"m_exitCode"<<m_exitCode<<"m_exitStatus"<<m_exitStatus;
+//        });
+        QString path = "./GameDemo/TJ_SXZ001_MultiplayerBicycleRace_LBY/MultiplayerBicycleRace_LBY.exe";
+        startGame(path);
+//        process->start(path);
 
-        process->start(path);
+
         Sleep(10);
         WId hwnd = 0;
 
@@ -105,7 +109,7 @@ void CMainWindow::on_startGame_Btn_clicked()
             QEventLoop loop;
             //1ms之后退出
             QTimer::singleShot(1,&loop,SLOT(quit()));
-            hwnd = (WId)FindWindow(L"UnityWndClass",L"DuoRenQiChe2");
+            hwnd = (WId)FindWindow(L"UnityWndClass",L"DuoRenQiChe");
         }while(hwnd == 0);
         m_window = QWindow::fromWinId(hwnd);
         QWidget *container = createWindowContainer(m_window,this);
@@ -114,6 +118,34 @@ void CMainWindow::on_startGame_Btn_clicked()
         hLayout->setMargin(0);
         hLayout->addWidget(container);
         ui->game_widget->setLayout(hLayout);
+
+}
+
+void CMainWindow::startGame(QString path)
+{
+    //1.开启游戏进程
+    if(path.isEmpty())
+        return;
+    QString hardDisk = path.mid(0,2);
+    hardDisk.append("\n\r");
+
+    QString gameName = path.mid(path.lastIndexOf('/')+1);
+    gameName.prepend("start ");
+    gameName.append("\n\r");
+    QString gamePath = path.mid(0,path.lastIndexOf('/'));
+    gamePath.prepend("cd ");
+    gamePath.append("\n\r");
+    m_Process->start("cmd.exe");
+    //切换盘符
+    m_Process->write(hardDisk.toLatin1());
+    //进入文件夹
+    m_Process->write(gamePath.toLatin1());
+    //开启进程
+    m_Process->write(gameName.toLatin1());
+    m_Process->write("exit\n\r");
+    m_Process->waitForFinished();
+    m_Process->close();
+    //2.关闭设备复位中的界面
 }
 
 void CMainWindow::slot_Timerout()

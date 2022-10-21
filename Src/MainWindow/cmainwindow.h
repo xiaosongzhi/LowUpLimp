@@ -8,6 +8,8 @@
 #include "gamedisplaypage.h"
 #include <QProcess>
 #include <QWindow>
+
+class QProcess;
 namespace Ui {
 class CMainWindow;
 }
@@ -32,6 +34,8 @@ private slots:
 
 private:
     void switchPage(E_PAGENAME);
+
+    void startGame(QString path);
 private:
     Ui::CMainWindow *ui;
 
@@ -42,6 +46,7 @@ private:
     QProcess::ExitStatus m_exitStatus;
     QWindow *m_window;
     GameDisplayPage *m_gameDisplayPage;
+    QProcess* m_Process;
 };
 
 #endif // CMAINWINDOW_H

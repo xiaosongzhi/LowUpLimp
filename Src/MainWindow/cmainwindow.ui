@@ -53,24 +53,11 @@
        <x>0</x>
        <y>0</y>
        <width>1921</width>
-       <height>991</height>
+       <height>1161</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(85, 170, 127);</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="startGame_Btn">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>860</y>
-       <width>93</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>启动游戏</string>
      </property>
     </widget>
    </widget>
