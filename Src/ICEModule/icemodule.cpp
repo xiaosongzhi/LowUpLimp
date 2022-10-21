@@ -22,7 +22,7 @@ void IceModule::setFesBParam(int *data,int size)
     emit signalSetFesBParam(data,size);
 }
 
-void IceModule::setBicycleParam(ST_SetBicycleParam st_setBicycleParam)
+void IceModule::setBicycleParam(ST_BicycleParam st_setBicycleParam)
 {
     emit signalSetBicycleParam(st_setBicycleParam);
 }

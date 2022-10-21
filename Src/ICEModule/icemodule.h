@@ -13,11 +13,11 @@ public:
     void setFesAParam(int *data,int size);
     void setFesBParam(int *data,int size);
 
-    void setBicycleParam(ST_SetBicycleParam);
+    void setBicycleParam(ST_BicycleParam);
 signals:
     void signalSetFesAParam(int *data,int size);
     void signalSetFesBParam(int *data,int size);
-    void signalSetBicycleParam(ST_SetBicycleParam);
+    void signalSetBicycleParam(ST_BicycleParam);
 private:
     explicit IceModule(QObject *parent = nullptr);
     static IceModule *m_IceModule;
