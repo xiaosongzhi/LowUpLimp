@@ -584,21 +584,21 @@ border: 1px solid #05A6EC;}</string>
          <rect>
           <x>161</x>
           <y>18</y>
-          <width>131</width>
+          <width>191</width>
           <height>41</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>黑体</family>
-          <pointsize>15</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">color:white;</string>
         </property>
         <property name="text">
-         <string>预热期</string>
+         <string>被动训练</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1053,7 +1053,7 @@ border: 1px solid #05A6EC;}
          <rect>
           <x>161</x>
           <y>19</y>
-          <width>131</width>
+          <width>191</width>
           <height>41</height>
          </rect>
         </property>
@@ -1067,7 +1067,7 @@ border: 1px solid #05A6EC;}
          <string notr="true">color:white;</string>
         </property>
         <property name="text">
-         <string>预热期</string>
+         <string>被动训练</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

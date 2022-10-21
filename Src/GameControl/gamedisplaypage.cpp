@@ -14,7 +14,8 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     m_openState(true),
     upDirection(0),
     downDirection(0),
-    m_spasmTipsDialog(NULL)
+    m_spasmTipsDialog(NULL),
+    heartTimer(NULL)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
@@ -59,9 +60,14 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
 
     connect(IceModule::getInstance(),SIGNAL(signalSetFesAParam(int*,int)),this,SLOT(slotSetChannelAData(int*,int)));
     connect(IceModule::getInstance(),SIGNAL(signalSetFesBParam(int*,int)),this,SLOT(slotSetChannelBData(int*,int)));
-    connect(IceModule::getInstance(),SIGNAL(signalSetBicycleParam(ST_SetBicycleParam)),this,SLOT(slotSetBicycleParam(ST_SetBicycleParam)));
+    connect(IceModule::getInstance(),SIGNAL(signalSetBicycleParam(ST_BicycleParam)),this,SLOT(slotSetBicycleParam(ST_BicycleParam)));
 
     connect(CCommunicateAPI::getInstance(),SIGNAL(signalReadyRead(QByteArray)),this,SLOT(slotReceiveData(QByteArray)));
+
+    heartTimer = new QTimer();
+    connect(heartTimer,SIGNAL(timeout()),this,SLOT(slotHeartTimer()));
+    heartTimer->setInterval(1000);
+    heartTimer->start();
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -145,10 +151,25 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
 
 void GameDisplayPage::on_start_Btn_clicked()
 {
-    m_spasmTipsDialog->show();
     ui->start_Btn->setVisible(false);
     ui->stop_Btn->setVisible(true);
     ui->pause_Btn->setVisible(true);
+
+    //告知下位机开始运动
+    ST_BicycleParam st_bicycleParam;
+    st_bicycleParam.controlState = 0;
+    st_bicycleParam.bodyPart =2;
+    st_bicycleParam.trainMode = 4;
+    st_bicycleParam.spasmSwitch = 1;
+    st_bicycleParam.spasmLevel = 2;
+    st_bicycleParam.configPower = 0;
+    st_bicycleParam.switchDirectonTime = 0;
+    st_bicycleParam.phaseValue = 9;
+    st_bicycleParam.direction = 1;
+    st_bicycleParam.speed = 8;
+    st_bicycleParam.resistance = 2;
+    st_bicycleParam.spasmType = 1;
+    CCommunicateAPI::getInstance()->sendBicycleParam(st_bicycleParam);
 }
 
 void GameDisplayPage::open_Btn_clicked()
@@ -185,76 +206,106 @@ void GameDisplayPage::on_upSpeedMinus_Btn_clicked()
 {
     int speed = ui->upSpeed_Label->text().toInt();
     if(speed > 2)
+    {
         ui->upSpeed_Label->setText(QString::number(--speed));
+        setTrainSpeed(speed);
+    }
+
 }
 
 void GameDisplayPage::on_upSpeedPlus_Btn_clicked()
 {
     int speed = ui->upSpeed_Label->text().toInt();
     if(speed < 60)
+    {
         ui->upSpeed_Label->setText(QString::number(++speed));
+        setTrainSpeed(speed);
+    }
+
 }
 
 void GameDisplayPage::on_upForceMinus_Btn_clicked()
 {
     int force = ui->upForce_Label->text().toInt();
     if(force > 0)
+    {
         ui->upForce_Label->setText(QString::number(--force));
+        setTrainFore(force);
+    }
 }
 
 void GameDisplayPage::on_upForcePlus_Btn_clicked()
 {
     int force = ui->upForce_Label->text().toInt();
     if(force < 29)
+    {
         ui->upForce_Label->setText(QString::number(++force));
+        setTrainFore(force);
+    }
 }
 
 void GameDisplayPage::on_upForward_Btn_clicked()
 {
-
+    setTrainDirection(0);
 }
 
 void GameDisplayPage::on_upBackward_Btn_clicked()
 {
-
+    setTrainDirection(1);
 }
 
 void GameDisplayPage::on_downSpeedMinus_Btn_clicked()
 {
     int speed = ui->downSpeed_Label->text().toInt();
     if(speed > 2)
+    {
         ui->downSpeed_Label->setText(QString::number(--speed));
+        setTrainSpeed(speed);
+    }
+
 }
 
 void GameDisplayPage::on_downSpeedPlus_Btn_clicked()
 {
     int speed = ui->downSpeed_Label->text().toInt();
     if(speed < 60)
+    {
         ui->downSpeed_Label->setText(QString::number(++speed));
+        setTrainSpeed(speed);
+    }
+
 }
 
 void GameDisplayPage::on_downForceMinus_Btn_clicked()
 {
     int force = ui->downForce_Label->text().toInt();
     if(force > 0)
+    {
         ui->downForce_Label->setText(QString::number(--force));
+        setTrainFore(force);
+    }
+
 }
 
 void GameDisplayPage::on_downForcePlus_Btn_clicked()
 {
     int force = ui->downForce_Label->text().toInt();
     if(force < 29)
+    {
         ui->downForce_Label->setText(QString::number(++force));
+        setTrainFore(force);
+    }
+
 }
 
 void GameDisplayPage::on_downForward_Btn_clicked()
 {
-
+    setTrainDirection(0);
 }
 
 void GameDisplayPage::on_downBackward_Btn_clicked()
 {
-
+    setTrainDirection(1);
 }
 
 void GameDisplayPage::slotSetChannelAData(int *data,int size)
@@ -273,21 +324,21 @@ void GameDisplayPage::slotSetChannelBData(int *data,int size)
 
 }
 
-void GameDisplayPage::slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam)
+void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
 {
     //上肢
-    if(0 == st_setBicycleParam.type)
+    if(0 == st_setBicycleParam.bodyPart)
     {
         ui->upSpeed_Label->setText(QString::number(st_setBicycleParam.speed));
-        ui->upForce_Label->setText(QString::number(st_setBicycleParam.power));
+        ui->upForce_Label->setText(QString::number(st_setBicycleParam.resistance));
         //正向
-        if(0 == st_setBicycleParam.updown)
+        if(1 == st_setBicycleParam.direction)
         {
             ui->upForward_Btn->setChecked(true);
             ui->upBackward_Btn->setChecked(false);
         }
         //逆向
-        else if(1 == st_setBicycleParam.updown)
+        else if(0 == st_setBicycleParam.direction)
         {
             ui->upForward_Btn->setChecked(false);
             ui->upBackward_Btn->setChecked(true);
@@ -295,18 +346,18 @@ void GameDisplayPage::slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam)
 
     }
     //下肢
-    else if(1 == st_setBicycleParam.type)
+    else if(1 == st_setBicycleParam.bodyPart)
     {
         ui->downSpeed_Label->setText(QString::number(st_setBicycleParam.speed));
-        ui->downForce_Label->setText(QString::number(st_setBicycleParam.power));
+        ui->downForce_Label->setText(QString::number(st_setBicycleParam.resistance));
         //正向
-        if(0 == st_setBicycleParam.updown)
+        if(1 == st_setBicycleParam.direction)
         {
             ui->downForward_Btn->setChecked(true);
             ui->downBackward_Btn->setChecked(false);
         }
         //逆向
-        else if(1 == st_setBicycleParam.updown)
+        else if(0 == st_setBicycleParam.direction)
         {
             ui->downForward_Btn->setChecked(false);
             ui->downBackward_Btn->setChecked(true);
@@ -329,27 +380,36 @@ void GameDisplayPage::slotReceiveData(QByteArray array)
     }
         break;
     case RECE_HEARTBEAT_CMD:
-        CCommunicateAPI::getInstance()->sendHeartBeat();
+        qDebug()<<"!!!!!!!!!!!!!!!!!!!!!!!!!";
+
         break;
     }
 }
 
+void GameDisplayPage::slotHeartTimer()
+{
+    CCommunicateAPI::getInstance()->sendHeartBeat();
+}
+
 void GameDisplayPage::setTrainSpeed(int speed, qint8 type)
 {
-    Q_UNUSED(speed)
-    Q_UNUSED(type)
+    if(0 == type)
+        CCommunicateAPI::getInstance()->sendRealTimeParam(PASSIVE_SPEED,speed);
+    else if(1 == type)
+        CCommunicateAPI::getInstance()->sendRealTimeParam(EQUAL_SPEED,speed);
 }
 
 void GameDisplayPage::setTrainFore(int force, qint8 type)
 {
-    Q_UNUSED(force)
     Q_UNUSED(type)
+    CCommunicateAPI::getInstance()->sendRealTimeParam(RESISTANCE_CMD,force);
 }
 
 void GameDisplayPage::setTrainDirection(qint8 direction, qint8 type)
 {
-    Q_UNUSED(direction)
+    //direction 默认为1
     Q_UNUSED(type)
+    CCommunicateAPI::getInstance()->sendRealTimeParam(SWITCH_DIRECTION,direction);
 }
 
 void GameDisplayPage::switchFes(qint8 channel, bool ok)

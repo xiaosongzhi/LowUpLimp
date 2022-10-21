@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QTimer>
 #include "dataformate.h"
 #include "dbforrmate.h"
 #include "spasmtipsdialog.h"
@@ -47,21 +48,21 @@ public:
     /***********通信相关************/
     /*****设置速度***
      * 参数@int speed 速度大小
-     *    @qint8 type 上下肢类型 0-上肢  1-下肢
+     *    @qint8 type 上下肢类型 0-被动转速  1-等速转速
      * ******/
-    void setTrainSpeed(int speed,qint8 type);
+    void setTrainSpeed(int speed = 1,qint8 type = 0);
 
     /******设置阻力****
      * 参数@int force 阻力大小
      *    @qint8 type  上下肢类型 0-上肢  1-下肢
      * ********/
-    void setTrainFore(int force,qint8 type);
+    void setTrainFore(int force,qint8 type = 0);
 
     /******设置方向****
      * 参数@qint8 direction 方向 0-顺时针  1-逆时针
      *    @qint8 type  上下肢类型 0-上肢  1-下肢
      * ********/
-    void setTrainDirection(qint8 direction,qint8 type);
+    void setTrainDirection(qint8 direction = 1,qint8 type = 1);
 
     /******设置Fes开关****
      * 参数@qint8 channel 方向 0-电刺激A  1-电刺激B
@@ -118,10 +119,12 @@ private slots:
     void slotSetChannelBData(int *data,int size);
 
     //踏车设置参数
-    void slotSetBicycleParam(ST_SetBicycleParam st_setBicycleParam);
+    void slotSetBicycleParam(ST_BicycleParam st_setBicycleParam);
 
     //接收下位机数据
     void slotReceiveData(QByteArray);
+
+    void slotHeartTimer();
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:
@@ -133,6 +136,7 @@ private:
     int downDirection; //下肢旋转方向 0-正 1-逆
     int8_t m_bodyPart; //训练部位 0-上肢 1-下肢 2-上下肢
     SpasmTipsDialog *m_spasmTipsDialog;
+    QTimer *heartTimer;
 };
 
 #endif // GAMEDISPLAYPAGE_H
