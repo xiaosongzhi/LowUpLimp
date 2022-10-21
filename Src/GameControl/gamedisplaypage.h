@@ -7,6 +7,7 @@
 #include "dataformate.h"
 #include "dbforrmate.h"
 #include "spasmtipsdialog.h"
+#include <QUdpSocket>
 class QPropertyAnimation;
 namespace Ui {
 class GameDisplayPage;
@@ -70,7 +71,7 @@ public:
      * ********/
     void switchFes(qint8 channel,bool ok);
 
-
+    void initGameSocket();
 protected:
     void paintEvent(QPaintEvent *event);
 
@@ -125,6 +126,18 @@ private slots:
     void slotReceiveData(QByteArray);
 
     void slotHeartTimer();
+
+    void slotCountDownTimer();
+
+    //游戏数据接收
+    void slotReceiveGameData();
+
+private:
+    //解析游戏数据
+    void parseGameMsg(QByteArray jsonArray);
+
+    //给游戏发送实时数据
+    void sendGameControlParam(ST_GameControlParam);
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:
@@ -137,6 +150,11 @@ private:
     int8_t m_bodyPart; //训练部位 0-上肢 1-下肢 2-上下肢
     SpasmTipsDialog *m_spasmTipsDialog;
     QTimer *heartTimer;
+    QTimer *countDownTimer; //倒计时
+    ST_BicycleParam m_st_bicycleParam;  //启动参数
+    int m_startNum;     //倒计时初始值
+    int m_spasmTimes;   //痉挛次数
+    QUdpSocket *m_gameSocket;
 };
 
 #endif // GAMEDISPLAYPAGE_H

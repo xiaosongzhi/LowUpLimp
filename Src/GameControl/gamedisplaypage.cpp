@@ -8,6 +8,9 @@
 #include <QPainter>
 #include "icemodule.h"
 #include "ccommunicateapi.h"
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonParseError>
 GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameDisplayPage),
@@ -15,7 +18,9 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     upDirection(0),
     downDirection(0),
     m_spasmTipsDialog(NULL),
-    heartTimer(NULL)
+    heartTimer(NULL),
+    countDownTimer(NULL),
+    m_spasmTimes(0)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
@@ -68,6 +73,11 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     connect(heartTimer,SIGNAL(timeout()),this,SLOT(slotHeartTimer()));
     heartTimer->setInterval(1000);
     heartTimer->start();
+
+    countDownTimer = new QTimer();
+    countDownTimer->setInterval(1000);
+    connect(countDownTimer,SIGNAL(timeout()),this,SLOT(slotCountDownTimer()));
+    initGameSocket();
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -76,7 +86,23 @@ GameDisplayPage::~GameDisplayPage()
         delete m_leftAnimation;
     if(m_rightAnimation)
         delete m_rightAnimation;
+    if(heartTimer)
+        delete heartTimer;
+    if(countDownTimer)
+        delete countDownTimer;
     delete ui;
+}
+
+void GameDisplayPage::initGameSocket()
+{
+    m_gameSocket = new QUdpSocket();
+    int16_t port = 20000;
+
+    if(m_gameSocket->bind(QHostAddress("127.0.0.1"),port))
+    {
+        qDebug()<<(QString("游戏服务端口%1").arg(port));
+    }
+    connect(m_gameSocket,&QUdpSocket::readyRead,this,&GameDisplayPage::slotReceiveGameData);
 }
 
 void GameDisplayPage::setUser(const ST_PatientMsg &st_patientMsg)
@@ -98,20 +124,25 @@ void GameDisplayPage::setTrainPart(int type)
     switch(type)
     {
     case 0:
+        ui->upLimp_GroupBox->move(10,10);
         ui->upLimp_GroupBox->setVisible(true);
         ui->downLimp_GroupBox->setVisible(false);
         break;
     case 1:
+        ui->downLimp_GroupBox->move(10,10);
         ui->upLimp_GroupBox->setVisible(false);
         ui->downLimp_GroupBox->setVisible(true);
         break;
     case 2:
+        ui->upLimp_GroupBox->move(10,10);
+        ui->downLimp_GroupBox->move(10,583);
         ui->upLimp_GroupBox->setVisible(true);
         ui->downLimp_GroupBox->setVisible(true);
         break;
     }
 }
 
+//实时数据填充
 void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
 {
     switch(m_bodyPart)
@@ -146,31 +177,32 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     }
     //此处显示的是左右平衡，但是下位机上传的是上下肢平衡
     ui->leftBalance_Label->setText(QString::number(st_deviceParam.upBalance));
-    ui->rightBalance_Label->setText(QString::number(st_deviceParam.downBalance));
+    ui->rightBalance_Label->setText(QString::number(100-st_deviceParam.upBalance));
+    //设置模式
+    setTrainMode(st_deviceParam.currentMode);
+
+    if(1 == st_deviceParam.spasmState )
+    {
+        if(m_spasmTipsDialog->isVisible())
+            return;
+
+        m_spasmTimes++;
+        m_spasmTipsDialog->setSpasmDialogVisible(true,m_spasmTimes);
+        if(m_spasmTimes >= 3)
+        {
+            m_spasmTimes = 0;
+            //大于3次痉挛退出训练
+            on_stop_Btn_clicked();
+        }
+    }
+    ST_GameControlParam st_gameControlParam;
+    st_gameControlParam.forceLeft = st_deviceParam.upBalance;
+    st_gameControlParam.forceRight = 100 - st_deviceParam.upBalance;
+    st_gameControlParam.speed = st_deviceParam.upLimpSpeed;
+    sendGameControlParam(st_gameControlParam);
 }
 
-void GameDisplayPage::on_start_Btn_clicked()
-{
-    ui->start_Btn->setVisible(false);
-    ui->stop_Btn->setVisible(true);
-    ui->pause_Btn->setVisible(true);
 
-    //告知下位机开始运动
-    ST_BicycleParam st_bicycleParam;
-    st_bicycleParam.controlState = 0;
-    st_bicycleParam.bodyPart =2;
-    st_bicycleParam.trainMode = 4;
-    st_bicycleParam.spasmSwitch = 1;
-    st_bicycleParam.spasmLevel = 2;
-    st_bicycleParam.configPower = 0;
-    st_bicycleParam.switchDirectonTime = 0;
-    st_bicycleParam.phaseValue = 9;
-    st_bicycleParam.direction = 1;
-    st_bicycleParam.speed = 8;
-    st_bicycleParam.resistance = 2;
-    st_bicycleParam.spasmType = 1;
-    CCommunicateAPI::getInstance()->sendBicycleParam(st_bicycleParam);
-}
 
 void GameDisplayPage::open_Btn_clicked()
 {
@@ -209,6 +241,7 @@ void GameDisplayPage::on_upSpeedMinus_Btn_clicked()
     {
         ui->upSpeed_Label->setText(QString::number(--speed));
         setTrainSpeed(speed);
+        m_st_bicycleParam.speed = speed;
     }
 
 }
@@ -220,6 +253,7 @@ void GameDisplayPage::on_upSpeedPlus_Btn_clicked()
     {
         ui->upSpeed_Label->setText(QString::number(++speed));
         setTrainSpeed(speed);
+        m_st_bicycleParam.speed = speed;
     }
 
 }
@@ -231,6 +265,7 @@ void GameDisplayPage::on_upForceMinus_Btn_clicked()
     {
         ui->upForce_Label->setText(QString::number(--force));
         setTrainFore(force);
+        m_st_bicycleParam.resistance = force;
     }
 }
 
@@ -241,17 +276,20 @@ void GameDisplayPage::on_upForcePlus_Btn_clicked()
     {
         ui->upForce_Label->setText(QString::number(++force));
         setTrainFore(force);
+        m_st_bicycleParam.resistance = force;
     }
 }
 
 void GameDisplayPage::on_upForward_Btn_clicked()
 {
     setTrainDirection(0);
+    m_st_bicycleParam.direction = 0;
 }
 
 void GameDisplayPage::on_upBackward_Btn_clicked()
 {
     setTrainDirection(1);
+    m_st_bicycleParam.direction = 1;
 }
 
 void GameDisplayPage::on_downSpeedMinus_Btn_clicked()
@@ -261,6 +299,7 @@ void GameDisplayPage::on_downSpeedMinus_Btn_clicked()
     {
         ui->downSpeed_Label->setText(QString::number(--speed));
         setTrainSpeed(speed);
+        m_st_bicycleParam.speed = speed;
     }
 
 }
@@ -272,6 +311,7 @@ void GameDisplayPage::on_downSpeedPlus_Btn_clicked()
     {
         ui->downSpeed_Label->setText(QString::number(++speed));
         setTrainSpeed(speed);
+        m_st_bicycleParam.speed = speed;
     }
 
 }
@@ -283,6 +323,7 @@ void GameDisplayPage::on_downForceMinus_Btn_clicked()
     {
         ui->downForce_Label->setText(QString::number(--force));
         setTrainFore(force);
+        m_st_bicycleParam.resistance = force;
     }
 
 }
@@ -294,6 +335,7 @@ void GameDisplayPage::on_downForcePlus_Btn_clicked()
     {
         ui->downForce_Label->setText(QString::number(++force));
         setTrainFore(force);
+        m_st_bicycleParam.resistance = force;
     }
 
 }
@@ -301,11 +343,13 @@ void GameDisplayPage::on_downForcePlus_Btn_clicked()
 void GameDisplayPage::on_downForward_Btn_clicked()
 {
     setTrainDirection(0);
+    m_st_bicycleParam.direction = 0;
 }
 
 void GameDisplayPage::on_downBackward_Btn_clicked()
 {
     setTrainDirection(1);
+    m_st_bicycleParam.direction = 1;
 }
 
 void GameDisplayPage::slotSetChannelAData(int *data,int size)
@@ -324,13 +368,21 @@ void GameDisplayPage::slotSetChannelBData(int *data,int size)
 
 }
 
+/*******踏车设置参数*******/
 void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
 {
+    m_st_bicycleParam = st_setBicycleParam;
+    m_startNum = m_st_bicycleParam.trainTime * 60;
+
+    setTrainMode(m_st_bicycleParam.trainMode);
+    //设置训练部位
+     setTrainPart(st_setBicycleParam.bodyPart);
     //上肢
-    if(0 == st_setBicycleParam.bodyPart)
+    if(0 == st_setBicycleParam.bodyPart || 2 == st_setBicycleParam.bodyPart)
     {
         ui->upSpeed_Label->setText(QString::number(st_setBicycleParam.speed));
         ui->upForce_Label->setText(QString::number(st_setBicycleParam.resistance));
+        ui->upRemainTime_Label->setText(QString::number(m_st_bicycleParam.trainTime));
         //正向
         if(1 == st_setBicycleParam.direction)
         {
@@ -343,13 +395,13 @@ void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
             ui->upForward_Btn->setChecked(false);
             ui->upBackward_Btn->setChecked(true);
         }
-
     }
     //下肢
-    else if(1 == st_setBicycleParam.bodyPart)
+    if(1 == st_setBicycleParam.bodyPart || 2 == st_setBicycleParam.bodyPart)
     {
         ui->downSpeed_Label->setText(QString::number(st_setBicycleParam.speed));
         ui->downForce_Label->setText(QString::number(st_setBicycleParam.resistance));
+        ui->downRemainTime_Label->setText(QString::number(m_st_bicycleParam.trainTime));
         //正向
         if(1 == st_setBicycleParam.direction)
         {
@@ -380,7 +432,6 @@ void GameDisplayPage::slotReceiveData(QByteArray array)
     }
         break;
     case RECE_HEARTBEAT_CMD:
-        qDebug()<<"!!!!!!!!!!!!!!!!!!!!!!!!!";
 
         break;
     }
@@ -389,6 +440,73 @@ void GameDisplayPage::slotReceiveData(QByteArray array)
 void GameDisplayPage::slotHeartTimer()
 {
     CCommunicateAPI::getInstance()->sendHeartBeat();
+}
+
+void GameDisplayPage::slotCountDownTimer()
+{
+    --m_startNum;
+
+    int minNum = m_startNum/60;//分钟数
+    int secNum = m_startNum%60;//秒数
+
+    if(minNum == 0 && secNum == 0)
+    {
+        //关闭定时器
+        countDownTimer->stop();
+
+        ui->upRemainTime_Label->setText("0");
+        ui->downRemainTime_Label->setText("0");
+        //停止训练
+        m_st_bicycleParam.controlState = 0;
+        CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
+        //弹出报告
+
+    }
+    else
+    {
+        ui->upRemainTime_Label->setText(QString::number(minNum+1));
+        ui->downRemainTime_Label->setText(QString::number(minNum+1));
+    }
+
+}
+
+void GameDisplayPage::slotReceiveGameData()
+{
+    while(m_gameSocket->hasPendingDatagrams())
+    {
+        QByteArray buf;
+        buf.resize(m_gameSocket->pendingDatagramSize());
+        m_gameSocket->readDatagram(buf.data(),buf.size());
+        parseGameMsg(buf);
+    }
+}
+
+//解析游戏数据
+void GameDisplayPage::parseGameMsg(QByteArray jsonArray)
+{
+    qDebug()<<jsonArray;
+}
+
+void GameDisplayPage::sendGameControlParam(ST_GameControlParam st_gameControlParam)
+{
+    st_gameControlParam.MsgId = 1;
+    QJsonObject object;
+    object.insert("MsgID",st_gameControlParam.MsgId);
+    object.insert("userName","zhangsan");
+    object.insert("ID",st_gameControlParam.ID);
+    object.insert("speed",st_gameControlParam.speed);
+    object.insert("forceLeft",st_gameControlParam.forceLeft);
+    object.insert("forceRight",st_gameControlParam.forceRight);
+    object.insert("steps",30);
+    object.insert("calories",5);
+    QJsonDocument document;
+    document.setObject(object);
+    QByteArray sendArray = document.toJson(QJsonDocument::Compact);
+
+    QString ip("127.0.0.1");
+    int16_t port = 12000;
+    m_gameSocket->writeDatagram(sendArray,QHostAddress(ip),port);
+
 }
 
 void GameDisplayPage::setTrainSpeed(int speed, qint8 type)
@@ -418,18 +536,47 @@ void GameDisplayPage::switchFes(qint8 channel, bool ok)
     Q_UNUSED(ok)
 }
 
+void GameDisplayPage::on_start_Btn_clicked()
+{
+    ui->start_Btn->setVisible(false);
+    ui->stop_Btn->setVisible(true);
+    ui->pause_Btn->setVisible(true);
+
+    //告知下位机开始运动
+    if(m_st_bicycleParam.controlState == 2)
+        m_st_bicycleParam.controlState = 3;
+    else
+        m_st_bicycleParam.controlState = 1;
+
+    CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
+    //开始时间计时器
+    countDownTimer->start();
+}
+
 void GameDisplayPage::on_stop_Btn_clicked()
 {
     ui->start_Btn->setVisible(true);
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
 
-    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
+    //告知下位机停止训练
+    m_st_bicycleParam.controlState = 0;
+    CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
+    //关闭定时器
+    countDownTimer->stop();
+
+
+    //弹出训练报告
+
+//    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
 }
 
 void GameDisplayPage::on_pause_Btn_clicked()
 {
-    m_spasmTipsDialog->close();
+    //关闭定时器
+    countDownTimer->stop();
+    m_st_bicycleParam.controlState = 2;
+    CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
     ui->start_Btn->setVisible(true);
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
@@ -465,6 +612,9 @@ void GameDisplayPage::on_switchBFes_Btn_clicked()
 void GameDisplayPage::setTrainMode(int8_t mode)
 {
     static int8_t currentMode = 0;
+
+    if(currentMode == mode)
+        return;
 
     if(currentMode != mode)
     {
