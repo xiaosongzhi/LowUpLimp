@@ -3,6 +3,7 @@
 #include "advanceddialog.h"
 #include "mainwindowpagecontrol.h"
 #include <QListView>
+#include "icemodule.h"
 #include <QDebug>
 ArmOrLeg::ArmOrLeg(QWidget *parent) :
     QWidget(parent),
@@ -36,6 +37,28 @@ void ArmOrLeg::initWidget()
 
     ui->upSpeed2_ComboBox->setView(new QListView);
     //    ui->downSpeed2_ComboBox->setView(new QListView);
+
+    //填充数据
+    //速度
+    for(int i = 2;i <= 60; i++)
+    {
+        ui->speed1_ComboBox->addItem(QString::number(i));
+        ui->upSpeed2_ComboBox->addItem(QString::number(i));
+    }
+    //阻力
+    for(int i = 0;i <= 29;i++)
+    {
+        ui->resistance1_ComboBox->addItem(QString::number(i));
+        ui->upResistance2_ComboBox->addItem(QString::number(i));
+    }
+    //时间
+    for(int i = 1;i <= 120;i++)
+    {
+        ui->trainTime1_ComboBox->addItem(QString::number(i));
+        ui->upTrainTime2_ComboBox->addItem(QString::number(i));
+    }
+
+
 }
 
 void ArmOrLeg::setTrainType(int8_t type)
@@ -106,11 +129,84 @@ void ArmOrLeg::on_confirm_Btn_clicked()
     else if(ui->upDownLimp_RadioButton->isChecked())
     {
         st_bicycleParam.bodyPart = 2;
+
+        //训练时间
+        st_bicycleParam.trainTime = ui->upTrainTime2_ComboBox->currentText().toUInt();
+        //训练阻力
+        st_bicycleParam.resistance = ui->upResistance2_ComboBox->currentText().toInt();
+        //训练速度
+        st_bicycleParam.speed = ui->upSpeed2_ComboBox->currentText().toInt();
+        //转向
+        if(ui->CW2_RadioButton->isChecked())
+            st_bicycleParam.direction = 1;
+        else if(ui->ACW2_RadioButton->isChecked())
+            st_bicycleParam.direction = 0;
+        //痉挛保护
+        if(ui->spasmACW2_RadioButton->isChecked())
+            st_bicycleParam.spasmType = 2;
+        else if(ui->spasmCW2_RadioButton->isChecked())
+            st_bicycleParam.spasmType = 1;
+
+        if(ui->spasmClose2_RadioButton->isChecked())
+            st_bicycleParam.spasmSwitch = 0;
+        else
+            st_bicycleParam.spasmSwitch = 1;
+
+        //痉挛等级
+        if(ui->spasmLow2_RadioButton->isChecked())
+            st_bicycleParam.spasmLevel = 1;
+        else if(ui->spasmMidd2_RadioButton->isChecked())
+            st_bicycleParam.spasmLevel = 2;
+        else if(ui->spasmHigh2_RadioButton->isChecked())
+            st_bicycleParam.spasmLevel = 3;
     }
 
+    if(2 != st_bicycleParam.bodyPart )
+    {
+        //单肢训练模式
+        if(ui->passive1_RadioButton->isChecked())
+            st_bicycleParam.trainMode = 0;
+        else if(ui->active1_RadioButton->isChecked())
+            st_bicycleParam.trainMode = 1;
+        else if(ui->assistant1_RadioButton->isChecked())
+            st_bicycleParam.trainMode = 2;
+        else if(ui->constant1_RadioButton->isChecked())
+            st_bicycleParam.trainMode = 3;
+        else if(ui->activePassive1_RadioButton->isChecked())
+            st_bicycleParam.trainMode = 4;
 
+        //训练时间
+        st_bicycleParam.trainTime = ui->trainTime1_ComboBox->currentText().toUInt();
+        //训练阻力
+        st_bicycleParam.resistance = ui->resistance1_ComboBox->currentText().toInt();
+        //训练速度
+        st_bicycleParam.speed = ui->speed1_ComboBox->currentText().toInt();
+        //转向
+        if(ui->CW1_RadioButton->isChecked())
+            st_bicycleParam.direction = 1;
+        else if(ui->ACW1_RadioButton->isChecked())
+            st_bicycleParam.direction = 0;
+        //痉挛保护
+        if(ui->spasmACW1_RadioButton->isChecked())
+            st_bicycleParam.spasmType = 2;
+        else if(ui->spasmCW1_RadioButton->isChecked())
+            st_bicycleParam.spasmType = 1;
 
+        if(ui->spasmClose1_RadioButton->isChecked())
+            st_bicycleParam.spasmSwitch = 0;
+        else
+            st_bicycleParam.spasmSwitch = 1;
 
+        //痉挛等级
+        if(ui->spasmLow1_RadioButton->isChecked())
+            st_bicycleParam.spasmLevel = 1;
+        else if(ui->spasmMidd1_RadioButton->isChecked())
+            st_bicycleParam.spasmLevel = 2;
+        else if(ui->spasmHigh1_RadioButton->isChecked())
+            st_bicycleParam.spasmLevel = 3;
 
+    }
+
+    IceModule::getInstance()->setBicycleParam(st_bicycleParam);
 }
 

@@ -1384,7 +1384,7 @@ color:#00A6F5;</string>
       <property name="title">
        <string/>
       </property>
-      <widget class="QRadioButton" name="spasmPause2_RadioButton">
+      <widget class="QRadioButton" name="spasmCW2_RadioButton">
        <property name="geometry">
         <rect>
          <x>350</x>
