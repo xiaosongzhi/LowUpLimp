@@ -184,11 +184,11 @@ typedef struct
     int8_t configPower; //配置功率0~2 低中高
     int8_t switchDirectonTime;//换向时间
     int8_t phaseValue;  //协同相位值
-    int8_t direction;   //方向 0-正常（顺时针） 1-逆向（逆时针）
+    int8_t direction;   //方向 0-逆向 1-正向
     int8_t speed;       //速度 2~60r/min
     int8_t resistance;  //阻力 Nm  0~29Nm
     int8_t spasmType;   //痉挛后方向  0-停止 1-正向 2-逆向
-
+    uint8_t trainTime; //训练时间 0~120min
 }ST_BicycleParam;
 
 //下位机上传参数
