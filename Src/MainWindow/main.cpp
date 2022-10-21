@@ -44,20 +44,7 @@ int main(int argc, char *argv[])
     LoginWidget login;
     login.show();
 
-    ST_BicycleParam st_bicycleParam;
-    st_bicycleParam.controlState = 1;
-    st_bicycleParam.bodyPart =1;
-    st_bicycleParam.trainMode = 9;
-    st_bicycleParam.spasmSwitch = 1;
-    st_bicycleParam.spasmLevel = 2;
-    st_bicycleParam.configPower = 0;
-    st_bicycleParam.switchDirectonTime = 0;
-    st_bicycleParam.phaseValue = 9;
-    st_bicycleParam.direction = 1;
-    st_bicycleParam.speed = 5;
-    st_bicycleParam.resistance = 2;
-    st_bicycleParam.spasmType = 1;
-    CCommunicateAPI::getInstance()->sendBicycleParam(st_bicycleParam);
+
 
     return a.exec();
 }
