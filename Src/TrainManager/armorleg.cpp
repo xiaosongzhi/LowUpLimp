@@ -13,6 +13,7 @@ ArmOrLeg::ArmOrLeg(QWidget *parent) :
     ui->setupUi(this);
     m_advanceDialog = new AdvancedDialog();
     initWidget();
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 ArmOrLeg::~ArmOrLeg()
@@ -37,6 +38,7 @@ void ArmOrLeg::initWidget()
 
     ui->upSpeed2_ComboBox->setView(new QListView);
     //    ui->downSpeed2_ComboBox->setView(new QListView);
+    ui->advanced1_Btn->setVisible(false);
 
     //填充数据
     //速度
@@ -45,8 +47,8 @@ void ArmOrLeg::initWidget()
         ui->speed1_ComboBox->addItem(QString::number(i));
         ui->upSpeed2_ComboBox->addItem(QString::number(i));
     }
-    //阻力
-    for(int i = 0;i <= 29;i++)
+    //阻力 0~20挡
+    for(int i = 0;i <= 20;i++)
     {
         ui->resistance1_ComboBox->addItem(QString::number(i));
         ui->upResistance2_ComboBox->addItem(QString::number(i));
@@ -73,6 +75,12 @@ void ArmOrLeg::setTrainType(int8_t type)
         ui->confirm_Btn->setVisible(false);
         ui->next_Btn->setVisible(true);
     }
+}
+
+void ArmOrLeg::showEvent(QShowEvent *event)
+{
+    ui->spasmCW1_RadioButton->setChecked(true);
+    ui->spasmCW2_RadioButton->setChecked(true);
 }
 
 void ArmOrLeg::on_upDownLimp_RadioButton_toggled(bool checked)
@@ -161,7 +169,8 @@ void ArmOrLeg::on_confirm_Btn_clicked()
             st_bicycleParam.spasmLevel = 3;
     }
 
-    if(2 != st_bicycleParam.bodyPart )
+
+    if(!ui->upDownLimp_RadioButton->isChecked())
     {
         //单肢训练模式
         if(ui->passive1_RadioButton->isChecked())
@@ -181,6 +190,8 @@ void ArmOrLeg::on_confirm_Btn_clicked()
         st_bicycleParam.resistance = ui->resistance1_ComboBox->currentText().toInt();
         //训练速度
         st_bicycleParam.speed = ui->speed1_ComboBox->currentText().toInt();
+
+
         //转向
         if(ui->CW1_RadioButton->isChecked())
             st_bicycleParam.direction = 1;
@@ -206,7 +217,21 @@ void ArmOrLeg::on_confirm_Btn_clicked()
             st_bicycleParam.spasmLevel = 3;
 
     }
-
+    st_bicycleParam.controlState = 0;
     IceModule::getInstance()->setBicycleParam(st_bicycleParam);
+
+
+}
+
+
+void ArmOrLeg::on_spasmClose2_RadioButton_toggled(bool checked)
+{
+    ui->groupBox_17->setEnabled(!checked);
+}
+
+
+void ArmOrLeg::on_spasmClose1_RadioButton_toggled(bool checked)
+{
+    ui->groupBox_8->setEnabled(!checked);
 }
 

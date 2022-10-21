@@ -19,6 +19,10 @@ public:
      * 参数@int8_t type 0-单踏车 1-FES踏车
      * *****/
     void setTrainType(int8_t type);
+
+protected:
+    void showEvent(QShowEvent *event);
+
 private slots:
     void on_upDownLimp_RadioButton_toggled(bool checked);
 
@@ -31,6 +35,10 @@ private slots:
     void on_next_Btn_clicked();
 
     void on_confirm_Btn_clicked();
+
+    void on_spasmClose2_RadioButton_toggled(bool checked);
+
+    void on_spasmClose1_RadioButton_toggled(bool checked);
 
 private:
     void initWidget();
