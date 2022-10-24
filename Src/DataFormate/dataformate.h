@@ -209,7 +209,7 @@ typedef struct
 typedef struct
 {
     int type;   //0-上肢 1-下肢
-    int updown; //方向0-正向 1-逆向
+    int updown; //方向1-正向 0-逆向
     int power;  //阻力
     int speed;  //速度
 }ST_SetBicycleParam;

@@ -46,13 +46,13 @@ typedef struct
     int rightBalance;       //右平衡
     float activeLength;     //主动长度
     float passiveLength;    //被动长度
-    int activeTime;         //主动时间
-    int passiveTime;        //被动时间
+    int activeTime;         //主动时间 /s
+    int passiveTime;        //被动时间 /s
     int spasmTimes;         //痉挛次数
     float maxResistance;    //最大阻力
     float averangeResistance;//平均阻力
     float minResistance;     //最小阻力
-    QString startTimeStr;    //训练时长字符串版-查看检索
+    QString startTimeStr;    //训练时间 字符串版-查看检索
 
 }ST_TrainReport;
 
