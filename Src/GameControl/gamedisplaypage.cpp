@@ -15,8 +15,8 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameDisplayPage),
     m_openState(true),
-    upDirection(0),
-    downDirection(0),
+    upDirection(1),
+    downDirection(1),
     m_spasmTipsDialog(NULL),
     heartTimer(NULL),
     countDownTimer(NULL),
@@ -282,14 +282,14 @@ void GameDisplayPage::on_upForcePlus_Btn_clicked()
 
 void GameDisplayPage::on_upForward_Btn_clicked()
 {
-    setTrainDirection(0);
-    m_st_bicycleParam.direction = 0;
+    setTrainDirection(1);
+    m_st_bicycleParam.direction = 1;
 }
 
 void GameDisplayPage::on_upBackward_Btn_clicked()
 {
-    setTrainDirection(1);
-    m_st_bicycleParam.direction = 1;
+    setTrainDirection(0);
+    m_st_bicycleParam.direction = 0;
 }
 
 void GameDisplayPage::on_downSpeedMinus_Btn_clicked()
@@ -342,14 +342,14 @@ void GameDisplayPage::on_downForcePlus_Btn_clicked()
 
 void GameDisplayPage::on_downForward_Btn_clicked()
 {
-    setTrainDirection(0);
-    m_st_bicycleParam.direction = 0;
+    setTrainDirection(1);
+    m_st_bicycleParam.direction = 1;
 }
 
 void GameDisplayPage::on_downBackward_Btn_clicked()
 {
-    setTrainDirection(1);
-    m_st_bicycleParam.direction = 1;
+    setTrainDirection(0);
+    m_st_bicycleParam.direction = 0;
 }
 
 void GameDisplayPage::slotSetChannelAData(int *data,int size)
@@ -373,6 +373,8 @@ void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
 {
     m_st_bicycleParam = st_setBicycleParam;
     m_startNum = m_st_bicycleParam.trainTime * 60;
+
+    m_spasmTipsDialog->setSpasmCompletedDirection(st_setBicycleParam.spasmType);
 
     setTrainMode(m_st_bicycleParam.trainMode);
     //设置训练部位
@@ -665,9 +667,9 @@ void GameDisplayPage::fillSetParam(int updown,int speed,int resistance,int direc
     if(0 == updown)
     {
         upDirection = direction;
-        if(upDirection == 0)
+        if(upDirection == 1)
             on_upForward_Btn_clicked();
-        else if(upDirection == 1)
+        else if(upDirection == 0)
             on_upBackward_Btn_clicked();
         ui->upSpeed_Label->setText(QString::number(speed));
         ui->upForce_Label->setText(QString::number(resistance));
@@ -675,9 +677,9 @@ void GameDisplayPage::fillSetParam(int updown,int speed,int resistance,int direc
     else if(1 == updown)
     {
         downDirection = direction;
-        if(downDirection == 0)
+        if(downDirection == 1)
             on_downBackward_Btn_clicked();
-        else if(downDirection == 1)
+        else if(downDirection == 0)
             on_downForward_Btn_clicked();
         ui->downSpeed_Label->setText(QString::number(speed));
         ui->downForce_Label->setText(QString::number(resistance));

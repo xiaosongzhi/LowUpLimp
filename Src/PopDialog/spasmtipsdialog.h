@@ -19,6 +19,11 @@ public:
      * 参数@int times痉挛次数
      * ******/
     void setSpasmDialogVisible(bool isVisable,int times);
+
+    /****设置痉挛后方向***
+     * @int8_t direction方向 0-逆向 1-正向
+     * ****/
+    void setSpasmCompletedDirection(int8_t direction);
 protected:
     void paintEvent(QPaintEvent *event);
 private slots:
@@ -26,6 +31,7 @@ private slots:
 
 private:
     Ui::SpasmTipsDialog *ui;
+    int8_t m_direction; //0-逆向 1-正向
 };
 
 #endif // SPASMTIPSDIALOG_H

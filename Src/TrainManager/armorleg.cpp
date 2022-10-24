@@ -14,6 +14,7 @@ ArmOrLeg::ArmOrLeg(QWidget *parent) :
     m_advanceDialog = new AdvancedDialog();
     initWidget();
     ui->stackedWidget->setCurrentIndex(0);
+    ui->advanced1_Btn->setVisible(false);
 }
 
 ArmOrLeg::~ArmOrLeg()
@@ -79,6 +80,7 @@ void ArmOrLeg::setTrainType(int8_t type)
 
 void ArmOrLeg::showEvent(QShowEvent *event)
 {
+    Q_UNUSED(event)
     ui->spasmCW1_RadioButton->setChecked(true);
     ui->spasmCW2_RadioButton->setChecked(true);
 }
@@ -138,6 +140,11 @@ void ArmOrLeg::on_confirm_Btn_clicked()
     {
         st_bicycleParam.bodyPart = 2;
 
+        //训练模式
+        if(ui->activePassive2_RadioButton->isChecked())
+            st_bicycleParam.trainMode = 7;  //四肢主被动
+        else if(ui->passive2_RadioButton->isChecked())
+            st_bicycleParam.trainMode = 4;  //四肢纯被动
         //训练时间
         st_bicycleParam.trainTime = ui->upTrainTime2_ComboBox->currentText().toUInt();
         //训练阻力
@@ -151,7 +158,7 @@ void ArmOrLeg::on_confirm_Btn_clicked()
             st_bicycleParam.direction = 0;
         //痉挛保护
         if(ui->spasmACW2_RadioButton->isChecked())
-            st_bicycleParam.spasmType = 2;
+            st_bicycleParam.spasmType = 0;
         else if(ui->spasmCW2_RadioButton->isChecked())
             st_bicycleParam.spasmType = 1;
 
@@ -169,7 +176,7 @@ void ArmOrLeg::on_confirm_Btn_clicked()
             st_bicycleParam.spasmLevel = 3;
     }
 
-
+    //单肢
     if(!ui->upDownLimp_RadioButton->isChecked())
     {
         //单肢训练模式
@@ -199,7 +206,7 @@ void ArmOrLeg::on_confirm_Btn_clicked()
             st_bicycleParam.direction = 0;
         //痉挛保护
         if(ui->spasmACW1_RadioButton->isChecked())
-            st_bicycleParam.spasmType = 2;
+            st_bicycleParam.spasmType = 0;
         else if(ui->spasmCW1_RadioButton->isChecked())
             st_bicycleParam.spasmType = 1;
 
@@ -219,7 +226,6 @@ void ArmOrLeg::on_confirm_Btn_clicked()
     }
     st_bicycleParam.controlState = 0;
     IceModule::getInstance()->setBicycleParam(st_bicycleParam);
-
 
 }
 

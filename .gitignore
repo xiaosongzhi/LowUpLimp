@@ -10,3 +10,9 @@ TestModule
 GameExecutable
 release
 .qtc_clangd
+.gitignore
+Src/TrainManager/fesparamset.cpp
+Src/TrainManager/fesparamset.h
+Src/TrainManager/fesparamset.ui
+tmp
+GameDemo

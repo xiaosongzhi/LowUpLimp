@@ -60,7 +60,7 @@ public:
     void setTrainFore(int force,qint8 type = 0);
 
     /******设置方向****
-     * 参数@qint8 direction 方向 0-顺时针  1-逆时针
+     * 参数@qint8 direction 方向 1-顺时针  0-逆时针
      *    @qint8 type  上下肢类型 0-上肢  1-下肢
      * ********/
     void setTrainDirection(qint8 direction = 1,qint8 type = 1);
@@ -145,8 +145,8 @@ private:
     QPropertyAnimation *m_leftAnimation,*m_rightAnimation;
     bool m_openState;
     QList<QLabel*> m_channelAList,m_channelBList;
-    int upDirection;   //上肢旋转方向 0-正 1-逆
-    int downDirection; //下肢旋转方向 0-正 1-逆
+    int upDirection;   //上肢旋转方向 1-正 0-逆
+    int downDirection; //下肢旋转方向 1-正 0-逆
     int8_t m_bodyPart; //训练部位 0-上肢 1-下肢 2-上下肢
     SpasmTipsDialog *m_spasmTipsDialog;
     QTimer *heartTimer;

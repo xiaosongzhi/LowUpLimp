@@ -89,22 +89,20 @@ void CMainWindow::slotCurrentUserChanged()
 
 void CMainWindow::on_startGame_Btn_clicked()
 {
-//    process = new QProcess();
-//    connect(process,&QProcess::errorOccurred,[=](QProcess::ProcessError error){qDebug()<<error;});
-//        connect(process,QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),[this]
-//                (int exitCode,QProcess::ExitStatus exitStatus){
-//            m_exitCode = exitCode;
-//            m_exitStatus = exitStatus;
-//            qDebug()<<"m_exitCode"<<m_exitCode<<"m_exitStatus"<<m_exitStatus;
-//        });
+
+    connect(m_Process,&QProcess::errorOccurred,[=](QProcess::ProcessError error){qDebug()<<error;});
+        connect(m_Process,QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),[this]
+                (int exitCode,QProcess::ExitStatus exitStatus){
+            m_exitCode = exitCode;
+            m_exitStatus = exitStatus;
+            qDebug()<<"m_exitCode"<<m_exitCode<<"m_exitStatus"<<m_exitStatus;
+        });
         QString path = "./GameDemo/TJ_SXZ001_MultiplayerBicycleRace_LBY/MultiplayerBicycleRace_LBY.exe";
         startGame(path);
-//        process->start(path);
 
 
         Sleep(10);
         WId hwnd = 0;
-
         do{
             QEventLoop loop;
             //1ms之后退出

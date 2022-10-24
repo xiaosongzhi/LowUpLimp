@@ -41,7 +41,7 @@ private:
 
     LoginWidget *loginDialog;
 
-    QProcess *process;
+//    QProcess *process;
     int m_exitCode;
     QProcess::ExitStatus m_exitStatus;
     QWindow *m_window;

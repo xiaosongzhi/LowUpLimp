@@ -37,6 +37,11 @@ void SpasmTipsDialog::setSpasmDialogVisible(bool isVisable, int times)
     this->exec();
 }
 
+void SpasmTipsDialog::setSpasmCompletedDirection(int8_t direction)
+{
+    m_direction = direction;
+}
+
 void SpasmTipsDialog::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
@@ -46,7 +51,7 @@ void SpasmTipsDialog::paintEvent(QPaintEvent *event)
 
 void SpasmTipsDialog::on_confirm_Btn_clicked()
 {
-    CCommunicateAPI::getInstance()->sendRealTimeParam(SPASM_CONFIRM,0);
+    CCommunicateAPI::getInstance()->sendRealTimeParam(SPASM_CONFIRM,m_direction);
     this->close();
 }
 
