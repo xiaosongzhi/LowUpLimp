@@ -11,6 +11,9 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonParseError>
+#include "currentuserdata.h"
+
+
 GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameDisplayPage),
@@ -20,7 +23,9 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     m_spasmTipsDialog(NULL),
     heartTimer(NULL),
     countDownTimer(NULL),
-    m_spasmTimes(0)
+    m_spasmTimes(0),
+    m_currentMode(0),
+    m_reportDialog(NULL)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
@@ -78,6 +83,9 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     countDownTimer->setInterval(1000);
     connect(countDownTimer,SIGNAL(timeout()),this,SLOT(slotCountDownTimer()));
     initGameSocket();
+
+    m_reportDialog = new TrainReport();
+
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -90,6 +98,8 @@ GameDisplayPage::~GameDisplayPage()
         delete heartTimer;
     if(countDownTimer)
         delete countDownTimer;
+    if(m_reportDialog)
+        delete m_reportDialog;
     delete ui;
 }
 
@@ -153,7 +163,7 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         ui->upRealPower_Label->setText(QString::number(st_deviceParam.power));
         setTrainMode(st_deviceParam.currentMode);
         //运动距离怎么计算
-        ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle));
+        ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle*1.5) + "m");
     }
         break;
     case 1: //下肢
@@ -161,7 +171,7 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         ui->downRealSpeed_Label->setText(QString::number(st_deviceParam.downLimpSpeed));
         ui->downRealPower_Label->setText(QString::number(st_deviceParam.power));
         setTrainMode(st_deviceParam.currentMode);
-        ui->length_Label->setText(QString::number(st_deviceParam.downLimpCircle));
+        ui->length_Label->setText(QString::number(st_deviceParam.downLimpCircle*1.5) + "m");
     }
         break;
     case 2: //上下肢
@@ -171,13 +181,25 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         ui->downRealSpeed_Label->setText(QString::number(st_deviceParam.downLimpSpeed));
         ui->downRealPower_Label->setText(QString::number(st_deviceParam.power));
         setTrainMode(st_deviceParam.currentMode);
-        ui->length_Label->setText(QString::number(st_deviceParam.downLimpCircle+st_deviceParam.upLimpCircle));
+        ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle*1.5) + "m");
     }
         break;
     }
     //此处显示的是左右平衡，但是下位机上传的是上下肢平衡
     ui->leftBalance_Label->setText(QString::number(st_deviceParam.upBalance));
     ui->rightBalance_Label->setText(QString::number(100-st_deviceParam.upBalance));
+
+    static int skipNum = 0;
+    ++skipNum;
+    if(skipNum > 20)
+    {
+        QPair<int,int> balancePair;
+        balancePair.first = st_deviceParam.upBalance;
+        balancePair.second = st_deviceParam.downBalance;
+
+        balanceList.append(balancePair);
+    }
+
     //设置模式
     setTrainMode(st_deviceParam.currentMode);
 
@@ -187,6 +209,8 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
             return;
 
         m_spasmTimes++;
+        //痉挛次数用于报告
+        st_trainReport.spasmTimes = m_spasmTimes;
         m_spasmTipsDialog->setSpasmDialogVisible(true,m_spasmTimes);
         if(m_spasmTimes >= 3)
         {
@@ -371,14 +395,16 @@ void GameDisplayPage::slotSetChannelBData(int *data,int size)
 /*******踏车设置参数*******/
 void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
 {
+
     m_st_bicycleParam = st_setBicycleParam;
     m_startNum = m_st_bicycleParam.trainTime * 60;
 
     m_spasmTipsDialog->setSpasmCompletedDirection(st_setBicycleParam.spasmType);
 
+    //训练模式
     setTrainMode(m_st_bicycleParam.trainMode);
     //设置训练部位
-     setTrainPart(st_setBicycleParam.bodyPart);
+    setTrainPart(st_setBicycleParam.bodyPart);
     //上肢
     if(0 == st_setBicycleParam.bodyPart || 2 == st_setBicycleParam.bodyPart)
     {
@@ -417,6 +443,22 @@ void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
             ui->downBackward_Btn->setChecked(true);
         }
     }
+
+    st_patientMsg = CurrentUserData::getInstace()->getCurrentPatientMsg();
+
+    //填充报告内容
+    //患者基础信息
+    st_trainReport.ID = st_patientMsg.ID;
+    st_trainReport.name = st_patientMsg.name;
+    st_trainReport.sex = st_patientMsg.sex;
+    st_trainReport.phone = st_patientMsg.phone;
+    st_trainReport.age = st_patientMsg.age;
+    st_trainReport.markMsg = st_patientMsg.markMsg;
+    //训练设置参数
+    st_trainReport.trainMode = m_st_bicycleParam.trainMode;
+    st_trainReport.bodyIndex = m_st_bicycleParam.bodyPart;
+    st_trainReport.trainTime = m_st_bicycleParam.trainTime;
+
 }
 
 //接收下位机数据
@@ -458,16 +500,30 @@ void GameDisplayPage::slotCountDownTimer()
 
         ui->upRemainTime_Label->setText("0");
         ui->downRemainTime_Label->setText("0");
-        //停止训练
+        //告知下位机停止训练
         m_st_bicycleParam.controlState = 0;
         CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
         //弹出报告
-
+        //计算结果数据（平衡度、距离等）
+        calculateResultData();
+        //弹出训练报告
+        m_reportDialog->setReportData(st_trainReport,1);
     }
     else
     {
         ui->upRemainTime_Label->setText(QString::number(minNum+1));
         ui->downRemainTime_Label->setText(QString::number(minNum+1));
+    }
+
+    //计算主被动时间
+    switch(m_currentMode)
+    {
+    case 0: //被动
+        ++st_trainReport.passiveTime;
+        break;
+    case 1://主动
+        ++st_trainReport.activeTime;
+        break;
     }
 
 }
@@ -511,6 +567,37 @@ void GameDisplayPage::sendGameControlParam(ST_GameControlParam st_gameControlPar
 
 }
 
+void GameDisplayPage::calculateResultData()
+{
+    //计算平衡度
+    int upBalance = 0,downBalance = 0;
+    int upSum = 0,downSum = 0;
+    for(int i = 0;i < balanceList.size();i++)
+    {
+        upSum += balanceList.at(i).first;
+        downSum += balanceList.at(i).second;
+    }
+    upBalance = ((float)upSum)/balanceList.size();
+    downBalance = ((float)downSum)/balanceList.size();
+
+    //报告中的平衡度
+    switch(m_bodyPart)
+    {
+    case 0: //上肢
+        st_trainReport.leftBalance = upBalance;
+        st_trainReport.rightBalance = 100 - upBalance;
+        break;
+    case 1: //下肢
+        st_trainReport.leftBalance = downBalance;
+        st_trainReport.rightBalance = 100 - downBalance;
+        break;
+    case 2: //上下肢
+        st_trainReport.leftBalance = upBalance;
+        st_trainReport.rightBalance = 100 - upBalance;
+        break;
+    }
+}
+
 void GameDisplayPage::setTrainSpeed(int speed, qint8 type)
 {
     if(0 == type)
@@ -540,6 +627,8 @@ void GameDisplayPage::switchFes(qint8 channel, bool ok)
 
 void GameDisplayPage::on_start_Btn_clicked()
 {
+    balanceList.clear();
+
     ui->start_Btn->setVisible(false);
     ui->stop_Btn->setVisible(true);
     ui->pause_Btn->setVisible(true);
@@ -553,6 +642,10 @@ void GameDisplayPage::on_start_Btn_clicked()
     CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
     //开始时间计时器
     countDownTimer->start();
+
+    //训练起始时间
+    st_trainReport.startTimeStr = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+
 }
 
 void GameDisplayPage::on_stop_Btn_clicked()
@@ -567,10 +660,11 @@ void GameDisplayPage::on_stop_Btn_clicked()
     //关闭定时器
     countDownTimer->stop();
 
-
+    //计算结果数据（平衡度、距离等）
+    calculateResultData();
     //弹出训练报告
-
-//    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
+    m_reportDialog->setReportData(st_trainReport,1);
+    //    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
 }
 
 void GameDisplayPage::on_pause_Btn_clicked()
@@ -613,12 +707,12 @@ void GameDisplayPage::on_switchBFes_Btn_clicked()
 
 void GameDisplayPage::setTrainMode(int8_t mode)
 {
-    static int8_t currentMode = 0;
 
-    if(currentMode == mode)
+
+    if(m_currentMode == mode)
         return;
 
-    if(currentMode != mode)
+    if(m_currentMode != mode)
     {
         QString modeName;
         switch(mode)
@@ -655,7 +749,7 @@ void GameDisplayPage::setTrainMode(int8_t mode)
         ui->upCurrentStage_Label->setText(modeName);
         ui->downCurrentStage_Label->setText(modeName);
 
-        currentMode = mode;
+        m_currentMode = mode;
     }
 
 }

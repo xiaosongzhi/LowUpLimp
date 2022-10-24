@@ -8,6 +8,7 @@
 #include "dbforrmate.h"
 #include "spasmtipsdialog.h"
 #include <QUdpSocket>
+#include "trainreport.h"
 class QPropertyAnimation;
 namespace Ui {
 class GameDisplayPage;
@@ -138,6 +139,9 @@ private:
 
     //给游戏发送实时数据
     void sendGameControlParam(ST_GameControlParam);
+
+    //计算结果数据
+    void calculateResultData();
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:
@@ -155,6 +159,15 @@ private:
     int m_startNum;     //倒计时初始值
     int m_spasmTimes;   //痉挛次数
     QUdpSocket *m_gameSocket;
+    ST_TrainReport st_trainReport;  //训练报告数据
+
+    ST_PatientMsg st_patientMsg;    //患者信息
+
+    int8_t m_currentMode;           //当前模式
+
+    QList<QPair<int,int>> balanceList;//左右平衡
+
+    TrainReport *m_reportDialog;
 };
 
 #endif // GAMEDISPLAYPAGE_H
