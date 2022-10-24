@@ -47,7 +47,7 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
     }
 
     ui->reportDate_Label->setText(st_trainReport.startTimeStr);
-    ui->body_Label->setText(bodyStr);
+
     ui->msg_Label->setText(st_trainReport.markMsg);
 
     ui->trainTime_Label->setText(QString::number(st_trainReport.trainTime) + "min");
@@ -101,7 +101,7 @@ void TrainReport::pixmapImportPDF(const QPixmap &pixmap, QString fileName)
     QFile pdfFile(filePath);
     if(!pdfFile.open(QIODevice::WriteOnly))
     {
-        QMessageBox::warning(NULL,"导出文件","文件打开失败");
+        QMessageBox::warning(NULL,tr("导出文件"),tr("文件打开失败"));
         return;
     }
     QPdfWriter *pdfWriter = new QPdfWriter(&pdfFile);
@@ -139,6 +139,12 @@ void TrainReport::on_save_Btn_clicked()
     QString tableName("TrainReportTable");
     if(!CDatabaseInterface::getInstance()->insertRowTable(tableName,trainReportToVariantMap(m_st_trainReport)))
         qDebug()<<"训练报告存储失败"<<CDatabaseInterface::getInstance()->getLastError();
+    else
+    {
+        QMessageBox::warning(NULL,tr("保存"),tr("报告保存成功"));
+        this->close();
+    }
+
 }
 
 //导出报告
