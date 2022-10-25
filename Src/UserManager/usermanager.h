@@ -31,6 +31,9 @@ private slots:
 
     void editComplete();
 
+    //设置默认用户
+    void setDefaultUser();
+
 public slots:
     void slotUpdateUserTable();
 
@@ -44,6 +47,7 @@ private:
     void updateUserTableWidget();
     //填充Usertable
     void fillUserTable(const QList<QVariantMap> &);
+
 private:
     Ui::UserManager *ui;
     UserDialog *m_userDialog;

@@ -8,6 +8,7 @@
 #include "currentuserdata.h"
 #include "selectuserdialog.h"
 #include "deleteuserdialog.h"
+#include <QTimer>
 UserManager::UserManager(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::UserManager),
@@ -21,6 +22,8 @@ UserManager::UserManager(QWidget *parent) :
     connect(m_userDialog,&UserDialog::signalUpdateUserTable,this,&UserManager::slotUpdateUserTable);
     initUserTableWidget();
     updateUserTableWidget();
+    QTimer::singleShot(500,this,SLOT(setDefaultUser()));
+//    setDefaultUser();
     connect(this,SIGNAL(signalCheckUserChanged(int)),ui->trainRecord_Widget,SLOT(slotCheckUserChanged(int)));
 
     //设置搜索框自动补全
@@ -178,6 +181,28 @@ void UserManager::fillUserTable(const QList<QVariantMap> &ListMap)
         ui->user_TableWidget->item(row,0)->setTextAlignment(Qt::AlignCenter);
         ui->user_TableWidget->item(row,1)->setTextAlignment(Qt::AlignCenter);
         ui->user_TableWidget->item(row,2)->setTextAlignment(Qt::AlignCenter);
+    }
+}
+
+void UserManager::setDefaultUser()
+{
+    QString queryStr(QString("select * from PatientTable where ID = '%1'").arg(wordList.last().toInt()));
+
+    if(CDatabaseInterface::getInstance()->exec(queryStr))
+    {
+        if(CDatabaseInterface::getInstance()->getValuesSize() > 0)
+        {
+            QVariantMap userMap = CDatabaseInterface::getInstance()->getValues(0,1).at(0);
+            ST_PatientMsg st_patientMsg = variantMapToPatientMsg(userMap);
+
+//            m_slectUserDialog->setUserMsg(st_patientMsg);
+//            m_slectUserDialog->show();
+//            m_slectUserDialog->exec();
+            //设置当前用户
+            CurrentUserData::getInstace()->setCurrentUserMsg(st_patientMsg);
+        }
+        else
+            QMessageBox::warning(NULL,tr("提示"),tr("未查到默认用户信息"));
     }
 }
 
