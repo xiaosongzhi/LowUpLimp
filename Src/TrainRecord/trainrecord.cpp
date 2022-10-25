@@ -416,8 +416,8 @@ void TrainRecord::on_createData_Btn_clicked()
                     st_trainReport.trainTime = st_trainRecord.trainTime;
                     st_trainReport.leftBalance = x%100;
                     st_trainReport.rightBalance = x%100;
-                    st_trainReport.activeLength = x%1000;
-                    st_trainReport.passiveLength = x%1000;
+                    st_trainReport.upLimpLength = x%1000;
+                    st_trainReport.downLimpLength = x%1000;
                     st_trainReport.activeTime = x%100;
                     st_trainReport.passiveTime = x%100;
                     st_trainReport.spasmTimes = x%3;
