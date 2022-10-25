@@ -32,6 +32,7 @@ private slots:
     void slotCurrentUserChanged();
     void on_startGame_Btn_clicked();
 
+    void slotGameStateChanged(int8_t state);
 private:
     void switchPage(E_PAGENAME);
 
@@ -47,6 +48,7 @@ private:
     QWindow *m_window;
     GameDisplayPage *m_gameDisplayPage;
     QProcess* m_Process;
+    QWidget *container;
 };
 
 #endif // CMAINWINDOW_H

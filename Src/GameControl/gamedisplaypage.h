@@ -76,6 +76,7 @@ public:
 protected:
     void paintEvent(QPaintEvent *event);
 
+    void showEvent(QShowEvent *event);
 private slots:
     void on_start_Btn_clicked();
 
@@ -133,15 +134,25 @@ private slots:
     //游戏数据接收
     void slotReceiveGameData();
 
+signals:
+    /******游戏状态*****
+     *@int8_t state 1-开始 0-关闭
+    ***/
+    void signalGameStateChanged(int8_t state);
+
 private:
     //解析游戏数据
     void parseGameMsg(QByteArray jsonArray);
 
     //给游戏发送实时数据
     void sendGameControlParam(ST_GameControlParam);
+    //停止游戏指令
+    void sendStopCmd();
 
     //计算结果数据
     void calculateResultData();
+
+    void initButton();
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:

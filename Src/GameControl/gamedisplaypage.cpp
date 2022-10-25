@@ -155,6 +155,7 @@ void GameDisplayPage::setTrainPart(int type)
 //实时数据填充
 void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
 {
+    ST_GameControlParam st_gameControlParam;
     switch(m_bodyPart)
     {
     case 0: //上肢
@@ -164,6 +165,10 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         setTrainMode(st_deviceParam.currentMode);
         //运动距离怎么计算
         ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle*1.5) + "m");
+        st_gameControlParam.speed = st_deviceParam.upLimpSpeed;
+
+        st_gameControlParam.forceLeft = st_deviceParam.upBalance;
+        st_gameControlParam.forceRight = 100 - st_deviceParam.upBalance;
     }
         break;
     case 1: //下肢
@@ -172,6 +177,10 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         ui->downRealPower_Label->setText(QString::number(st_deviceParam.power));
         setTrainMode(st_deviceParam.currentMode);
         ui->length_Label->setText(QString::number(st_deviceParam.downLimpCircle*1.5) + "m");
+        st_gameControlParam.speed = st_deviceParam.downLimpSpeed;
+
+        st_gameControlParam.forceLeft = st_deviceParam.downBalance;
+        st_gameControlParam.forceRight = 100 - st_deviceParam.downBalance;
     }
         break;
     case 2: //上下肢
@@ -182,9 +191,16 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         ui->downRealPower_Label->setText(QString::number(st_deviceParam.power));
         setTrainMode(st_deviceParam.currentMode);
         ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle*1.5) + "m");
+        st_gameControlParam.forceLeft = st_deviceParam.upBalance;
+        st_gameControlParam.forceRight = 100 - st_deviceParam.upBalance;
+        st_gameControlParam.speed = st_deviceParam.upLimpSpeed > st_deviceParam.downLimpSpeed?st_deviceParam.upLimpSpeed:st_deviceParam.downLimpSpeed;
     }
         break;
     }
+
+    st_trainReport.upLimpLength = st_deviceParam.upLimpCircle*1.5;
+    st_trainReport.downLimpLength = st_deviceParam.downLimpCircle*1.5;
+
     //此处显示的是左右平衡，但是下位机上传的是上下肢平衡
     ui->leftBalance_Label->setText(QString::number(st_deviceParam.upBalance));
     ui->rightBalance_Label->setText(QString::number(100-st_deviceParam.upBalance));
@@ -219,10 +235,9 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
             on_stop_Btn_clicked();
         }
     }
-    ST_GameControlParam st_gameControlParam;
-    st_gameControlParam.forceLeft = st_deviceParam.upBalance;
-    st_gameControlParam.forceRight = 100 - st_deviceParam.upBalance;
-    st_gameControlParam.speed = st_deviceParam.upLimpSpeed;
+
+
+
     sendGameControlParam(st_gameControlParam);
 }
 
@@ -490,11 +505,29 @@ void GameDisplayPage::slotCountDownTimer()
 {
     --m_startNum;
 
+    if(m_startNum < 0)
+    {
+        countDownTimer->stop();
+        return;
+    }
+
     int minNum = m_startNum/60;//分钟数
     int secNum = m_startNum%60;//秒数
 
+    //计算主被动时间
+    switch(m_currentMode)
+    {
+    case 0: //被动
+        ++st_trainReport.passiveTime;
+        break;
+    case 1://主动
+        ++st_trainReport.activeTime;
+        break;
+    }
+
     if(minNum == 0 && secNum == 0)
     {
+        m_startNum = 0;
         //关闭定时器
         countDownTimer->stop();
 
@@ -508,22 +541,15 @@ void GameDisplayPage::slotCountDownTimer()
         calculateResultData();
         //弹出训练报告
         m_reportDialog->setReportData(st_trainReport,1);
+
+        sendStopCmd();
+
+        emit signalGameStateChanged(0);
     }
     else
     {
         ui->upRemainTime_Label->setText(QString::number(minNum+1));
         ui->downRemainTime_Label->setText(QString::number(minNum+1));
-    }
-
-    //计算主被动时间
-    switch(m_currentMode)
-    {
-    case 0: //被动
-        ++st_trainReport.passiveTime;
-        break;
-    case 1://主动
-        ++st_trainReport.activeTime;
-        break;
     }
 
 }
@@ -564,7 +590,23 @@ void GameDisplayPage::sendGameControlParam(ST_GameControlParam st_gameControlPar
     QString ip("127.0.0.1");
     int16_t port = 12000;
     m_gameSocket->writeDatagram(sendArray,QHostAddress(ip),port);
+}
 
+void GameDisplayPage::sendStopCmd()
+{
+    QJsonObject object;
+    object.insert("MsgID",2);
+    object.insert("GameState",0);
+    QJsonDocument document;
+    document.setObject(object);
+    QByteArray sendArray = document.toJson(QJsonDocument::Compact);
+    QString ip("127.0.0.1");
+    int16_t port = 12000;
+    for(int i = 0;i < 5;i++)
+    {
+        m_gameSocket->writeDatagram(sendArray,QHostAddress(ip),port);
+        Sleep(100);
+    }
 }
 
 void GameDisplayPage::calculateResultData()
@@ -596,6 +638,13 @@ void GameDisplayPage::calculateResultData()
         st_trainReport.rightBalance = 100 - upBalance;
         break;
     }
+}
+
+void GameDisplayPage::initButton()
+{
+    ui->stop_Btn->setVisible(false);
+    ui->pause_Btn->setVisible(false);
+    ui->start_Btn->setVisible(true);
 }
 
 void GameDisplayPage::setTrainSpeed(int speed, qint8 type)
@@ -665,6 +714,10 @@ void GameDisplayPage::on_stop_Btn_clicked()
     //弹出训练报告
     m_reportDialog->setReportData(st_trainReport,1);
     //    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
+
+    sendStopCmd();
+
+    emit signalGameStateChanged(0);
 }
 
 void GameDisplayPage::on_pause_Btn_clicked()
@@ -798,4 +851,10 @@ void GameDisplayPage::paintEvent(QPaintEvent *event)
     Q_UNUSED(event)
     QPainter painter(this);
     painter.fillRect(rect(),QColor(0,0,0,10));
+}
+
+void GameDisplayPage::showEvent(QShowEvent *event)
+{
+    Q_UNUSED(event)
+    initButton();
 }

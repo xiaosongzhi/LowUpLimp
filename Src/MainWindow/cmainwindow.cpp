@@ -19,9 +19,11 @@ CMainWindow::CMainWindow(QWidget *parent) :
     connect(MainWindowPageControl::getInstance(),SIGNAL(signalSwitchPage(E_PAGENAME)),this,SLOT(slotSwitchPage(E_PAGENAME)));
     connect(CurrentUserData::getInstace(),SIGNAL(signalUserChanged()),this,SLOT(slotCurrentUserChanged()));
     //默认为主界面
-//    setAttribute(Qt::WA_DeleteOnClose,false);
+    //    setAttribute(Qt::WA_DeleteOnClose,false);
     ui->stackedWidget->setCurrentIndex(0);
     m_gameDisplayPage = new GameDisplayPage();
+
+    connect(m_gameDisplayPage,SIGNAL(signalGameStateChanged(int8_t)),this,SLOT(slotGameStateChanged(int8_t)));
 
     m_Process = new QProcess();
 }
@@ -91,32 +93,47 @@ void CMainWindow::on_startGame_Btn_clicked()
 {
 
     connect(m_Process,&QProcess::errorOccurred,[=](QProcess::ProcessError error){qDebug()<<error;});
-        connect(m_Process,QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),[this]
-                (int exitCode,QProcess::ExitStatus exitStatus){
-            m_exitCode = exitCode;
-            m_exitStatus = exitStatus;
-            qDebug()<<"m_exitCode"<<m_exitCode<<"m_exitStatus"<<m_exitStatus;
-        });
-        QString path = "./GameDemo/TJ_SXZ001_MultiplayerBicycleRace_LBY/MultiplayerBicycleRace_LBY.exe";
-        startGame(path);
+    connect(m_Process,QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),[this]
+            (int exitCode,QProcess::ExitStatus exitStatus){
+        m_exitCode = exitCode;
+        m_exitStatus = exitStatus;
+        qDebug()<<"m_exitCode"<<m_exitCode<<"m_exitStatus"<<m_exitStatus;
+    });
+    QString path = "./GameDemo/TJ_SXZ001_MultiplayerBicycleRace_LBY/MultiplayerBicycleRace_LBY.exe";
+    startGame(path);
 
+    Sleep(10);
+    WId hwnd = 0;
+    do{
+        QEventLoop loop;
+        //1ms之后退出
+        QTimer::singleShot(1,&loop,SLOT(quit()));
+        hwnd = (WId)FindWindow(L"UnityWndClass",L"DuoRenQiChe");
+    }while(hwnd == 0);
+    m_window = QWindow::fromWinId(hwnd);
+    container = createWindowContainer(m_window,this);
 
-        Sleep(10);
-        WId hwnd = 0;
-        do{
-            QEventLoop loop;
-            //1ms之后退出
-            QTimer::singleShot(1,&loop,SLOT(quit()));
-            hwnd = (WId)FindWindow(L"UnityWndClass",L"DuoRenQiChe");
-        }while(hwnd == 0);
-        m_window = QWindow::fromWinId(hwnd);
-        QWidget *container = createWindowContainer(m_window,this);
+    QHBoxLayout *hLayout = new QHBoxLayout(this);
+    hLayout->setMargin(0);
+    hLayout->addWidget(container);
+    if(ui->game_widget->layout() != NULL)
+        delete ui->game_widget->layout();
+    ui->game_widget->setLayout(hLayout);
 
-        QHBoxLayout *hLayout = new QHBoxLayout(this);
-        hLayout->setMargin(0);
-        hLayout->addWidget(container);
-        ui->game_widget->setLayout(hLayout);
+}
 
+void CMainWindow::slotGameStateChanged(int8_t state)
+{
+    switch(state)
+    {
+    case 0: //停止游戏
+        qDebug()<<"停止游戏";
+        switchPage(MainPage_E);
+        m_gameDisplayPage->close();
+        break;
+    case 1: //开始游戏
+        break;
+    }
 }
 
 void CMainWindow::startGame(QString path)
