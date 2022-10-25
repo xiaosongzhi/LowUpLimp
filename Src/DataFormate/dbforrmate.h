@@ -44,8 +44,8 @@ typedef struct
     int trainTime;          //本次训练时长(分钟)
     int leftBalance;        //左平衡
     int rightBalance;       //右平衡
-    float activeLength;     //主动长度
-    float passiveLength;    //被动长度
+    float upLimpLength;     //上肢距离
+    float downLimpLength;   //下肢距离
     int activeTime;         //主动时间 /s
     int passiveTime;        //被动时间 /s
     int spasmTimes;         //痉挛次数

@@ -50,10 +50,10 @@ ST_TrainReport variantMapToTrainReport(QVariantMap vMap)
         st_TrainReport.leftBalance = vMap.value("leftBalance").toInt();
     if(vMap.contains("rightBalance"))
         st_TrainReport.rightBalance = vMap.value("rightBalance").toInt();
-    if(vMap.contains("activeLength"))
-        st_TrainReport.activeLength = vMap.value("activeLength").toInt();
-    if(vMap.contains("passiveLength"))
-        st_TrainReport.passiveLength = vMap.value("passiveLength").toInt();
+    if(vMap.contains("upLimpLength"))
+        st_TrainReport.upLimpLength = vMap.value("upLimpLength").toInt();
+    if(vMap.contains("downLimpLength"))
+        st_TrainReport.downLimpLength = vMap.value("downLimpLength").toInt();
     if(vMap.contains("passiveTime"))
         st_TrainReport.passiveTime = vMap.value("passiveTime").toInt();
     if(vMap.contains("activeTime"))
@@ -121,8 +121,8 @@ QVariantMap trainReportToVariantMap(const ST_TrainReport& st_TrainReport)
     vMap.insert("trainTime",st_TrainReport.trainTime);
     vMap.insert("leftBalance",st_TrainReport.leftBalance);
     vMap.insert("rightBalance",st_TrainReport.rightBalance);
-    vMap.insert("activeLength",st_TrainReport.activeLength);
-    vMap.insert("passiveLength",st_TrainReport.passiveLength);
+    vMap.insert("upLimpLength",st_TrainReport.upLimpLength);
+    vMap.insert("downLimpLength",st_TrainReport.downLimpLength);
     vMap.insert("activeTime",st_TrainReport.activeTime);
     vMap.insert("passiveTime",(int)st_TrainReport.passiveTime);
     vMap.insert("spasmTimes",st_TrainReport.spasmTimes);
