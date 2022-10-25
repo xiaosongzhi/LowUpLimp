@@ -195,9 +195,6 @@ void UserManager::setDefaultUser()
             QVariantMap userMap = CDatabaseInterface::getInstance()->getValues(0,1).at(0);
             ST_PatientMsg st_patientMsg = variantMapToPatientMsg(userMap);
 
-//            m_slectUserDialog->setUserMsg(st_patientMsg);
-//            m_slectUserDialog->show();
-//            m_slectUserDialog->exec();
             //设置当前用户
             CurrentUserData::getInstace()->setCurrentUserMsg(st_patientMsg);
         }
