@@ -492,7 +492,7 @@ color:#0D9DDB ;</string>
       </font>
      </property>
      <property name="text">
-      <string>主动距离：</string>
+      <string>上肢距离：</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -602,7 +602,7 @@ color:#0D9DDB ;</string>
       </font>
      </property>
      <property name="text">
-      <string>被动距离：</string>
+      <string>下肢距离：</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -696,7 +696,7 @@ color:#0D9DDB ;</string>
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="passiveLength_Label">
+    <widget class="QLabel" name="downLimpLength_Label">
      <property name="geometry">
       <rect>
        <x>170</x>
@@ -806,7 +806,7 @@ color:#0D9DDB ;</string>
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="activeLength_Label">
+    <widget class="QLabel" name="upLimpLength_Label">
      <property name="geometry">
       <rect>
        <x>170</x>

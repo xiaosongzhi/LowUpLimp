@@ -1,18 +1,18 @@
 #ifndef TRAINREPORT_H
 #define TRAINREPORT_H
 
-#include <QWidget>
+#include <QDialog>
 #include "dbforrmate.h"
 namespace Ui {
 class TrainReport;
 }
 
-class TrainReport : public QWidget
+class TrainReport : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit TrainReport(QWidget *parent = nullptr);
+    explicit TrainReport(QDialog *parent = nullptr);
     ~TrainReport();
 
     //参数 @int type  1-训练生成报告  0-查看导出报告
@@ -29,6 +29,9 @@ private:
      * @QString fileName       pdf的默认保存的名字
      * *********/
     void pixmapImportPDF(const QPixmap &pixmap,QString fileName);
+
+    //根据ID获取模式
+    QString getTrainMode(int8_t mode);
 private slots:
     void on_close_Btn_clicked();
 

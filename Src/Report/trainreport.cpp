@@ -7,8 +7,8 @@
 #include <QPrinter>
 #include <QFileDialog>
 #include <QMessageBox>
-TrainReport::TrainReport(QWidget *parent) :
-    QWidget(parent),
+TrainReport::TrainReport(QDialog *parent) :
+    QDialog(parent),
     ui(new Ui::TrainReport)
 {
     ui->setupUi(this);
@@ -32,6 +32,9 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
     ui->sex_Label->setText(sex);
     ui->phone_Label->setText(st_trainReport.phone);
     ui->age_Label->setText(QString::number(st_trainReport.age) + tr("岁"));
+
+    ui->trainMode_Label->setText(getTrainMode(st_trainReport.trainMode));
+
     QString bodyStr;
     switch(st_trainReport.bodyIndex)
     {
@@ -42,9 +45,11 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
         bodyStr = tr("下肢");
         break;
     case 2:
-        bodyStr = tr("上下肢");
+        bodyStr = tr("四肢");
         break;
     }
+
+    ui->trainPart_Label->setText(bodyStr);
 
     ui->reportDate_Label->setText(st_trainReport.startTimeStr);
 
@@ -52,19 +57,59 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
 
     ui->trainTime_Label->setText(QString::number(st_trainReport.trainTime) + "min");
     ui->trainLength_Label->setText(QString::number(
-                                       st_trainReport.activeLength + st_trainReport.passiveLength) + "m");
+                                       st_trainReport.upLimpLength + st_trainReport.downLimpLength) + "m");
     ui->leftBalance_Label->setText(QString::number(st_trainReport.leftBalance) + "%");
     ui->rightBalance_Label->setText(QString::number(st_trainReport.rightBalance) + "%");
-    ui->activeLength_Label->setText(QString::number(st_trainReport.activeLength) + "m");
-    ui->passiveLength_Label->setText(QString::number(st_trainReport.passiveLength) + "m");
-    ui->passiveTime_Label->setText(QString::number(st_trainReport.passiveTime) + "min");
-    ui->activeTime_Label->setText(QString::number(st_trainReport.activeTime)+"min");
+    ui->upLimpLength_Label->setText(QString::number(st_trainReport.upLimpLength) + "m");
+    ui->downLimpLength_Label->setText(QString::number(st_trainReport.downLimpLength) + "m");
+    ui->passiveTime_Label->setText(QString::number(st_trainReport.passiveTime) + "s");
+    ui->activeTime_Label->setText(QString::number(st_trainReport.activeTime)+"s");
     ui->spasmTimes_Label->setText(QString::number(st_trainReport.spasmTimes));
     ui->avgResistance_Label->setText(QString::number(st_trainReport.averangeResistance) + "N");
     ui->maxResistance_Label->setText(QString::number(st_trainReport.maxResistance) + "N");
     ui->minResistance_Label->setText(QString::number(st_trainReport.minResistance) + "N");
 
-    this->show();
+//    this->show();
+    this->exec();
+
+}
+
+QString TrainReport::getTrainMode(int8_t mode)
+{
+
+    QString modeName;
+    switch(mode)
+    {
+    case 0:
+        modeName = tr("被动训练");
+        break;
+    case 1:
+        modeName = tr("主动训练");
+        break;
+    case 2:
+        modeName = tr("助力训练");
+        break;
+    case 3:
+        modeName = tr("等速训练");
+        break;
+    case 4:
+        modeName = tr("协同被动训练");
+        break;
+    case 5:
+        modeName = tr("上肢带下肢训练");
+        break;
+    case 6:
+        modeName = tr("下肢带上肢训练");
+        break;
+    case 7:
+        modeName = tr("自由训练");
+        break;
+    case 8:
+        modeName = tr("FES训练");
+        break;
+    }
+
+    return modeName;
 
 }
 
