@@ -183,6 +183,28 @@ border:none;</string>
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>71</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>选择</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
     <widget class="QTableWidget" name="trainRecord_TableWidget">
      <property name="geometry">
@@ -266,7 +288,7 @@ border: 1px solid #EBEBEB;</string>
      <widget class="QPushButton" name="delete_Btn">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>120</x>
         <y>19</y>
         <width>40</width>
         <height>40</height>
@@ -308,7 +330,7 @@ border: 1px solid #EBEBEB;</string>
      <widget class="QCheckBox" name="allSelect_CheckBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>22</y>
         <width>80</width>
         <height>35</height>

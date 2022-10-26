@@ -4,7 +4,7 @@ QComboBox {
     border-radius: 3px;   /* 圆角 */
     padding: 1px 18px 1px 3px;   /* 字体填衬 */
     color: #000;
-    font:  20px "黑体";
+    font:  25px "黑体";
     background: transparent;
 }
 
@@ -15,7 +15,7 @@ QComboBox QAbstractItemView {
     color: black;
     background-color: #C3E4F3;   /* 整个下拉窗体的背景色 */
     selection-background-color: lightgreen;   /* 整个下拉窗体被选中项的背景色 */
-	font:  20px "黑体";
+	font:  25px "黑体";
 }
 
 /* 下拉后，整个下拉窗体每项的样式 */

@@ -299,7 +299,7 @@
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>32</y>
+         <y>25</y>
          <width>101</width>
          <height>41</height>
         </rect>
@@ -307,7 +307,8 @@
        <property name="font">
         <font>
          <family>黑体</family>
-         <pointsize>15</pointsize>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
         </font>
        </property>
        <item>
@@ -415,7 +416,7 @@
        <property name="geometry">
         <rect>
          <x>466</x>
-         <y>40</y>
+         <y>30</y>
          <width>61</width>
          <height>31</height>
         </rect>
@@ -494,7 +495,7 @@ color:#00A6F5;</string>
        <property name="geometry">
         <rect>
          <x>466</x>
-         <y>40</y>
+         <y>30</y>
          <width>41</width>
          <height>31</height>
         </rect>
@@ -517,10 +518,17 @@ color:#00A6F5;</string>
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>32</y>
+         <y>25</y>
          <width>100</width>
          <height>40</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_29">
@@ -559,7 +567,7 @@ color:#00A6F5;</string>
        <property name="geometry">
         <rect>
          <x>466</x>
-         <y>40</y>
+         <y>30</y>
          <width>71</width>
          <height>31</height>
         </rect>
@@ -582,10 +590,17 @@ color:#00A6F5;</string>
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>32</y>
+         <y>25</y>
          <width>100</width>
          <height>40</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_30">
@@ -1045,6 +1060,13 @@ color:#00A6F5;</string>
          <height>41</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
       </widget>
       <widget class="QLabel" name="label_10">
        <property name="geometry">
@@ -1133,6 +1155,13 @@ color:#00A6F5;</string>
          <height>40</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_37">
        <property name="geometry">
@@ -1197,6 +1226,13 @@ color:#00A6F5;</string>
          <width>100</width>
          <height>40</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_38">

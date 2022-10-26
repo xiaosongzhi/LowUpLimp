@@ -474,6 +474,10 @@ void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
     st_trainReport.bodyIndex = m_st_bicycleParam.bodyPart;
     st_trainReport.trainTime = m_st_bicycleParam.trainTime;
 
+    //初始化平衡值
+    st_trainReport.leftBalance = 0;
+    st_trainReport.rightBalance = 0;
+
 }
 
 //接收下位机数据
