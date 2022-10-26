@@ -103,7 +103,6 @@ void GameControl::updateXml(ST_GameParam& st_GameParam)
     }
     if(1)
     {
-        qDebug()<<"st_GameParam.trainType"<<st_GameParam.trainType;
         QDomNodeList List = root.elementsByTagName("TrainType");
         QDomNode node = List.at(0);
         QDomNode oldLevelnode=node.firstChild();
@@ -113,7 +112,6 @@ void GameControl::updateXml(ST_GameParam& st_GameParam)
     }
     if(1)
     {
-        qDebug()<<"AngleVlue"<<st_GameParam.angleValue;
         QDomNodeList List = root.elementsByTagName("AngleVlue");
         QDomNode node = List.at(0);
         QDomNode oldLevelnode=node.firstChild();
@@ -189,7 +187,7 @@ void GameControl::setGamParam(ST_GameParam& st_GameParam)
 QList<ST_GameMsg> GameControl::getGameMsgs()
 {
     QList<ST_GameMsg> gameMsgList;
-    QFile file("./ConfigFile/gameListConfig.xml");
+    QFile file("./DependFile/ConfigFile/gameListConfig.xml");
 
     if(!file.open(QIODevice::ReadOnly))
     {
@@ -221,7 +219,7 @@ QList<ST_GameMsg> GameControl::getGameMsgs()
             st_GameMsg.gamePath = e.attribute("path");
             st_GameMsg.iconPath = e.attribute("iconPath");
             QString suitType = e.attribute("suitType");
-            st_GameMsg.suitTypeList = suitType.split(',');
+//            st_GameMsg.suitTypeList = suitType.split(',');
             gameMsgList.append(st_GameMsg);
             m_mapGameName.insert(st_GameMsg.gameName,st_GameMsg);
         }
