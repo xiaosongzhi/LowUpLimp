@@ -75,9 +75,9 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>9</x>
+      <x>20</x>
       <y>92</y>
-      <width>101</width>
+      <width>111</width>
       <height>40</height>
      </rect>
     </property>
@@ -91,13 +91,13 @@
      <string>报告日期:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="reportDate_Label">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>130</x>
       <y>92</y>
       <width>251</width>
       <height>40</height>
@@ -173,9 +173,9 @@
    <widget class="QLabel" name="name_Label">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>90</x>
       <y>140</y>
-      <width>81</width>
+      <width>91</width>
       <height>40</height>
      </rect>
     </property>
@@ -197,7 +197,7 @@
      <rect>
       <x>270</x>
       <y>140</y>
-      <width>81</width>
+      <width>61</width>
       <height>40</height>
      </rect>
     </property>
@@ -239,7 +239,7 @@
    <widget class="QLabel" name="phone_Label">
     <property name="geometry">
      <rect>
-      <x>442</x>
+      <x>430</x>
       <y>140</y>
       <width>141</width>
       <height>40</height>
@@ -261,7 +261,7 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>382</x>
+      <x>360</x>
       <y>140</y>
       <width>69</width>
       <height>40</height>
@@ -327,9 +327,9 @@
    <widget class="QLabel" name="msg_Label">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>100</x>
       <y>180</y>
-      <width>731</width>
+      <width>701</width>
       <height>40</height>
      </rect>
     </property>
@@ -436,7 +436,7 @@ color:#0D9DDB ;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>10</y>
+       <y>60</y>
        <width>140</width>
        <height>41</height>
       </rect>
@@ -501,7 +501,7 @@ color:#0D9DDB ;</string>
     <widget class="QLabel" name="trainPart_Label">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>550</x>
        <y>60</y>
        <width>141</width>
        <height>41</height>
@@ -656,7 +656,7 @@ color:#0D9DDB ;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>400</y>
+       <y>410</y>
        <width>140</width>
        <height>41</height>
       </rect>
@@ -766,7 +766,7 @@ color:#0D9DDB ;</string>
      <property name="geometry">
       <rect>
        <x>540</x>
-       <y>400</y>
+       <y>410</y>
        <width>140</width>
        <height>41</height>
       </rect>
@@ -832,7 +832,7 @@ color:#0D9DDB ;</string>
      <property name="geometry">
       <rect>
        <x>400</x>
-       <y>400</y>
+       <y>410</y>
        <width>121</width>
        <height>41</height>
       </rect>
@@ -897,7 +897,7 @@ color:#0D9DDB ;</string>
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>400</x>
        <y>60</y>
        <width>121</width>
        <height>41</height>
@@ -942,7 +942,7 @@ color:#0D9DDB ;</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>400</y>
+       <y>410</y>
        <width>121</width>
        <height>41</height>
       </rect>
@@ -1030,7 +1030,7 @@ color:#0D9DDB ;</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>10</y>
+       <y>60</y>
        <width>141</width>
        <height>41</height>
       </rect>
