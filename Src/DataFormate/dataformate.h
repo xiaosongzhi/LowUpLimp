@@ -157,7 +157,7 @@ typedef struct
 {
     int8_t controlState;//状态控制 0-停止 1启动 2-暂停 3-继续
     int8_t bodyPart;    //训练部位 0-上肢 1-下肢 2-四肢
-    int8_t trainMode;   //训练模式 0-被动 1-主动(可切被) 2-助力 3-等速 4-上下肢协同被动 7-四肢主被动 9-单独主动
+    int8_t trainMode;   //训练模式 0-被动 1-主动 2-助力 3-等速 4-上下肢协同被动 7-四肢主被动 9-单独主动 10-被动可切主动（主被动）
     int8_t spasmSwitch; //痉挛开关 0-关 1-开
     int8_t spasmLevel;  //痉挛等级1~3挡
     int8_t configPower; //配置功率0~2 低中高
@@ -165,7 +165,7 @@ typedef struct
     int8_t phaseValue;  //协同相位值
     int8_t direction;   //方向 0-逆向 1-正向
     int8_t speed;       //速度 2~60r/min
-    int8_t resistance;  //阻力 Nm  0~29Nm
+    int8_t resistance;  //阻力 Nm  0~20挡
     int8_t spasmType;   //痉挛后方向  1-正向 0-逆向
     uint8_t trainTime; //训练时间 0~120min
 }ST_BicycleParam;
@@ -175,8 +175,8 @@ typedef struct
 {
     int8_t currentMode;         //当前模式
     int8_t direction;           //方向 0-反向 1-正向
-    int8_t downLimpSpeed;       //下肢速度
-    int8_t upLimpSpeed;         //上肢速度
+    uint8_t downLimpSpeed;      //下肢速度
+    uint8_t upLimpSpeed;        //上肢速度
     uint16_t leftHandPosition;  //左手位置
     uint16_t leftFootPosition;  //左脚位置
     uint16_t rightHandPosition; //右手位置
@@ -243,10 +243,12 @@ typedef  struct ST_GameParam
 typedef struct
 {
     int gameID;                 //游戏ID
-    QString gameName;           //游戏名称
+    QString game;               //游戏汉字名称
     QString gamePath;           //游戏路径
     QString iconPath;           //游戏图标路径
-    QStringList suitTypeList;   //适合的游戏类型  0-被动圆周 1-被动分段 2-主动
+    QString gameName;           //游戏可执行文件名
+    QString className;          //窗口类名
+    QString windownName;        //窗口名
 }ST_GameMsg;
 
 //游戏控制参数
