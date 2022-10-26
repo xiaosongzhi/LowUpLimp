@@ -73,5 +73,7 @@
         <file>DependFile/Source/gamePage/gameBack.png</file>
         <file>DependFile/Source/signal/wifi2.png</file>
         <file>DependFile/Source/signal/wifi3.png</file>
+        <file>DependFile/Image/bike1.png</file>
+        <file>DependFile/Image/bike2.png</file>
     </qresource>
 </RCC>
