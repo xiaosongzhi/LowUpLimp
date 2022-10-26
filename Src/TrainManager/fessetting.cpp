@@ -157,7 +157,7 @@ void FesSetting::slotUpTimeBtnClicked()
 
 void FesSetting::slotDownTimeBtnClicked()
 {
-    m_FesTotalParamDialog->setTitleAndUnit(tr("下降时间"),"Hz");
+    m_FesTotalParamDialog->setTitleAndUnit(tr("下降时间"),"s");
     int oldValue = ui->downTime_Widget->getValue();
     m_FesTotalParamDialog->setValue(oldValue);
     m_FesTotalParamDialog->show();
@@ -168,7 +168,7 @@ void FesSetting::slotDownTimeBtnClicked()
 
 void FesSetting::slotOpenTimeBtnClicked()
 {
-    m_FesTotalParamDialog->setTitleAndUnit(tr("打开时间"),"Hz");
+    m_FesTotalParamDialog->setTitleAndUnit(tr("打开时间"),"s");
     int oldValue = ui->openTime_Widget->getValue();
     m_FesTotalParamDialog->setValue(oldValue);
     m_FesTotalParamDialog->show();
@@ -179,7 +179,7 @@ void FesSetting::slotOpenTimeBtnClicked()
 
 void FesSetting::slotCloseTimeBtnClicked()
 {
-    m_FesTotalParamDialog->setTitleAndUnit(tr("关闭时间"),"Hz");
+    m_FesTotalParamDialog->setTitleAndUnit(tr("关闭时间"),"s");
     int oldValue = ui->closeTime_Widget->getValue();
     m_FesTotalParamDialog->setValue(oldValue);
     m_FesTotalParamDialog->show();

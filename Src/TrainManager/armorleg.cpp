@@ -189,7 +189,7 @@ void ArmOrLeg::on_confirm_Btn_clicked()
         else if(ui->constant1_RadioButton->isChecked())
             st_bicycleParam.trainMode = 3;
         else if(ui->activePassive1_RadioButton->isChecked())
-            st_bicycleParam.trainMode = 4;
+            st_bicycleParam.trainMode = 10;
 
         //训练时间
         st_bicycleParam.trainTime = ui->trainTime1_ComboBox->currentText().toUInt();
