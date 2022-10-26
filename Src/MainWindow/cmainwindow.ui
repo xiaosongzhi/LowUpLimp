@@ -57,7 +57,8 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(85, 170, 127);</string>
+      <string notr="true">border-image: url(:/DependFile/Image/bike1.png);
+</string>
      </property>
     </widget>
    </widget>
