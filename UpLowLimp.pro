@@ -1,4 +1,4 @@
-QT       += core gui sql printsupport quickwidgets network serialport xml
+QT       += core gui sql printsupport quickwidgets network serialport xml multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -65,6 +65,7 @@ SOURCES += \
     Src/PopDialog/emergencystopdialog.cpp \
     Src/PopDialog/festipsdialog.cpp \
     Src/PopDialog/passworddialog.cpp \
+    Src/PopDialog/quitgamedialog.cpp \
     Src/PopDialog/selectuserdialog.cpp \
     Src/PopDialog/spasmtipsdialog.cpp \
     Src/Report/trainreport.cpp \
@@ -108,6 +109,7 @@ HEADERS += \
     Src/PopDialog/emergencystopdialog.h \
     Src/PopDialog/festipsdialog.h \
     Src/PopDialog/passworddialog.h \
+    Src/PopDialog/quitgamedialog.h \
     Src/PopDialog/selectuserdialog.h \
     Src/PopDialog/spasmtipsdialog.h \
     Src/Report/trainreport.h \
@@ -137,6 +139,7 @@ FORMS += \
     Src/PopDialog/emergencystopdialog.ui \
     Src/PopDialog/festipsdialog.ui \
     Src/PopDialog/passworddialog.ui \
+    Src/PopDialog/quitgamedialog.ui \
     Src/PopDialog/selectuserdialog.ui \
     Src/PopDialog/spasmtipsdialog.ui \
     Src/Report/trainreport.ui \
