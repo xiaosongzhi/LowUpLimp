@@ -90,6 +90,8 @@ void CSerialportInterface::receiveDataInterface()
     buf = m_serialPort->readAll();
     receiveArray.append(buf);
 
+//    qDebug()<<"receiveArray"<<receiveArray.toHex();
+
     while(!receiveArray.isEmpty())
     {
         if(receiveArray[0] != (char)SLAVEPACKHEAD)

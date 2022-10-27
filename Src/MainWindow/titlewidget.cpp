@@ -215,3 +215,9 @@ void  TitleWidget::setBackBtnVisible(bool visible)
     ui->back1_Btn->setVisible(visible);
     ui->back2_Btn->setVisible(visible);
 }
+
+void TitleWidget::on_quit_Btn_clicked()
+{
+   emit signalCloseWindow();
+}
+

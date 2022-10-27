@@ -31,10 +31,15 @@ public:
     void setTrainType(int8_t type);
 
     void  setBackBtnVisible(bool);
+
+signals:
+    void signalCloseWindow();
 private slots:
     void slotBackClicked();
     void on_user_Btn_clicked();
     void slotCheckTimer();
+    void on_quit_Btn_clicked();
+
 private:
     void showWIFI();
 private:

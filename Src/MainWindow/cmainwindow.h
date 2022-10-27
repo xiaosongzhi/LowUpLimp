@@ -33,6 +33,8 @@ private slots:
     void on_startGame_Btn_clicked();
 
     void slotGameStateChanged(int8_t state);
+
+    void closeWindow();
 private:
     void switchPage(E_PAGENAME);
 

@@ -26,6 +26,8 @@ CMainWindow::CMainWindow(QWidget *parent) :
     connect(m_gameDisplayPage,SIGNAL(signalGameStateChanged(int8_t)),this,SLOT(slotGameStateChanged(int8_t)));
 
     m_Process = new QProcess();
+
+    connect(ui->title_Widget,SIGNAL(signalCloseWindow()),this,SLOT(closeWindow()));
 }
 
 CMainWindow::~CMainWindow()
@@ -134,6 +136,11 @@ void CMainWindow::slotGameStateChanged(int8_t state)
     case 1: //开始游戏
         break;
     }
+}
+
+void CMainWindow::closeWindow()
+{
+    this->close();
 }
 
 void CMainWindow::startGame(QString path)

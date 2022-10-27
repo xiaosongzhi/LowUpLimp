@@ -9,6 +9,7 @@
 #include "spasmtipsdialog.h"
 #include <QUdpSocket>
 #include "trainreport.h"
+#include "quitgamedialog.h"
 class QPropertyAnimation;
 namespace Ui {
 class GameDisplayPage;
@@ -134,6 +135,7 @@ private slots:
     //游戏数据接收
     void slotReceiveGameData();
 
+    void slotBackClicked();
 signals:
     /******游戏状态*****
      *@int8_t state 1-开始 0-关闭
@@ -179,6 +181,8 @@ private:
     QList<QPair<int,int>> balanceList;//左右平衡
 
     TrainReport *m_reportDialog;
+
+    QuitGameDialog *m_quitDialog;
 };
 
 #endif // GAMEDISPLAYPAGE_H

@@ -2,7 +2,7 @@
 #define SPASMTIPSDIALOG_H
 
 #include <QDialog>
-
+#include <QSound>
 namespace Ui {
 class SpasmTipsDialog;
 }
@@ -24,6 +24,11 @@ public:
      * @int8_t direction方向 0-逆向 1-正向
      * ****/
     void setSpasmCompletedDirection(int8_t direction);
+
+    //痉挛报警音控制
+    void playBell();
+    //停止报警音
+    void stopPlayBell();
 protected:
     void paintEvent(QPaintEvent *event);
 private slots:
@@ -32,6 +37,7 @@ private slots:
 private:
     Ui::SpasmTipsDialog *ui;
     int8_t m_direction; //0-逆向 1-正向
+    QSound bells;                       //铃声对象
 };
 
 #endif // SPASMTIPSDIALOG_H

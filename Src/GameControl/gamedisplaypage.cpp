@@ -25,7 +25,8 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     countDownTimer(NULL),
     m_spasmTimes(0),
     m_currentMode(0),
-    m_reportDialog(NULL)
+    m_reportDialog(NULL),
+    m_quitDialog(NULL)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
@@ -86,6 +87,12 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
 
     m_reportDialog = new TrainReport();
 
+    m_quitDialog = new QuitGameDialog();
+
+    connect(ui->back1_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
+    connect(ui->back2_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
+
+
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -100,6 +107,8 @@ GameDisplayPage::~GameDisplayPage()
         delete countDownTimer;
     if(m_reportDialog)
         delete m_reportDialog;
+    if(m_quitDialog)
+        delete m_quitDialog;
     delete ui;
 }
 
@@ -578,6 +587,22 @@ void GameDisplayPage::slotReceiveGameData()
     }
 }
 
+void GameDisplayPage::slotBackClicked()
+{
+    m_quitDialog->exec();
+    if(m_quitDialog->getResult() == 1)
+    {
+        //退出训练
+        m_st_bicycleParam.controlState = 0;
+        CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
+        countDownTimer->stop();
+        sendStopCmd();
+        this->close();
+        //返回参数设置界面
+        MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
+    }
+}
+
 //解析游戏数据
 void GameDisplayPage::parseGameMsg(QByteArray jsonArray)
 {
@@ -891,3 +916,5 @@ void GameDisplayPage::showEvent(QShowEvent *event)
     Q_UNUSED(event)
     initButton();
 }
+
+

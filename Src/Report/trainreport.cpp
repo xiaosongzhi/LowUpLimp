@@ -55,7 +55,9 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
 
     ui->msg_Label->setText(st_trainReport.markMsg);
 
-    ui->trainTime_Label->setText(QString::number(st_trainReport.trainTime) + "min");
+    //实际训练时间
+    int trainTime = st_trainReport.passiveTime + st_trainReport.activeTime;
+    ui->trainTime_Label->setText(QString::number(trainTime) + "s");
     ui->trainLength_Label->setText(QString::number(
                                        st_trainReport.upLimpLength + st_trainReport.downLimpLength) + "m");
     ui->leftBalance_Label->setText(QString::number(st_trainReport.leftBalance) + "%");

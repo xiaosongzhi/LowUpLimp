@@ -54,12 +54,16 @@ void ArmOrLeg::initWidget()
         ui->resistance1_ComboBox->addItem(QString::number(i));
         ui->upResistance2_ComboBox->addItem(QString::number(i));
     }
+    ui->resistance1_ComboBox->setCurrentIndex(5);
+    ui->upResistance2_ComboBox->setCurrentIndex(5);
     //时间
     for(int i = 1;i <= 120;i++)
     {
         ui->trainTime1_ComboBox->addItem(QString::number(i));
         ui->upTrainTime2_ComboBox->addItem(QString::number(i));
     }
+    ui->trainTime1_ComboBox->setCurrentIndex(19);
+    ui->upTrainTime2_ComboBox->setCurrentIndex(19);
 
 
 }
