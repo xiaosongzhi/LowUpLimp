@@ -2874,6 +2874,32 @@ border:2px;</string>
     </property>
    </widget>
   </widget>
+  <widget class="QLabel" name="warnTips_Label">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>160</y>
+     <width>391</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>18</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>已切换成主动模式</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

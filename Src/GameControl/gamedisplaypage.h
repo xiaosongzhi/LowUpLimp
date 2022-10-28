@@ -160,6 +160,9 @@ private:
 
     //退出训练
     void quitTrain();
+
+    //模式提示
+    void changeModeTips(QString str);
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:

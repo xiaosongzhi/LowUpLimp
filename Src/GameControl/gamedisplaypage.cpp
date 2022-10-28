@@ -95,6 +95,7 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     connect(ui->back1_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
     connect(ui->back2_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
 
+    ui->warnTips_Label->setVisible(false);
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -285,8 +286,6 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         if(m_emergencyDialog->isVisible())
             m_emergencyDialog->close();
     }
-
-
 }
 
 
@@ -502,7 +501,6 @@ void GameDisplayPage::slotSetChannelBData(int *data,int size)
 /*******踏车设置参数*******/
 void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
 {
-
     m_st_bicycleParam = st_setBicycleParam;
     m_startNum = m_st_bicycleParam.trainTime * 60;
 
@@ -679,6 +677,16 @@ void GameDisplayPage::quitTrain()
     this->close();
     //返回参数设置界面
     MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
+}
+
+void GameDisplayPage::changeModeTips(QString str)
+{
+    ui->warnTips_Label->setVisible(true);
+    ui->warnTips_Label->setText(str);
+    //显示3s后隐藏
+    QTimer::singleShot(3000,this,[this](){
+        ui->warnTips_Label->setVisible(false);
+    });
 }
 
 //解析游戏数据
@@ -940,6 +948,10 @@ void GameDisplayPage::setTrainMode(int8_t mode)
             ui->upCurrentStage_Label->setText(tr("被动训练"));
             ui->downCurrentStage_Label->setText(tr("主动训练"));
             break;
+        }
+        if(m_st_bicycleParam.trainMode == 7 || m_st_bicycleParam.trainMode == 10)
+        {
+            changeModeTips(modeName);
         }
 
         m_currentMode = mode;
