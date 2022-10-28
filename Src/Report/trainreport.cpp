@@ -192,6 +192,32 @@ void TrainReport::on_save_Btn_clicked()
         this->close();
     }
 
+    //将训练保存到训练记录中
+    ST_TrainRecord st_trainRecord;
+    st_trainRecord.ID = m_st_trainReport.ID;
+    st_trainRecord.trainTime = m_st_trainReport.trainTime/60;
+    if(st_trainRecord.trainTime < 1)
+        st_trainRecord.trainTime = 1;
+    switch(m_st_trainReport.bodyIndex)
+    {
+    case 0:
+        st_trainRecord.bodyPart = tr("上肢");
+        break;
+    case 1:
+        st_trainRecord.bodyPart = tr("下肢");
+        break;
+    case 2:
+        st_trainRecord.bodyPart = tr("四肢");
+        break;
+    }
+    st_trainRecord.score = (m_st_trainReport.upLimpLength + m_st_trainReport.downLimpLength)*3;
+    st_trainRecord.startTime = QDateTime::fromString(m_st_trainReport.startTimeStr,"yyyy-MM-dd hh:mm:ss");
+    st_trainRecord.startTimeStr = m_st_trainReport.startTimeStr;
+
+    if(!CDatabaseInterface::getInstance()->insertRowTable("TrainRecordTable",trainRecordToVariantMap(st_trainRecord)))
+    {
+        qDebug()<<"TrainRecord::on_createData_Btn_clicked"<<CDatabaseInterface::getInstance()->getLastError();
+    }
 }
 
 //导出报告

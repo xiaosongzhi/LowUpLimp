@@ -81,6 +81,7 @@ void CSerialportInterface::sendDataInterface(QByteArray sendArray)
 {
     if(m_serialPort)
     {
+        if(m_serialPort->isOpen())
         m_serialPort->write(sendArray);
         qDebug()<<sendArray.toHex();
     }

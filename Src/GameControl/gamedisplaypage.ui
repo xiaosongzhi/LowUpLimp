@@ -1072,7 +1072,7 @@ border: 1px solid #05A6EC;}
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>15</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="styleSheet">

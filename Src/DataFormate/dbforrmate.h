@@ -24,7 +24,7 @@ typedef struct
     QDateTime startTime;            //开始训练时间-用于排序
     QString startTimeStr;           //训练时间字符串版-用于显示
     int trainTime;                  //训练时长 （min）
-    int score;                      //游戏得分
+    int score;                      //游戏得分 距离*3
     QString bodyPart;               //训练部位
 }ST_TrainRecord;
 

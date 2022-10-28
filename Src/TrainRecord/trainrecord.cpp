@@ -107,7 +107,7 @@ void TrainRecord::fillTrainReportTable(const int index,const int showRows)
         //第3列 得分
         QTableWidgetItem *scoreItem = new QTableWidgetItem(QString::number(st_trainRecord.score));
         ui->trainRecord_TableWidget->setItem(row, 3, scoreItem);
-        //第4列 训练部位
+        //第4列 训练部位        
         QTableWidgetItem *bodyItem = new QTableWidgetItem(st_trainRecord.bodyPart);
         ui->trainRecord_TableWidget->setItem(row, 4, bodyItem);
 
@@ -276,7 +276,6 @@ void TrainRecord::on_allSelect_CheckBox_clicked(bool checked)
 //删除选中项
 void TrainRecord::on_delete_Btn_clicked()
 {
-    qDebug()<<"m_displayNum"<<m_displayNum;
     //删除条数计数
     int deleteNum = 0;
     for(int i = 0;i <m_displayNum;++i)
