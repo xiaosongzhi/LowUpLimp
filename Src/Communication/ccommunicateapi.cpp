@@ -101,7 +101,6 @@ void CCommunicateAPI::sendHeartBeat()
 
     array[0] = SEND_HEARTBEAT_CMD;  //指令
     sendData(array);
-    qDebug()<<"发送心跳";
 }
 
 void CCommunicateAPI::sendBicycleParam(const ST_BicycleParam &st_bicycleParam)

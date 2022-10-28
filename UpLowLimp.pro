@@ -64,6 +64,7 @@ SOURCES += \
     Src/PopDialog/deleteuserdialog.cpp \
     Src/PopDialog/emergencystopdialog.cpp \
     Src/PopDialog/festipsdialog.cpp \
+    Src/PopDialog/paramtipsdialog.cpp \
     Src/PopDialog/passworddialog.cpp \
     Src/PopDialog/quitgamedialog.cpp \
     Src/PopDialog/selectuserdialog.cpp \
@@ -108,6 +109,7 @@ HEADERS += \
     Src/PopDialog/deleteuserdialog.h \
     Src/PopDialog/emergencystopdialog.h \
     Src/PopDialog/festipsdialog.h \
+    Src/PopDialog/paramtipsdialog.h \
     Src/PopDialog/passworddialog.h \
     Src/PopDialog/quitgamedialog.h \
     Src/PopDialog/selectuserdialog.h \
@@ -138,6 +140,7 @@ FORMS += \
     Src/PopDialog/deleteuserdialog.ui \
     Src/PopDialog/emergencystopdialog.ui \
     Src/PopDialog/festipsdialog.ui \
+    Src/PopDialog/paramtipsdialog.ui \
     Src/PopDialog/passworddialog.ui \
     Src/PopDialog/quitgamedialog.ui \
     Src/PopDialog/selectuserdialog.ui \

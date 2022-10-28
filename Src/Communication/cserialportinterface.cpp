@@ -14,6 +14,7 @@ CSerialportInterface::CSerialportInterface():m_serialPort(NULL)
     {
         m_serialPort = new QSerialPort();
         connect(m_serialPort,&QSerialPort::readyRead,this,&CSerialportInterface::receiveDataInterface);
+        connect(m_serialPort,&QSerialPort::errorOccurred,this,&CSerialportInterface::displayError);
         setConfigParam();
     }
 }
@@ -81,6 +82,7 @@ void CSerialportInterface::sendDataInterface(QByteArray sendArray)
     if(m_serialPort)
     {
         m_serialPort->write(sendArray);
+        qDebug()<<sendArray.toHex();
     }
 }
 //接收数据接口

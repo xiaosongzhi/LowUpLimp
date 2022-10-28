@@ -3,8 +3,6 @@
 #include "dataFormate.h"
 #include "readconfig.h"
 
-
-
 //LOG4QT_DECLARE_STATIC_LOGGER(logger, CUdpInterface)
 CUdpInterface::CUdpInterface():m_udpSocket(NULL)
 {
@@ -16,6 +14,7 @@ CUdpInterface::CUdpInterface():m_udpSocket(NULL)
         setConfigParam();
     }
 }
+
 CUdpInterface::~CUdpInterface()
 {
     if(m_udpSocket)
@@ -24,6 +23,7 @@ CUdpInterface::~CUdpInterface()
         m_udpSocket = NULL;
     }
 }
+
 //配置参数
 bool CUdpInterface::setConfigParam()
 {
