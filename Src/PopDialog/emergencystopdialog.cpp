@@ -4,12 +4,15 @@
 #include <QDebug>
 EmergencyStopDialog::EmergencyStopDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::EmergencyStopDialog)
+    ui(new Ui::EmergencyStopDialog),
+    bells("./DependFile/Music/emergency.wav")
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
     setAttribute(Qt::WA_TranslucentBackground,true);    //设置透明
 
+    //设置报警音无线循环
+    bells.setLoops(-1);
 }
 
 EmergencyStopDialog::~EmergencyStopDialog()
@@ -24,6 +27,18 @@ void EmergencyStopDialog::paintEvent(QPaintEvent *event)
     painter.fillRect(rect(),QColor(0,0,0,100));
 }
 
+void EmergencyStopDialog::showEvent(QShowEvent *event)
+{
+    Q_UNUSED(event)
+    playBell();
+}
+
+void EmergencyStopDialog::closeEvent(QCloseEvent *event)
+{
+    Q_UNUSED(event)
+    stopPlayBell();
+}
+
 void EmergencyStopDialog::on_emergency_Btn_clicked()
 {
     static int closeTime;
@@ -33,5 +48,17 @@ void EmergencyStopDialog::on_emergency_Btn_clicked()
         closeTime = 0;
         this->close();
     }
+    this->close();
 }
 
+//痉挛报警音控制
+void EmergencyStopDialog::playBell()
+{
+    bells.play();
+}
+//停止报警音
+void EmergencyStopDialog::stopPlayBell()
+{
+    if(bells.loopsRemaining())
+        bells.stop();
+}
