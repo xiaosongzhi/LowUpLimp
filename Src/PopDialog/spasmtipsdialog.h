@@ -37,7 +37,7 @@ private slots:
 private:
     Ui::SpasmTipsDialog *ui;
     int8_t m_direction; //0-逆向 1-正向
-    QSound bells;                       //铃声对象
+    QSound bells;       //铃声对象
 };
 
 #endif // SPASMTIPSDIALOG_H
