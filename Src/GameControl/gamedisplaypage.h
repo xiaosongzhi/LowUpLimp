@@ -10,6 +10,8 @@
 #include <QUdpSocket>
 #include "trainreport.h"
 #include "quitgamedialog.h"
+#include "emergencystopdialog.h"
+
 class QPropertyAnimation;
 namespace Ui {
 class GameDisplayPage;
@@ -155,6 +157,9 @@ private:
     void calculateResultData();
 
     void initButton();
+
+    //退出训练
+    void quitTrain();
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:
@@ -183,6 +188,8 @@ private:
     TrainReport *m_reportDialog;
 
     QuitGameDialog *m_quitDialog;
+
+    EmergencyStopDialog *m_emergencyDialog;
 };
 
 #endif // GAMEDISPLAYPAGE_H

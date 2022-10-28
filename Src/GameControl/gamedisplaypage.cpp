@@ -26,7 +26,8 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     m_spasmTimes(0),
     m_currentMode(0),
     m_reportDialog(NULL),
-    m_quitDialog(NULL)
+    m_quitDialog(NULL),
+    m_emergencyDialog(NULL)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
@@ -67,6 +68,8 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
 
     m_spasmTipsDialog = new SpasmTipsDialog();
 
+    m_emergencyDialog = new EmergencyStopDialog();
+
     setTitle();
 
     connect(IceModule::getInstance(),SIGNAL(signalSetFesAParam(int*,int)),this,SLOT(slotSetChannelAData(int*,int)));
@@ -92,7 +95,6 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     connect(ui->back1_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
     connect(ui->back2_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
 
-
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -109,6 +111,8 @@ GameDisplayPage::~GameDisplayPage()
         delete m_reportDialog;
     if(m_quitDialog)
         delete m_quitDialog;
+    if(m_emergencyDialog)
+        delete m_emergencyDialog;
     delete ui;
 }
 
@@ -178,8 +182,6 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
 
         st_gameControlParam.forceLeft = st_deviceParam.upBalance;
         st_gameControlParam.forceRight = 100 - st_deviceParam.upBalance;
-
-
     }
         break;
     case 1: //下肢
@@ -227,6 +229,9 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     ui->leftBalance_Label->setText(QString::number(st_gameControlParam.forceLeft));
     ui->rightBalance_Label->setText(QString::number(st_gameControlParam.forceRight));
 
+    //驱动游戏
+    sendGameControlParam(st_gameControlParam);
+
     static int skipNum = 0;
     ++skipNum;
     if(skipNum > 20)
@@ -242,7 +247,6 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     {
         if(m_spasmTipsDialog->isVisible())
             return;
-
         m_spasmTimes++;
         //痉挛次数用于报告
         st_trainReport.spasmTimes = m_spasmTimes;
@@ -255,9 +259,34 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         }
     }
 
+    //过速保护
+    if( 1 == st_deviceParam.overSpeedProtect)
+    {
 
-    //驱动游戏
-    sendGameControlParam(st_gameControlParam);
+    }
+
+
+
+    //触发急停
+    if( 1 == st_deviceParam.emergencyState)
+    {
+        if(m_emergencyDialog->isVisible())
+            return;
+        m_emergencyDialog->show();
+        //退出训练
+        countDownTimer->stop();
+        sendStopCmd();
+        this->close();
+        //返回参数设置界面
+        MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
+    }
+    else
+    {
+        if(m_emergencyDialog->isVisible())
+            m_emergencyDialog->close();
+    }
+
+
 }
 
 
@@ -592,15 +621,20 @@ void GameDisplayPage::slotBackClicked()
     m_quitDialog->exec();
     if(m_quitDialog->getResult() == 1)
     {
-        //退出训练
-        m_st_bicycleParam.controlState = 0;
-        CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
-        countDownTimer->stop();
-        sendStopCmd();
-        this->close();
-        //返回参数设置界面
-        MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
+        quitTrain();
     }
+}
+
+void GameDisplayPage::quitTrain()
+{
+    //退出训练
+    m_st_bicycleParam.controlState = 0;
+    CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
+    countDownTimer->stop();
+    sendStopCmd();
+    this->close();
+    //返回参数设置界面
+    MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
 }
 
 //解析游戏数据
@@ -683,6 +717,9 @@ void GameDisplayPage::initButton()
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
     ui->start_Btn->setVisible(true);
+    ui->length_Label->setText("0m");
+    ui->leftBalance_Label->setText("50%");
+    ui->rightBalance_Label->setText("50%");
 }
 
 void GameDisplayPage::setTrainSpeed(int speed, qint8 type)
@@ -753,6 +790,7 @@ void GameDisplayPage::on_stop_Btn_clicked()
     m_reportDialog->setReportData(st_trainReport,1);
     //    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
 
+    //退出游戏
     sendStopCmd();
 
     emit signalGameStateChanged(0);
