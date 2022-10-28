@@ -4,6 +4,7 @@
 #include "mainwindowpagecontrol.h"
 #include <QListView>
 #include "icemodule.h"
+#include "paramtipsdialog.h"
 #include <QDebug>
 ArmOrLeg::ArmOrLeg(QWidget *parent) :
     QWidget(parent),
@@ -48,6 +49,10 @@ void ArmOrLeg::initWidget()
         ui->speed1_ComboBox->addItem(QString::number(i));
         ui->upSpeed2_ComboBox->addItem(QString::number(i));
     }
+    //预设定值上肢不超10，下肢不超15
+    ui->speed1_ComboBox->setCurrentIndex(8);
+    ui->upSpeed2_ComboBox->setCurrentIndex(8);
+
     //阻力 0~20挡
     for(int i = 0;i <= 20;i++)
     {
@@ -133,7 +138,7 @@ void ArmOrLeg::on_next_Btn_clicked()
 //确认参数--进入游戏
 void ArmOrLeg::on_confirm_Btn_clicked()
 {
-    MainWindowPageControl::getInstance()->setCurrentPage(TrainingPage_E);
+
     ST_BicycleParam st_bicycleParam;
     //训练部位
     if(ui->upLimp_RadioButton->isChecked())
@@ -228,9 +233,19 @@ void ArmOrLeg::on_confirm_Btn_clicked()
             st_bicycleParam.spasmLevel = 3;
 
     }
+    //【国标】当设置速度大于30r/min时需要给出提示弹窗
+    if(st_bicycleParam.speed > 30)
+    {
+        ParamTipsDialog tipDialog;
+        tipDialog.setParamTipsMsg(tr("设定速度已超30r/min，确认使用该速度训练吗？"));
+        tipDialog.exec();
+        if(0 == tipDialog.getResult())
+            return;
+    }
+
     st_bicycleParam.controlState = 0;
     IceModule::getInstance()->setBicycleParam(st_bicycleParam);
-
+    MainWindowPageControl::getInstance()->setCurrentPage(TrainingPage_E);
 }
 
 
