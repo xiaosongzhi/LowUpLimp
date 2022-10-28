@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <DarkRift_IP>127.0.0.1</DarkRift_IP>
+  <!---DarkRift服务器IP-->
+  <Server_IP>127.0.0.1</Server_IP>
+  <!---上位机服务器IP-->
+  <Server_Port>8888</Server_Port>
+  <!---上位机服务器TCP端口-->
+  <UDP_Port>20000</UDP_Port>
+  <!---上位机服务器UDP端口 20180401以前程序用-->
+  <UDPPort>12000</UDPPort>
+  <!---游戏接收端-->
+  <SendPort>12000</SendPort>
+  <!---游戏UDP端口 -->
+  <TCP>2100</TCP>
+  <!---使用TCP方式 [0:不使用] [非0：使用]-->
+  <UserID>1234567890</UserID>
+  <!---训练者ID-->
+  <UserName>王小宇</UserName>
+  <!---训练者名字-->
+  <Level>3</Level>
+  <!---通用的游戏难度等级 数字越大难度越高	1-5	很简单，简单，普通，困难，很难-->
+  <GameTime>60</GameTime>
+  <!---游戏持续时间 以秒为单位-->
+  <Speed>0.5</Speed>
+  <!---运动速度，速度越大移动越快	1-5  3为默认正常值-->
+  <ReadPosTable>true</ReadPosTable>
+  <!---目标点是否读配置表或者通过游戏自己生成，true 为读取false为自己生成-->
+  <SendRate>5</SendRate>
+  <!---发送给上位机的角度频率，单位秒默认值0.5-->
+  <WaitTime>3</WaitTime>
+  <!---每次动作间隔时间，单位秒默认值3，最好调整在3以上-->
+  <RankShowTime>5</RankShowTime>
+  <!---奖章显示时间 以秒为单位  范围0-5 -->
+  <ClearRankingListDuration>7</ClearRankingListDuration>
+  <!---清理游戏排行榜的间隔时间 单位是天-->
+  <IfDebugInfo>false</IfDebugInfo>
+  <!---是否显示调试信息-->
+  <CursorVisible>true</CursorVisible>
+  <!---是否显示鼠标-->
+  <Child>true</Child>
+  <!---是否转化为童音播报-->
+  <dynamic>true</dynamic>
+  <!---动态平衡板-->
+  <English>false</English>
+  <!---英文版-->
+  <games>
+    <item name="tug_of_war" desc="网络版拔河" port="5015" tug_of_war_levelNum="-10" tug_of_war_defaultPullTime="5">
+		网络版拔河
+		port: 连接darkrift的端口号(考虑多个多人游戏的情况)
+		tug_of_war_levelNum: 对战电脑的难度,值越大电脑拉动的越快,推荐0附近
+		tug_of_war_defaultPullTime: 电脑默认初始 拉的时间间隔
+	</item>
+    <item name="datishu" time="1" bornInterval="4" moveSpeed="0.06" stayTime="17" level="2">
+		打地鼠
+		time:游戏时间 
+		bornInterval:坏人产生时间 
+		moveSpeed 地鼠出来速度 越小越慢
+		stayTime地鼠停留时间
+	</item>
+    <item name="qiuqiuduiduipeng" time="1">
+		球球对对碰
+	</item>
+    <item name="jiayuanbaowei" time="1" bornInterval="2" pathTime="18" level="2">
+		家园保卫
+		time:游戏时间 
+		bornInterval:坏人产生时间 
+		pathTime:路径奔走时间
+	</item>
+    <item name="shuzixiaoxiaole" time="1">
+		数字消消乐
+	</item>
+  </games>
+</root>
