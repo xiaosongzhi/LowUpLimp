@@ -326,7 +326,11 @@ void GameDisplayPage::on_upSpeedMinus_Btn_clicked()
     int speed = ui->upSpeed_Label->text().toInt();
     if(speed > 2)
     {
-        ui->upSpeed_Label->setText(QString::number(--speed));
+        --speed;
+        ui->upSpeed_Label->setText(QString::number(speed));
+#ifdef UNIFORMLY
+        ui->downSpeed_Label->setText(QString::number(speed));
+#endif
         setTrainSpeed(speed);
         m_st_bicycleParam.speed = speed;
     }
@@ -338,7 +342,11 @@ void GameDisplayPage::on_upSpeedPlus_Btn_clicked()
     int speed = ui->upSpeed_Label->text().toInt();
     if(speed < 60)
     {
-        ui->upSpeed_Label->setText(QString::number(++speed));
+        ++speed;
+        ui->upSpeed_Label->setText(QString::number(speed));
+#ifdef UNIFORMLY
+        ui->downSpeed_Label->setText(QString::number(speed));
+#endif
         setTrainSpeed(speed);
         m_st_bicycleParam.speed = speed;
     }
@@ -350,7 +358,11 @@ void GameDisplayPage::on_upForceMinus_Btn_clicked()
     int force = ui->upForce_Label->text().toInt();
     if(force > 0)
     {
-        ui->upForce_Label->setText(QString::number(--force));
+        --force;
+        ui->upForce_Label->setText(QString::number(force));
+#ifdef UNIFORMLY
+        ui->downForce_Label->setText(QString::number(force));
+#endif
         setTrainFore(force);
         m_st_bicycleParam.resistance = force;
     }
@@ -361,7 +373,11 @@ void GameDisplayPage::on_upForcePlus_Btn_clicked()
     int force = ui->upForce_Label->text().toInt();
     if(force < 29)
     {
-        ui->upForce_Label->setText(QString::number(++force));
+        ++force;
+        ui->upForce_Label->setText(QString::number(force));
+#ifdef UNIFORMLY
+        ui->downForce_Label->setText(QString::number(force));
+#endif
         setTrainFore(force);
         m_st_bicycleParam.resistance = force;
     }
@@ -371,12 +387,18 @@ void GameDisplayPage::on_upForward_Btn_clicked()
 {
     setTrainDirection(1);
     m_st_bicycleParam.direction = 1;
+#ifdef UNIFORMLY
+    ui->downForward_Btn->setChecked(true);
+#endif
 }
 
 void GameDisplayPage::on_upBackward_Btn_clicked()
 {
     setTrainDirection(0);
     m_st_bicycleParam.direction = 0;
+#ifdef UNIFORMLY
+    ui->downBackward_Btn->setChecked(true);
+#endif
 }
 
 void GameDisplayPage::on_downSpeedMinus_Btn_clicked()
@@ -384,7 +406,11 @@ void GameDisplayPage::on_downSpeedMinus_Btn_clicked()
     int speed = ui->downSpeed_Label->text().toInt();
     if(speed > 2)
     {
-        ui->downSpeed_Label->setText(QString::number(--speed));
+        --speed;
+        ui->downSpeed_Label->setText(QString::number(speed));
+#ifdef UNIFORMLY
+        ui->upSpeed_Label->setText(QString::number(speed));
+#endif
         setTrainSpeed(speed);
         m_st_bicycleParam.speed = speed;
     }
@@ -396,7 +422,11 @@ void GameDisplayPage::on_downSpeedPlus_Btn_clicked()
     int speed = ui->downSpeed_Label->text().toInt();
     if(speed < 60)
     {
-        ui->downSpeed_Label->setText(QString::number(++speed));
+        ++speed;
+        ui->downSpeed_Label->setText(QString::number(speed));
+#ifdef UNIFORMLY
+        ui->upSpeed_Label->setText(QString::number(speed));
+#endif
         setTrainSpeed(speed);
         m_st_bicycleParam.speed = speed;
     }
@@ -408,7 +438,11 @@ void GameDisplayPage::on_downForceMinus_Btn_clicked()
     int force = ui->downForce_Label->text().toInt();
     if(force > 0)
     {
-        ui->downForce_Label->setText(QString::number(--force));
+        --force;
+        ui->downForce_Label->setText(QString::number(force));
+#ifdef UNIFORMLY
+        ui->upForce_Label->setText(QString::number(force));
+#endif
         setTrainFore(force);
         m_st_bicycleParam.resistance = force;
     }
@@ -420,7 +454,11 @@ void GameDisplayPage::on_downForcePlus_Btn_clicked()
     int force = ui->downForce_Label->text().toInt();
     if(force < 29)
     {
-        ui->downForce_Label->setText(QString::number(++force));
+        ++force;
+        ui->downForce_Label->setText(QString::number(force));
+#ifdef UNIFORMLY
+        ui->upForce_Label->setText(QString::number(force));
+#endif
         setTrainFore(force);
         m_st_bicycleParam.resistance = force;
     }
@@ -431,12 +469,18 @@ void GameDisplayPage::on_downForward_Btn_clicked()
 {
     setTrainDirection(1);
     m_st_bicycleParam.direction = 1;
+#ifdef UNIFORMLY
+    ui->upForward_Btn->setChecked(true);
+#endif
 }
 
 void GameDisplayPage::on_downBackward_Btn_clicked()
 {
     setTrainDirection(0);
     m_st_bicycleParam.direction = 0;
+#ifdef UNIFORMLY
+    ui->upBackward_Btn->setChecked(true);
+#endif
 }
 
 void GameDisplayPage::slotSetChannelAData(int *data,int size)

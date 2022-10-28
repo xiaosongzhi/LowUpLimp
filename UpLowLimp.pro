@@ -13,7 +13,7 @@ OBJECTS_DIR = tmp/obj
 RCC_DIR = tmp/rcc
 
 CONFIG += c++17
-
+DEFINES += UNIFORMLY    #上下肢统一
 #static{
 #QTPLUGIN += qtvirtualkeyboardplugin
 #QT += svg
