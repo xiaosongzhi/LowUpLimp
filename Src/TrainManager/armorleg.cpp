@@ -92,6 +92,17 @@ void ArmOrLeg::showEvent(QShowEvent *event)
     Q_UNUSED(event)
     ui->spasmCW1_RadioButton->setChecked(true);
     ui->spasmCW2_RadioButton->setChecked(true);
+
+    //预设定值上肢不超10，下肢不超15
+    ui->speed1_ComboBox->setCurrentIndex(8);
+    ui->upSpeed2_ComboBox->setCurrentIndex(8);
+
+    ui->resistance1_ComboBox->setCurrentIndex(5);
+    ui->upResistance2_ComboBox->setCurrentIndex(5);
+
+    ui->trainTime1_ComboBox->setCurrentIndex(19);
+    ui->upTrainTime2_ComboBox->setCurrentIndex(19);
+
 }
 
 void ArmOrLeg::on_upDownLimp_RadioButton_toggled(bool checked)

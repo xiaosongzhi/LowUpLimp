@@ -32,6 +32,11 @@ LoginWidget::~LoginWidget()
     delete ui;
 }
 
+void LoginWidget::slotShowCompleted()
+{
+    this->close();
+}
+
 void LoginWidget::on_forgetPassword_Btn_clicked()
 {
     //弹出提示框，告知获取密码的方式
@@ -78,7 +83,7 @@ void LoginWidget::on_confirm_Btn_clicked()
         iniSetting.setValue("password",ui->password_LineEdit->text());
         iniSetting.setValue("userName",ui->userName_LineEdit->text());
     }
-//    this->close();
+
 }
 
 

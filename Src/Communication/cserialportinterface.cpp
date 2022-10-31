@@ -83,7 +83,7 @@ void CSerialportInterface::sendDataInterface(QByteArray sendArray)
     {
         if(m_serialPort->isOpen())
         m_serialPort->write(sendArray);
-        qDebug()<<sendArray.toHex();
+//        qDebug()<<sendArray.toHex();
     }
 }
 //接收数据接口

@@ -12,8 +12,6 @@
 
 int main(int argc, char *argv[])
 {
-
-    //    qputenv("QT_IM_MODULE",QByteArray("qtvirtualkeyboard"));
     QApplication a(argc, argv);
 
     //数据库读取
@@ -39,12 +37,11 @@ int main(int argc, char *argv[])
         QMessageBox::warning(NULL, "warning", "totalqss Open failed", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
     }
 
-    CMainWindow w;
-    w.show();
     LoginWidget login;
-    login.show();
-
-
+    CMainWindow w;
+    QObject::connect(&w,SIGNAL(signalShowCompleted()),&login,SLOT(slotShowCompleted()));
+    login.exec();
+    w.show();
 
     return a.exec();
 }

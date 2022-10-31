@@ -51,6 +51,12 @@ typedef enum
 
 }E_SENDCMDID;
 
+//游戏训练状态
+typedef enum
+{
+
+}E_TRAINSTATE;
+
 //接收下位机指令
 typedef enum
 {

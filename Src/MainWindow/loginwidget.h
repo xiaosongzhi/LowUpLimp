@@ -16,6 +16,9 @@ public:
     ~LoginWidget();
 signals:
     void signalResult(int);
+
+public slots:
+    void slotShowCompleted();
 private slots:
     void on_forgetPassword_Btn_clicked();
 

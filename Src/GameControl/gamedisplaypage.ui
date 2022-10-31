@@ -294,6 +294,12 @@ border: 1px solid #05A6EC;}</string>
       <property name="text">
        <string/>
       </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="upSpeedPlus_Btn">
       <property name="geometry">
@@ -309,6 +315,9 @@ border: 1px solid #05A6EC;}</string>
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="upSpeed_Label">
@@ -835,6 +844,9 @@ border: 1px solid #05A6EC;}
       <property name="text">
        <string/>
       </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="upForcePlus_Btn">
       <property name="geometry">
@@ -850,6 +862,9 @@ border: 1px solid #05A6EC;}
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="label_13">
@@ -868,7 +883,7 @@ border: 1px solid #05A6EC;}
        </font>
       </property>
       <property name="text">
-       <string>挡</string>
+       <string>档</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1520,6 +1535,9 @@ border: 1px solid #05A6EC;}</string>
       <property name="text">
        <string/>
       </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="downForce_Label">
       <property name="geometry">
@@ -1559,7 +1577,7 @@ border: 1px solid #05A6EC;}</string>
        </font>
       </property>
       <property name="text">
-       <string>挡</string>
+       <string>档</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1579,6 +1597,9 @@ border: 1px solid #05A6EC;}</string>
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
       </property>
      </widget>
     </widget>
@@ -1613,6 +1634,9 @@ border: 1px solid #05A6EC;}</string>
       <property name="text">
        <string/>
       </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="downSpeedMinus_Btn">
       <property name="geometry">
@@ -1628,6 +1652,9 @@ border: 1px solid #05A6EC;}</string>
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="downSpeed_Label">

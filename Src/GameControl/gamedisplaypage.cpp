@@ -12,7 +12,7 @@
 #include <QJsonObject>
 #include <QJsonParseError>
 #include "currentuserdata.h"
-
+#include "paramtipsdialog.h"
 
 GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
@@ -136,7 +136,7 @@ void GameDisplayPage::setUser(const ST_PatientMsg &st_patientMsg)
 
 void GameDisplayPage::setTitle()
 {
-    ui->title_Label->setText(tr("游戏训练"));
+
     //设置title效果
     ui->user_Btn->setIcon(QIcon(":/DependFile/Source/User/user1.png"));
     ui->user_Btn->setIconSize(QSize(40,40));
@@ -151,17 +151,20 @@ void GameDisplayPage::setTrainPart(int type)
         ui->upLimp_GroupBox->move(10,10);
         ui->upLimp_GroupBox->setVisible(true);
         ui->downLimp_GroupBox->setVisible(false);
+        ui->title_Label->setText(tr("上肢训练"));
         break;
     case 1:
         ui->downLimp_GroupBox->move(10,10);
         ui->upLimp_GroupBox->setVisible(false);
         ui->downLimp_GroupBox->setVisible(true);
+        ui->title_Label->setText(tr("下肢训练"));
         break;
     case 2:
         ui->upLimp_GroupBox->move(10,10);
         ui->downLimp_GroupBox->move(10,583);
         ui->upLimp_GroupBox->setVisible(true);
         ui->downLimp_GroupBox->setVisible(true);
+        ui->title_Label->setText(tr("四肢训练"));
         break;
     }
 }
@@ -313,11 +316,16 @@ void GameDisplayPage::close_Btn_clicked()
 void GameDisplayPage::mouseDoubleClickEvent(QMouseEvent *event)
 {
     Q_UNUSED(event)
-    if(m_openState)
-        close_Btn_clicked();
-    else
-        open_Btn_clicked();
-    m_openState = !m_openState;
+
+    if(event->pos().x() > 434 && event->pos().x() < 1482)
+    {
+        if(m_openState)
+            close_Btn_clicked();
+        else
+            open_Btn_clicked();
+        m_openState = !m_openState;
+    }
+
 }
 
 void GameDisplayPage::on_upSpeedMinus_Btn_clicked()
@@ -339,6 +347,7 @@ void GameDisplayPage::on_upSpeedMinus_Btn_clicked()
 void GameDisplayPage::on_upSpeedPlus_Btn_clicked()
 {
     int speed = ui->upSpeed_Label->text().toInt();
+
     if(speed < 60)
     {
         ++speed;
@@ -370,7 +379,7 @@ void GameDisplayPage::on_upForceMinus_Btn_clicked()
 void GameDisplayPage::on_upForcePlus_Btn_clicked()
 {
     int force = ui->upForce_Label->text().toInt();
-    if(force < 29)
+    if(force < 20)
     {
         ++force;
         ui->upForce_Label->setText(QString::number(force));
@@ -451,7 +460,7 @@ void GameDisplayPage::on_downForceMinus_Btn_clicked()
 void GameDisplayPage::on_downForcePlus_Btn_clicked()
 {
     int force = ui->downForce_Label->text().toInt();
-    if(force < 29)
+    if(force < 20)
     {
         ++force;
         ui->downForce_Label->setText(QString::number(force));
@@ -664,6 +673,7 @@ void GameDisplayPage::slotBackClicked()
     if(m_quitDialog->getResult() == 1)
     {
         quitTrain();
+        emit signalGameStateChanged(0);
     }
 }
 
@@ -803,7 +813,22 @@ void GameDisplayPage::switchFes(qint8 channel, bool ok)
 
 void GameDisplayPage::on_start_Btn_clicked()
 {
+
+    if(0 == gameState)
+    {
+        if(m_st_bicycleParam.speed > 30)
+        {
+            ParamTipsDialog tipDialog;
+            tipDialog.setParamTipsMsg(tr("设定速度已超30r/min，确认使用该速度训练吗？"));
+            tipDialog.exec();
+            if(0 == tipDialog.getResult())
+                return;
+        }
+    }
+
     balanceList.clear();
+    //已开始
+    gameState = 1;
 
     ui->start_Btn->setVisible(false);
     ui->stop_Btn->setVisible(true);
@@ -857,6 +882,12 @@ void GameDisplayPage::on_pause_Btn_clicked()
     ui->start_Btn->setVisible(true);
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
+
+    ui->upRealPower_Label->setText("0");
+    ui->upRealSpeed_Label->setText("0");
+
+    ui->downRealPower_Label->setText("0");
+    ui->downRealSpeed_Label->setText("0");
 }
 
 
@@ -953,7 +984,6 @@ void GameDisplayPage::setTrainMode(int8_t mode)
         {
             changeModeTips(modeName);
         }
-
         m_currentMode = mode;
     }
 
@@ -1009,6 +1039,14 @@ void GameDisplayPage::showEvent(QShowEvent *event)
 {
     Q_UNUSED(event)
     initButton();
+    gameState = 0;//未开始
+    m_spasmTimes = 0;
+
+    ui->upRealPower_Label->setText("0");
+    ui->upRealSpeed_Label->setText("0");
+
+    ui->downRealPower_Label->setText("0");
+    ui->downRealSpeed_Label->setText("0");
 }
 
 

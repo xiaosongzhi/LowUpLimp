@@ -127,7 +127,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="armOrLeg_Page">
     <widget class="QGroupBox" name="groupBox_10">
@@ -511,7 +511,7 @@ color:#00A6F5;</string>
         </font>
        </property>
        <property name="text">
-        <string>挡</string>
+        <string>档</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1143,7 +1143,7 @@ color:#00A6F5;</string>
         </font>
        </property>
        <property name="text">
-        <string>挡</string>
+        <string>档</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

@@ -25,11 +25,16 @@ public slots:
     void slotSwitchPage(E_PAGENAME);
 
     void slot_Timerout();
+protected:
+    void showEvent(QShowEvent *event);
+signals:
+    void signalShowCompleted();
 private slots:
 
     void on_login_Btn_clicked();
 
     void slotCurrentUserChanged();
+
     void on_startGame_Btn_clicked();
 
     void slotGameStateChanged(int8_t state);
@@ -51,6 +56,7 @@ private:
     GameDisplayPage *m_gameDisplayPage;
     QProcess* m_Process;
     QWidget *container;
+    QDialog *gamedialog;
 };
 
 #endif // CMAINWINDOW_H

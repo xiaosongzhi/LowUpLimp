@@ -79,7 +79,7 @@ void UserManager::initUserTableWidget()
     ui->user_TableWidget->setAlternatingRowColors(true);
     ui->user_TableWidget->setPalette(QPalette(Qt::lightGray));
     ui->user_TableWidget->setColumnCount(3);
-    ui->user_TableWidget->setRowCount(100);
+    ui->user_TableWidget->setRowCount(20);
     //    ui->user_TableWidget->setGridStyle(Qt::NoPen);
     ui->user_TableWidget->setShowGrid(false);
     ui->user_TableWidget->setColumnWidth(0,140);
@@ -88,7 +88,7 @@ void UserManager::initUserTableWidget()
 
     ui->user_TableWidget->setFont(QFont("黑体",15));
 
-    for(int i = 0;i < 100;i++)
+    for(int i = 0;i < 20;i++)
     ui->user_TableWidget->setRowHeight(i,68);
 
     //设置单行选中
@@ -119,7 +119,7 @@ void UserManager::updateUserTableWidget()
     if(CDatabaseInterface::getInstance()->exec(queryStr))
     {
         int tempNum = CDatabaseInterface::getInstance()->getValuesSize();
-        int fillTableNum = tempNum < 100 ? tempNum : 100;
+        int fillTableNum = tempNum < 20 ? tempNum : 20;
         m_currentRows = fillTableNum;
         if(fillTableNum > 0)
         {

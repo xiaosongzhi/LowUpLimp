@@ -193,6 +193,8 @@ private:
     QuitGameDialog *m_quitDialog;
 
     EmergencyStopDialog *m_emergencyDialog;
+
+    int8_t gameState;   // 游戏训练状态 0-未开始 1-其他
 };
 
 #endif // GAMEDISPLAYPAGE_H
