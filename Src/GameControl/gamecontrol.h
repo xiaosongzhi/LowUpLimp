@@ -19,8 +19,14 @@ public:
     //通过配置表获取所有游戏的信息
     QList<ST_GameMsg> getGameMsgs();
 
+    //读取游戏配置文件
+    void readGameConfigMsg();
+
     //根据游戏名获得游戏信息
-    ST_GameMsg getGameMsgByName(QString name);
+    ST_GameMsg getGameMsgByName(int ID);
+
+    //获取选中游戏信息
+    ST_GameMsg getCurrentGameMsg();
 
     //获取实例
     static GameControl* getInstance();
@@ -32,6 +38,9 @@ public:
 
     //发送左右平衡以及速度
     void sendGameControlData(const ST_GameControlParam& );
+
+    //设置当前游戏序号
+    void setCurrentGame(int ID);
 signals:
     //游戏状态标志
 //    void signalGameState(E_TRAINMODE,E_GameState);
@@ -59,7 +68,7 @@ private:
 private:
     static GameControl* m_GameParamControl;
 
-    QMap<QString,ST_GameMsg> m_mapGameName;
+    QMap<int,ST_GameMsg> m_mapGameName;
 
     QProcess* m_Process;
 
@@ -81,6 +90,10 @@ private:
 
     float m_activeMaxAngle; //主动训练中最大的角度
     float m_activeMinAngle; //主动训练中最小角度
+
+    QList<ST_GameMsg> m_gameMsgList;
+
+    int currentGameID;
 };
 
 #endif // GAMECONTROL_H

@@ -7,12 +7,13 @@
 #include <windows.h>
 #include <QHBoxLayout>
 #include <QProcess>
-
+#include "gamecontrol.h"
 CMainWindow::CMainWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CMainWindow),
     m_gameDisplayPage(NULL),
-    gamedialog(NULL)
+    gamedialog(NULL),
+    grabWindowTimer(NULL)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
@@ -31,6 +32,9 @@ CMainWindow::CMainWindow(QWidget *parent) :
     connect(ui->title_Widget,SIGNAL(signalCloseWindow()),this,SLOT(closeWindow()));
 
     gamedialog = new QDialog;
+
+    grabWindowTimer = new QTimer();
+    connect(grabWindowTimer,SIGNAL(timeout()),this,SLOT(slotGrabWindow()));
 }
 
 CMainWindow::~CMainWindow()
@@ -38,7 +42,6 @@ CMainWindow::~CMainWindow()
     if(gamedialog)
         delete gamedialog;
     delete ui;
-
 }
 
 void CMainWindow::switchPage(E_PAGENAME E_Page)
@@ -107,41 +110,44 @@ void CMainWindow::on_startGame_Btn_clicked()
         m_exitStatus = exitStatus;
         qDebug()<<"m_exitCode"<<m_exitCode<<"m_exitStatus"<<m_exitStatus;
     });
-    QString path = "./GameDemo/TJ_SXZ001_MultiplayerBicycleRace_LBY/MultiplayerBicycleRace_LBY.exe";
-    startGame(path);
 
-    Sleep(100);
+    QString destPath = GameControl::getInstance()->getCurrentGameMsg().gamePath + GameControl::getInstance()->getCurrentGameMsg().gameName;
+
+    startGame(destPath);
+
+    grabWindowTimer->start(300);
+
+}
+
+void CMainWindow::slotGrabWindow()
+{
+    qDebug()<<GameControl::getInstance()->getCurrentGameMsg().gameID<<"RRRRRRRRR";
     WId hwnd = 0;
+    if(1 == GameControl::getInstance()->getCurrentGameMsg().gameID)
+        hwnd = (WId)FindWindow(L"UnityWndClass",L"TJ_SXZ001_MultiplayerBicycleRace_LBY");
+    else if(2 == GameControl::getInstance()->getCurrentGameMsg().gameID)
+        hwnd = (WId)FindWindow(L"UnityWndClass",L"TJ_SXZ002_SingleplayerBicycleRace");
 
-    hwnd = (WId)FindWindow(L"UnityWndClass",L"DuoRenQiChe");
+    if(hwnd > 0)
+    {
+        grabWindowTimer->stop();
+        m_window = QWindow::fromWinId(hwnd);
+        container = createWindowContainer(m_window,this);
 
-    m_window = QWindow::fromWinId(hwnd);
-    container = createWindowContainer(m_window,this);
-//    container->setMinimumHeight(1160);
-//    container->setMinimumWidth(1920);
-//    container->show();
+        gamedialog->setWindowFlags(Qt::FramelessWindowHint);
 
+        QGridLayout *hLayout = new QGridLayout(this);
+        hLayout->setMargin(0);
+        hLayout->addWidget(container);
 
+        if(gamedialog->layout() != NULL)
+            delete gamedialog->layout();
+        gamedialog->setLayout(hLayout);
+        gamedialog->show();
 
-    gamedialog->setWindowFlags(Qt::FramelessWindowHint);
-
-
-    QGridLayout *hLayout = new QGridLayout(this);
-    hLayout->setMargin(0);
-    hLayout->addWidget(container);
-
-    if(gamedialog->layout() != NULL)
-        delete gamedialog->layout();
-    gamedialog->setLayout(hLayout);
-    gamedialog->show();
-//    container->resize(1925,1175);
-    gamedialog->resize(1920,1160);
-    gamedialog->move(0,120);
-//    if(ui->game_widget->layout() != NULL)
-//        delete ui->game_widget->layout();
-//    ui->game_widget->setLayout(hLayout);
-//    ui->game_widget->move(0,120);
-    m_gameDisplayPage->show();
+        gamedialog->resize(1920,1160);
+        gamedialog->move(0,120);
+    }
 }
 
 void CMainWindow::slotGameStateChanged(int8_t state)
@@ -155,6 +161,8 @@ void CMainWindow::slotGameStateChanged(int8_t state)
         gamedialog->close();
         break;
     case 1: //开始游戏
+        qDebug()<<"开始游戏";
+        m_gameDisplayPage->show();
         break;
     }
 }
@@ -163,6 +171,8 @@ void CMainWindow::closeWindow()
 {
     this->close();
 }
+
+
 
 void CMainWindow::startGame(QString path)
 {

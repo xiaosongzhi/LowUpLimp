@@ -163,6 +163,9 @@ private:
 
     //模式提示
     void changeModeTips(QString str);
+
+    //根据模式切换按钮状态
+    void switchButtonState(int8_t);
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 private:

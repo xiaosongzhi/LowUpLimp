@@ -57,7 +57,7 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/DependFile/Image/bike1.png);
+      <string notr="true">border-image: url(:/DependFile/Image/background.jpg);
 </string>
      </property>
     </widget>

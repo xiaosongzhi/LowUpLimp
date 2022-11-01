@@ -638,30 +638,30 @@ color:#00A6F5;</string>
       <property name="title">
        <string/>
       </property>
-      <widget class="QRadioButton" name="radioButton_10">
+      <widget class="QRadioButton" name="game1_RadioButton">
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>30</y>
+         <y>23</y>
          <width>101</width>
-         <height>24</height>
+         <height>40</height>
         </rect>
        </property>
        <property name="text">
-        <string>游戏一</string>
+        <string/>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_18">
+      <widget class="QRadioButton" name="game2_RadioButton">
        <property name="geometry">
         <rect>
          <x>572</x>
-         <y>30</y>
+         <y>23</y>
          <width>101</width>
-         <height>24</height>
+         <height>40</height>
         </rect>
        </property>
        <property name="text">
-        <string>游戏二</string>
+        <string/>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_34">
@@ -1270,30 +1270,30 @@ color:#00A6F5;</string>
       <property name="title">
        <string/>
       </property>
-      <widget class="QRadioButton" name="radioButton_11">
+      <widget class="QRadioButton" name="game1_radioButton">
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>30</y>
+         <y>23</y>
          <width>101</width>
-         <height>24</height>
+         <height>40</height>
         </rect>
        </property>
        <property name="text">
-        <string>游戏一</string>
+        <string/>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_19">
+      <widget class="QRadioButton" name="game2_radioButton">
        <property name="geometry">
         <rect>
          <x>572</x>
-         <y>30</y>
+         <y>23</y>
          <width>101</width>
-         <height>24</height>
+         <height>40</height>
         </rect>
        </property>
        <property name="text">
-        <string>游戏二</string>
+        <string/>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_39">

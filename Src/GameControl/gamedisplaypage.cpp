@@ -516,6 +516,8 @@ void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
     m_spasmTipsDialog->setSpasmCompletedDirection(st_setBicycleParam.spasmType);
     //训练模式
     setTrainMode(m_st_bicycleParam.trainMode);
+    //主被动模式按钮状态切换
+    switchButtonState(m_st_bicycleParam.trainMode);
     //设置训练部位
     setTrainPart(st_setBicycleParam.bodyPart);
     //上肢
@@ -699,10 +701,72 @@ void GameDisplayPage::changeModeTips(QString str)
     });
 }
 
+void GameDisplayPage::switchButtonState(int8_t mode)
+{
+    switch(mode)
+    {
+    case 0://被动不设置阻力
+        //上肢速度
+        ui->upSpeedMinus_Btn->setEnabled(true);
+        ui->upSpeedPlus_Btn->setEnabled(true);
+        //上肢阻力
+        ui->upForceMinus_Btn->setEnabled(false);
+        ui->upForcePlus_Btn->setEnabled(false);
+        //下肢速度17
+        ui->downSpeedMinus_Btn->setEnabled(true);
+        ui->downSpeedPlus_Btn->setEnabled(true);
+        //下肢阻力16
+        ui->downForceMinus_Btn->setEnabled(false);
+        ui->downForcePlus_Btn->setEnabled(false);
+        break;
+    case 1://主动
+        //上肢速度
+        ui->upSpeedMinus_Btn->setEnabled(false);
+        ui->upSpeedPlus_Btn->setEnabled(false);
+        //上肢阻力
+        ui->upForceMinus_Btn->setEnabled(true);
+        ui->upForcePlus_Btn->setEnabled(true);
+        //下肢速度17
+        ui->downSpeedMinus_Btn->setEnabled(false);
+        ui->downSpeedPlus_Btn->setEnabled(false);
+        //下肢阻力16
+        ui->downForceMinus_Btn->setEnabled(true);
+        ui->downForcePlus_Btn->setEnabled(true);
+        break;
+    }
+}
+
 //解析游戏数据
 void GameDisplayPage::parseGameMsg(QByteArray jsonArray)
 {
-    qDebug()<<jsonArray;
+    emit signalGameStateChanged(1);
+
+    /*
+    QJsonParseError jsonError;
+    QJsonDocument doucment = QJsonDocument::fromJson(jsonArray, &jsonError);  // 转化为 JSON 文档
+    qDebug()<<doucment.isNull();
+    qDebug()<<jsonError.error;
+    if (!doucment.isNull() && (jsonError.error == QJsonParseError::NoError))
+    {
+        qDebug()<<"@@@@@@@@@@@@@";
+        if(doucment.isObject())
+        {
+            QJsonObject object = doucment.object();  // 转化为对象
+            if(object.contains("MsgID"))
+            {
+                qDebug()<<"1111111111111";
+                int msgID = object.value("MsgID").toInt();
+                qDebug()<<msgID;
+                switch(msgID)
+                {
+                case 3:
+
+                    break;
+                }
+            }
+        }
+    }
+    */
 }
 
 void GameDisplayPage::sendGameControlParam(ST_GameControlParam st_gameControlParam)

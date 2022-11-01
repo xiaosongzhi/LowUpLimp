@@ -279,47 +279,6 @@ border: 1px solid #05A6EC;}</string>
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="upSpeedMinus_Btn">
-      <property name="geometry">
-       <rect>
-        <x>1</x>
-        <y>1</y>
-        <width>50</width>
-        <height>48</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="upSpeedPlus_Btn">
-      <property name="geometry">
-       <rect>
-        <x>199</x>
-        <y>1</y>
-        <width>50</width>
-        <height>48</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-     </widget>
      <widget class="QLabel" name="upSpeed_Label">
       <property name="geometry">
        <rect>
@@ -829,44 +788,6 @@ border: 1px solid #05A6EC;}
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="upForceMinus_Btn">
-      <property name="geometry">
-       <rect>
-        <x>1</x>
-        <y>1</y>
-        <width>51</width>
-        <height>48</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="upForcePlus_Btn">
-      <property name="geometry">
-       <rect>
-        <x>198</x>
-        <y>1</y>
-        <width>51</width>
-        <height>48</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
@@ -992,6 +913,85 @@ border: 1px solid #05A6EC;}
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="upSpeedMinus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>56</y>
+       <width>90</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus1.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="autoRepeat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="upSpeedPlus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>56</y>
+       <width>90</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus1.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoRepeat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="upForceMinus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>146</y>
+       <width>90</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus1.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoRepeat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="upForcePlus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>146</y>
+       <width>90</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus1.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoRepeat">
+      <bool>false</bool>
      </property>
     </widget>
    </widget>
@@ -1520,25 +1520,6 @@ border: 1px solid #05A6EC;}</string>
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="downForcePlus_Btn">
-      <property name="geometry">
-       <rect>
-        <x>198</x>
-        <y>1</y>
-        <width>51</width>
-        <height>48</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-     </widget>
      <widget class="QLabel" name="downForce_Label">
       <property name="geometry">
        <rect>
@@ -1583,25 +1564,6 @@ border: 1px solid #05A6EC;}</string>
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="downForceMinus_Btn">
-      <property name="geometry">
-       <rect>
-        <x>1</x>
-        <y>1</y>
-        <width>50</width>
-        <height>48</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-     </widget>
     </widget>
     <widget class="QGroupBox" name="groupBox_17">
      <property name="geometry">
@@ -1619,44 +1581,6 @@ border: 1px solid #05A6EC;}</string>
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="downSpeedPlus_Btn">
-      <property name="geometry">
-       <rect>
-        <x>199</x>
-        <y>1</y>
-        <width>50</width>
-        <height>48</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="downSpeedMinus_Btn">
-      <property name="geometry">
-       <rect>
-        <x>1</x>
-        <y>1</y>
-        <width>50</width>
-        <height>48</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-     </widget>
      <widget class="QLabel" name="downSpeed_Label">
       <property name="geometry">
        <rect>
@@ -1757,6 +1681,82 @@ border: 1px solid #05A6EC;}</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="downSpeedPlus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>60</y>
+       <width>90</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus1.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoRepeat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="downSpeedMinus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>60</y>
+       <width>90</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus1.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoRepeat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="downForceMinus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>150</y>
+       <width>90</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/minus1.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoRepeat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="downForcePlus_Btn">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>150</y>
+       <width>90</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/plus1.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoRepeat">
+      <bool>false</bool>
      </property>
     </widget>
    </widget>

@@ -22,10 +22,11 @@ GameControl::GameControl(QWidget *parent)
       m_trainReport(NULL),
       waitTimer(NULL),
       m_activeMaxAngle(0),
-      m_activeMinAngle(0)
+      m_activeMinAngle(0),
+      currentGameID(0)
 {
     m_Process = new QProcess();
-    initGameSocket();
+//    initGameSocket();
 //    m_waitingDialog = new WaitingDialog();
 //    m_waitingDialog->setWaitingType(INITWAITING);
     m_trainReport = new TrainReport();
@@ -184,7 +185,7 @@ void GameControl::setGamParam(ST_GameParam& st_GameParam)
     updateXml(st_GameParam);
 }
 
-QList<ST_GameMsg> GameControl::getGameMsgs()
+void GameControl::readGameConfigMsg()
 {
     QList<ST_GameMsg> gameMsgList;
     QFile file("./DependFile/ConfigFile/gameListConfig.xml");
@@ -192,15 +193,16 @@ QList<ST_GameMsg> GameControl::getGameMsgs()
     if(!file.open(QIODevice::ReadOnly))
     {
         qDebug()<<"read gameListConfig failed";
-        return gameMsgList;
+        return ;
     }
     QDomDocument doc;
     QString error;
     int row,colum;
     if(!doc.setContent(&file,&error,&row,&colum))
     {
+        qDebug()<<"gameList error"<<error<<row<<colum;
         file.close();
-        return gameMsgList;
+        return ;
     }
     file.close();
 
@@ -215,34 +217,45 @@ QList<ST_GameMsg> GameControl::getGameMsgs()
             ST_GameMsg st_GameMsg;
             QDomElement e=node.toElement();
             st_GameMsg.gameID = e.attribute("ID").toInt();
-            st_GameMsg.gameName = e.attribute("name");
+            st_GameMsg.gameName = e.attribute("gameName");
             st_GameMsg.gamePath = e.attribute("path");
             st_GameMsg.iconPath = e.attribute("iconPath");
-            QString suitType = e.attribute("suitType");
-//            st_GameMsg.suitTypeList = suitType.split(',');
+            st_GameMsg.className = e.attribute("className");
+            st_GameMsg.windownName = e.attribute("windownName");
             gameMsgList.append(st_GameMsg);
-            m_mapGameName.insert(st_GameMsg.gameName,st_GameMsg);
+            m_mapGameName.insert(st_GameMsg.gameID,st_GameMsg);
         }
         node = node.nextSibling();
     }
-    return gameMsgList;
+    qDebug()<<"获取游戏配置成功";
+    m_gameMsgList = gameMsgList;
 }
 
-ST_GameMsg GameControl::getGameMsgByName(QString name)
+QList<ST_GameMsg> GameControl::getGameMsgs()
+{
+    return m_gameMsgList;
+}
+
+ST_GameMsg GameControl::getGameMsgByName(int ID)
 {
     ST_GameMsg st_gameMsg;
-    QMapIterator<QString, ST_GameMsg> i(m_mapGameName);
+    QMapIterator<int, ST_GameMsg> i(m_mapGameName);
 
     while(i.hasNext())
     {
         i.next();
     }
 
-    if(m_mapGameName.contains(name))
+    if(m_mapGameName.contains(ID))
     {
-        st_gameMsg = m_mapGameName.value(name);
+        st_gameMsg = m_mapGameName.value(ID);
     }
     return st_gameMsg;
+}
+
+ST_GameMsg GameControl::getCurrentGameMsg()
+{
+    return getGameMsgByName(currentGameID);
 }
 
 void GameControl::startGame(QString path)
@@ -459,4 +472,9 @@ void GameControl::sendGameControlData(const ST_GameControlParam &st_gameControlP
     QJsonDocument document;
     document.setObject(object);
     QByteArray sendArray = document.toJson();
+}
+
+void GameControl::setCurrentGame(int ID)
+{
+    currentGameID = ID;
 }

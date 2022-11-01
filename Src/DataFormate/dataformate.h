@@ -249,7 +249,6 @@ typedef  struct ST_GameParam
 typedef struct
 {
     int gameID;                 //游戏ID
-    QString game;               //游戏汉字名称
     QString gamePath;           //游戏路径
     QString iconPath;           //游戏图标路径
     QString gameName;           //游戏可执行文件名

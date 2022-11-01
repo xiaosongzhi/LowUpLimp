@@ -40,6 +40,8 @@ private slots:
     void slotGameStateChanged(int8_t state);
 
     void closeWindow();
+
+    void slotGrabWindow();
 private:
     void switchPage(E_PAGENAME);
 
@@ -57,6 +59,7 @@ private:
     QProcess* m_Process;
     QWidget *container;
     QDialog *gamedialog;
+    QTimer *grabWindowTimer;
 };
 
 #endif // CMAINWINDOW_H

@@ -1,15 +1,13 @@
 #include <QApplication>
 #include "cdatabaseinterface.h"
-#include "mainwindow.h"
 #include <QFile>
 #include <QDebug>
 #include <QMessageBox>
 //#include "loginwidget.h"
 #include "cmainwindow.h"
 #include "readconfig.h"
-#include "ccommunicateapi.h"
 #include "loginwidget.h"
-
+#include "gamecontrol.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -23,6 +21,9 @@ int main(int argc, char *argv[])
         qDebug()<<"配置文件读取失败";
         return -1;
     }
+
+    //读取游戏配置文件
+    GameControl::getInstance()->readGameConfigMsg();
 
     //设置全局样式表
     QFile file("./DependFile/QSS/app.txt");

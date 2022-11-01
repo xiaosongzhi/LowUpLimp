@@ -23,6 +23,7 @@ LoginWidget::LoginWidget(QDialog *parent) :
     ui->password_LineEdit->setEchoMode(QLineEdit::Password);
 
 //    ui->password_LineEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
+    ui->remember_RadioButton->setChecked(true);
 }
 
 LoginWidget::~LoginWidget()

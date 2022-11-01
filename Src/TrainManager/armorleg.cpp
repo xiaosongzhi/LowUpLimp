@@ -5,6 +5,7 @@
 #include <QListView>
 #include "icemodule.h"
 #include "paramtipsdialog.h"
+#include "gamecontrol.h"
 #include <QDebug>
 ArmOrLeg::ArmOrLeg(QWidget *parent) :
     QWidget(parent),
@@ -54,13 +55,13 @@ void ArmOrLeg::initWidget()
     ui->upSpeed2_ComboBox->setCurrentIndex(8);
 
     //阻力 0~20挡
-    for(int i = 0;i <= 20;i++)
+    for(int i = 1;i <= 20;i++)
     {
         ui->resistance1_ComboBox->addItem(QString::number(i));
         ui->upResistance2_ComboBox->addItem(QString::number(i));
     }
-    ui->resistance1_ComboBox->setCurrentIndex(5);
-    ui->upResistance2_ComboBox->setCurrentIndex(5);
+    ui->resistance1_ComboBox->setCurrentIndex(4);
+    ui->upResistance2_ComboBox->setCurrentIndex(4);
     //时间
     for(int i = 1;i <= 120;i++)
     {
@@ -70,6 +71,28 @@ void ArmOrLeg::initWidget()
     ui->trainTime1_ComboBox->setCurrentIndex(19);
     ui->upTrainTime2_ComboBox->setCurrentIndex(19);
 
+    //加载游戏
+   QList<ST_GameMsg> gameMsgList = GameControl::getInstance()->getGameMsgs();
+   for(int i = 0;i <gameMsgList.size();i++ )
+   {
+//        qDebug()<<gameMsgList.at(i).gameID<<gameMsgList.at(i).gamePath<<gameMsgList.at(i).iconPath;
+   }
+
+   ui->game1_RadioButton->setIconSize(QSize(40,40));
+   ui->game1_radioButton->setIconSize(QSize(40,40));
+   ui->game2_RadioButton->setIconSize(QSize(40,40));
+   ui->game2_radioButton->setIconSize(QSize(40,40));
+
+
+   ui->game1_RadioButton->setIcon(QIcon(gameMsgList.at(0).gamePath+gameMsgList.at(0).iconPath));
+   ui->game1_radioButton->setIcon(QIcon(gameMsgList.at(0).gamePath+gameMsgList.at(0).iconPath));
+
+   ui->game2_RadioButton->setIcon(QIcon(gameMsgList.at(1).gamePath+gameMsgList.at(1).iconPath));
+   ui->game2_radioButton->setIcon(QIcon(gameMsgList.at(1).gamePath+gameMsgList.at(1).iconPath));
+
+
+   ui->game1_RadioButton->setChecked(true);
+   ui->game1_radioButton->setChecked(true);
 
 }
 
@@ -149,7 +172,6 @@ void ArmOrLeg::on_next_Btn_clicked()
 //确认参数--进入游戏
 void ArmOrLeg::on_confirm_Btn_clicked()
 {
-
     ST_BicycleParam st_bicycleParam;
     //训练部位
     if(ui->upLimp_RadioButton->isChecked())
@@ -194,6 +216,12 @@ void ArmOrLeg::on_confirm_Btn_clicked()
             st_bicycleParam.spasmLevel = 2;
         else if(ui->spasmHigh2_RadioButton->isChecked())
             st_bicycleParam.spasmLevel = 3;
+
+        if(ui->game1_radioButton->isChecked())
+            GameControl::getInstance()->setCurrentGame(1);
+        else if(ui->game2_radioButton->isChecked())
+            GameControl::getInstance()->setCurrentGame(2);
+
     }
 
     //单肢
@@ -217,7 +245,6 @@ void ArmOrLeg::on_confirm_Btn_clicked()
         st_bicycleParam.resistance = ui->resistance1_ComboBox->currentText().toInt();
         //训练速度
         st_bicycleParam.speed = ui->speed1_ComboBox->currentText().toInt();
-
 
         //转向
         if(ui->CW1_RadioButton->isChecked())
@@ -243,7 +270,14 @@ void ArmOrLeg::on_confirm_Btn_clicked()
         else if(ui->spasmHigh1_RadioButton->isChecked())
             st_bicycleParam.spasmLevel = 3;
 
+        //游戏选择
+        if(ui->game1_RadioButton->isChecked())
+            GameControl::getInstance()->setCurrentGame(1);
+        else if(ui->game2_RadioButton->isChecked())
+            GameControl::getInstance()->setCurrentGame(2);
+
     }
+
     //【国标】当设置速度大于30r/min时需要给出提示弹窗
     if(st_bicycleParam.speed > 30)
     {
