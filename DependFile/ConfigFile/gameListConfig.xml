@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <gameType>
-<game ID = "1" name = "多人骑行" path = "./GameExecutable/TJ_SXZ001_MultiplayerBicycleRace_LBY/" gameName = "MultiplayerBicycleRace_LBY.exe" iconPath = "bike1.png" className = "UnityWndClass" windownName = "DuoRenQiChe"></game>
-<game ID = "2" name = "单人骑行" path = "./gameExecutable/HGJ002_Planet/HGJ002_Planet.exe" iconPath = "planet.png" suitType = "6"></game>
-<!--<game ID = "4" name = "贪吃怪" path = "./gameExecutable/EatFood/EatFood.exe" iconPath = "EatFood.png" suitType = "0,1,2"></game>
-<game ID = "5" name = "地下钻探" path = "./gameExecutable/SubserfaceBoring/SubserfaceBoring.exe" iconPath = "SubserfaceBoring.png" suitType = "0,1,2"></game>-->
+<game ID = "1" name = "多人骑行" path = "./GameExecutable/TJ_SXZ001_MultiplayerBicycleRace_LBY/" gameName = "TJ_SXZ001_MultiplayerBicycleRace_LBY.exe" iconPath = "mulBike.png" className = "UnityWndClass" windownName = "TJ_SXZ001_MultiplayerBicycleRace_LBY"></game>
+<game ID = "2" name = "单人骑行" path = "./gameExecutable/TJ_SXZ002_SingleplayerBicycleRace/" gameName = "TJ_SXZ002_SingleplayerBicycleRace" iconPath = "signalBike.png" className = "UnityWndClass" windownName = "TJ_SXZ002_SingleplayerBicycleRace"></game>
 </gameType>
-
-<!-- ID-游戏ID  name-游戏的名称  path-游戏完全路径  iconPath-图标路径  gameName-游戏文件名 className--类名  windownName--窗口名-->
