@@ -7,7 +7,7 @@
 #include <QProcess>
 #include <QUdpSocket>
 #include "trainreport.h"
-
+#include <QtMultimedia/QMediaPlayer>
 class QTimer;
 class GameControl : public QWidget
 {
@@ -41,6 +41,8 @@ public:
 
     //设置当前游戏序号
     void setCurrentGame(int ID);
+
+    void playTipMusic(QString path);
 signals:
     //游戏状态标志
 //    void signalGameState(E_TRAINMODE,E_GameState);
@@ -94,6 +96,8 @@ private:
     QList<ST_GameMsg> m_gameMsgList;
 
     int currentGameID;
+
+    QMediaPlayer * player;
 };
 
 #endif // GAMECONTROL_H

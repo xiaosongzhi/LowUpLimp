@@ -13,7 +13,7 @@
 #include <QJsonParseError>
 #include "currentuserdata.h"
 #include "paramtipsdialog.h"
-
+#include "gamecontrol.h"
 GameDisplayPage::GameDisplayPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameDisplayPage),
@@ -96,6 +96,7 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     connect(ui->back2_Btn,SIGNAL(clicked()),this,SLOT(slotBackClicked()));
 
     ui->warnTips_Label->setVisible(false);
+
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -178,10 +179,10 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     case 0: //上肢
     {
         ui->upRealSpeed_Label->setText(QString::number(st_deviceParam.upLimpSpeed));
-        ui->upRealPower_Label->setText(QString::number(st_deviceParam.power));
+        ui->upRealPower_Label->setText(QString::number(st_deviceParam.upPower));
         setTrainMode(st_deviceParam.currentMode);
         //运动距离怎么计算
-        ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle*1.5) + "m");
+        ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle*0.628,'f',2) + "m");
         st_gameControlParam.speed = st_deviceParam.upLimpSpeed;
 
         st_gameControlParam.forceLeft = st_deviceParam.upBalance;
@@ -191,9 +192,9 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     case 1: //下肢
     {
         ui->downRealSpeed_Label->setText(QString::number(st_deviceParam.downLimpSpeed));
-        ui->downRealPower_Label->setText(QString::number(st_deviceParam.power));
+        ui->downRealPower_Label->setText(QString::number(st_deviceParam.downPower));
         setTrainMode(st_deviceParam.currentMode);
-        ui->length_Label->setText(QString::number(st_deviceParam.downLimpCircle*1.5) + "m");
+        ui->length_Label->setText(QString::number(st_deviceParam.downLimpCircle*0.628,'f',2) + "m");
         st_gameControlParam.speed = st_deviceParam.downLimpSpeed;
 
         st_gameControlParam.forceLeft = st_deviceParam.downBalance;
@@ -204,11 +205,11 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     case 2: //上下肢
     {
         ui->upRealSpeed_Label->setText(QString::number(st_deviceParam.upLimpSpeed));
-        ui->upRealPower_Label->setText(QString::number(st_deviceParam.power));
+        ui->upRealPower_Label->setText(QString::number(st_deviceParam.upPower));
         ui->downRealSpeed_Label->setText(QString::number(st_deviceParam.downLimpSpeed));
-        ui->downRealPower_Label->setText(QString::number(st_deviceParam.power));
+        ui->downRealPower_Label->setText(QString::number(st_deviceParam.downPower));
         setTrainMode(st_deviceParam.currentMode);
-        ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle*1.5) + "m");
+        ui->length_Label->setText(QString::number(st_deviceParam.upLimpCircle*0.628,'f',2) + "m");
 
         if(st_deviceParam.upLimpSpeed >= st_deviceParam.downLimpSpeed)
         {
@@ -244,6 +245,7 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         balancePair.first = st_deviceParam.upBalance;
         balancePair.second = st_deviceParam.downBalance;
 
+        //左右平衡计数
         balanceList.append(balancePair);
     }
 
@@ -268,8 +270,6 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     {
 
     }
-
-
 
     //触发急停
     if( 1 == st_deviceParam.emergencyState)
@@ -629,6 +629,9 @@ void GameDisplayPage::slotCountDownTimer()
         break;
     }
 
+    //填入阻力值
+    resistentList<<ui->upForce_Label->text().toInt();
+
     if(minNum == 0 && secNum == 0)
     {
         m_startNum = 0;
@@ -655,7 +658,6 @@ void GameDisplayPage::slotCountDownTimer()
         ui->upRemainTime_Label->setText(QString::number(minNum+1));
         ui->downRemainTime_Label->setText(QString::number(minNum+1));
     }
-
 }
 
 void GameDisplayPage::slotReceiveGameData()
@@ -709,29 +711,55 @@ void GameDisplayPage::switchButtonState(int8_t mode)
         //上肢速度
         ui->upSpeedMinus_Btn->setEnabled(true);
         ui->upSpeedPlus_Btn->setEnabled(true);
+        ui->groupBox_2->setEnabled(true);
         //上肢阻力
         ui->upForceMinus_Btn->setEnabled(false);
         ui->upForcePlus_Btn->setEnabled(false);
+        ui->groupBox_3->setEnabled(false);
         //下肢速度17
         ui->downSpeedMinus_Btn->setEnabled(true);
         ui->downSpeedPlus_Btn->setEnabled(true);
+        ui->groupBox_17->setEnabled(true);
         //下肢阻力16
         ui->downForceMinus_Btn->setEnabled(false);
         ui->downForcePlus_Btn->setEnabled(false);
+        ui->groupBox_16->setEnabled(false);
         break;
     case 1://主动
         //上肢速度
         ui->upSpeedMinus_Btn->setEnabled(false);
         ui->upSpeedPlus_Btn->setEnabled(false);
+        ui->groupBox_2->setEnabled(false);
         //上肢阻力
         ui->upForceMinus_Btn->setEnabled(true);
         ui->upForcePlus_Btn->setEnabled(true);
+        ui->groupBox_3->setEnabled(true);
         //下肢速度17
         ui->downSpeedMinus_Btn->setEnabled(false);
         ui->downSpeedPlus_Btn->setEnabled(false);
+        ui->groupBox_17->setEnabled(false);
         //下肢阻力16
         ui->downForceMinus_Btn->setEnabled(true);
         ui->downForcePlus_Btn->setEnabled(true);
+        ui->groupBox_16->setEnabled(true);
+        break;
+    default:
+        //上肢速度
+        ui->upSpeedMinus_Btn->setEnabled(true);
+        ui->upSpeedPlus_Btn->setEnabled(true);
+        ui->groupBox_2->setEnabled(true);
+        //上肢阻力
+        ui->upForceMinus_Btn->setEnabled(true);
+        ui->upForcePlus_Btn->setEnabled(true);
+        ui->groupBox_3->setEnabled(true);
+        //下肢速度17
+        ui->downSpeedMinus_Btn->setEnabled(true);
+        ui->downSpeedPlus_Btn->setEnabled(true);
+        ui->groupBox_17->setEnabled(true);
+        //下肢阻力16
+        ui->downForceMinus_Btn->setEnabled(true);
+        ui->downForcePlus_Btn->setEnabled(true);
+        ui->groupBox_16->setEnabled(true);
         break;
     }
 }
@@ -836,6 +864,38 @@ void GameDisplayPage::calculateResultData()
         st_trainReport.rightBalance = 100 - upBalance;
         break;
     }
+
+    //计算阻力值
+    int maxResistent = 0,minResistent = 200,sumResistent = 0,aveResistent = 0;
+    if(!resistentList.empty())
+    {
+        for(int i = 0;i < resistentList.size();i++)
+        {
+            if(maxResistent < resistentList.at(i))
+                maxResistent = resistentList.at(i);
+            if(minResistent > resistentList.at(i))
+                minResistent = resistentList.at(i);
+            sumResistent += resistentList.at(i);
+        }
+        if(resistentList.size() > 0)
+        aveResistent = sumResistent/resistentList.size();
+    }
+
+    //参数界面设置的模式
+    switch(m_st_bicycleParam.trainMode)
+    {
+    case 0: //被动模式
+        st_trainReport.minResistance = 0;
+        st_trainReport.maxResistance = 0;
+        st_trainReport.averangeResistance = 0;
+        break;
+    default://主动
+        st_trainReport.minResistance = minResistent;
+        st_trainReport.maxResistance = maxResistent;
+        st_trainReport.averangeResistance = aveResistent;
+        break;
+    }
+
 }
 
 void GameDisplayPage::initButton()
@@ -843,7 +903,7 @@ void GameDisplayPage::initButton()
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
     ui->start_Btn->setVisible(true);
-    ui->length_Label->setText("0m");
+    ui->length_Label->setText("0.00m");
     ui->leftBalance_Label->setText("50%");
     ui->rightBalance_Label->setText("50%");
 }
@@ -889,8 +949,7 @@ void GameDisplayPage::on_start_Btn_clicked()
                 return;
         }
     }
-
-    balanceList.clear();
+    GameControl::getInstance()->playTipMusic("./DependFile/Music/startTraining.mp3");
     //已开始
     gameState = 1;
 
@@ -918,7 +977,7 @@ void GameDisplayPage::on_stop_Btn_clicked()
     ui->start_Btn->setVisible(true);
     ui->stop_Btn->setVisible(false);
     ui->pause_Btn->setVisible(false);
-
+    GameControl::getInstance()->playTipMusic("./DependFile/Music/stopTraining.mp3");
     //告知下位机停止训练
     m_st_bicycleParam.controlState = 0;
     CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
@@ -939,6 +998,7 @@ void GameDisplayPage::on_stop_Btn_clicked()
 
 void GameDisplayPage::on_pause_Btn_clicked()
 {
+    GameControl::getInstance()->playTipMusic("./DependFile/Music/pauseTraining.mp3");
     //关闭定时器
     countDownTimer->stop();
     m_st_bicycleParam.controlState = 2;
@@ -952,8 +1012,15 @@ void GameDisplayPage::on_pause_Btn_clicked()
 
     ui->downRealPower_Label->setText("0");
     ui->downRealSpeed_Label->setText("0");
-}
 
+    if(m_st_bicycleParam.trainMode == 7 || m_st_bicycleParam.trainMode == 10)
+    {
+        ui->upCurrentStage_Label->setText(tr("主动模式"));
+        ui->downCurrentStage_Label->setText(tr("主动模式"));
+        //将当前模式切成主动
+        m_currentMode = 1;
+    }
+}
 
 void GameDisplayPage::on_switchAFes_Btn_clicked()
 {
@@ -1111,6 +1178,9 @@ void GameDisplayPage::showEvent(QShowEvent *event)
 
     ui->downRealPower_Label->setText("0");
     ui->downRealSpeed_Label->setText("0");
+
+    balanceList.clear();
+    resistentList.clear();
 }
 
 

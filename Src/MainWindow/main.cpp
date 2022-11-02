@@ -8,6 +8,7 @@
 #include "readconfig.h"
 #include "loginwidget.h"
 #include "gamecontrol.h"
+#include <QSharedMemory>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -38,11 +39,23 @@ int main(int argc, char *argv[])
         QMessageBox::warning(NULL, "warning", "totalqss Open failed", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
     }
 
+    QSharedMemory sharedMemory;
+    sharedMemory.setKey("main_Window");
+    if(sharedMemory.attach())
+    {
+        QMessageBox::warning(NULL, "Warning", ("不可重复开启进程"));
+        return 0;
+    }
+
     LoginWidget login;
     CMainWindow w;
-    QObject::connect(&w,SIGNAL(signalShowCompleted()),&login,SLOT(slotShowCompleted()));
-    login.exec();
-    w.show();
+    if(sharedMemory.create(1))
+    {
+        QObject::connect(&w,SIGNAL(signalShowCompleted()),&login,SLOT(slotShowCompleted()));
+        login.exec();
+        w.show();
+    }
 
     return a.exec();
+
 }

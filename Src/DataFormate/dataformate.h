@@ -196,7 +196,8 @@ typedef struct
     int8_t error;               //系统故障
     int8_t oxygen;              //血氧数据
     int8_t overSpeedProtect;    //过速保护  0-正常 1-触发
-    uint32_t power;             //功率
+    uint16_t upPower;           //上肢功率
+    uint16_t downPower;         //下肢功率
     uint32_t energy;            //能量
 }ST_DeviceParam;
 

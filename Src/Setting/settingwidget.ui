@@ -116,7 +116,7 @@ border-radius: 4px;color:white;}</string>
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="systemSetting_Page">
     <widget class="QGroupBox" name="groupBox">
@@ -253,9 +253,7 @@ border: 1px solid #979797;}</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #0D9DDB;
-border-radius: 8px;
-color:white;</string>
+       <string notr="true">background: #E1E1E1;border-radius: 8px;color:white;</string>
       </property>
       <property name="text">
        <string>启用</string>
@@ -277,7 +275,7 @@ color:white;</string>
        </font>
       </property>
       <property name="text">
-       <string>已连接</string>
+       <string>未连接</string>
       </property>
      </widget>
     </widget>
@@ -335,7 +333,7 @@ border: 1px solid #979797;}</string>
        </font>
       </property>
       <property name="text">
-       <string>已连接</string>
+       <string>未连接</string>
       </property>
      </widget>
      <widget class="QPushButton" name="FESB_Btn">
@@ -354,9 +352,7 @@ border: 1px solid #979797;}</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #0D9DDB;
-border-radius: 8px;
-color:white;</string>
+       <string notr="true">background: #E1E1E1;border-radius: 8px;color:white;</string>
       </property>
       <property name="text">
        <string>启用</string>
@@ -382,7 +378,7 @@ border: 1px solid #979797;}</string>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>40</y>
         <width>200</width>
         <height>40</height>
@@ -417,7 +413,7 @@ border: 1px solid #979797;}</string>
        </font>
       </property>
       <property name="text">
-       <string>已连接</string>
+       <string>未连接</string>
       </property>
      </widget>
      <widget class="QPushButton" name="bioelectricity_Btn">
@@ -436,9 +432,7 @@ border: 1px solid #979797;}</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #0D9DDB;
-border-radius: 8px;
-color:white;</string>
+       <string notr="true">background: #E1E1E1;border-radius: 8px;color:white;</string>
       </property>
       <property name="text">
        <string>启用</string>
@@ -908,6 +902,9 @@ border-radius: 10px;}</string>
       </property>
      </widget>
      <widget class="QTextBrowser" name="textBrowser">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>222</x>
@@ -956,6 +953,9 @@ hr { height: 1px; border-width: 0; }
       </property>
      </widget>
      <widget class="QTextBrowser" name="textBrowser_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>945</x>

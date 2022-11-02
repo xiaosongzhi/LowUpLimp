@@ -11,6 +11,7 @@ ArmOrLeg::ArmOrLeg(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ArmOrLeg),
     m_advanceDialog(NULL)
+
 {
     ui->setupUi(this);
     m_advanceDialog = new AdvancedDialog();
@@ -28,7 +29,6 @@ ArmOrLeg::~ArmOrLeg()
 
 void ArmOrLeg::initWidget()
 {
-
     ui->resistance1_ComboBox->setView(new QListView);
     ui->speed1_ComboBox->setView(new QListView);
     ui->trainTime1_ComboBox->setView(new QListView);
@@ -120,8 +120,8 @@ void ArmOrLeg::showEvent(QShowEvent *event)
     ui->speed1_ComboBox->setCurrentIndex(8);
     ui->upSpeed2_ComboBox->setCurrentIndex(8);
 
-    ui->resistance1_ComboBox->setCurrentIndex(5);
-    ui->upResistance2_ComboBox->setCurrentIndex(5);
+    ui->resistance1_ComboBox->setCurrentIndex(4);
+    ui->upResistance2_ComboBox->setCurrentIndex(4);
 
     ui->trainTime1_ComboBox->setCurrentIndex(19);
     ui->upTrainTime2_ComboBox->setCurrentIndex(19);
@@ -172,6 +172,7 @@ void ArmOrLeg::on_next_Btn_clicked()
 //确认参数--进入游戏
 void ArmOrLeg::on_confirm_Btn_clicked()
 {
+
     ST_BicycleParam st_bicycleParam;
     //训练部位
     if(ui->upLimp_RadioButton->isChecked())
@@ -288,6 +289,7 @@ void ArmOrLeg::on_confirm_Btn_clicked()
             return;
     }
 
+    GameControl::getInstance()->playTipMusic("./DependFile/Music/sitdown.MP3");
     st_bicycleParam.controlState = 0;
     IceModule::getInstance()->setBicycleParam(st_bicycleParam);
     MainWindowPageControl::getInstance()->setCurrentPage(TrainingPage_E);

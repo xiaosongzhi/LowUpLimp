@@ -32,7 +32,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
     connect(ui->title_Widget,SIGNAL(signalCloseWindow()),this,SLOT(closeWindow()));
 
     gamedialog = new QDialog;
-
+    gamedialog->stackUnder(m_gameDisplayPage);
     grabWindowTimer = new QTimer();
     connect(grabWindowTimer,SIGNAL(timeout()),this,SLOT(slotGrabWindow()));
 }
@@ -41,6 +41,10 @@ CMainWindow::~CMainWindow()
 {
     if(gamedialog)
         delete gamedialog;
+    if(m_gameDisplayPage)
+        delete m_gameDisplayPage;
+    if(grabWindowTimer)
+        delete grabWindowTimer;
     delete ui;
 }
 
@@ -53,7 +57,6 @@ void CMainWindow::switchPage(E_PAGENAME E_Page)
         break;
     case TrainingPage_E://游戏训练界面
         ui->stackedWidget->setCurrentWidget(ui->game_Page);
-        m_gameDisplayPage->move(0,0);
         on_startGame_Btn_clicked();
         QTimer::singleShot(1000,this,SLOT(slot_Timerout()));//同上，就是参数不同
         break;
@@ -121,7 +124,6 @@ void CMainWindow::on_startGame_Btn_clicked()
 
 void CMainWindow::slotGrabWindow()
 {
-    qDebug()<<GameControl::getInstance()->getCurrentGameMsg().gameID<<"RRRRRRRRR";
     WId hwnd = 0;
     if(1 == GameControl::getInstance()->getCurrentGameMsg().gameID)
         hwnd = (WId)FindWindow(L"UnityWndClass",L"TJ_SXZ001_MultiplayerBicycleRace_LBY");
@@ -147,6 +149,8 @@ void CMainWindow::slotGrabWindow()
 
         gamedialog->resize(1920,1160);
         gamedialog->move(0,120);
+
+        m_gameDisplayPage->show();
     }
 }
 
@@ -161,8 +165,6 @@ void CMainWindow::slotGameStateChanged(int8_t state)
         gamedialog->close();
         break;
     case 1: //开始游戏
-        qDebug()<<"开始游戏";
-        m_gameDisplayPage->show();
         break;
     }
 }

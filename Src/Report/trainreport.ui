@@ -437,7 +437,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>170</x>
        <y>60</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -501,9 +501,9 @@ color:#0D9DDB ;</string>
     <widget class="QLabel" name="trainPart_Label">
      <property name="geometry">
       <rect>
-       <x>550</x>
+       <x>540</x>
        <y>60</y>
-       <width>141</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -525,7 +525,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>540</x>
        <y>290</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -569,7 +569,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>170</x>
        <y>170</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -613,7 +613,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>170</x>
        <y>350</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -657,7 +657,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>170</x>
        <y>410</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -679,7 +679,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>540</x>
        <y>170</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -701,7 +701,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>170</x>
        <y>290</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -745,7 +745,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>540</x>
        <y>350</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -767,7 +767,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>540</x>
        <y>410</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -789,7 +789,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>540</x>
        <y>110</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -811,7 +811,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>170</x>
        <y>230</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -855,7 +855,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>170</x>
        <y>110</y>
-       <width>141</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>
@@ -877,7 +877,7 @@ color:#0D9DDB ;</string>
       <rect>
        <x>540</x>
        <y>230</y>
-       <width>140</width>
+       <width>220</width>
        <height>41</height>
       </rect>
      </property>

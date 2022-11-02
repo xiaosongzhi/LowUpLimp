@@ -191,6 +191,8 @@ private:
 
     QList<QPair<int,int>> balanceList;//左右平衡
 
+    QList<uint8_t> resistentList;   //阻力集合
+
     TrainReport *m_reportDialog;
 
     QuitGameDialog *m_quitDialog;

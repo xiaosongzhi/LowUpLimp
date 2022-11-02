@@ -2,6 +2,7 @@
 #define ARMORLEG_H
 
 #include <QWidget>
+#include <QSound>
 class AdvancedDialog;
 namespace Ui {
 class ArmOrLeg;
@@ -46,6 +47,7 @@ private:
 private:
     Ui::ArmOrLeg *ui;
     AdvancedDialog *m_advanceDialog;
+
 };
 
 #endif // ARMORLEG_H

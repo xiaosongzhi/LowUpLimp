@@ -35,6 +35,8 @@ GameControl::GameControl(QWidget *parent)
     waitTimer->setInterval(500);
     waitTimer->setSingleShot(true);
     connect(waitTimer,SIGNAL(timeout()),this,SLOT(slotWaitTimer()));
+
+    player = new QMediaPlayer();
 }
 
 void GameControl::initGameSocket()
@@ -477,4 +479,11 @@ void GameControl::sendGameControlData(const ST_GameControlParam &st_gameControlP
 void GameControl::setCurrentGame(int ID)
 {
     currentGameID = ID;
+}
+
+void GameControl::playTipMusic(QString path)
+{
+    player->setMedia(QUrl::fromLocalFile(path));
+    player->setVolume(90);
+    player->play();
 }

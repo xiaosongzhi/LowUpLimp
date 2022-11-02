@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QButtonGroup>
+#include <QTimer>
+
 namespace Ui {
 class SettingWidget;
 }
@@ -38,9 +40,14 @@ private slots:
 
     void on_EN_RadioButton_clicked();
 
+    void slotCheckTimerSlot();
+private:
+    void initWidget();
 private:
     Ui::SettingWidget *ui;
     QButtonGroup *m_buttonGroup;
+    QTimer *checkTimer;
+    bool fesAState,fesBState,bioelectricityState;
 };
 
 #endif // SETTINGWIDGET_H

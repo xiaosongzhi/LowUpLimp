@@ -139,9 +139,9 @@
    <widget class="QLabel" name="length_Label">
     <property name="geometry">
      <rect>
-      <x>301</x>
+      <x>248</x>
       <y>58</y>
-      <width>91</width>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
@@ -2175,7 +2175,7 @@ border: 1px solid #05A6EC;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/DependFile/Source/gamePage/switchOn.png);</string>
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/switchOff.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -2581,7 +2581,7 @@ border: 1px solid #05A6EC;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/DependFile/Source/gamePage/switchOn.png);</string>
+      <string notr="true">border-image: url(:/DependFile/Source/gamePage/switchOff.png);</string>
      </property>
      <property name="text">
       <string/>

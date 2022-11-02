@@ -3,10 +3,15 @@
 #include <QDir>
 #include <QSettings>
 #include <QMessageBox>
+#include <QDebug>
 SettingWidget::SettingWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SettingWidget),
-    m_buttonGroup(nullptr)
+    m_buttonGroup(nullptr),
+    checkTimer(NULL),
+    fesAState(false),
+    fesBState(false),
+    bioelectricityState(false)
 {
     ui->setupUi(this);
 
@@ -21,6 +26,13 @@ SettingWidget::SettingWidget(QWidget *parent) :
     ui->confirmPasswordTips_Label->setVisible(false);
 
     ui->stackedWidget->setCurrentIndex(0);
+
+    checkTimer = new QTimer;
+    checkTimer->setInterval(3000);
+
+    connect(checkTimer,SIGNAL(timeout()),this,SLOT(slotCheckTimerSlot()));
+
+    initWidget();
 }
 
 SettingWidget::~SettingWidget()
@@ -63,9 +75,10 @@ void SettingWidget::on_resetPassword_Btn_clicked()
 //B侧电刺激盒
 void SettingWidget::on_FESB_Btn_clicked()
 {
+
+
     if(ui->FESB_Btn->text() == tr("启用"))
     {
-
         ui->FESBState_Label->setText(tr("已连接"));
         ui->FESB_Btn->setText(tr("断开"));
     }
@@ -87,7 +100,7 @@ void SettingWidget::on_bioelectricity_Btn_clicked()
     else if(ui->bioelectricity_Btn->text() == tr("断开"))
     {
         ui->bioelectricity_Btn->setText(tr("启用"));
-        ui->bioelectricityState_Label->setText(tr("已断开"));
+        ui->bioelectricityState_Label->setText(tr("未连接"));
     }
 }
 
@@ -167,5 +180,52 @@ void SettingWidget::on_CH_RadioButton_clicked()
 void SettingWidget::on_EN_RadioButton_clicked()
 {
 
+}
+
+void SettingWidget::slotCheckTimerSlot()
+{
+    if(!fesAState)
+    {
+        ui->FESA_Btn->setEnabled(false);
+        ui->FESA_Btn->setStyleSheet("background: #E1E1E1;border-radius: 8px;color:white;");
+        ui->FESAState_Label->setText(tr("未连接"));
+    }
+    else
+    {
+        ui->FESA_Btn->setEnabled(true);
+        ui->FESA_Btn->setStyleSheet("background: #0D9DDB;border-radius: 8px;color:white;");
+    }
+
+    if(!fesBState)
+    {
+        ui->FESB_Btn->setEnabled(false);
+        ui->FESB_Btn->setStyleSheet("background: #E1E1E1;border-radius: 8px;color:white;");
+        ui->FESBState_Label->setText(tr("未连接"));
+    }
+    else
+    {
+        ui->FESB_Btn->setEnabled(true);
+        ui->FESB_Btn->setStyleSheet("background: #0D9DDB;border-radius: 8px;color:white;");
+    }
+
+    if(!bioelectricityState)
+    {
+        ui->bioelectricity_Btn->setEnabled(false);
+        ui->bioelectricity_Btn->setStyleSheet("background: #E1E1E1;border-radius: 8px;color:white;");
+        ui->bioelectricityState_Label->setText(tr("未连接"));
+    }
+    else
+    {
+        ui->bioelectricity_Btn->setEnabled(true);
+        ui->bioelectricity_Btn->setStyleSheet("background: #0D9DDB;border-radius: 8px;color:white;");
+    }
+
+}
+
+void SettingWidget::initWidget()
+{
+    ui->FESA_Btn->setEnabled(false);
+    ui->FESB_Btn->setEnabled(false);
+    ui->bioelectricity_Btn->setEnabled(false);
 }
 
