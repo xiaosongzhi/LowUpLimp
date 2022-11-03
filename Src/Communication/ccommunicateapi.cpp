@@ -127,5 +127,10 @@ void CCommunicateAPI::SetquitCmd()
 
 //    QByteArray array;
 //    array.resize(0);
-//    CCommunicateAPI::getInstance()->sendData(cmdId,array);
+    //    CCommunicateAPI::getInstance()->sendData(cmdId,array);
+}
+
+void CCommunicateAPI::setConfigParam()
+{
+    m_interface->setConfigParam();
 }

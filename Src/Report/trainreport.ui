@@ -844,7 +844,7 @@ color:#0D9DDB ;</string>
       </font>
      </property>
      <property name="text">
-      <string>最小阻力：</string>
+      <string>最小档位：</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -941,9 +941,9 @@ color:#0D9DDB ;</string>
     <widget class="QLabel" name="label_22">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>-20</x>
        <y>410</y>
-       <width>121</width>
+       <width>161</width>
        <height>41</height>
       </rect>
      </property>
@@ -954,7 +954,7 @@ color:#0D9DDB ;</string>
       </font>
      </property>
      <property name="text">
-      <string>最大阻力：</string>
+      <string>最大档位：</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1020,7 +1020,7 @@ color:#0D9DDB ;</string>
       </font>
      </property>
      <property name="text">
-      <string>平均阻力：</string>
+      <string>平均档位：</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

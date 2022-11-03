@@ -41,6 +41,8 @@ private slots:
 
     void on_spasmClose1_RadioButton_toggled(bool checked);
 
+    void on_test_Btn_clicked();
+
 private:
     void initWidget();
 

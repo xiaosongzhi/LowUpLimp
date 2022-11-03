@@ -37,6 +37,8 @@ public:
 
     //退出当前状态
     void SetquitCmd();
+
+    void setConfigParam();
 signals:
     //接收到实际数据
     void signalReadyRead(QByteArray);

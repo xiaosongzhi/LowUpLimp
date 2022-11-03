@@ -5,7 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 
-#pragma execution_character_set("utf-8")
+//#pragma execution_character_set("utf-8")
 
 CSerialportInterface::CSerialportInterface():m_serialPort(NULL)
 {
@@ -29,6 +29,7 @@ CSerialportInterface::~CSerialportInterface()
 //配置参数
 bool CSerialportInterface::setConfigParam()
 {
+    m_serialPort->close();
     ST_SerialPortConfig st_SerialConfig;
     if(!ReadConfig::getInstance()->getSerialPortConfig(st_SerialConfig))
     {
@@ -82,8 +83,9 @@ void CSerialportInterface::sendDataInterface(QByteArray sendArray)
     if(m_serialPort)
     {
         if(m_serialPort->isOpen())
-        m_serialPort->write(sendArray);
-//        qDebug()<<sendArray.toHex();
+            m_serialPort->write(sendArray);
+        else
+            qDebug()<<tr("串口已关闭");
     }
 }
 //接收数据接口
@@ -93,7 +95,7 @@ void CSerialportInterface::receiveDataInterface()
     buf = m_serialPort->readAll();
     receiveArray.append(buf);
 
-//    qDebug()<<"receiveArray"<<receiveArray.toHex();
+    //    qDebug()<<"receiveArray"<<receiveArray.toHex();
 
     while(!receiveArray.isEmpty())
     {
@@ -156,6 +158,7 @@ void CSerialportInterface::displayError(QSerialPort::SerialPortError error)
     default:
         break;
     }
+    qDebug()<<lastError;
     emit signalDisplayError(lastError);
 }
 

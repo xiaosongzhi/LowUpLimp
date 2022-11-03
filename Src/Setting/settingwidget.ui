@@ -116,7 +116,7 @@ border-radius: 4px;color:white;}</string>
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="systemSetting_Page">
     <widget class="QGroupBox" name="groupBox">
@@ -555,6 +555,19 @@ color:white;</string>
         <string>重置</string>
        </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="reset_Btn">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>440</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>重启</string>
+      </property>
      </widget>
     </widget>
     <zorder>groupBox_7</zorder>

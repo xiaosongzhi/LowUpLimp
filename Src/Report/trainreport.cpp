@@ -59,17 +59,17 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
     int trainTime = st_trainReport.passiveTime + st_trainReport.activeTime;
     ui->trainTime_Label->setText(QString::number(trainTime) + "s");
     ui->trainLength_Label->setText(QString::number(
-                                       st_trainReport.upLimpLength + st_trainReport.downLimpLength) + "m");
+                                       st_trainReport.upLimpLength + st_trainReport.downLimpLength,'f',2) + "m");
     ui->leftBalance_Label->setText(QString::number(st_trainReport.leftBalance) + "%");
     ui->rightBalance_Label->setText(QString::number(st_trainReport.rightBalance) + "%");
-    ui->upLimpLength_Label->setText(QString::number(st_trainReport.upLimpLength) + "m");
-    ui->downLimpLength_Label->setText(QString::number(st_trainReport.downLimpLength) + "m");
+    ui->upLimpLength_Label->setText(QString::number(st_trainReport.upLimpLength,'f',2) + "m");
+    ui->downLimpLength_Label->setText(QString::number(st_trainReport.downLimpLength,'f',2) + "m");
     ui->passiveTime_Label->setText(QString::number(st_trainReport.passiveTime) + "s");
     ui->activeTime_Label->setText(QString::number(st_trainReport.activeTime)+"s");
     ui->spasmTimes_Label->setText(QString::number(st_trainReport.spasmTimes));
-    ui->avgResistance_Label->setText(QString::number(st_trainReport.averangeResistance) + "N");
-    ui->maxResistance_Label->setText(QString::number(st_trainReport.maxResistance) + "N");
-    ui->minResistance_Label->setText(QString::number(st_trainReport.minResistance) + "N");
+    ui->avgResistance_Label->setText(QString::number(st_trainReport.averangeResistance) + tr("档"));
+    ui->maxResistance_Label->setText(QString::number(st_trainReport.maxResistance) + tr("档"));
+    ui->minResistance_Label->setText(QString::number(st_trainReport.minResistance) + tr("档"));
 
 //    this->show();
     this->exec();

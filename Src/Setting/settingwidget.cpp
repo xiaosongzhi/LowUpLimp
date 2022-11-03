@@ -4,6 +4,7 @@
 #include <QSettings>
 #include <QMessageBox>
 #include <QDebug>
+#include "ccommunicateapi.h"
 SettingWidget::SettingWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SettingWidget),
@@ -227,5 +228,11 @@ void SettingWidget::initWidget()
     ui->FESA_Btn->setEnabled(false);
     ui->FESB_Btn->setEnabled(false);
     ui->bioelectricity_Btn->setEnabled(false);
+}
+
+
+void SettingWidget::on_reset_Btn_clicked()
+{
+    CCommunicateAPI::getInstance()->setConfigParam();
 }
 

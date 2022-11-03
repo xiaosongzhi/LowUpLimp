@@ -2927,6 +2927,32 @@ border:2px;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="start_Btn_2">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>920</y>
+     <width>93</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>start</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="stop_Btn_2">
+   <property name="geometry">
+    <rect>
+     <x>1030</x>
+     <y>920</y>
+     <width>93</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>stop</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

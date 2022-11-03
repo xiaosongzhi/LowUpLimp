@@ -138,6 +138,11 @@ private slots:
     void slotReceiveGameData();
 
     void slotBackClicked();
+
+    void on_start_Btn_2_clicked();
+
+    void on_stop_Btn_2_clicked();
+
 signals:
     /******游戏状态*****
      *@int8_t state 1-开始 0-关闭

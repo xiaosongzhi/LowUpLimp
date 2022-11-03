@@ -24,6 +24,7 @@ TitleWidget::TitleWidget(QWidget *parent) :
     connect(checkTimer,SIGNAL(timeout()),this,SLOT(slotCheckTimer()));
     checkTimer->start();
 
+    ui->quit_Btn->setVisible(false);
 }
 
 TitleWidget::~TitleWidget()

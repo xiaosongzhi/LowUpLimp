@@ -18,6 +18,8 @@ ArmOrLeg::ArmOrLeg(QWidget *parent) :
     initWidget();
     ui->stackedWidget->setCurrentIndex(0);
     ui->advanced1_Btn->setVisible(false);
+
+    ui->test_Btn->setVisible(false);
 }
 
 ArmOrLeg::~ArmOrLeg()
@@ -305,5 +307,11 @@ void ArmOrLeg::on_spasmClose2_RadioButton_toggled(bool checked)
 void ArmOrLeg::on_spasmClose1_RadioButton_toggled(bool checked)
 {
     ui->groupBox_8->setEnabled(!checked);
+}
+
+
+void ArmOrLeg::on_test_Btn_clicked()
+{
+    on_confirm_Btn_clicked();
 }
 

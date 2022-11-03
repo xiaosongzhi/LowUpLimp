@@ -97,6 +97,11 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
 
     ui->warnTips_Label->setVisible(false);
 
+    st_trainReport.passiveTime = 0;
+    st_trainReport.activeTime = 0;
+
+    ui->start_Btn_2->setVisible(false);
+    ui->stop_Btn_2->setVisible(false);
 }
 
 GameDisplayPage::~GameDisplayPage()
@@ -227,8 +232,8 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         break;
     }
 
-    st_trainReport.upLimpLength = st_deviceParam.upLimpCircle*1.5;
-    st_trainReport.downLimpLength = st_deviceParam.downLimpCircle*1.5;
+    st_trainReport.upLimpLength = st_deviceParam.upLimpCircle*0.628;
+    st_trainReport.downLimpLength = st_deviceParam.downLimpCircle*0.628;
 
     //此处显示的是左右平衡，但是下位机上传的是上下肢平衡
     ui->leftBalance_Label->setText(QString::number(st_gameControlParam.forceLeft));
@@ -291,8 +296,6 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     }
 }
 
-
-
 void GameDisplayPage::open_Btn_clicked()
 {
     m_leftAnimation->setStartValue(QPoint(-430,120));
@@ -341,7 +344,6 @@ void GameDisplayPage::on_upSpeedMinus_Btn_clicked()
         setTrainSpeed(speed);
         m_st_bicycleParam.speed = speed;
     }
-
 }
 
 void GameDisplayPage::on_upSpeedPlus_Btn_clicked()
@@ -619,6 +621,7 @@ void GameDisplayPage::slotCountDownTimer()
     int secNum = m_startNum%60;//秒数
 
     //计算主被动时间
+
     switch(m_currentMode)
     {
     case 0: //被动
@@ -626,8 +629,19 @@ void GameDisplayPage::slotCountDownTimer()
         break;
     case 1://主动
         ++st_trainReport.activeTime;
+    case 9:
+        st_trainReport.passiveTime+=2;
+        break;
+    case 10:
+        st_trainReport.activeTime += 2;
+        break;
+    case 11:
+    case 12:
+        ++st_trainReport.passiveTime;
+        ++st_trainReport.activeTime;
         break;
     }
+
 
     //填入阻力值
     resistentList<<ui->upForce_Label->text().toInt();
@@ -648,6 +662,17 @@ void GameDisplayPage::slotCountDownTimer()
         calculateResultData();
         //弹出训练报告
         m_reportDialog->setReportData(st_trainReport,1);
+
+        //开窗
+        if(!m_openState)
+        {
+            open_Btn_clicked();
+            m_openState = !m_openState;
+        }
+
+
+        st_trainReport.passiveTime = 0;
+        st_trainReport.activeTime = 0;
 
         sendStopCmd();
 
@@ -676,6 +701,12 @@ void GameDisplayPage::slotBackClicked()
     m_quitDialog->exec();
     if(m_quitDialog->getResult() == 1)
     {
+        //开窗
+        if(!m_openState)
+        {
+            open_Btn_clicked();
+            m_openState = !m_openState;
+        }
         quitTrain();
         emit signalGameStateChanged(0);
     }
@@ -878,7 +909,7 @@ void GameDisplayPage::calculateResultData()
             sumResistent += resistentList.at(i);
         }
         if(resistentList.size() > 0)
-        aveResistent = sumResistent/resistentList.size();
+            aveResistent = sumResistent/resistentList.size();
     }
 
     //参数界面设置的模式
@@ -988,8 +1019,16 @@ void GameDisplayPage::on_stop_Btn_clicked()
     calculateResultData();
     //弹出训练报告
     m_reportDialog->setReportData(st_trainReport,1);
-    //    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
+    //开窗
+    if(!m_openState)
+    {
+        open_Btn_clicked();
+        m_openState = !m_openState;
+    }
 
+    //    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
+    st_trainReport.activeTime = 0;
+    st_trainReport.passiveTime = 0;
     //退出游戏
     sendStopCmd();
 
@@ -1181,6 +1220,17 @@ void GameDisplayPage::showEvent(QShowEvent *event)
 
     balanceList.clear();
     resistentList.clear();
+
 }
 
+
+void GameDisplayPage::on_start_Btn_2_clicked()
+{
+    on_start_Btn_clicked();
+}
+
+void GameDisplayPage::on_stop_Btn_2_clicked()
+{
+    on_stop_Btn_clicked();
+}
 

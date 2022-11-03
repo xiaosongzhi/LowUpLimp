@@ -1578,6 +1578,19 @@ color:#00A6F5;</string>
        </property>
       </widget>
      </widget>
+     <widget class="QPushButton" name="test_Btn">
+      <property name="geometry">
+       <rect>
+        <x>1740</x>
+        <y>750</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>测试</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

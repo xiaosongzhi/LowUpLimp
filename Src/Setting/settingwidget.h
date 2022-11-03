@@ -41,6 +41,8 @@ private slots:
     void on_EN_RadioButton_clicked();
 
     void slotCheckTimerSlot();
+    void on_reset_Btn_clicked();
+
 private:
     void initWidget();
 private:
