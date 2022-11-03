@@ -7,7 +7,7 @@
 	<!--与游戏通信的上位机地址-->
 	<udpGameClientAddress IP = "127.0.0.1"  port = "12000"></udpGameClientAddress>
 	<!--与上位机通信的游戏地址-->
-	<serialPort portName = "COM6"  baud = "115200" dataBits = "8"  parity = "0" stopBit = "0" flowControl = "0"></serialPort>
+	<serialPort portName = "COM7"  baud = "115200" dataBits = "8"  parity = "0" stopBit = "0" flowControl = "0"></serialPort>
 	<dataBase IP = "192.168.1.20"  port = "9000"  userName = "root" password = "root"></dataBase>
 	<videoTips videoPath = "./video/" videoNum = "9">
 		<videoContent videoId = "1"  videoName = "综合评估.mp4" ></videoContent>
