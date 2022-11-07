@@ -32,7 +32,6 @@ void TrainManager::on_fesTrain_Btn_clicked()
     MainWindowPageControl::getInstance()->setCurrentPage(FesParamSet_E);
 }
 
-
 void TrainManager::on_setting_Btn_clicked()
 {
     MainWindowPageControl::getInstance()->setCurrentPage(SettingPage_E);

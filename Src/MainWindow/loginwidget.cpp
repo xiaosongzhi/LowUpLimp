@@ -24,6 +24,18 @@ LoginWidget::LoginWidget(QDialog *parent) :
 
 //    ui->password_LineEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
     ui->remember_RadioButton->setChecked(true);
+
+    QString dirPath = "./DependFile/conf/";
+    QDir confdir(dirPath);
+    if(!confdir.exists())
+        confdir.mkdir(dirPath);
+    QString confFile(dirPath + "remberIDconf.ini");
+    QSettings iniSetting(confFile, QSettings::IniFormat);
+    QString password = iniSetting.value("password").toString();
+    QString userName = iniSetting.value("userName").toString();
+    ui->userName_LineEdit->setText(userName);
+    ui->password_LineEdit->setText(password);
+    ui->forgetPasswordTips_Label->setVisible(false);
 }
 
 LoginWidget::~LoginWidget()
@@ -41,8 +53,8 @@ void LoginWidget::slotShowCompleted()
 void LoginWidget::on_forgetPassword_Btn_clicked()
 {
     //弹出提示框，告知获取密码的方式
-    passworldDialog->show();
-
+    ui->forgetPasswordTips_Label->setText(tr("请联系管理员获取初始密码"));
+    ui->forgetPasswordTips_Label->setVisible(true);
 }
 
 void LoginWidget::on_confirm_Btn_clicked()
@@ -51,30 +63,31 @@ void LoginWidget::on_confirm_Btn_clicked()
     QDir confdir(dirPath);
     if(!confdir.exists())
         confdir.mkdir(dirPath);
-    QString confFile(dirPath + "remberIDconf.ini");
+    QString confFile(dirPath + "IDconf.ini");
     QSettings iniSetting(confFile, QSettings::IniFormat);
     QString password = iniSetting.value("password").toString();
-    QString userName = iniSetting.value("userName").toString();
-    ui->userName_LineEdit->setText(userName);
-    ui->password_LineEdit->setText(password);
+    QString userName = iniSetting.value("userName").toString(); 
 
-    QString rememberConfFile(dirPath + "IDconf.ini");
+    QString rememberConfFile(dirPath + "remberIDconf.ini");
     QSettings remIniSetting(confFile, QSettings::IniFormat);
     QString remPassword = iniSetting.value("password").toString();
     QString remUserName = iniSetting.value("userName").toString();
 
-    if(ui->userName_LineEdit->text() != remUserName)
+
+    if(ui->userName_LineEdit->text() != userName)
     {
         ui->userNameTips_Label->setVisible(true);
         ui->userNameTips_Label->setText(tr("用户名输入错误"));
         return;
     }
-    if(ui->password_LineEdit->text() != remPassword)
+
+    if(ui->password_LineEdit->text() != password)
     {
         ui->passwordTips_Label->setVisible(true);
         ui->passwordTips_Label->setText(tr("密码输入错误"));
         return;
     }
+
     //设置返回值结果
     emit signalResult(1);
     if(ui->remember_RadioButton->isChecked())
@@ -84,14 +97,13 @@ void LoginWidget::on_confirm_Btn_clicked()
         iniSetting.setValue("password",ui->password_LineEdit->text());
         iniSetting.setValue("userName",ui->userName_LineEdit->text());
     }
-
 }
-
 
 void LoginWidget::on_userName_LineEdit_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1)
     ui->userNameTips_Label->setVisible(false);
+    ui->forgetPasswordTips_Label->setVisible(false);
 }
 
 
@@ -99,6 +111,7 @@ void LoginWidget::on_password_LineEdit_textChanged(const QString &arg1)
 {
     Q_UNUSED(arg1)
     ui->passwordTips_Label->setVisible(false);
+    ui->forgetPasswordTips_Label->setVisible(false);
 }
 
 

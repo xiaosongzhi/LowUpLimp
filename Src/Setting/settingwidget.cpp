@@ -34,6 +34,8 @@ SettingWidget::SettingWidget(QWidget *parent) :
     connect(checkTimer,SIGNAL(timeout()),this,SLOT(slotCheckTimerSlot()));
 
     initWidget();
+
+    ui->reset_Btn->setVisible(false);
 }
 
 SettingWidget::~SettingWidget()

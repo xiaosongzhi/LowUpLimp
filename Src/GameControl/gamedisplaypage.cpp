@@ -670,7 +670,6 @@ void GameDisplayPage::slotCountDownTimer()
             m_openState = !m_openState;
         }
 
-
         st_trainReport.passiveTime = 0;
         st_trainReport.activeTime = 0;
 
