@@ -27,7 +27,8 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     m_currentMode(0),
     m_reportDialog(NULL),
     m_quitDialog(NULL),
-    m_emergencyDialog(NULL)
+    m_emergencyDialog(NULL),
+    heartCount(0)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);      //设置无边框
@@ -81,8 +82,9 @@ GameDisplayPage::GameDisplayPage(QWidget *parent) :
     heartTimer = new QTimer();
     connect(heartTimer,SIGNAL(timeout()),this,SLOT(slotHeartTimer()));
     heartTimer->setInterval(1000);
+#ifdef HEARTBEAT
     heartTimer->start();
-
+#endif
     countDownTimer = new QTimer();
     countDownTimer->setInterval(1000);
     connect(countDownTimer,SIGNAL(timeout()),this,SLOT(slotCountDownTimer()));
@@ -286,8 +288,10 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         countDownTimer->stop();
         sendStopCmd();
         this->close();
+        emit signalGameStateChanged(0);
         //返回参数设置界面
         MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
+
     }
     else
     {
@@ -525,7 +529,11 @@ void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
     //上肢
     if(0 == st_setBicycleParam.bodyPart || 2 == st_setBicycleParam.bodyPart)
     {
+        //主动训练速度设置成2
+        if(1 == m_st_bicycleParam.trainMode)
+            st_setBicycleParam.speed = 2;
         ui->upSpeed_Label->setText(QString::number(st_setBicycleParam.speed));
+
         ui->upForce_Label->setText(QString::number(st_setBicycleParam.resistance));
         ui->upRemainTime_Label->setText(QString::number(m_st_bicycleParam.trainTime));
         //正向
@@ -544,6 +552,9 @@ void GameDisplayPage::slotSetBicycleParam(ST_BicycleParam st_setBicycleParam)
     //下肢
     if(1 == st_setBicycleParam.bodyPart || 2 == st_setBicycleParam.bodyPart)
     {
+        //主动训练速度设置成2
+        if(1 == m_st_bicycleParam.trainMode)
+            st_setBicycleParam.speed = 2;
         ui->downSpeed_Label->setText(QString::number(st_setBicycleParam.speed));
         ui->downForce_Label->setText(QString::number(st_setBicycleParam.resistance));
         ui->downRemainTime_Label->setText(QString::number(m_st_bicycleParam.trainTime));
@@ -597,7 +608,7 @@ void GameDisplayPage::slotReceiveData(QByteArray array)
     }
         break;
     case RECE_HEARTBEAT_CMD:
-
+        ++heartCount;
         break;
     }
 }
@@ -605,6 +616,21 @@ void GameDisplayPage::slotReceiveData(QByteArray array)
 void GameDisplayPage::slotHeartTimer()
 {
     CCommunicateAPI::getInstance()->sendHeartBeat();
+    static int num = 0;
+    ++num;
+    if(num > 3)
+    {
+        num = 0;
+        if(heartCount < 1)
+        {
+            //通信已断开
+            qDebug()<<"通信已断开";
+        }
+        if(heartCount >= 3)
+        {
+            heartCount = 0;
+        }
+    }
 }
 
 void GameDisplayPage::slotCountDownTimer()
@@ -720,7 +746,7 @@ void GameDisplayPage::quitTrain()
     sendStopCmd();
     this->close();
     //返回参数设置界面
-    MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
+    MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
 }
 
 void GameDisplayPage::changeModeTips(QString str)
@@ -1225,11 +1251,17 @@ void GameDisplayPage::showEvent(QShowEvent *event)
 
 void GameDisplayPage::on_start_Btn_2_clicked()
 {
-    on_start_Btn_clicked();
+//    on_start_Btn_clicked();
+    ST_DeviceParam st_deviceParam;
+    st_deviceParam.emergencyState = 1;
+    setSlaveParam(st_deviceParam);
 }
 
 void GameDisplayPage::on_stop_Btn_2_clicked()
 {
-    on_stop_Btn_clicked();
+//    on_stop_Btn_clicked();
+    ST_DeviceParam st_deviceParam;
+    st_deviceParam.emergencyState = 0;
+    setSlaveParam(st_deviceParam);
 }
 

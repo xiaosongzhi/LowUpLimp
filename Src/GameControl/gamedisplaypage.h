@@ -205,6 +205,8 @@ private:
     EmergencyStopDialog *m_emergencyDialog;
 
     int8_t gameState;   // 游戏训练状态 0-未开始 1-其他
+
+    int heartCount; //心跳次数，用于检测通信
 };
 
 #endif // GAMEDISPLAYPAGE_H
