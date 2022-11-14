@@ -209,7 +209,6 @@ void FesSetting::on_OK_Btn_clicked()
         MuscleButton* muscleChannel = dynamic_cast<MuscleButton*>(channelList.at(i));
         ST_MuscleParam st_muscleParam = muscleChannel->getMuscleParam();
         array[i] = st_muscleParam.maxCurrent;
-        qDebug()<<st_muscleParam.muscleId;
     }
     IceModule::getInstance()->setFesAParam(array,8);
     //获取界面上FesB的设置值

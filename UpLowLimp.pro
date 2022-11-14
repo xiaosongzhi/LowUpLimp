@@ -13,7 +13,7 @@ OBJECTS_DIR = tmp/obj
 RCC_DIR = tmp/rcc
 
 CONFIG += c++17
-DEFINES += UNIFORMLY    #上下肢统一
+DEFINES += UNIFORMLY   HEARTBEAT #上下肢统一,是否开启心跳
 #static{
 #QTPLUGIN += qtvirtualkeyboardplugin
 #QT += svg

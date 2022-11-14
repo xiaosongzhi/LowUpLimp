@@ -174,8 +174,6 @@ void CMainWindow::closeWindow()
     this->close();
 }
 
-
-
 void CMainWindow::startGame(QString path)
 {
     //1.开启游戏进程
