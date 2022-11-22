@@ -1,6 +1,7 @@
 #include "trainmanager.h"
 #include "ui_trainmanager.h"
 #include "mainwindowpagecontrol.h"
+#include <windows.h>
 #include <QDebug>
 TrainManager::TrainManager(QWidget *parent) :
     QWidget(parent),
@@ -26,7 +27,6 @@ void TrainManager::on_fesBicycleTrain_Btn_clicked()
     MainWindowPageControl::getInstance()->setCurrentPage(FesBicycleParamSet_E);
 }
 
-
 void TrainManager::on_fesTrain_Btn_clicked()
 {
     MainWindowPageControl::getInstance()->setCurrentPage(FesParamSet_E);
@@ -37,6 +37,8 @@ void TrainManager::on_setting_Btn_clicked()
     MainWindowPageControl::getInstance()->setCurrentPage(SettingPage_E);
 }
 
-
-
+void TrainManager::on_shutDown_Btn_clicked()
+{
+    system("shutdown -s -t 00");
+}
 

@@ -74,27 +74,27 @@ void ArmOrLeg::initWidget()
     ui->upTrainTime2_ComboBox->setCurrentIndex(19);
 
     //加载游戏
-   QList<ST_GameMsg> gameMsgList = GameControl::getInstance()->getGameMsgs();
-   for(int i = 0;i <gameMsgList.size();i++ )
-   {
-//        qDebug()<<gameMsgList.at(i).gameID<<gameMsgList.at(i).gamePath<<gameMsgList.at(i).iconPath;
-   }
+    QList<ST_GameMsg> gameMsgList = GameControl::getInstance()->getGameMsgs();
+    for(int i = 0;i <gameMsgList.size();i++ )
+    {
+        //        qDebug()<<gameMsgList.at(i).gameID<<gameMsgList.at(i).gamePath<<gameMsgList.at(i).iconPath;
+    }
 
-   ui->game1_RadioButton->setIconSize(QSize(40,40));
-   ui->game1_radioButton->setIconSize(QSize(40,40));
-   ui->game2_RadioButton->setIconSize(QSize(40,40));
-   ui->game2_radioButton->setIconSize(QSize(40,40));
-
-
-   ui->game1_RadioButton->setIcon(QIcon(gameMsgList.at(0).gamePath+gameMsgList.at(0).iconPath));
-   ui->game1_radioButton->setIcon(QIcon(gameMsgList.at(0).gamePath+gameMsgList.at(0).iconPath));
-
-   ui->game2_RadioButton->setIcon(QIcon(gameMsgList.at(1).gamePath+gameMsgList.at(1).iconPath));
-   ui->game2_radioButton->setIcon(QIcon(gameMsgList.at(1).gamePath+gameMsgList.at(1).iconPath));
+    ui->game1_RadioButton->setIconSize(QSize(40,40));
+    ui->game1_radioButton->setIconSize(QSize(40,40));
+    ui->game2_RadioButton->setIconSize(QSize(40,40));
+    ui->game2_radioButton->setIconSize(QSize(40,40));
 
 
-   ui->game1_RadioButton->setChecked(true);
-   ui->game1_radioButton->setChecked(true);
+    ui->game1_RadioButton->setIcon(QIcon(gameMsgList.at(0).gamePath+gameMsgList.at(0).iconPath));
+    ui->game1_radioButton->setIcon(QIcon(gameMsgList.at(0).gamePath+gameMsgList.at(0).iconPath));
+
+    ui->game2_RadioButton->setIcon(QIcon(gameMsgList.at(1).gamePath+gameMsgList.at(1).iconPath));
+    ui->game2_radioButton->setIcon(QIcon(gameMsgList.at(1).gamePath+gameMsgList.at(1).iconPath));
+
+
+    ui->game1_RadioButton->setChecked(true);
+    ui->game1_radioButton->setChecked(true);
 
 }
 
@@ -282,14 +282,14 @@ void ArmOrLeg::on_confirm_Btn_clicked()
     }
 
     //【国标】当设置速度大于30r/min时需要给出提示弹窗
-    if(st_bicycleParam.speed > 30)
-    {
-        ParamTipsDialog tipDialog;
-        tipDialog.setParamTipsMsg(tr("设定速度已超30r/min，确认使用该速度训练吗？"));
-        tipDialog.exec();
-        if(0 == tipDialog.getResult())
-            return;
-    }
+    //    if(st_bicycleParam.speed > 30)
+    //    {
+    //        ParamTipsDialog tipDialog;
+    //        tipDialog.setParamTipsMsg(tr("设定速度已超30r/min，确认使用该速度训练吗？"));
+    //        tipDialog.exec();
+    //        if(0 == tipDialog.getResult())
+    //            return;
+    //    }
 
     GameControl::getInstance()->playTipMusic("./DependFile/Music/sitdown.MP3");
     st_bicycleParam.controlState = 0;
@@ -313,5 +313,40 @@ void ArmOrLeg::on_spasmClose1_RadioButton_toggled(bool checked)
 void ArmOrLeg::on_test_Btn_clicked()
 {
     on_confirm_Btn_clicked();
+}
+
+//单肢速度设置
+void ArmOrLeg::on_speed1_ComboBox_currentTextChanged(const QString &arg1)
+{
+    int speed = arg1.toInt();
+    if(speed > 30)
+    {
+        ParamTipsDialog tipDialog;
+        tipDialog.setParamTipsMsg(tr("设定速度已超30r/min，确认使用该速度训练吗？"));
+        tipDialog.exec();
+        if(0 == tipDialog.getResult())
+        {
+            ui->speed1_ComboBox->setCurrentIndex(28);
+            return;
+        }
+
+    }
+}
+
+//四肢速度设置
+void ArmOrLeg::on_upSpeed2_ComboBox_currentTextChanged(const QString &arg1)
+{
+    int speed = arg1.toInt();
+    if(speed > 30)
+    {
+        ParamTipsDialog tipDialog;
+        tipDialog.setParamTipsMsg(tr("设定速度已超30r/min，确认使用该速度训练吗？"));
+        tipDialog.exec();
+        if(0 == tipDialog.getResult())
+        {
+            ui->upSpeed2_ComboBox->setCurrentIndex(28);
+            return;
+        }
+    }
 }
 

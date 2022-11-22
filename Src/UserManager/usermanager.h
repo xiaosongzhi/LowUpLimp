@@ -34,6 +34,8 @@ private slots:
     //设置默认用户
     void setDefaultUser();
 
+    void on_pushButton_clicked();
+
 public slots:
     void slotUpdateUserTable();
 

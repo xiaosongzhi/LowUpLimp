@@ -78,5 +78,7 @@
         <file>DependFile/Image/background.jpg</file>
         <file>DependFile/Source/gamePage/minus1.png</file>
         <file>DependFile/Source/gamePage/plus1.png</file>
+        <file>DependFile/Image/background1.png</file>
+        <file>DependFile/Source/MainPage/shutdown.png</file>
     </qresource>
 </RCC>

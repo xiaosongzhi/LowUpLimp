@@ -50,7 +50,6 @@ private:
     Ui::CMainWindow *ui;
 
     LoginWidget *loginDialog;
-
 //    QProcess *process;
     int m_exitCode;
     QProcess::ExitStatus m_exitStatus;

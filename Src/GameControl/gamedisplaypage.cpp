@@ -668,7 +668,6 @@ void GameDisplayPage::slotCountDownTimer()
         break;
     }
 
-
     //填入阻力值
     resistentList<<ui->upForce_Label->text().toInt();
 
@@ -994,17 +993,17 @@ void GameDisplayPage::switchFes(qint8 channel, bool ok)
 void GameDisplayPage::on_start_Btn_clicked()
 {
 
-    if(0 == gameState)
-    {
-        if(m_st_bicycleParam.speed > 30)
-        {
-            ParamTipsDialog tipDialog;
-            tipDialog.setParamTipsMsg(tr("设定速度已超30r/min，确认使用该速度训练吗？"));
-            tipDialog.exec();
-            if(0 == tipDialog.getResult())
-                return;
-        }
-    }
+//    if(0 == gameState)
+//    {
+//        if(m_st_bicycleParam.speed > 30)
+//        {
+//            ParamTipsDialog tipDialog;
+//            tipDialog.setParamTipsMsg(tr("设定速度已超30r/min，确认使用该速度训练吗？"));
+//            tipDialog.exec();
+//            if(0 == tipDialog.getResult())
+//                return;
+//        }
+//    }
     GameControl::getInstance()->playTipMusic("./DependFile/Music/startTraining.mp3");
     //已开始
     gameState = 1;

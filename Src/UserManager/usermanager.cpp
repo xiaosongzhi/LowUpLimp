@@ -299,5 +299,8 @@ void UserManager::on_deleteUser_Btn_clicked()
     ***************/
 }
 
-
+void UserManager::on_pushButton_clicked()
+{
+    on_newUser_Btn_clicked();
+}
 

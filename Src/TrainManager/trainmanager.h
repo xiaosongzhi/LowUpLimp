@@ -24,6 +24,8 @@ private slots:
 
     void on_setting_Btn_clicked();
 
+    void on_shutDown_Btn_clicked();
+
 private:
     Ui::TrainManager *ui;
 };

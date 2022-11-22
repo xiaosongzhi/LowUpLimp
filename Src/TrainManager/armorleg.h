@@ -43,6 +43,10 @@ private slots:
 
     void on_test_Btn_clicked();
 
+    void on_speed1_ComboBox_currentTextChanged(const QString &arg1);
+
+    void on_upSpeed2_ComboBox_currentTextChanged(const QString &arg1);
+
 private:
     void initWidget();
 

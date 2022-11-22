@@ -18,6 +18,9 @@ UserDialog::UserDialog(QWidget *parent) :
 
     //添加此语句是为了使样式生效
     ui->sex_ComboBox->setView(new QListView());
+    ui->bodyIndex_ComboBox->setView(new QListView());
+
+    initWidget();
 }
 
 UserDialog::~UserDialog()
@@ -156,6 +159,15 @@ void UserDialog::setNewUserType()
         qDebug()<<dataBase->getLastError();
     ui->ID_LineEdit->setText(QString::number(ID));
     this->show();
+}
+
+void UserDialog::initWidget()
+{
+    //设置lineEdit的输入限制
+    //电话限制
+    QRegExp reg("^[0-9]*$");
+    ui->phone_LineEdit->setValidator(new QRegExpValidator(reg, this));
+    ui->phone_LineEdit->setMaxLength(11);
 }
 
 void UserDialog::paintEvent(QPaintEvent *event)

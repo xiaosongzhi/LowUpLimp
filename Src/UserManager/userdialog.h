@@ -29,6 +29,7 @@ private:
     void setEditUserType(int ID);
     void setNewUserType();
 
+    void initWidget();
 private slots:
     void on_cancel_Btn_clicked();
 

@@ -341,9 +341,9 @@ border-radius: 20px;}</string>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>140</x>
        <y>900</y>
-       <width>351</width>
+       <width>501</width>
        <height>61</height>
       </rect>
      </property>
@@ -354,7 +354,7 @@ border-radius: 20px;}</string>
       </font>
      </property>
      <property name="text">
-      <string>上下肢康复训练系统</string>
+      <string>上下肢主被动康复训练系统</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

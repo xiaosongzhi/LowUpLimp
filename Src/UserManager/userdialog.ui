@@ -196,29 +196,7 @@ border: 1px solid #333333;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QComboBox QAbstractItemView{
-	background:rgba(255,255,255,1);
-    border:1px solid rgba(228,228,228,1);
-    border-radius:0px 0px 5px 5px;
-	font-size:14px;
-    outline: 0px;
-  }
-
-QComboBox QAbstractItemView::item{
-	height:36px;
-	color:#666666;
-	padding-left:9px;
-	background-color:#FFFFFF;
-}
-QComboBox QAbstractItemView::item:hover{ 
-  background-color:#409CE1;
-  color:#ffffff;
-}
-QComboBox QAbstractItemView::item:selected{
-  background-color:#409CE1;
-  color:#ffffff;
-}
-</string>
+     <string notr="true"/>
     </property>
     <item>
      <property name="text">
@@ -247,29 +225,7 @@ QComboBox QAbstractItemView::item:selected{
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QComboBox QAbstractItemView{
-	background:rgba(255,255,255,1);
-    border:1px solid rgba(228,228,228,1);
-    border-radius:0px 0px 5px 5px;
-	font-size:14px;
-    outline: 0px;
-  }
-
-QComboBox QAbstractItemView::item{
-	height:36px;
-	color:#666666;
-	padding-left:9px;
-	background-color:#FFFFFF;
-}
-QComboBox QAbstractItemView::item:hover{ 
-  background-color:#409CE1;
-  color:#ffffff;
-}
-QComboBox QAbstractItemView::item:selected{
-  background-color:#409CE1;
-  color:#ffffff;
-}
-</string>
+     <string notr="true"/>
     </property>
     <item>
      <property name="text">
