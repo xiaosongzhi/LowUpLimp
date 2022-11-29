@@ -34,6 +34,9 @@
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
    <widget class="QWidget" name="page">
     <widget class="QGroupBox" name="groupBox">
      <property name="geometry">

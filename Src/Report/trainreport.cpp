@@ -25,6 +25,7 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
 {
     ui->save_Btn->setVisible(type);
     ui->noSave_Btn->setVisible(type);
+    ui->import_Btn->setVisible(true);
 
     m_st_trainReport = st_trainReport;
     ui->name_Label->setText(st_trainReport.name);
@@ -56,16 +57,23 @@ void TrainReport::setReportData(const ST_TrainReport& st_trainReport,int type)
     ui->msg_Label->setText(st_trainReport.markMsg);
 
     //实际训练时间
-    int trainTime = st_trainReport.passiveTime + st_trainReport.activeTime;
-    ui->trainTime_Label->setText(QString::number(trainTime) + "s");
+//    int trainTime = st_trainReport.passiveTime + st_trainReport.activeTime;
+    int trainTimeMin = st_trainReport.trainTime/60;
+    int trainTimeSec = st_trainReport.trainTime%60;
+    ui->trainTime_Label->setText(QString::number(trainTimeMin) + "min" + QString::number(trainTimeSec)+"s");
+
     ui->trainLength_Label->setText(QString::number(
                                        st_trainReport.upLimpLength + st_trainReport.downLimpLength,'f',2) + "m");
     ui->leftBalance_Label->setText(QString::number(st_trainReport.leftBalance) + "%");
     ui->rightBalance_Label->setText(QString::number(st_trainReport.rightBalance) + "%");
     ui->upLimpLength_Label->setText(QString::number(st_trainReport.upLimpLength,'f',2) + "m");
     ui->downLimpLength_Label->setText(QString::number(st_trainReport.downLimpLength,'f',2) + "m");
-    ui->passiveTime_Label->setText(QString::number(st_trainReport.passiveTime) + "s");
-    ui->activeTime_Label->setText(QString::number(st_trainReport.activeTime)+"s");
+    int passiveMin = st_trainReport.passiveTime/60;
+    int passiveSec = st_trainReport.passiveTime%60;
+    ui->passiveTime_Label->setText(QString::number(passiveMin) + "min" + QString::number(passiveSec) +"s");
+    int activeMin = st_trainReport.activeTime/60;
+    int activeSec = st_trainReport.activeTime%60;
+    ui->activeTime_Label->setText(QString::number(activeMin)+"min" + QString::number(activeSec)+"s");
     ui->spasmTimes_Label->setText(QString::number(st_trainReport.spasmTimes));
     ui->avgResistance_Label->setText(QString::number(st_trainReport.averangeResistance) + tr("档"));
     ui->maxResistance_Label->setText(QString::number(st_trainReport.maxResistance) + tr("档"));
@@ -167,6 +175,8 @@ void TrainReport::pixmapImportPDF(const QPixmap &pixmap, QString fileName)
     pdfFile.close();
 
     QMessageBox::information(NULL,tr("提示"),tr("报告导出成功"));
+
+    this->close();
 }
 
 void TrainReport::on_close_Btn_clicked()
@@ -228,6 +238,9 @@ void TrainReport::on_import_Btn_clicked()
     fileName.append(m_st_trainReport.name +"-"+ QString::number(m_st_trainReport.ID));
     fileName.append("-");
     fileName.append(dateTime.toString("yyyyMMddhhmmss"));
+    ui->import_Btn->setVisible(false);
+    ui->save_Btn->setVisible(false);
+    ui->noSave_Btn->setVisible(false);
     pixmapImportPDF(ui->groupBox->grab(),fileName);
 }
 

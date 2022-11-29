@@ -56,7 +56,7 @@ void ArmOrLeg::initWidget()
     ui->speed1_ComboBox->setCurrentIndex(8);
     ui->upSpeed2_ComboBox->setCurrentIndex(8);
 
-    //阻力 0~20挡
+    //阻力 1~20挡
     for(int i = 1;i <= 20;i++)
     {
         ui->resistance1_ComboBox->addItem(QString::number(i));

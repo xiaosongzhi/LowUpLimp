@@ -281,6 +281,9 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
     //触发急停
     if( 1 == st_deviceParam.emergencyState)
     {
+        //告知下位机停止训练
+        m_st_bicycleParam.controlState = 0;
+        CCommunicateAPI::getInstance()->sendBicycleParam(m_st_bicycleParam);
         if(m_emergencyDialog->isVisible())
             return;
         m_emergencyDialog->show();
@@ -290,8 +293,7 @@ void GameDisplayPage::setSlaveParam(ST_DeviceParam &st_deviceParam)
         this->close();
         emit signalGameStateChanged(0);
         //返回参数设置界面
-        MainWindowPageControl::getInstance()->setCurrentPage(BicycleParamSet_E);
-
+//        MainWindowPageControl::getInstance()->setCurrentPage(MainPage_E);
     }
     else
     {
@@ -370,7 +372,7 @@ void GameDisplayPage::on_upSpeedPlus_Btn_clicked()
 void GameDisplayPage::on_upForceMinus_Btn_clicked()
 {
     int force = ui->upForce_Label->text().toInt();
-    if(force > 0)
+    if(force > 1)
     {
         --force;
         ui->upForce_Label->setText(QString::number(force));
@@ -450,7 +452,7 @@ void GameDisplayPage::on_downSpeedPlus_Btn_clicked()
 void GameDisplayPage::on_downForceMinus_Btn_clicked()
 {
     int force = ui->downForce_Label->text().toInt();
-    if(force > 0)
+    if(force > 1)
     {
         --force;
         ui->downForce_Label->setText(QString::number(force));
@@ -599,7 +601,7 @@ void GameDisplayPage::slotReceiveData(QByteArray array)
     switch(array[2])
     {
     case BRFORE_START_CMD:  //启动前
-        break;
+
     case AFTER_START_CMD:  //启动后
     {
         ST_DeviceParam  st_deviceParam;
@@ -686,6 +688,10 @@ void GameDisplayPage::slotCountDownTimer()
         //计算结果数据（平衡度、距离等）
         calculateResultData();
         //弹出训练报告
+        QDateTime endTime = QDateTime::currentDateTime();
+        QDateTime startTime = QDateTime::fromString(st_trainReport.startTimeStr,"yyyy-MM-dd hh:mm:ss");
+        int trainTime = startTime.secsTo(endTime);
+        st_trainReport.trainTime = trainTime;
         m_reportDialog->setReportData(st_trainReport,1);
 
         //开窗
@@ -1042,6 +1048,10 @@ void GameDisplayPage::on_stop_Btn_clicked()
     //计算结果数据（平衡度、距离等）
     calculateResultData();
     //弹出训练报告
+    QDateTime endTime = QDateTime::currentDateTime();
+    QDateTime startTime = QDateTime::fromString(st_trainReport.startTimeStr,"yyyy-MM-dd hh:mm:ss");
+    int trainTime = startTime.secsTo(endTime);
+    st_trainReport.trainTime = trainTime;
     m_reportDialog->setReportData(st_trainReport,1);
     //开窗
     if(!m_openState)
@@ -1250,17 +1260,17 @@ void GameDisplayPage::showEvent(QShowEvent *event)
 
 void GameDisplayPage::on_start_Btn_2_clicked()
 {
-//    on_start_Btn_clicked();
-    ST_DeviceParam st_deviceParam;
-    st_deviceParam.emergencyState = 1;
-    setSlaveParam(st_deviceParam);
+    on_start_Btn_clicked();
+//    ST_DeviceParam st_deviceParam;
+//    st_deviceParam.currentMode = 1;
+//    setSlaveParam(st_deviceParam);
 }
 
 void GameDisplayPage::on_stop_Btn_2_clicked()
 {
-//    on_stop_Btn_clicked();
-    ST_DeviceParam st_deviceParam;
-    st_deviceParam.emergencyState = 0;
-    setSlaveParam(st_deviceParam);
+    on_stop_Btn_clicked();
+//    ST_DeviceParam st_deviceParam;
+//    st_deviceParam.emergencyState = 0;
+//    setSlaveParam(st_deviceParam);
 }
 
